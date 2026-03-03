@@ -36,6 +36,24 @@ mkdocs build
 
 빌드 결과는 `site/` 디렉토리에 생성됩니다.
 
+## github page deploy
+
+```bash
+# GitHub에서 repo 생성 후 (최초 1회)
+git remote add origin https://github.com/[유저명]/[레포명].git
+
+
+# 내용 업데이트 시
+# main 브랜치 먼저 push
+git add .
+git commit -m "commit contents"
+git push -u origin main
+
+# 그 다음 gh-deploy
+mkdocs gh-deploy
+```
+
+
 ## 문서 구조
 
 ```
