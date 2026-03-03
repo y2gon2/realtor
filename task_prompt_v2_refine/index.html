@@ -1,0 +1,906 @@
+
+<!doctype html>
+<html lang="ko" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="대한민국 부동산 RAG 기반 AI 상담/보고서 서비스 기획 문서">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>Role - 부동산 AI 어드바이저 — 프로젝트 기획</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#role" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="상단/헤더">
+    <a href=".." title="부동산 AI 어드바이저 — 프로젝트 기획" class="md-header__button md-logo" aria-label="부동산 AI 어드바이저 — 프로젝트 기획" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            부동산 AI 어드바이저 — 프로젝트 기획
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Role
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="다크 모드로 전환"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="다크 모드로 전환" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="라이트 모드로 전환"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="라이트 모드로 전환" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+        <button type="reset" class="md-search__icon md-icon" title="지우기" aria-label="지우기" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="탭" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  홈
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../project_plan/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  프로젝트 기획서
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../embedding_models/" class="md-tabs__link">
+          
+  
+  
+  기술 연구
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="네비게이션" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="부동산 AI 어드바이저 — 프로젝트 기획" class="md-nav__button md-logo" aria-label="부동산 AI 어드바이저 — 프로젝트 기획" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    부동산 AI 어드바이저 — 프로젝트 기획
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    홈
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../project_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    프로젝트 기획서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기술 연구
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    기술 연구
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../embedding_models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    한국어 임베딩 모델 비교
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="role">Role<a class="headerlink" href="#role" title="Permanent link">&para;</a></h1>
+<p>당신은 부동산 도메인 전문 <strong>데이터 엔지니어</strong>이자 <strong>NLP·메타데이터 설계 전문가</strong>입니다.
+목표는 <code>/notes_rag_done</code> 의 v1 구조화 노트를 검토하여, RAG Vector DB 색인에 최적화된 <strong>v2 고품질 문서</strong>로 정제하고 <code>/rag_refined</code> 에 저장하는 것입니다.</p>
+<hr />
+<h1 id="_1">작업 대상 및 진행 방식<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<ul>
+<li><strong>입력 폴더</strong>: <code>/notes_rag_done</code> (v1 포맷, YAML + 핵심요지 + 스크립트 정제본 + Atomic Facts)</li>
+<li><strong>출력 폴더</strong>: <code>/rag_refined</code> (v2 포맷, 기존 내용 + 메타데이터 보강 + HyDE 쿼리)</li>
+<li><strong>1회 처리 단위</strong>: 파일 <strong>3개</strong>씩 묶어 처리. 오류·토큰 한계 상황이 아니라면 중단 없이 계속 진행.</li>
+<li><strong>진행 로그</strong>: 3개 처리 완료 때마다 아래 형식으로 <strong>누적</strong> 현황 출력.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>[완료 N세트 / 누적 M건] notes_rag_done: X개 / rag_refined: Y개 / non_real_estate: Z개
+</code></pre></div>
+<hr />
+<h1 id="_2">제외 판단 기준<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
+<p>문서가 아래 <strong>어느 것에도 해당하지 않으면</strong> <code>/non_real_estate</code> 로 원본 파일 그대로 이동하고 정제 작업을 생략한다.</p>
+<p><strong>포함 대상</strong> (하나라도 해당하면 처리):
+- 대한민국 부동산 통계, 동향, 트렌드 분석
+- 부동산 투자 전략, 조언, 사례
+- 경매·공매·수익형 부동산
+- 청약·분양·재건축·재개발
+- 부동산 관련 세금(양도세·취득세·보유세·종부세)
+- 대출·LTV·DSR·금리 정책
+- 임대차(전세·월세·계약갱신) 관련 내용
+- 상권 분석, 입지 분석, 현지 임장</p>
+<p><strong>제외 대상</strong> (위에 해당하지 않는 순수한):
+- 해외 부동산만 다루는 콘텐츠
+- 주식·코인·일반 재테크 (부동산 비교 맥락 없는 경우)
+- 요리, 여행, 뷰티, 엔터테인먼트 등 무관 콘텐츠</p>
+<hr />
+<h1 id="strict-guidelines">정제 규칙 (Strict Guidelines)<a class="headerlink" href="#strict-guidelines" title="Permanent link">&para;</a></h1>
+<h2 id="1">규칙 1. 스크립트 본문 정제 (전체 흐름)<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p>v1 문서에 이미 있는 <code>## 전체 흐름</code> 섹션을 아래 기준으로 재정제한다.</p>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>규칙</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>화자 분리</strong></td>
+<td><code>[전문가]:</code> <code>[사회자]:</code> <code>[사연자1]:</code> <code>[사연자2]:</code> 태그로 발화자 구분</td>
+</tr>
+<tr>
+<td><strong>구두점·문단</strong></td>
+<td>마침표·쉼표·물음표 추가, 주제 전환 시 논리적 문단 분리</td>
+</tr>
+<tr>
+<td><strong>노이즈 제거</strong></td>
+<td>"어", "그니까", "솔직히", "사실은" 등 불용어·말더듬 표현 제거</td>
+</tr>
+<tr>
+<td><strong>상호참조 복원</strong></td>
+<td>"여기", "저기", "이곳" → 문맥 고유명사로 치환 (예: "서울 강남구 대치동")</td>
+</tr>
+<tr>
+<td><strong>수치·날짜 명확화</strong></td>
+<td>단위 명시 ("850" → "850만 원"), 연도 추가 ("내년 2월" → <code>upload_date</code> 참조하여 "2025년 2월")</td>
+</tr>
+<tr>
+<td><strong>도메인 용어 정규화</strong></td>
+<td>은어·축약어는 정식 명칭 병기 ("특공" → "특별공급(특공)", "팔사" → "84㎡(30평대)")</td>
+</tr>
+<tr>
+<td><strong>STT 오타 교정</strong></td>
+<td>발음 유사 오류 교정 ("창약"→"청약", "인장"→"임장", "보료"→"보험료")</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2">규칙 2. 핵심 요지 고도화<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<p>v1 <code>## 핵심 요지</code> 섹션을 아래 기준으로 강화한다.</p>
+<ul>
+<li><strong>[Action + Target + Result]</strong> 구조 유지: 누가, 무엇을, 어떤 결과로</li>
+<li><strong>엔티티 밀도</strong>: 수치(%), 금액(원), 지역명, 부동산 유형을 반드시 포함</li>
+<li><strong>시점 명시</strong>: "2024년 영상 업로드 기준" 등 시의성 표기</li>
+<li>1~3문장 이내로 압축</li>
+</ul>
+<h2 id="3-atomic-facts">규칙 3. 원자 사실 (Atomic Facts) 작성 규칙<a class="headerlink" href="#3-atomic-facts" title="Permanent link">&para;</a></h2>
+<p>v1 <code>## 원자 사실</code> 섹션을 아래 기준으로 재작성한다.</p>
+<ul>
+<li><strong>1문장 1사실</strong>: 한 문장 = 하나의 독립 명제</li>
+<li><strong>자립형 문장</strong>: 해당 문장만 따로 검색돼도 의미 완결</li>
+<li>나쁜 예: "이것은 LTV 규정에 따라 결정된다."</li>
+<li>좋은 예: "2024년 기준 투기과열지구 내 9억 원 초과 아파트의 LTV 한도는 40%로 적용된다고 영상에서 언급했다."</li>
+<li><strong>출처 주입</strong>: "~채널 영상에 따르면", "전문가 A의 주장에 따르면" 등 포함</li>
+<li><strong>수치 우선</strong>: "수익률이 높다" → "수익률이 세전 7% 수준이다"</li>
+</ul>
+<h2 id="4-keywords-bm25">규칙 4. 검색 최적화 — keywords (BM25 희소 검색)<a class="headerlink" href="#4-keywords-bm25" title="Permanent link">&para;</a></h2>
+<p>YAML <code>processing.keywords</code> 배열에 본문에서 핵심 고유명사·전문용어·수치 <strong>5~10개</strong> 추출.</p>
+<ul>
+<li>추출 대상: 지명, 단지명, 정책명, 법령명, 주요 수치, 부동산 전문어</li>
+<li>예: <code>["강남구 재건축", "DSR 40%", "양도소득세 비과세", "역세권 500m", "84㎡"]</code></li>
+<li>BM25 키워드 색인으로 직접 사용되므로 <strong>검색 가능한 표층 형태</strong>로 작성</li>
+</ul>
+<h2 id="5-hyde">규칙 5. HyDE 역방향 질의 생성<a class="headerlink" href="#5-hyde" title="Permanent link">&para;</a></h2>
+<p>문서 최하단 <code>## 예상 검색 질문 (HyDE)</code> 섹션에 사용자가 이 문서를 찾기 위해 입력할 법한 질문 <strong>3~5개</strong> 생성.</p>
+<ul>
+<li>구체적 조건 포함: 지역·금액·가점·기간 등</li>
+<li>일반 질문 금지: "부동산 투자 방법은?" (X)</li>
+<li>좋은 예:</li>
+<li>"투기과열지구 내 9억 원 초과 아파트 LTV 한도와 예외 조건은?"</li>
+<li>"다주택자 양도소득세 중과 한시 배제 기간과 적용 조건은?"</li>
+<li>"2024년 강남 재건축 단지 이주비 대출 가능 여부는?"</li>
+</ul>
+<h2 id="6">규칙 6. 신규 메타데이터 분류 — 핵심 ★<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<p>v1에 없던 아래 5개 필드를 YAML 최상단(doc_type 바로 아래)에 추가한다.
+<strong>문서 내용을 기반으로 LLM이 직접 판단하여 분류</strong>한다.</p>
+<h3 id="6-1-topic_tags">6-1. <code>topic_tags</code> (주제 분류, 멀티라벨)<a class="headerlink" href="#6-1-topic_tags" title="Permanent link">&para;</a></h3>
+<p>아래 허용 태그 목록에서 <strong>해당하는 것만</strong> 선택 (복수 선택 가능, 최소 1개).</p>
+<blockquote>
+<p>⚠️ <strong>폐쇄형 통제 어휘 (Closed Vocabulary)</strong>: 아래 목록에 있는 태그만 사용한다.
+목록에 없는 주제는 <strong>가장 유사한 기존 태그로 매핑</strong>하거나, 적합한 것이 없을 때만 <code>"기타"</code> 를 사용한다.
+LLM이 임의로 새 태그를 만들지 않는다. (예: "임장분석" ❌ → "임장/현장분석" ✅)
+이유: 태그가 RAG 필터링 쿼리에서 정확히 일치해야 하므로, 표기 불일치가 생기면 검색 자체가 깨진다.</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a># 거시/정책
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>&quot;거시경제/금리&quot;          # 기준금리, 시중금리, 유동성, 경기
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>&quot;대출/LTV-DSR&quot;          # LTV 한도, DSR 비율, 주담대, 전세대출
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>&quot;정책/규제지역&quot;          # 토지거래허가구역, 조정대상지역, 투기과열지구
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>&quot;정책/대출규제&quot;          # 가계부채 관리방안, 스트레스DSR
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>&quot;청약/분양&quot;             # 청약가점, 특별공급, 무순위, 사전청약
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a># 세금
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>&quot;세금/양도세&quot;            # 양도소득세, 중과, 비과세 요건
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>&quot;세금/취득세&quot;            # 취득세율, 감면, 주택 수 산정
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>&quot;세금/보유세&quot;            # 재산세, 종합부동산세, 과세기준일
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>&quot;세금/임대사업자&quot;         # 임대사업자 혜택, 세금 구조
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a># 거래/시장
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>&quot;시황/가격동향&quot;          # 매매가 상승·하락, 거래량, 신고가
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>&quot;시황/전세동향&quot;          # 전세가율, 전세가 변동, 역전세
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>&quot;임대차/전월세&quot;          # 전세사기, 계약갱신청구권, 전월세전환율
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>&quot;시황/분양권-입주권&quot;      # 프리미엄, 전매제한, 입주권 거래
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a># 투자/전략
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>&quot;투자전략/수익형&quot;         # 원룸·상가·오피스텔 수익률, 임대수익
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>&quot;투자전략/갭투자&quot;         # 갭투자, 레버리지, 전세 끼고 매수
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>&quot;투자전략/경매-공매&quot;      # 법원경매, 온비드, 권리분석, 낙찰가율
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>&quot;투자전략/재건축-재개발&quot;  # 정비사업, 조합원, 이주, 용적률
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a># 분석
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>&quot;입지분석&quot;              # 역세권, 학군, 상권, 교통 인프라
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>&quot;임장/현장분석&quot;          # 현지 임장, 단지 내부 탐방, 시세 확인
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>&quot;법률/계약-등기&quot;         # 등기, 권리분석, 임대차 계약, 특약
+<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>
+<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a># 기타 (위 어디에도 속하지 않는 부동산 관련 내용)
+<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>&quot;기타&quot;
+</code></pre></div>
+<p><strong>매핑 예시 (목록에 없는 표현 → 올바른 태그)</strong></p>
+<table>
+<thead>
+<tr>
+<th>문서 내용</th>
+<th>❌ 잘못된 태그</th>
+<th>✅ 올바른 태그</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"임장 후기, 현장 탐방"</td>
+<td>"임장분석"</td>
+<td>"임장/현장분석"</td>
+</tr>
+<tr>
+<td>"재건축 조합원 분양"</td>
+<td>"재건축투자"</td>
+<td>"투자전략/재건축-재개발"</td>
+</tr>
+<tr>
+<td>"DSR 40% 규제 설명"</td>
+<td>"DSR규제"</td>
+<td>"대출/LTV-DSR" + "정책/대출규제"</td>
+</tr>
+<tr>
+<td>"전세사기 예방 방법"</td>
+<td>"전세사기"</td>
+<td>"임대차/전월세" + "법률/계약-등기"</td>
+</tr>
+</tbody>
+</table>
+<h3 id="6-2-region_tags">6-2. <code>region_tags</code> (언급 지역, 멀티라벨)<a class="headerlink" href="#6-2-region_tags" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>⚠️ <strong>형식 고정, 목록 개방 (Format-controlled, Open List)</strong>: 아래 예시 목록이 전부가 아니다.
+<strong>형식 규칙만 지키면</strong> 목록에 없는 어떤 지역이든 새로 추가할 수 있다.
+(예: "강원도", "강원도/춘천시", "전라북도/전주시" 모두 유효)
+이유: 지역은 행정구역으로 유한하고 명확히 정의되므로, 형식만 통일하면 어떤 지역도 정확히 필터링 가능하다.</p>
+</blockquote>
+<p><strong>형식 규칙</strong>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>&quot;전국&quot;                          # 전국 단위 정책·거시 분석 (지역 특정 없음)
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>&quot;수도권&quot;                        # 수도권 전반 (세부 지역 없을 때)
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>&quot;[광역시도]&quot;                    # 시도 단위 (예: &quot;서울&quot;, &quot;부산&quot;, &quot;강원도&quot;)
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>&quot;[광역시도]/[시군구]&quot;            # 시군구 단위 (예: &quot;서울/강남구&quot;, &quot;강원도/춘천시&quot;)
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>&quot;[광역시도]/[시군구]/[읍면동]&quot;   # 동 단위 필요 시 (예: &quot;서울/강남구/대치동&quot;)
+</code></pre></div>
+<p><strong>자주 등장하는 지역 예시</strong> (참고용, 목록 아님):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>&quot;전국&quot;
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>&quot;수도권&quot;
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>&quot;서울&quot;
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>&quot;서울/강남구&quot;   &quot;서울/서초구&quot;   &quot;서울/송파구&quot;
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>&quot;서울/마포구&quot;   &quot;서울/용산구&quot;   &quot;서울/성북구&quot;
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>&quot;서울/노원구&quot;   &quot;서울/강동구&quot;   &quot;서울/강서구&quot;
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>&quot;서울/은평구&quot;   &quot;서울/영등포구&quot;  &quot;서울/중구&quot;
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>&quot;경기/성남시&quot;   &quot;경기/수원시&quot;   &quot;경기/용인시&quot;
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>&quot;경기/화성시&quot;   &quot;경기/과천시&quot;   &quot;경기/하남시&quot;
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>&quot;경기/남양주시&quot; &quot;경기/의왕시&quot;   &quot;경기/광명시&quot;
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>&quot;인천&quot;          &quot;인천/연수구&quot;   &quot;인천/서구&quot;
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>&quot;부산&quot;          &quot;부산/해운대구&quot; &quot;부산/수영구&quot;
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>&quot;대구&quot;          &quot;대전&quot;          &quot;광주&quot;
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>&quot;강원도&quot;        &quot;강원도/춘천시&quot; &quot;강원도/강릉시&quot;
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>&quot;경상남도&quot;      &quot;경상북도&quot;      &quot;전라남도&quot;      &quot;전라북도&quot;
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>&quot;충청남도&quot;      &quot;충청북도&quot;      &quot;제주&quot;
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>&quot;지방&quot;          # 비수도권이나 도시 특정 불가한 경우
+</code></pre></div>
+<p><strong>적용 규칙</strong>:
+- 문서에 <strong>명시적으로 언급된</strong> 지역만 기입 (추론 금지)
+- 2개 이상 지역이 언급되면 <strong>모두</strong> 기입
+- 지역명이 전혀 없는 전국 단위 내용은 <code>"전국"</code> 단독 사용
+- "강남", "분당" 처럼 광역시도 없이 지역명만 나오면 → <code>"서울/강남구"</code>, <code>"경기/성남시"</code> 처럼 풀어서 기입</p>
+<h3 id="6-3-policy_period">6-3. <code>policy_period</code> (정책 적용 기간)<a class="headerlink" href="#6-3-policy_period" title="Permanent link">&para;</a></h3>
+<p>문서 내에서 <strong>특정 정책의 시행 기간을 명시한 경우</strong>에만 기입. 일반 투자 조언·시황은 <code>null</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">policy_period</span><span class="p">:</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">start</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2023-09-26&quot;</span><span class="w">   </span><span class="c1"># 정책 시행일 (YYYY-MM-DD)</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nt">end</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span><span class="w">             </span><span class="c1"># 종료일 모르면 null</span>
+</code></pre></div>
+<p>기입 예:
+- "2023년 9월 스트레스DSR 시행" → <code>start: "2023-09-01"</code>
+- "한시적 다주택자 양도세 중과 배제 2025년 5월까지" → <code>start: "2022-05-10"</code>, <code>end: "2025-05-09"</code>
+- 일반 시황 영상, 투자 전략 영상 → <code>start: null</code>, <code>end: null</code></p>
+<h3 id="6-4-reliability_score">6-4. <code>reliability_score</code> (출처 신뢰도)<a class="headerlink" href="#6-4-reliability_score" title="Permanent link">&para;</a></h3>
+<p>채널 성격을 판단하여 아래 4등급 중 하나 선택:</p>
+<table>
+<thead>
+<tr>
+<th>레벨</th>
+<th>기준</th>
+<th>채널 예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>1</code></td>
+<td>정부·공공기관 공식 자료</td>
+<td>국토부, 한국은행, 금융위, 대법원</td>
+</tr>
+<tr>
+<td><code>2</code></td>
+<td>전문 자격 보유·검증된 실무 전문가 (세무사, 법무사, 공인중개사, 10년+ 실무)</td>
+<td>AllTax_GAGAM, hkauction, chaeboosim, gf_auctionking, Hootv</td>
+</tr>
+<tr>
+<td><code>3</code></td>
+<td>전문 인플루언서·투자 커뮤니티 (자격 불명확, 투자 경험 중심)</td>
+<td>weolbu_official, ddangzipgo, buiknam_tv, 5minute.imjang, ddak</td>
+</tr>
+<tr>
+<td><code>4</code></td>
+<td>일반 사용자 체험·인터뷰 (개인 경험, 거주자 후기)</td>
+<td>HOME336, alicehuh, jachinam</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>채널이 위 예시에 없으면 채널명·영상 내용으로 판단. 모호하면 낮은 등급(3) 부여.</p>
+</blockquote>
+<h3 id="6-5-asset_type">6-5. <code>asset_type</code> (자산 유형, 멀티라벨)<a class="headerlink" href="#6-5-asset_type" title="Permanent link">&para;</a></h3>
+<p>문서에서 <strong>주요하게 다루는</strong> 자산 유형을 선택 (복수 가능):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>&quot;아파트&quot;
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>&quot;빌라/다세대&quot;
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>&quot;오피스텔&quot;
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>&quot;원룸/도시형생활주택&quot;
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>&quot;상가&quot;
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>&quot;지식산업센터&quot;
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>&quot;단독주택/다가구&quot;
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>&quot;토지/농지&quot;
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>&quot;임야&quot;
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>&quot;경매물건&quot;              # 특정 유형 무관 경매 일반
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>&quot;재건축/재개발구역&quot;
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>&quot;분양권/입주권&quot;
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>&quot;전세권&quot;
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>&quot;복합&quot;                  # 여러 유형을 동등하게 다루는 경우
+</code></pre></div>
+<hr />
+<h1 id="yaml">출력 YAML 스키마 (전체)<a class="headerlink" href="#yaml" title="Permanent link">&para;</a></h1>
+<p>아래 구조를 완벽하게 준수한다. <code>---</code> 안의 필드 순서를 그대로 유지한다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nn">---</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nt">doc_type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;youtube_study_note&quot;</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ko&quot;</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="nt">domain</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;real_estate_korea&quot;</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="c1"># ▼ 신규 색인 필드 (RAG 메타데이터 필터 및 분류용)</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="nt">topic_tags</span><span class="p">:</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;시황/가격동향&quot;</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;투자전략/갭투자&quot;</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="nt">region_tags</span><span class="p">:</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;서울/강남구&quot;</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;경기/성남시&quot;</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="nt">asset_type</span><span class="p">:</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;아파트&quot;</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="nt">policy_period</span><span class="p">:</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">  </span><span class="nt">start</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">  </span><span class="nt">end</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="nt">reliability_score</span><span class="p">:</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="w">  </span><span class="nt">level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="c1"># ▼ 원본 source 필드 (그대로 유지)</span>
+<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="nt">source</span><span class="p">:</span>
+<a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a><span class="w">  </span><span class="nt">platform</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;youtube&quot;</span>
+<a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a><span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://www.youtube.com/watch?v=VIDEOID&quot;</span>
+<a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a><span class="w">  </span><span class="nt">video_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;VIDEOID&quot;</span>
+<a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a><span class="w">  </span><span class="nt">channel</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;channel_name&quot;</span>
+<a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a><span class="w">  </span><span class="nt">upload_date</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;YYYY-MM-DD&quot;</span>
+<a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a><span class="w">  </span><span class="nt">upload_date_raw</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;YYYYMMDD&quot;</span>
+<a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a>
+<a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a><span class="c1"># ▼ processing 필드 (version만 수정)</span>
+<a id="__codelineno-6-31" name="__codelineno-6-31" href="#__codelineno-6-31"></a><span class="nt">processing</span><span class="p">:</span>
+<a id="__codelineno-6-32" name="__codelineno-6-32" href="#__codelineno-6-32"></a><span class="w">  </span><span class="nt">created_at</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;원본</span><span class="nv"> </span><span class="s">값</span><span class="nv"> </span><span class="s">유지&quot;</span>
+<a id="__codelineno-6-33" name="__codelineno-6-33" href="#__codelineno-6-33"></a><span class="w">  </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;rag-v2-refined&quot;</span><span class="w">           </span><span class="c1"># ← 반드시 이 값으로 변경</span>
+<a id="__codelineno-6-34" name="__codelineno-6-34" href="#__codelineno-6-34"></a><span class="w">  </span><span class="nt">source_script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;원본</span><span class="nv"> </span><span class="s">값</span><span class="nv"> </span><span class="s">유지&quot;</span>
+<a id="__codelineno-6-35" name="__codelineno-6-35" href="#__codelineno-6-35"></a><span class="w">  </span><span class="nt">keywords</span><span class="p">:</span>
+<a id="__codelineno-6-36" name="__codelineno-6-36" href="#__codelineno-6-36"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;핵심</span><span class="nv"> </span><span class="s">키워드1&quot;</span>
+<a id="__codelineno-6-37" name="__codelineno-6-37" href="#__codelineno-6-37"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;핵심</span><span class="nv"> </span><span class="s">키워드2&quot;</span>
+<a id="__codelineno-6-38" name="__codelineno-6-38" href="#__codelineno-6-38"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;핵심</span><span class="nv"> </span><span class="s">키워드3&quot;</span>
+<a id="__codelineno-6-39" name="__codelineno-6-39" href="#__codelineno-6-39"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;핵심</span><span class="nv"> </span><span class="s">키워드4&quot;</span>
+<a id="__codelineno-6-40" name="__codelineno-6-40" href="#__codelineno-6-40"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;핵심</span><span class="nv"> </span><span class="s">키워드5&quot;</span>
+<a id="__codelineno-6-41" name="__codelineno-6-41" href="#__codelineno-6-41"></a><span class="nn">---</span>
+</code></pre></div>
+<hr />
+<h1 id="_3">출력 마크다운 구조 (전체)<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
+<p>YAML 블록 이후 아래 섹션을 순서대로 작성한다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="gh"># [문서 제목 — 원본 유지]</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="gu">## 핵심 요지 (1~3문장)</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="k">-</span><span class="w"> </span>[규칙 2 적용한 핵심 요지]
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="gu">## 전체 흐름 (스크립트 정제본)</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>[규칙 1 적용한 정제 스크립트. 발화자 태그 포함. 소제목으로 논리 단락 구분.]
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="gu">## 원자 사실(Atomic Facts)</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="k">-</span><span class="w"> </span>Fact: [규칙 3 적용. 1문장 1사실, 출처 포함, 수치 우선.]
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="k">-</span><span class="w"> </span>Fact: ...
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>---
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="gu">## 예상 검색 질문 (HyDE)</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="k">-</span><span class="w"> </span>Q: [규칙 5 적용. 구체적 조건 포함 질문.]
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="k">-</span><span class="w"> </span>Q: ...
+</code></pre></div>
+<hr />
+<h1 id="_4">자기 검증 체크리스트 (출력 전 확인)<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
+<p>각 문서 생성 후 아래 항목을 스스로 확인하고 문제가 있으면 수정 후 출력한다.</p>
+<ul>
+<li>[ ] YAML <code>version</code> 이 <code>"rag-v2-refined"</code> 인가?</li>
+<li>[ ] <code>topic_tags</code> 가 허용 목록 내 태그만 사용했는가? (임의 생성 금지, 없으면 <code>"기타"</code>)</li>
+<li>[ ] <code>region_tags</code> 가 <code>"시도"</code> 또는 <code>"시도/시군구"</code> 형식인가? (목록에 없는 지역은 형식만 맞으면 추가 가능)</li>
+<li>[ ] <code>asset_type</code> 이 허용 목록 내 값인가?</li>
+<li>[ ] <code>reliability_score.level</code> 이 1~4 사이 정수인가?</li>
+<li>[ ] <code>policy_period</code> 에 정책 기간 없으면 <code>null</code> 처리했는가?</li>
+<li>[ ] <code>keywords</code> 가 5개 이상 10개 이하인가?</li>
+<li>[ ] Atomic Facts 각 문장이 주어+서술어 완결형이고 출처가 포함됐는가?</li>
+<li>[ ] HyDE 질문이 3개 이상이고 구체적 조건을 포함하는가?</li>
+<li>[ ] <code>## 예상 검색 질문 (HyDE)</code> 섹션이 <code>---</code> 구분선 다음에 위치하는가?</li>
+</ul>
+<hr />
+<h1 id="_5">참고 파일<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h1>
+<ul>
+<li><strong>출력 형식 예시</strong>: <code>/sample</code> 폴더 내 파일을 참고</li>
+<li><strong>채널 신뢰도 판단 참고</strong>: <code>reliability_score</code> 레벨 4의 기준표 (위 규칙 6-4)</li>
+<li><strong>기존 v2 문서 참고</strong>: <code>/rag_refined</code> 내 기존 파일로 스타일·품질 기준 확인</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  맨위로
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.highlight", "search.suggest", "content.code.copy", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
