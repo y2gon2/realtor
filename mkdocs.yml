@@ -1,0 +1,48 @@
+site_name: 부동산 AI 어드바이저 — 프로젝트 기획
+site_description: 대한민국 부동산 RAG 기반 AI 상담/보고서 서비스 기획 문서
+docs_dir: docs
+
+theme:
+  name: material
+  language: ko
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: 다크 모드로 전환
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: 라이트 모드로 전환
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+    - toc.follow
+
+nav:
+  - 홈: index.md
+  - 프로젝트 기획서: project_plan.md
+  - 기술 연구:
+      - 한국어 임베딩 모델 비교: embedding_models.md
+
+markdown_extensions:
+  - tables
+  - toc:
+      permalink: true
+      title: 목차
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - admonition
+  - pymdownx.details
+  - pymdownx.tabbed:
+      alternate_style: true
