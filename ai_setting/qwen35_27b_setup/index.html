@@ -11,6 +11,8 @@
       
       
       
+        <link rel="prev" href="../">
+      
       
       
         
@@ -21,7 +23,7 @@
     
     
       
-        <title>Qwen3.5-27B 로컬 실행 세팅 가이드 - 부동산 AI 어드바이저 — 프로젝트 기획</title>
+        <title>Qwen3.5-27B 실행 가이드 - 부동산 AI 어드바이저 — 프로젝트 기획</title>
       
     
     
@@ -106,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Qwen3.5-27B 로컬 실행 세팅 가이드
+              Qwen3.5-27B 실행 가이드
             
           </span>
         </div>
@@ -272,6 +274,28 @@
   
   
   Phase 상세 기획
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  AI 설정
 
         </a>
       </li>
@@ -540,18 +564,143 @@
   
 
     
-  </ul>
-</nav>
-                  </div>
-                </div>
-              </div>
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI 설정
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI 설정
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    개요
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qwen3.5-27B 실행 가이드
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qwen3.5-27B 실행 가이드
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
 
   
 
@@ -656,7 +805,7 @@
   <a href="#4-3-docker" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4-3. Docker 방식 (권장 대안)
+        4-3. Docker 방식 (권장)
       
     </span>
   </a>
@@ -681,10 +830,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#5-1-openai-api" class="md-nav__link">
+  <a href="#5-1-docker-compose" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5-1. 기본 실행 (OpenAI API 호환)
+        5-1. Docker Compose로 실행 (권장)
       
     </span>
   </a>
@@ -692,10 +841,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-2" class="md-nav__link">
+  <a href="#5-2-bash" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5-2. 성능 최적화 옵션
+        5-2. bash로 진입 후 수동 실행 (디버깅 시)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5-3. 최적화 옵션 설명
       
     </span>
   </a>
@@ -846,6 +1006,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#dgx-spark" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        시스템 레벨 성능 최적화 (DGX Spark)
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -855,7 +1026,378 @@
   <a href="#11" class="md-nav__link">
     <span class="md-ellipsis">
       
-        11. 실행 스크립트
+        11. 실행
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. 참고 링크
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 시스템 사양
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 모델 스펙
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 추천 실행 방식
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 추천 실행 방식">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        권장 순서
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 환경 세팅
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 환경 세팅">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#4-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4-1. 전용 가상환경 생성
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-2-vllm-aarch64-cuda-130" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4-2. vLLM 설치 (aarch64 + CUDA 13.0 대응)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-3-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4-3. Docker 방식 (권장)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-vllm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. vLLM 서버 실행
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. vLLM 서버 실행">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#5-1-docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5-1. Docker Compose로 실행 (권장)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-2-bash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5-2. bash로 진입 후 수동 실행 (디버깅 시)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5-3. 최적화 옵션 설명
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-huggingface-transformers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. HuggingFace Transformers로 빠른 테스트
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. API 서버 테스트
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. API 서버 테스트">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#7-1-curl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7-1. curl 테스트
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-2-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7-2. Python 클라이언트 테스트
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7-3. 스트리밍 테스트
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 성능 벤치마크 테스트
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-rag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. RAG 프로젝트 연동
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. 트러블슈팅
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. 트러블슈팅">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nvidia-smi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        nvidia-smi 실패 문제
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpu-cpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GPU 미인식 시 (CPU 폴백)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        메모리 부족 시
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vllm-qwen35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        vLLM이 Qwen3.5 아키텍처 미지원 시
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dgx-spark" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        시스템 레벨 성능 최적화 (DGX Spark)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. 실행
       
     </span>
   </a>
@@ -1042,81 +1584,109 @@ NVLink 통합 메모리를 최대 활용하고, OpenAI 호환 API 서버로 바�
 <p><strong>주의</strong>: CUDA 13.0은 매우 최신이므로 기존 stable wheel이 없을 수 있음.
 NGC(https://catalog.ngc.nvidia.com)에서 Grace Blackwell 전용 PyTorch 컨테이너 또는 wheel 사용 권장.</p>
 </blockquote>
-<h3 id="4-3-docker">4-3. Docker 방식 (권장 대안)<a class="headerlink" href="#4-3-docker" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># NVIDIA NGC PyTorch 컨테이너 (Grace Blackwell 공식 지원)</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>docker<span class="w"> </span>pull<span class="w"> </span>nvcr.io/nvidia/pytorch:25.01-py3
+<h3 id="4-3-docker">4-3. Docker 방식 (권장)<a class="headerlink" href="#4-3-docker" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>주의</strong>: 아래 이미지들은 GB10(SM121, CUDA capability 12.1)에서 동작하지 않음:
+- <code>nvcr.io/nvidia/pytorch:24.07-py3</code> — GB10/Blackwell GPU 미지원
+- <code>nvcr.io/nvidia/pytorch:25.11-py3</code> — CUDA 13 기반이나 PyPI vLLM wheel(CUDA 12용)과 호환 불가
+- <code>vllm/vllm-openai:latest</code> — x86_64 + CUDA 12 전용
+- <code>scitrera/dgx-spark-vllm:0.16.1-dev-3bbb2046-t5</code> — PyTorch가 CUDA capability 12.0까지만 지원 (GB10은 12.1)</p>
+<p><strong>GB10 전용으로 빌드된 커뮤니티 이미지를 사용해야 합니다.</strong></p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># GB10(SM121) 전용 vLLM 이미지 (권장)</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>docker<span class="w"> </span>pull<span class="w"> </span>scitrera/dgx-spark-vllm:0.16.1-dev-3bbb2046-t5
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>docker<span class="w"> </span>run<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--network<span class="o">=</span>host<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span>-v<span class="w"> </span>~/ws/models:/models<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span>-v<span class="w"> </span>~/ws/rag:/workspace<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">  </span>-it<span class="w"> </span>nvcr.io/nvidia/pytorch:25.01-py3<span class="w"> </span>bash
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="c1"># 컨테이너 내부에서 vLLM 설치</span>
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>pip<span class="w"> </span>install<span class="w"> </span>vllm
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># 대안: lharillo/vllm-blackwell-gb10-spark (vLLM v0.14.0 기반, 안정적이나 구버전)</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="c1"># docker pull lharillo/vllm-blackwell-gb10-spark:latest</span>
 </code></pre></div>
 <hr />
 <h2 id="5-vllm">5. vLLM 서버 실행<a class="headerlink" href="#5-vllm" title="Permanent link">&para;</a></h2>
-<h3 id="5-1-openai-api">5-1. 기본 실행 (OpenAI API 호환)<a class="headerlink" href="#5-1-openai-api" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">source</span><span class="w"> </span>~/ws/venv_llm/bin/activate
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>python<span class="w"> </span>-m<span class="w"> </span>vllm.entrypoints.openai.api_server<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span>--model<span class="w"> </span>~/ws/models/Qwen3.5-27B<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span>--dtype<span class="w"> </span>bfloat16<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span>--max-model-len<span class="w"> </span><span class="m">32768</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">  </span>--tensor-parallel-size<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">  </span>--gpu-memory-utilization<span class="w"> </span><span class="m">0</span>.85<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">  </span>--port<span class="w"> </span><span class="m">8000</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">  </span>--host<span class="w"> </span><span class="m">0</span>.0.0.0<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">  </span>--served-model-name<span class="w"> </span>qwen35-27b
+<blockquote>
+<p><strong>사전 조건</strong>: 이 이미지의 transformers 5.2.0.dev0에 Qwen3.5 RoPE 파싱 버그가 있어
+컨테이너 시작 시 <code>pip install --upgrade transformers</code>가 필요함.
+docker-compose 파일에서는 자동 처리됨.</p>
+</blockquote>
+<h3 id="5-1-docker-compose">5-1. Docker Compose로 실행 (권장)<a class="headerlink" href="#5-1-docker-compose" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">cd</span><span class="w"> </span>~/ws/models
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># 로그 확인 (모델 로딩 완료까지 수 분 소요)</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>docker<span class="w"> </span>compose<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>qwen35-27b
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1"># 중지</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>docker<span class="w"> </span>compose<span class="w"> </span>down
 </code></pre></div>
-<h3 id="5-2">5-2. 성능 최적화 옵션<a class="headerlink" href="#5-2" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>python<span class="w"> </span>-m<span class="w"> </span>vllm.entrypoints.openai.api_server<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span>--model<span class="w"> </span>~/ws/models/Qwen3.5-27B<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span>--dtype<span class="w"> </span>bfloat16<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span>--max-model-len<span class="w"> </span><span class="m">65536</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span>--tensor-parallel-size<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">  </span>--gpu-memory-utilization<span class="w"> </span><span class="m">0</span>.88<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span>--max-num-seqs<span class="w"> </span><span class="m">32</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">  </span>--enable-prefix-caching<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">  </span>--enable-chunked-prefill<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">  </span>--port<span class="w"> </span><span class="m">8000</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">  </span>--host<span class="w"> </span><span class="m">0</span>.0.0.0<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">  </span>--served-model-name<span class="w"> </span>qwen35-27b
+<blockquote>
+<p>docker-compose 파일: <code>~/ws/models/docker-compose.yml</code></p>
+</blockquote>
+<h3 id="5-2-bash">5-2. bash로 진입 후 수동 실행 (디버깅 시)<a class="headerlink" href="#5-2-bash" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>docker<span class="w"> </span>run<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--network<span class="o">=</span>host<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span>-v<span class="w"> </span>~/ws/models:/models<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span>-v<span class="w"> </span>~/ws/rag:/workspace<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span>-it<span class="w"> </span>--entrypoint<span class="w"> </span>bash<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span>scitrera/dgx-spark-vllm:0.16.1-dev-3bbb2046-t5
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c1"># 컨테이너 내부에서</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>transformers<span class="w"> </span>-q
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>vllm<span class="w"> </span>serve<span class="w"> </span>/models/Qwen3.5-27B<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">  </span>--max-model-len<span class="w"> </span><span class="m">32768</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">  </span>--tensor-parallel-size<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">  </span>--gpu-memory-utilization<span class="w"> </span><span class="m">0</span>.70<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">  </span>--max-num-seqs<span class="w"> </span><span class="m">8</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">  </span>--enable-prefix-caching<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">  </span>--enable-chunked-prefill<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">  </span>--max-num-batched-tokens<span class="w"> </span><span class="m">4096</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">  </span>--port<span class="w"> </span><span class="m">8000</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">  </span>--host<span class="w"> </span><span class="m">0</span>.0.0.0<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">  </span>--served-model-name<span class="w"> </span>qwen35-27b
 </code></pre></div>
+<h3 id="5-3">5-3. 최적화 옵션 설명<a class="headerlink" href="#5-3" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
 <th>옵션</th>
+<th>현재 값</th>
 <th>설명</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>--dtype bfloat16</code></td>
-<td>BF16 추론 (Grace Blackwell 네이티브)</td>
+<td><code>--max-model-len 32768</code></td>
+<td>32K</td>
+<td>thinking 모드 사용 시 긴 출력 대응. 메모리 여유 시 65536까지 가능</td>
 </tr>
 <tr>
-<td><code>--max-model-len 65536</code></td>
-<td>최대 컨텍스트 65K (통합 메모리 여유 있음)</td>
+<td><code>--gpu-memory-utilization 0.60</code></td>
+<td>60%</td>
+<td>가용 메모리 75GB 기준 ~45GB 사용. 다른 프로세스 정리 시 0.85로 상향</td>
 </tr>
 <tr>
-<td><code>--gpu-memory-utilization 0.88</code></td>
-<td>GPU VRAM의 88% 사용</td>
+<td><code>--max-num-seqs 8</code></td>
+<td>8</td>
+<td>동시 요청 수. thinking 모드는 출력이 길어 낮게 설정</td>
 </tr>
 <tr>
 <td><code>--enable-prefix-caching</code></td>
-<td>RAG 반복 프리픽스 캐싱</td>
+<td>on</td>
+<td>RAG 반복 시스템 프롬프트 캐싱으로 TTFT 단축</td>
 </tr>
 <tr>
 <td><code>--enable-chunked-prefill</code></td>
-<td>긴 컨텍스트 처리 효율화</td>
+<td>on</td>
+<td>긴 컨텍스트 입력 시 메모리 효율화</td>
 </tr>
 <tr>
-<td><code>--max-num-seqs 32</code></td>
-<td>동시 시퀀스 처리 수</td>
+<td><code>--max-num-batched-tokens 4096</code></td>
+<td>4096</td>
+<td>prefill 배치 크기. 메모리 사용량과 처리량 균형</td>
 </tr>
 </tbody>
 </table>
+<blockquote>
+<p><strong>메모리 여유 시 (다른 프로세스 정리 후)</strong>: <code>--gpu-memory-utilization 0.85</code>로 변경하면
+KV cache가 늘어나 더 긴 컨텍스트와 동시 요청을 처리할 수 있음.</p>
+</blockquote>
 <hr />
 <h2 id="6-huggingface-transformers">6. HuggingFace Transformers로 빠른 테스트<a class="headerlink" href="#6-huggingface-transformers" title="Permanent link">&para;</a></h2>
 <p>설치 전 빠른 동작 확인이 필요할 때:</p>
@@ -1372,40 +1942,65 @@ NGC(https://catalog.ngc.nvidia.com)에서 Grace Blackwell 전용 PyTorch 컨테�
 <a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/vllm-project/vllm.git
 <a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="nb">cd</span><span class="w"> </span>vllm<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
 </code></pre></div>
+<h3 id="dgx-spark">시스템 레벨 성능 최적화 (DGX Spark)<a class="headerlink" href="#dgx-spark" title="Permanent link">&para;</a></h3>
+<p>GB10 통합 메모리 구조에서는 시스템 메모리 관리가 GPU 성능에 직접 영향을 줌.</p>
+<p><strong>1. swappiness 낮추기 (적용 완료)</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1"># 즉시 적용</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>sudo<span class="w"> </span>sysctl<span class="w"> </span>vm.swappiness<span class="o">=</span><span class="m">10</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="c1"># 영구 적용</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;vm.swappiness=10&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/sysctl.d/99-gpu-perf.conf
+</code></pre></div>
+<blockquote>
+<p>기본값 60은 너무 공격적으로 swap을 사용함.
+GB10은 CPU/GPU 통합 메모리이므로 swap 발생 시 GPU 성능 직접 저하.</p>
+</blockquote>
+<p><strong>2. GPU 클럭 최대 고정 (적용 완료)</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># 즉시 적용</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>sudo<span class="w"> </span>nvidia-smi<span class="w"> </span>-lgc<span class="w"> </span><span class="m">2418</span>,3003
+</code></pre></div>
+<p>재부팅 시 초기화되므로 systemd 서비스로 영구 등록:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>sudo<span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;cat &gt; /etc/systemd/system/nvidia-gpu-clock.service &lt;&lt; EOF</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="s1">[Unit]</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="s1">Description=Set NVIDIA GPU clock range</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="s1">After=nvidia-persistenced.service</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="s1">[Service]</span>
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="s1">Type=oneshot</span>
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="s1">ExecStart=/usr/bin/nvidia-smi -lgc 2418,3003</span>
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="s1">RemainAfterExit=yes</span>
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="s1">[Install]</span>
+<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a><span class="s1">WantedBy=multi-user.target</span>
+<a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a><span class="s1">EOF&#39;</span>
+<a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a>
+<a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
+<a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>nvidia-gpu-clock.service
+</code></pre></div>
+<blockquote>
+<p>GPU 기본 클럭 2457MHz → 최대 3003MHz까지 부스트 허용.</p>
+</blockquote>
+<p><strong>3. 재부팅 권장</strong></p>
+<p>swap이 이미 꽉 찬 상태에서는 swappiness 변경만으로는 기존 swap 데이터가 정리되지 않음.
+재부팅하면 swap이 비워지고 가용 GPU 메모리가 증가하여 <code>--gpu-memory-utilization</code>을 더 높일 수 있음.</p>
 <hr />
-<h2 id="11">11. 실행 스크립트<a class="headerlink" href="#11" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1"># ~/ws/scripts/run_qwen.sh</span>
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="c1">#!/bin/bash</span>
-<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="nb">set</span><span class="w"> </span>-e
-<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>
-<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="nv">MODEL_PATH</span><span class="o">=</span><span class="s2">&quot;/home/gon/ws/models/Qwen3.5-27B&quot;</span>
-<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="nv">VENV_PATH</span><span class="o">=</span><span class="s2">&quot;/home/gon/ws/venv_llm&quot;</span>
-<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="nv">PORT</span><span class="o">=</span><span class="m">8000</span>
-<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>
-<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="nb">source</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$VENV_PATH</span><span class="s2">/bin/activate&quot;</span>
-<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>
-<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[INFO] Qwen3.5-27B 서버 시작...&quot;</span>
-<a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[INFO] 모델: </span><span class="nv">$MODEL_PATH</span><span class="s2">&quot;</span>
-<a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[INFO] 포트: </span><span class="nv">$PORT</span><span class="s2">&quot;</span>
-<a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a>
-<a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a>python<span class="w"> </span>-m<span class="w"> </span>vllm.entrypoints.openai.api_server<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a><span class="w">  </span>--model<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$MODEL_PATH</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a><span class="w">  </span>--dtype<span class="w"> </span>bfloat16<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a><span class="w">  </span>--max-model-len<span class="w"> </span><span class="m">32768</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a><span class="w">  </span>--tensor-parallel-size<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a><span class="w">  </span>--gpu-memory-utilization<span class="w"> </span><span class="m">0</span>.85<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-16-21" name="__codelineno-16-21" href="#__codelineno-16-21"></a><span class="w">  </span>--enable-prefix-caching<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-16-22" name="__codelineno-16-22" href="#__codelineno-16-22"></a><span class="w">  </span>--enable-chunked-prefill<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-16-23" name="__codelineno-16-23" href="#__codelineno-16-23"></a><span class="w">  </span>--max-num-seqs<span class="w"> </span><span class="m">16</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-16-24" name="__codelineno-16-24" href="#__codelineno-16-24"></a><span class="w">  </span>--port<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PORT</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-16-25" name="__codelineno-16-25" href="#__codelineno-16-25"></a><span class="w">  </span>--host<span class="w"> </span><span class="m">0</span>.0.0.0<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-16-26" name="__codelineno-16-26" href="#__codelineno-16-26"></a><span class="w">  </span>--served-model-name<span class="w"> </span>qwen35-27b<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-16-27" name="__codelineno-16-27" href="#__codelineno-16-27"></a><span class="w">  </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>~/ws/logs/qwen_server.log
+<h2 id="11">11. 실행<a class="headerlink" href="#11" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c1"># 시작</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="nb">cd</span><span class="w"> </span>~/ws/models<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="c1"># 로그 확인</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>docker<span class="w"> </span>compose<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>qwen35-27b
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="c1"># 중지</span>
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>docker<span class="w"> </span>compose<span class="w"> </span>down
+<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>
+<a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a><span class="c1"># 재시작</span>
+<a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>docker<span class="w"> </span>compose<span class="w"> </span>restart<span class="w"> </span>qwen35-27b
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>chmod<span class="w"> </span>+x<span class="w"> </span>~/ws/scripts/run_qwen.sh
-<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>~/ws/logs
-<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>~/ws/scripts/run_qwen.sh
-</code></pre></div>
+<blockquote>
+<p>docker-compose 파일: <code>~/ws/models/docker-compose.yml</code>
+<code>restart: unless-stopped</code> 설정으로 서버 재부팅 시 자동 시작됨.</p>
+</blockquote>
 <hr />
 <h2 id="12">12. 참고 링크<a class="headerlink" href="#12" title="Permanent link">&para;</a></h2>
 <ul>
@@ -1413,6 +2008,10 @@ NGC(https://catalog.ngc.nvidia.com)에서 Grace Blackwell 전용 PyTorch 컨테�
 <li><a href="https://huggingface.co/Qwen">Qwen3.5 HuggingFace</a></li>
 <li><a href="https://catalog.ngc.nvidia.com/orgs/nvidia/containers/pytorch">NVIDIA NGC PyTorch 컨테이너</a></li>
 <li><a href="https://github.com/vllm-project/vllm/issues">vLLM Grace Hopper 지원 이슈</a></li>
+<li><a href="https://hub.docker.com/r/scitrera/dgx-spark-vllm/tags">scitrera/dgx-spark-vllm (GB10 전용 vLLM)</a></li>
+<li><a href="https://hub.docker.com/r/lharillo/vllm-blackwell-gb10-spark">lharillo/vllm-blackwell-gb10-spark</a></li>
+<li><a href="https://forums.developer.nvidia.com/t/new-pre-built-vllm-docker-images-for-nvidia-dgx-spark/357832">DGX Spark vLLM 포럼</a></li>
+<li><a href="https://forums.developer.nvidia.com/t/run-qwen3-5-27b-with-spark-vllm-docker/362563">Qwen3.5-27B on DGX Spark 실행 사례</a></li>
 </ul>
 
 
