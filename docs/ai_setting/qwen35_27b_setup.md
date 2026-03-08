@@ -96,66 +96,85 @@ pip install transformers accelerate huggingface_hub
 > **주의**: CUDA 13.0은 매우 최신이므로 기존 stable wheel이 없을 수 있음.
 > NGC(https://catalog.ngc.nvidia.com)에서 Grace Blackwell 전용 PyTorch 컨테이너 또는 wheel 사용 권장.
 
-### 4-3. Docker 방식 (권장 대안)
+### 4-3. Docker 방식 (권장)
+
+> **주의**: 아래 이미지들은 GB10(SM121, CUDA capability 12.1)에서 동작하지 않음:
+> - `nvcr.io/nvidia/pytorch:24.07-py3` — GB10/Blackwell GPU 미지원
+> - `nvcr.io/nvidia/pytorch:25.11-py3` — CUDA 13 기반이나 PyPI vLLM wheel(CUDA 12용)과 호환 불가
+> - `vllm/vllm-openai:latest` — x86_64 + CUDA 12 전용
+> - `scitrera/dgx-spark-vllm:0.16.1-dev-3bbb2046-t5` — PyTorch가 CUDA capability 12.0까지만 지원 (GB10은 12.1)
+>
+> **GB10 전용으로 빌드된 커뮤니티 이미지를 사용해야 합니다.**
 
 ```bash
-# NVIDIA NGC PyTorch 컨테이너 (Grace Blackwell 공식 지원)
-docker pull nvcr.io/nvidia/pytorch:25.01-py3
+# GB10(SM121) 전용 vLLM 이미지 (권장)
+docker pull scitrera/dgx-spark-vllm:0.16.1-dev-3bbb2046-t5
 
-docker run --gpus all --ipc=host --network=host \
-  -v ~/ws/models:/models \
-  -v ~/ws/rag:/workspace \
-  -it nvcr.io/nvidia/pytorch:25.01-py3 bash
-
-# 컨테이너 내부에서 vLLM 설치
-pip install vllm
+# 대안: lharillo/vllm-blackwell-gb10-spark (vLLM v0.14.0 기반, 안정적이나 구버전)
+# docker pull lharillo/vllm-blackwell-gb10-spark:latest
 ```
 
 ---
 
 ## 5. vLLM 서버 실행
 
-### 5-1. 기본 실행 (OpenAI API 호환)
+> **사전 조건**: 이 이미지의 transformers 5.2.0.dev0에 Qwen3.5 RoPE 파싱 버그가 있어
+> 컨테이너 시작 시 `pip install --upgrade transformers`가 필요함.
+> docker-compose 파일에서는 자동 처리됨.
+
+### 5-1. Docker Compose로 실행 (권장)
 
 ```bash
-source ~/ws/venv_llm/bin/activate
+cd ~/ws/models
+docker compose up -d
 
-python -m vllm.entrypoints.openai.api_server \
-  --model ~/ws/models/Qwen3.5-27B \
-  --dtype bfloat16 \
+# 로그 확인 (모델 로딩 완료까지 수 분 소요)
+docker compose logs -f qwen35-27b
+
+# 중지
+docker compose down
+```
+
+> docker-compose 파일: `~/ws/models/docker-compose.yml`
+
+### 5-2. bash로 진입 후 수동 실행 (디버깅 시)
+
+```bash
+docker run --gpus all --ipc=host --network=host \
+  -v ~/ws/models:/models \
+  -v ~/ws/rag:/workspace \
+  -it --entrypoint bash \
+  scitrera/dgx-spark-vllm:0.16.1-dev-3bbb2046-t5
+
+# 컨테이너 내부에서
+pip install --upgrade transformers -q
+
+vllm serve /models/Qwen3.5-27B \
   --max-model-len 32768 \
   --tensor-parallel-size 1 \
-  --gpu-memory-utilization 0.85 \
-  --port 8000 \
-  --host 0.0.0.0 \
-  --served-model-name qwen35-27b
-```
-
-### 5-2. 성능 최적화 옵션
-
-```bash
-python -m vllm.entrypoints.openai.api_server \
-  --model ~/ws/models/Qwen3.5-27B \
-  --dtype bfloat16 \
-  --max-model-len 65536 \
-  --tensor-parallel-size 1 \
-  --gpu-memory-utilization 0.88 \
-  --max-num-seqs 32 \
+  --gpu-memory-utilization 0.70 \
+  --max-num-seqs 8 \
   --enable-prefix-caching \
   --enable-chunked-prefill \
+  --max-num-batched-tokens 4096 \
   --port 8000 \
   --host 0.0.0.0 \
   --served-model-name qwen35-27b
 ```
 
-| 옵션 | 설명 |
-|------|------|
-| `--dtype bfloat16` | BF16 추론 (Grace Blackwell 네이티브) |
-| `--max-model-len 65536` | 최대 컨텍스트 65K (통합 메모리 여유 있음) |
-| `--gpu-memory-utilization 0.88` | GPU VRAM의 88% 사용 |
-| `--enable-prefix-caching` | RAG 반복 프리픽스 캐싱 |
-| `--enable-chunked-prefill` | 긴 컨텍스트 처리 효율화 |
-| `--max-num-seqs 32` | 동시 시퀀스 처리 수 |
+### 5-3. 최적화 옵션 설명
+
+| 옵션 | 현재 값 | 설명 |
+|------|---------|------|
+| `--max-model-len 32768` | 32K | thinking 모드 사용 시 긴 출력 대응. 메모리 여유 시 65536까지 가능 |
+| `--gpu-memory-utilization 0.60` | 60% | 가용 메모리 75GB 기준 ~45GB 사용. 다른 프로세스 정리 시 0.85로 상향 |
+| `--max-num-seqs 8` | 8 | 동시 요청 수. thinking 모드는 출력이 길어 낮게 설정 |
+| `--enable-prefix-caching` | on | RAG 반복 시스템 프롬프트 캐싱으로 TTFT 단축 |
+| `--enable-chunked-prefill` | on | 긴 컨텍스트 입력 시 메모리 효율화 |
+| `--max-num-batched-tokens 4096` | 4096 | prefill 배치 크기. 메모리 사용량과 처리량 균형 |
+
+> **메모리 여유 시 (다른 프로세스 정리 후)**: `--gpu-memory-utilization 0.85`로 변경하면
+> KV cache가 늘어나 더 긴 컨텍스트와 동시 요청을 처리할 수 있음.
 
 ---
 
@@ -452,45 +471,78 @@ git clone https://github.com/vllm-project/vllm.git
 cd vllm && pip install -e .
 ```
 
+### 시스템 레벨 성능 최적화 (DGX Spark)
+
+GB10 통합 메모리 구조에서는 시스템 메모리 관리가 GPU 성능에 직접 영향을 줌.
+
+**1. swappiness 낮추기 (적용 완료)**
+
+```bash
+# 즉시 적용
+sudo sysctl vm.swappiness=10
+
+# 영구 적용
+echo "vm.swappiness=10" | sudo tee -a /etc/sysctl.d/99-gpu-perf.conf
+```
+
+> 기본값 60은 너무 공격적으로 swap을 사용함.
+> GB10은 CPU/GPU 통합 메모리이므로 swap 발생 시 GPU 성능 직접 저하.
+
+**2. GPU 클럭 최대 고정 (적용 완료)**
+
+```bash
+# 즉시 적용
+sudo nvidia-smi -lgc 2418,3003
+```
+
+재부팅 시 초기화되므로 systemd 서비스로 영구 등록:
+
+```bash
+sudo bash -c 'cat > /etc/systemd/system/nvidia-gpu-clock.service << EOF
+[Unit]
+Description=Set NVIDIA GPU clock range
+After=nvidia-persistenced.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/nvidia-smi -lgc 2418,3003
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
+EOF'
+
+sudo systemctl daemon-reload
+sudo systemctl enable nvidia-gpu-clock.service
+```
+
+> GPU 기본 클럭 2457MHz → 최대 3003MHz까지 부스트 허용.
+
+**3. 재부팅 권장**
+
+swap이 이미 꽉 찬 상태에서는 swappiness 변경만으로는 기존 swap 데이터가 정리되지 않음.
+재부팅하면 swap이 비워지고 가용 GPU 메모리가 증가하여 `--gpu-memory-utilization`을 더 높일 수 있음.
+
 ---
 
-## 11. 실행 스크립트
+## 11. 실행
 
 ```bash
-# ~/ws/scripts/run_qwen.sh
-#!/bin/bash
-set -e
+# 시작
+cd ~/ws/models && docker compose up -d
 
-MODEL_PATH="/home/gon/ws/models/Qwen3.5-27B"
-VENV_PATH="/home/gon/ws/venv_llm"
-PORT=8000
+# 로그 확인
+docker compose logs -f qwen35-27b
 
-source "$VENV_PATH/bin/activate"
+# 중지
+docker compose down
 
-echo "[INFO] Qwen3.5-27B 서버 시작..."
-echo "[INFO] 모델: $MODEL_PATH"
-echo "[INFO] 포트: $PORT"
-
-python -m vllm.entrypoints.openai.api_server \
-  --model "$MODEL_PATH" \
-  --dtype bfloat16 \
-  --max-model-len 32768 \
-  --tensor-parallel-size 1 \
-  --gpu-memory-utilization 0.85 \
-  --enable-prefix-caching \
-  --enable-chunked-prefill \
-  --max-num-seqs 16 \
-  --port "$PORT" \
-  --host 0.0.0.0 \
-  --served-model-name qwen35-27b \
-  2>&1 | tee ~/ws/logs/qwen_server.log
+# 재시작
+docker compose restart qwen35-27b
 ```
 
-```bash
-chmod +x ~/ws/scripts/run_qwen.sh
-mkdir -p ~/ws/logs
-~/ws/scripts/run_qwen.sh
-```
+> docker-compose 파일: `~/ws/models/docker-compose.yml`
+> `restart: unless-stopped` 설정으로 서버 재부팅 시 자동 시작됨.
 
 ---
 
@@ -500,3 +552,7 @@ mkdir -p ~/ws/logs
 - [Qwen3.5 HuggingFace](https://huggingface.co/Qwen)
 - [NVIDIA NGC PyTorch 컨테이너](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/pytorch)
 - [vLLM Grace Hopper 지원 이슈](https://github.com/vllm-project/vllm/issues)
+- [scitrera/dgx-spark-vllm (GB10 전용 vLLM)](https://hub.docker.com/r/scitrera/dgx-spark-vllm/tags)
+- [lharillo/vllm-blackwell-gb10-spark](https://hub.docker.com/r/lharillo/vllm-blackwell-gb10-spark)
+- [DGX Spark vLLM 포럼](https://forums.developer.nvidia.com/t/new-pre-built-vllm-docker-images-for-nvidia-dgx-spark/357832)
+- [Qwen3.5-27B on DGX Spark 실행 사례](https://forums.developer.nvidia.com/t/run-qwen3-5-27b-with-spark-vllm-docker/362563)

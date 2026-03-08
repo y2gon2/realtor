@@ -9,6 +9,7 @@
 | 문서 | 설명 |
 |---|---|
 | [프로젝트 기획서](project_plan.md) | 전체 기획, 데이터 분석, 단계별 로드맵, 기술 스택, 경쟁사 분석 |
+| [Qwen3.5-27B 실행 가이드](ai_setting/qwen35_27b_setup.md) | 로컬 LLM 설치·실행·테스트 (Grace Blackwell 최적화) |
 
 ---
 
