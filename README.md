@@ -62,6 +62,8 @@ planning/
 ├── docs/               # 마크다운 문서
 │   ├── index.md
 │   ├── project_plan.md
-│   └── embedding_models.md
+│   ├── tech_research/
+│   │   ├── embedding_models.md
+│   │   └── vector_databases.md
 └── site/               # 빌드 결과물 (git 제외)
 ```
