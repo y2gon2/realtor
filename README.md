@@ -8,8 +8,8 @@
 cd planning
 
 # 가상 환경 생성 및 활성화
-python3 -m venv .venv
-source .venv/bin/activate
+python3 -m venv ../../venv/mkdocs
+source ../../venv/mkdocs/bin/activate
 
 # 패키지 설치
 pip install mkdocs mkdocs-material
@@ -19,7 +19,7 @@ pip install mkdocs mkdocs-material
 
 ```bash
 # 가상 환경 활성화 (이미 활성화된 경우 생략)
-source .venv/bin/activate
+source ../../venv/mkdocs/bin/activate
 
 # 로컬 개발 서버 시작 (http://127.0.0.1:8000)
 mkdocs serve
