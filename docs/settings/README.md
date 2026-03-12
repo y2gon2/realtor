@@ -1,6 +1,6 @@
-# AI 설정 문서
+# 환경 설정 문서
 
-로컬 LLM 실행 및 AI 환경 설정 관련 문서 모음.
+로컬 LLM 실행, 임베딩 모델, 벡터 DB 등 AI 인프라 환경 설정 관련 문서 모음.
 
 ## 문서 목록
 
@@ -8,6 +8,7 @@
 |------|------|
 | [qwen35_27b_setup.md](./qwen35_27b_setup.md) | Qwen3.5-27B 로컬 실행 및 테스트 가이드 |
 | [embedding_container_setup.md](./embedding_container_setup.md) | KURE-v1 임베딩 모델 컨테이너 실행 가이드 |
+| [qdrant_container_setup.md](./qdrant_container_setup.md) | Qdrant 벡터 DB 컨테이너 실행 가이드 |
 
 ## 현재 서버 환경 요약
 

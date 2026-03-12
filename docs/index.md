@@ -9,7 +9,9 @@
 | 문서 | 설명 |
 |---|---|
 | [프로젝트 기획서](project_plan.md) | 전체 기획, 데이터 분석, 단계별 로드맵, 기술 스택, 경쟁사 분석 |
-| [Qwen3.5-27B 실행 가이드](ai_setting/qwen35_27b_setup.md) | 로컬 LLM 설치·실행·테스트 (Grace Blackwell 최적화) |
+| [Qwen3.5-27B 실행 가이드](settings/qwen35_27b_setup.md) | 로컬 LLM 설치·실행·테스트 (Grace Blackwell 최적화) |
+| [KURE-v1 임베딩 컨테이너](settings/embedding_container_setup.md) | 임베딩 모델 컨테이너 실행 가이드 (DGX Spark) |
+| [Qdrant 벡터 DB](settings/qdrant_container_setup.md) | Qdrant 벡터 DB 컨테이너 실행 가이드 (DGX Spark) |
 
 ---
 
