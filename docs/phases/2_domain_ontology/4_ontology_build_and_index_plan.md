@@ -1,6 +1,7 @@
 # Phase 2 완성 계획: 온톨로지 빌드 + 전체 색인
 
 > 작성일: 2026-03-22
+> 최종 업데이트: 2026-03-25 (Step 5~6 완료)
 > 선행 작업: `3_legal_doc_rag_strategy.md` (2025_housing_tax_v2.json 생성 완료)
 > 목표: domain_ontology 컬렉션 + legal_docs 컬렉션 색인 완성
 
@@ -11,10 +12,26 @@
 ### 완료된 작업
 - `data/domain_ontology/parsed/2025_housing_tax_v2.json` (213청크, LLM 보강 완료)
 - `data/domain_ontology/parsed/*.json` — 8개 소스 파싱 완료
+- ✅ **Step 5 완료** (2026-03-25): 온톨로지 엔트리 10개 브랜치, 2,146개 엔트리 생성 + 구어체 aliases 25,670개 보강
+- ✅ **Step 6 완료** (2026-03-25): Qdrant 컬렉션 2개 색인 완료
 
-### 미완성 작업
-- 온톨로지 엔트리 미생성 (브랜치별 JSON 없음)
-- Qdrant 컬렉션 미생성 (`domain_ontology`, `legal_docs`)
+### Step 5 검증 결과 (2026-03-25)
+- Pydantic 스키마 검증: 2,146개 전체 통과
+- validator.py: 오류 0건, 경고 0건
+- category_path 일관성: 전체 일치
+- aliases 평균: 12.0개/엔트리 (최소 5개)
+- related_terms 끊어진 참조: 55건 (보조 메타데이터, 색인/검색 무관)
+
+### Step 6 색인 결과 (2026-03-25)
+
+| 컬렉션 | 계획 포인트 | 실제 포인트 | 벡터 타입 | 상태 |
+|--------|-----------|-----------|----------|------|
+| `domain_ontology` | 1,000~1,700 | **2,146** | Dense | green |
+| `legal_docs` | ~600 | **976** | Dense + Sparse(BM25) | green |
+| **합계** | — | **3,122** | — | — |
+
+- 소요 시간: 86초 (1.4분), GPU: DGX Spark CUDA
+- 검증 리포트: `5_phase2_search_test_report.md`
 
 ---
 
@@ -253,23 +270,22 @@ Step 5 실행 전 `ontology_data/taxonomy.json`을 수동으로 확정해야 합
 ```
 [완료] DOCX 파싱 + LLM 보강 → 2025_housing_tax_v2.json
 
-[Step 5-A] taxonomy.json 확정
-  → ontology_data/taxonomy.json 생성 (수동 또는 LLM 보조)
+[완료] Step 5-A: taxonomy.json 확정
+  → ontology_data/taxonomy.json (10 Level-1 + 59 Level-2)
 
-[Step 5-B] build_ontology.py 실행
-  → 소스 8개 + 2025_housing_tax_v2.json → entries/*.json
-  → 체크포인트 방식 (브랜치별 재실행 가능)
+[완료] Step 5-B: build_ontology.py 실행
+  → 소스 8개 → entries/*.json (10 브랜치, 2,146 엔트리)
+  → 구어체 aliases 25,670개 보강 (enrich_aliases.py, Claude Code CLI)
 
-[Step 5-C] validator.py로 검수
-  → 중복/누락/참조 오류 확인 + 수동 보완
+[완료] Step 5-C: validator.py 검수
+  → 오류 0건, 경고 0건 통과
 
-[Step 6] index_phase2.py 실행
-  → domain_ontology 컬렉션 색인 (1,000~1,700 포인트)
-  → legal_docs 컬렉션 색인 (~600 포인트)
+[완료] Step 6: index_phase2.py 실행
+  → domain_ontology: 2,146 포인트 (Dense, KURE-v1)
+  → legal_docs: 976 포인트 (Dense + Sparse BM25)
+  → 총 3,122 포인트, 86초 소요
 
-[검증] search_test.py
-  → Overlap@10 ≥ 50% (현재 26%)
-  → 용어 매칭 Precision@3 ≥ 70%
+[검증] search_test → 5_phase2_search_test_report.md
 ```
 
 ---
