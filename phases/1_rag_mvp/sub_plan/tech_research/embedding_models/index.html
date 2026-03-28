@@ -1,0 +1,4406 @@
+
+<!doctype html>
+<html lang="ko" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="대한민국 부동산 RAG 기반 AI 상담/보고서 서비스 기획 문서">
+      
+      
+      
+      
+        <link rel="prev" href="../../test_result/20260315_4_embedding_quality_test/">
+      
+      
+        <link rel="next" href="../vector_databases/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>한국어 임베딩 모델 비교 - 부동산 AI 어드바이저 — 프로젝트 기획</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="상단/헤더">
+    <a href="../../../../.." title="부동산 AI 어드바이저 — 프로젝트 기획" class="md-header__button md-logo" aria-label="부동산 AI 어드바이저 — 프로젝트 기획" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            부동산 AI 어드바이저 — 프로젝트 기획
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              한국어 임베딩 모델 비교
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="다크 모드로 전환"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="다크 모드로 전환" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="라이트 모드로 전환"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="라이트 모드로 전환" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+        <button type="reset" class="md-search__icon md-icon" title="지우기" aria-label="지우기" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="탭" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  홈
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../project_plan/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  프로젝트 기획서
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../1_rag_mvp_plan/" class="md-tabs__link">
+          
+  
+  
+  Phase 1 — RAG MVP
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../2_domain_ontology/2_domain_ontology_plan/" class="md-tabs__link">
+          
+  
+  
+  Phase 2 — 도메인 온톨로지
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../settings/" class="md-tabs__link">
+          
+  
+  
+  환경 설정
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="네비게이션" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="부동산 AI 어드바이저 — 프로젝트 기획" class="md-nav__button md-logo" aria-label="부동산 AI 어드바이저 — 프로젝트 기획" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    부동산 AI 어드바이저 — 프로젝트 기획
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    홈
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../project_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    프로젝트 기획서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 1 — RAG MVP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phase 1 — RAG MVP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기획서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    세부 계획
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    세부 계획
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_1_embedding_data_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.1 임베딩 데이터 테스트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_2" id="__nav_3_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    테스트 결과
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    테스트 결과
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../test_result/20260315_1_sementic_search_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    시맨틱 검색 테스트 (1차)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../test_result/20260315_2_sementic_search_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    시맨틱 검색 테스트 (2차)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../test_result/20260315_3_meta_data_filtering_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    메타데이터 필터링 테스트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../test_result/20260315_4_embedding_quality_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    임베딩 품질 평가
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기술 연구
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    기술 연구
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    한국어 임베딩 모델 비교
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    한국어 임베딩 모델 비교
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        목차
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 비교 대상 및 평가 기준
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 비교 대상 및 평가 기준">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        평가 대상 모델
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        평가 기준 (프로젝트 요구사항 기반)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-kure-v1-nlpai-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. KURE-v1 — nlpai-lab
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. KURE-v1 — nlpai-lab">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        기본 정보
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        학습 방법
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        벤치마크 성능
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        장점
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        단점
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-bge-m3-baai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. BGE-M3 — BAAI
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. BGE-M3 — BAAI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        기본 정보
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-multi-functionality" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        핵심 특징: 3중 검색 방식 (Multi-Functionality)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        벤치마크 성능
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        장점
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        단점
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dragonkuebge-m3-ko" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        특이사항: dragonkue/BGE-m3-ko
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-multilingual-e5-large-microsoft" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. multilingual-e5-large — Microsoft
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. multilingual-e5-large — Microsoft">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        기본 정보
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        학습 방법 — 2단계
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        사용 규칙 (필수)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        벤치마크 성능
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        장점
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        단점 ⚠️
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-kosimcse-roberta-bm-k" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. KoSimCSE-roberta — BM-K
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. KoSimCSE-roberta — BM-K">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        기본 정보
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simcse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        학습 방법 — SimCSE 기반
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        벤치마크 성능
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        장점
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        단점 ⚠️
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 종합 비교 및 벤치마크
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 종합 비교 및 벤치마크">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        핵심 스펙 비교
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        한국어 검색 성능 비교
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        라이선스 정리
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#20252026" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        최신 벤치마크 현황 (2025~2026)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 프로젝트 적용 추천
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 프로젝트 적용 추천">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        현재 프로젝트 특성 재확인
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        추천 결론
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        최종 권장 아키텍처
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        참고 자료
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vector_databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vector Database 비교
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hybrid_search_bm25/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hybrid Search (Dense + BM25)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2 — 도메인 온톨로지
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phase 2 — 도메인 온톨로지
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_domain_ontology/2_domain_ontology_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기획서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_domain_ontology/3_legal_doc_rag_strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    법령 문서 RAG 전략
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_domain_ontology/4_ontology_build_and_index_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    온톨로지 빌드 + 색인 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_domain_ontology/5_phase2_search_test_report/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    검색 테스트 리포트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_domain_ontology/6_search_improvement_research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    검색 개선 연구 (외부 사례)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 1 — Contextual Retrieval
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 1 — Contextual Retrieval
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_domain_ontology/supplementary_1_contextual_retrieval/01_contextual_retrieval_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    구현 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_domain_ontology/supplementary_1_contextual_retrieval/02_contextual_prefix_script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prefix 생성 스크립트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_domain_ontology/supplementary_1_contextual_retrieval/03_cron_wrapper_and_yaml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cron Wrapper & YAML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_domain_ontology/supplementary_1_contextual_retrieval/04_index_phase2_modifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    index_phase2 수정 사항
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_domain_ontology/supplementary_1_contextual_retrieval/05_contextual_retrieval_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    적용 결과 리포트 (확장 테스트)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 2 — BGE-M3 Triple-Vector
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 2 — BGE-M3 Triple-Vector
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/01_bgem3_triple_vector_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    전체 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/02_embedder_bgem3_design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Embedder 설계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/03_collection_schema_and_indexing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    컬렉션 스키마 + 인덱싱
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/04_multi_stage_search_pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi-Stage 검색 파이프라인
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/05_benchmark_and_ablation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    벤치마크 및 Ablation Study
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/06_results_and_analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 분석
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/07_colbert_improvement_research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ColBERT 개선 전략 연구
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/08_reranker_module_design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reranker 모듈 설계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/09_benchmark_expansion_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    확장 벤치마크 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/10_expanded_benchmark_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    확장 벤치마크 결과
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 3 — Cross-Domain Query Decomposition
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 3 — Cross-Domain Query Decomposition
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_domain_ontology/supplementary_3_cross_domain/01_query_decomposition_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    구현 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_domain_ontology/supplementary_3_cross_domain/02_query_analyzer_design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QueryAnalyzer 설계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_domain_ontology/supplementary_3_cross_domain/03_search_pipeline_design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SearchPipeline 설계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_domain_ontology/supplementary_3_cross_domain/04_evaluation_framework/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    평가 프레임워크
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_domain_ontology/supplementary_3_cross_domain/05_benchmark_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    벤치마크 결과
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_9" id="__nav_4_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 4 — 순차 보완 전략 (P1-a/b)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 4 — 순차 보완 전략 (P1-a/b)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_domain_ontology/supplementaru_4_adjusting_stretigy/01_sequential_improvement_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    순차 개선 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_domain_ontology/supplementaru_4_adjusting_stretigy/02_execution_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    실행 프레임워크
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_domain_ontology/supplementaru_4_adjusting_stretigy/03_step1_hybrid_strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Step 1 — 하이브리드 전략
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_domain_ontology/supplementaru_4_adjusting_stretigy/04_step2_decompose_conservatism/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Step 2 — DECOMPOSE 보수화
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_domain_ontology/supplementaru_4_adjusting_stretigy/05_step3_prefilter_refinement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Step 3 — 사전 필터 정교화
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_domain_ontology/supplementaru_4_adjusting_stretigy/06_step4_prompt_conservatism/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Step 4 — 프롬프트 보수성
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_domain_ontology/supplementaru_4_adjusting_stretigy/07_step5_cross_encoder_fusion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Step 5 — Cross-Encoder 퓨전
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_domain_ontology/supplementaru_4_adjusting_stretigy/08_step1to4_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 — Step 1~4 통합
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_domain_ontology/supplementaru_4_adjusting_stretigy/09_step5_rerank_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 — Step 5 CE 퓨전
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_10" id="__nav_4_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    조사 자료
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    조사 자료
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_domain_ontology/research/5%EA%B0%9C%ED%98%91%ED%9A%8C%EB%8B%A8%EC%B2%B4_RAG%EC%9E%90%EB%A3%8C%EC%88%98%EC%A7%91_%EC%A1%B0%EC%82%AC%EA%B2%B0%EA%B3%BC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5개 협회·단체 자료수집 조사
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_domain_ontology/research/HF_HUG_RAG_%EC%A1%B0%EC%82%AC%EB%B0%A9%EB%B2%95%EB%A1%A0_%EC%82%AC%EC%9D%B4%ED%8A%B8%EB%AA%A9%EB%A1%9D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HF 주택금융공사 조사 방법론
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_domain_ontology/research/HUG_%EC%A3%BC%ED%83%9D%EB%8F%84%EC%8B%9C%EB%B3%B4%EC%A6%9D%EA%B3%B5%EC%82%AC_RAG_%EC%A1%B0%EC%82%AC%EB%B0%A9%EB%B2%95%EB%A1%A0_%EC%82%AC%EC%9D%B4%ED%8A%B8%EB%AA%A9%EB%A1%9D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HUG 주택도시보증공사 조사 방법론
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2_domain_ontology/research/%EA%B5%AD%ED%86%A0%EA%B5%90%ED%86%B5%EB%B6%80_%ED%86%B5%EA%B3%84%EB%88%84%EB%A6%AC_CSV%EC%B2%98%EB%A6%AC_%EA%B2%B0%EA%B3%BC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    국토교통부 통계누리 CSV 처리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    환경 설정
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    환경 설정
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    개요
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../settings/qdrant_container_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qdrant 벡터 DB 컨테이너
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../settings/embedding_container_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    KURE-v1 임베딩 컨테이너
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../settings/qwen35_27b_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qwen3.5-27B 실행 가이드
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../settings/nemotron3_super_120b_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nemotron3 Super 120B 실행 가이드
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../settings/gemini_cron_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gemini CLI Cron 설정
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../settings/codex_cron_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Codex CLI Cron 설정
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        목차
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 비교 대상 및 평가 기준
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 비교 대상 및 평가 기준">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        평가 대상 모델
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        평가 기준 (프로젝트 요구사항 기반)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-kure-v1-nlpai-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. KURE-v1 — nlpai-lab
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. KURE-v1 — nlpai-lab">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        기본 정보
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        학습 방법
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        벤치마크 성능
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        장점
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        단점
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-bge-m3-baai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. BGE-M3 — BAAI
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. BGE-M3 — BAAI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        기본 정보
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-multi-functionality" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        핵심 특징: 3중 검색 방식 (Multi-Functionality)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        벤치마크 성능
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        장점
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        단점
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dragonkuebge-m3-ko" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        특이사항: dragonkue/BGE-m3-ko
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-multilingual-e5-large-microsoft" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. multilingual-e5-large — Microsoft
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. multilingual-e5-large — Microsoft">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        기본 정보
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        학습 방법 — 2단계
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        사용 규칙 (필수)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        벤치마크 성능
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        장점
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        단점 ⚠️
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-kosimcse-roberta-bm-k" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. KoSimCSE-roberta — BM-K
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. KoSimCSE-roberta — BM-K">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        기본 정보
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simcse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        학습 방법 — SimCSE 기반
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        벤치마크 성능
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        장점
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        단점 ⚠️
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 종합 비교 및 벤치마크
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 종합 비교 및 벤치마크">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        핵심 스펙 비교
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        한국어 검색 성능 비교
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        라이선스 정리
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#20252026" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        최신 벤치마크 현황 (2025~2026)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 프로젝트 적용 추천
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 프로젝트 적용 추천">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        현재 프로젝트 특성 재확인
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        추천 결론
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        최종 권장 아키텍처
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        참고 자료
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">한국어 임베딩 모델 비교 연구<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>작성일: 2026-03-01 | 목적: 부동산 AI 어드바이저 RAG 파이프라인 임베딩 모델 선정</p>
+</blockquote>
+<hr />
+<h2 id="_2">목차<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ol>
+<li><a href="#1">비교 대상 및 평가 기준</a></li>
+<li><a href="#2-kure-v1-nlpai-lab">KURE-v1 — nlpai-lab</a></li>
+<li><a href="#3-bge-m3-baai">BGE-M3 — BAAI</a></li>
+<li><a href="#4-multilingual-e5-large-microsoft">multilingual-e5-large — Microsoft</a></li>
+<li><a href="#5-kosimcse-roberta-bm-k">KoSimCSE-roberta — BM-K</a></li>
+<li><a href="#6">종합 비교 및 벤치마크</a></li>
+<li><a href="#7">프로젝트 적용 추천</a></li>
+</ol>
+<hr />
+<h2 id="1">1. 비교 대상 및 평가 기준<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<h3 id="_3">평가 대상 모델<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>모델</th>
+<th>개발사</th>
+<th>HuggingFace</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>nlpai-lab/KURE-v1</code></td>
+<td>고려대 NLP AI Lab</td>
+<td><a href="https://huggingface.co/nlpai-lab/KURE-v1">링크</a></td>
+</tr>
+<tr>
+<td><code>BAAI/bge-m3</code></td>
+<td>BAAI (베이징인공지능연구원)</td>
+<td><a href="https://huggingface.co/BAAI/bge-m3">링크</a></td>
+</tr>
+<tr>
+<td><code>intfloat/multilingual-e5-large</code></td>
+<td>Microsoft</td>
+<td><a href="https://huggingface.co/intfloat/multilingual-e5-large">링크</a></td>
+</tr>
+<tr>
+<td><code>BM-K/KoSimCSE-roberta-multitask</code></td>
+<td>BM-K / SKT</td>
+<td><a href="https://huggingface.co/BM-K/KoSimCSE-roberta-multitask">링크</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_4">평가 기준 (프로젝트 요구사항 기반)<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>주제 적합성</strong>: 한국어 부동산·금융·법률 도메인 RAG에 대한 검색 품질</li>
+<li><strong>오픈소스 여부</strong>: 상업적 활용 가능한 라이선스</li>
+<li><strong>장문서 처리</strong>: YouTube 스터디 노트 특성상 문서 길이 대응 능력</li>
+<li><strong>하이브리드 검색 지원</strong>: BM25 + 벡터 검색 결합 가능성</li>
+<li><strong>성능 벤치마크</strong>: 한국어 공식 벤치마크 점수</li>
+</ol>
+<hr />
+<h2 id="2-kure-v1-nlpai-lab">2. KURE-v1 — nlpai-lab<a class="headerlink" href="#2-kure-v1-nlpai-lab" title="Permanent link">&para;</a></h2>
+<h3 id="_5">기본 정보<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>개발사</td>
+<td>고려대학교 NLP &amp; AI Lab (HIAI Research Institute)</td>
+</tr>
+<tr>
+<td>공개일</td>
+<td>2024년 12월 21일</td>
+</tr>
+<tr>
+<td>기반 모델</td>
+<td><code>BAAI/bge-m3</code> (한국어 파인튜닝)</td>
+</tr>
+<tr>
+<td>파라미터 수</td>
+<td>약 568M</td>
+</tr>
+<tr>
+<td>임베딩 차원</td>
+<td>1,024</td>
+</tr>
+<tr>
+<td><strong>최대 입력 토큰</strong></td>
+<td><strong>8,192 tokens</strong></td>
+</tr>
+<tr>
+<td>라이선스</td>
+<td><strong>MIT</strong> (상업적 이용 가능)</td>
+</tr>
+<tr>
+<td>다국어 지원</td>
+<td>한국어 + 영어 위주</td>
+</tr>
+<tr>
+<td>GitHub</td>
+<td><a href="https://github.com/nlpai-lab/KURE">nlpai-lab/KURE</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_6">학습 방법<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>학습 데이터</strong>: 한국어 query-document-hard_negative 트리플릿 <strong>200만 건</strong></li>
+<li><strong>학습 도메인</strong>: 금융(Finance), 공공(Public), 의료(Medical), <strong>법률(Legal)</strong>, 상거래(Commerce) 5개 도메인 PDF 파싱</li>
+<li><strong>손실 함수</strong>: CachedGISTEmbedLoss (교사 모델로부터의 지식 증류)</li>
+<li><strong>검색 방식</strong>: Dense Retrieval (단일 벡터)</li>
+</ul>
+<h3 id="_7">벤치마크 성능<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p><strong>MTEB Korean Retrieval 리더보드 — 1위 (2024.12 기준)</strong></p>
+<table>
+<thead>
+<tr>
+<th>모델</th>
+<th>Recall@1</th>
+<th>NDCG@1</th>
+<th>Recall@10</th>
+<th>NDCG@10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>KURE-v1</strong></td>
+<td><strong>0.5264</strong></td>
+<td><strong>0.6055</strong></td>
+<td><strong>0.7968</strong></td>
+<td><strong>0.6947</strong></td>
+</tr>
+<tr>
+<td>dragonkue/BGE-m3-ko</td>
+<td>0.5236</td>
+<td>0.6039</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>BAAI/bge-m3</td>
+<td>0.5178</td>
+<td>0.5985</td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>AutoRAGRetrieval 평가 데이터셋</strong> (금융/공공/의료/법률/상거래 5도메인)에서 학습·검증됨.</p>
+<h3 id="_8">장점<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<ul>
+<li>한국어 검색 현재 <strong>공개 모델 중 최고 성능</strong></li>
+<li><strong>금융·법률·의료·공공</strong> 도메인 데이터로 직접 학습 — 부동산 RAG에 직접 적용 가능</li>
+<li>8,192 토큰으로 긴 스터디 노트 처리 가능</li>
+<li>MIT 라이선스 — 상업화 완전 자유</li>
+</ul>
+<h3 id="_9">단점<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Dense 단일 벡터 방식 — 내장 Sparse 검색 불가 (별도 BM25 구성 필요)</li>
+<li>순수 다국어 처리는 BGE-M3 대비 약함</li>
+</ul>
+<hr />
+<h2 id="3-bge-m3-baai">3. BGE-M3 — BAAI<a class="headerlink" href="#3-bge-m3-baai" title="Permanent link">&para;</a></h2>
+<h3 id="_10">기본 정보<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>개발사</td>
+<td>BAAI (Beijing Academy of Artificial Intelligence)</td>
+</tr>
+<tr>
+<td>공개일</td>
+<td>2024년 1월</td>
+</tr>
+<tr>
+<td>기반 아키텍처</td>
+<td>XLM-RoBERTa (확장)</td>
+</tr>
+<tr>
+<td>파라미터 수</td>
+<td>약 568M</td>
+</tr>
+<tr>
+<td>임베딩 차원</td>
+<td>1,024</td>
+</tr>
+<tr>
+<td><strong>최대 입력 토큰</strong></td>
+<td><strong>8,192 tokens</strong></td>
+</tr>
+<tr>
+<td>라이선스</td>
+<td><strong>MIT</strong></td>
+</tr>
+<tr>
+<td>다국어 지원</td>
+<td><strong>100개+ 언어</strong></td>
+</tr>
+<tr>
+<td>논문</td>
+<td><a href="https://arxiv.org/abs/2402.03216">arXiv:2402.03216</a> (COLM 2025 게재)</td>
+</tr>
+<tr>
+<td>월간 다운로드</td>
+<td>18,654,338회</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-multi-functionality">핵심 특징: 3중 검색 방식 (Multi-Functionality)<a class="headerlink" href="#3-multi-functionality" title="Permanent link">&para;</a></h3>
+<p>BGE-M3의 최대 차별점 — <strong>단일 모델로 3가지 검색 방식을 동시 지원</strong>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>1. Dense Retrieval     → 1,024차원 벡터 기반 시맨틱 검색
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>2. Sparse Retrieval    → 어휘 가중치 기반 (BM25 유사)
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>3. ColBERT 검색        → 토큰별 컨텍스트 임베딩 (세밀한 매칭)
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>→ 세 방식 하이브리드가 단일 방식 대비 NDCG@10 기준 +5~10점 향상
+</code></pre></div>
+<h3 id="_11">벤치마크 성능<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p><strong>MIRACL (다국어 검색 벤치마크, nDCG@10)</strong></p>
+<table>
+<thead>
+<tr>
+<th>언어</th>
+<th>Dense</th>
+<th>Dense+Sparse</th>
+<th>Dense+Sparse+ColBERT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>한국어</td>
+<td>68.3</td>
+<td>+2~3</td>
+<td>최고</td>
+</tr>
+<tr>
+<td>전체 18개 언어 평균</td>
+<td>—</td>
+<td>—</td>
+<td><strong>70.0</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>MTEB 전체</strong> (다국어): <strong>63.0</strong> (오픈소스 최고 수준)</p>
+<blockquote>
+<p>비교: Cohere embed-v4: 65.2 / OpenAI text-embedding-3-large: 64.6</p>
+</blockquote>
+<h3 id="_12">장점<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>단일 모델로 하이브리드 검색</strong> — 별도 BM25 인프라 불필요</li>
+<li>100+ 언어 지원, 진정한 다국어 RAG 가능</li>
+<li>8,192 토큰 장문서 처리</li>
+<li>MIT 라이선스, <strong>가장 활발한 파인튜닝 생태계</strong> (파인튜닝 파생 모델 383개)</li>
+<li>Qdrant에서 BGE-M3 Sparse 검색 내장 지원</li>
+</ul>
+<h3 id="_13">단점<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<ul>
+<li>순수 한국어 검색 성능은 KURE-v1 대비 소폭 열위</li>
+<li>ColBERT 모드 활성화 시 계산·스토리지 비용 증가</li>
+</ul>
+<h3 id="dragonkuebge-m3-ko">특이사항: dragonkue/BGE-m3-ko<a class="headerlink" href="#dragonkuebge-m3-ko" title="Permanent link">&para;</a></h3>
+<p>BGE-M3를 한국어 전용으로 추가 파인튜닝한 변형 모델:</p>
+<ul>
+<li>MTEB 한국어 리더보드 2위 (KURE-v1 바로 아래)</li>
+<li>BGE-M3의 다국어 범용성 + 한국어 특화 성능의 중간 포지션</li>
+</ul>
+<hr />
+<h2 id="4-multilingual-e5-large-microsoft">4. multilingual-e5-large — Microsoft<a class="headerlink" href="#4-multilingual-e5-large-microsoft" title="Permanent link">&para;</a></h2>
+<h3 id="_14">기본 정보<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>개발사</td>
+<td>Microsoft (Liang Wang, Nan Yang 등)</td>
+</tr>
+<tr>
+<td>기반 아키텍처</td>
+<td>XLM-RoBERTa-large (24레이어)</td>
+</tr>
+<tr>
+<td>파라미터 수</td>
+<td>약 560M</td>
+</tr>
+<tr>
+<td>임베딩 차원</td>
+<td>1,024</td>
+</tr>
+<tr>
+<td><strong>최대 입력 토큰</strong></td>
+<td><strong>512 tokens ⚠️</strong></td>
+</tr>
+<tr>
+<td>라이선스</td>
+<td>MIT</td>
+</tr>
+<tr>
+<td>다국어 지원</td>
+<td>94개+ 언어</td>
+</tr>
+<tr>
+<td>논문</td>
+<td><a href="https://arxiv.org/abs/2402.05672">arXiv:2402.05672</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="2">학습 방법 — 2단계<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Stage 1: 약지도 대조 사전학습
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  → 10억 건 다국어 텍스트 쌍 (mC4, CC News, NLLB, Wikipedia, Reddit 등)
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>Stage 2: 감독 파인튜닝
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>  → MIRACL (16개 언어, 4만 쌍)
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>  → Mr. TyDi (11개 언어, 5만 쌍 — 한국어 포함)
+</code></pre></div>
+<h3 id="_15">사용 규칙 (필수)<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<p>반드시 prefix를 붙여야 올바르게 동작함:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># 검색 쿼리</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;query: 강남 아파트 실거래가 최근 동향&quot;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># 검색 대상 문서</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">passage</span> <span class="o">=</span> <span class="s2">&quot;passage: 2024년 강남구 아파트 매매 실거래가는...&quot;</span>
+</code></pre></div>
+<h3 id="_16">벤치마크 성능<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>벤치마크</th>
+<th>점수</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MIRACL 한국어 (nDCG@10)</td>
+<td>66.5</td>
+</tr>
+<tr>
+<td>Mr. TyDi 한국어 (MRR@10)</td>
+<td>~73</td>
+</tr>
+<tr>
+<td>MTEB 다국어 전체</td>
+<td>상위권</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_17">장점<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Microsoft 공식 지원, 안정적 유지보수</li>
+<li>Azure AI Catalog 공식 등재</li>
+<li>MMTEB 2025에서 instruction-tuned 버전(<code>multilingual-e5-large-instruct</code>)이 560M급 최고</li>
+</ul>
+<h3 id="_18">단점 ⚠️<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>최대 512 토큰 제한</strong> — 현 프로젝트의 YouTube 스터디 노트(수천 토큰) 처리 불가</li>
+<li>KURE-v1, BGE-M3 대비 한국어 검색 성능 열위</li>
+<li>하이브리드 검색 내장 불가</li>
+<li>한국어 전문 도메인 학습 데이터 없음</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">512 토큰 제한</p>
+<p>현 프로젝트의 notes_rag_done 문서는 평균 수천 토큰 수준이며,
+전체 흐름(스크립트 정제본) 섹션만 해도 512 토큰을 쉽게 초과합니다.
+Atomic Facts 단위 청킹 시에는 문제없으나, 문서 수준 임베딩에는 부적합합니다.</p>
+</div>
+<hr />
+<h2 id="5-kosimcse-roberta-bm-k">5. KoSimCSE-roberta — BM-K<a class="headerlink" href="#5-kosimcse-roberta-bm-k" title="Permanent link">&para;</a></h2>
+<h3 id="_19">기본 정보<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>개발사</td>
+<td>BM-K (SKT AI Research 협력)</td>
+</tr>
+<tr>
+<td>기반 아키텍처</td>
+<td>KLUE-RoBERTa-base (12레이어)</td>
+</tr>
+<tr>
+<td>파라미터 수</td>
+<td><strong>약 110M</strong> (가장 경량)</td>
+</tr>
+<tr>
+<td>임베딩 차원</td>
+<td><strong>768</strong></td>
+</tr>
+<tr>
+<td><strong>최대 입력 토큰</strong></td>
+<td><strong>512 tokens ⚠️</strong></td>
+</tr>
+<tr>
+<td>라이선스</td>
+<td><strong>CC-BY-SA-4.0</strong> ⚠️</td>
+</tr>
+<tr>
+<td>다국어 지원</td>
+<td><strong>한국어 전용</strong></td>
+</tr>
+<tr>
+<td>GitHub</td>
+<td><a href="https://github.com/BM-K/Sentence-Embedding-Is-All-You-Need">BM-K/Sentence-Embedding-Is-All-You-Need</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="simcse">학습 방법 — SimCSE 기반<a class="headerlink" href="#simcse" title="Permanent link">&para;</a></h3>
+<p>SimCSE(Simple Contrastive Learning of Sentence Embeddings)의 한국어 적용:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>비지도: 동일 문장에 서로 다른 드롭아웃 → 대조 학습
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>지도:   KorNLI 함의 쌍 → 양성 / 모순 쌍 → 하드 네거티브
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>멀티태스크: KorSTS + KorNLI 동시 학습
+</code></pre></div>
+<h3 id="_20">벤치마크 성능<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<p><strong>KorSTS (한국어 의미 텍스트 유사도)</strong></p>
+<table>
+<thead>
+<tr>
+<th>메트릭</th>
+<th>점수</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>평균 (AVG)</strong></td>
+<td><strong>85.77</strong></td>
+</tr>
+<tr>
+<td>Cosine Pearson</td>
+<td>85.08</td>
+</tr>
+<tr>
+<td>Cosine Spearman</td>
+<td>86.12</td>
+</tr>
+</tbody>
+</table>
+<p><strong>한국어 복지 도메인 RAG 벤치마크 (ssisOneTeam, 2024)</strong></p>
+<ul>
+<li>106개 QA 쌍 HitRate 평균: <strong>71.905</strong> — 20개 이상 모델 중 <strong>1위</strong></li>
+<li>KoSimCSE-roberta-multitask 계열이 1, 2위 동시 차지</li>
+</ul>
+<h3 id="_21">장점<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>110M 파라미터</strong> — 가장 빠른 추론, 낮은 메모리</li>
+<li>한국어 의미 유사도(STS)에서 최고 수준</li>
+<li>경량 배포 환경(엣지, 저사양 서버)에 적합</li>
+</ul>
+<h3 id="_22">단점 ⚠️<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>한국어 전용</strong> — 영어 등 다국어 문서 처리 불가</li>
+<li>512 토큰 제한 — 장문서 처리 불가</li>
+<li><strong>CC-BY-SA-4.0 라이선스</strong> — 상업 서비스 배포 시 동일 라이선스 조건 유지 필요 (주의)</li>
+<li>금융·법률·부동산 도메인 전용 학습 데이터 없음</li>
+<li>일반 한국어 STS 강점이지만, 전문 도메인 검색(Retrieval)에서는 KURE-v1·BGE-M3 대비 열위</li>
+</ul>
+<hr />
+<h2 id="6">6. 종합 비교 및 벤치마크<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<h3 id="_23">핵심 스펙 비교<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th style="text-align: center;">KURE-v1</th>
+<th style="text-align: center;">BGE-M3</th>
+<th style="text-align: center;">mE5-large</th>
+<th style="text-align: center;">KoSimCSE-MT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>파라미터</strong></td>
+<td style="text-align: center;">568M</td>
+<td style="text-align: center;">568M</td>
+<td style="text-align: center;">560M</td>
+<td style="text-align: center;">110M</td>
+</tr>
+<tr>
+<td><strong>임베딩 차원</strong></td>
+<td style="text-align: center;">1,024</td>
+<td style="text-align: center;">1,024</td>
+<td style="text-align: center;">1,024</td>
+<td style="text-align: center;">768</td>
+</tr>
+<tr>
+<td><strong>최대 토큰</strong></td>
+<td style="text-align: center;"><strong>8,192</strong></td>
+<td style="text-align: center;"><strong>8,192</strong></td>
+<td style="text-align: center;">~~512~~</td>
+<td style="text-align: center;">~~512~~</td>
+</tr>
+<tr>
+<td><strong>라이선스</strong></td>
+<td style="text-align: center;">MIT ✅</td>
+<td style="text-align: center;">MIT ✅</td>
+<td style="text-align: center;">MIT ✅</td>
+<td style="text-align: center;">CC-BY-SA ⚠️</td>
+</tr>
+<tr>
+<td><strong>한국어 특화</strong></td>
+<td style="text-align: center;">★★★★★</td>
+<td style="text-align: center;">★★★☆☆</td>
+<td style="text-align: center;">★★★☆☆</td>
+<td style="text-align: center;">★★★★☆</td>
+</tr>
+<tr>
+<td><strong>다국어</strong></td>
+<td style="text-align: center;">★★☆☆☆</td>
+<td style="text-align: center;">★★★★★</td>
+<td style="text-align: center;">★★★★☆</td>
+<td style="text-align: center;">★☆☆☆☆</td>
+</tr>
+<tr>
+<td><strong>하이브리드 검색</strong></td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅ 내장</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td><strong>장문서 처리</strong></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td><strong>도메인 적합성</strong></td>
+<td style="text-align: center;">★★★★★</td>
+<td style="text-align: center;">★★★★☆</td>
+<td style="text-align: center;">★★★☆☆</td>
+<td style="text-align: center;">★★☆☆☆</td>
+</tr>
+<tr>
+<td><strong>추론 속도</strong></td>
+<td style="text-align: center;">중간</td>
+<td style="text-align: center;">중간</td>
+<td style="text-align: center;">중간</td>
+<td style="text-align: center;"><strong>빠름</strong></td>
+</tr>
+<tr>
+<td><strong>오픈소스</strong></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅ (조건부)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_24">한국어 검색 성능 비교<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>MIRACL 한국어 nDCG@10 (높을수록 좋음):
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>KURE-v1           ████████████████████ 69.5 (추정, 리더보드 1위)
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>BGE-m3-ko         ███████████████████  68.3
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>BAAI/bge-m3       ██████████████████   66.8
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>mE5-large         ██████████████████   66.5
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>KoSimCSE-MT       측정 없음 (STS 특화)
+</code></pre></div>
+<h3 id="_25">라이선스 정리<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>라이선스</th>
+<th>모델</th>
+<th>상업 이용</th>
+<th>조건</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MIT</td>
+<td>KURE-v1, BGE-M3, mE5-large</td>
+<td>✅ 자유</td>
+<td>저작권 표기</td>
+</tr>
+<tr>
+<td>CC-BY-SA-4.0</td>
+<td>KoSimCSE-roberta</td>
+<td>⚠️ 가능</td>
+<td><strong>동일 라이선스 유지</strong> (copyleft)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="20252026">최신 벤치마크 현황 (2025~2026)<a class="headerlink" href="#20252026" title="Permanent link">&para;</a></h3>
+<p><strong>MMTEB (Massive Multilingual Text Embedding Benchmark, 2025.02)</strong></p>
+<ul>
+<li>250개+ 언어, 500개+ 태스크 평가</li>
+<li>주요 발견: instruction-tuned 모델(<code>multilingual-e5-large-instruct</code>)이 동급 최고</li>
+</ul>
+<p><strong>KorFinMTEB (ICLR 2025, TWICE 논문)</strong></p>
+<ul>
+<li>한국어 금융 도메인 특화 벤치마크 (분류/클러스터링/검색/STS/재순위 7종)</li>
+<li>핵심 발견: <strong>번역 기반 벤치마크보다 한국어 원문 벤치마크가 더 신뢰성 높음</strong></li>
+<li>KURE-v1 등 한국어 파인튜닝 모델이 일반 다국어 모델보다 도메인 강건성 우수</li>
+</ul>
+<hr />
+<h2 id="7">7. 프로젝트 적용 추천<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
+<h3 id="_26">현재 프로젝트 특성 재확인<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>데이터: 한국어 YouTube 부동산 스터디 노트
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>        → 문서당 수천 토큰 (긴 스크립트)
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>        → Atomic Facts는 ~50~100 토큰 (짧은 단위)
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>도메인: 부동산, 금융, 세금, 법률, 경매
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>언어: 한국어 95%+ (영어 혼용 일부)
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>검색 방식 목표: 하이브리드 (BM25 + 벡터)
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>라이선스 요구: 상업 이용 가능 (MIT 선호)
+</code></pre></div>
+<h3 id="_27">추천 결론<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">1순위 — KURE-v1</label><label for="__tabbed_1_2">2순위 — BGE-M3 (하이브리드 우선 시)</label><label for="__tabbed_1_3">비추천 — mE5-large</label><label for="__tabbed_1_4">비추천 — KoSimCSE-roberta</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><strong>추천 이유</strong></p>
+<ul>
+<li>한국어 금융·법률·공공 도메인 PDF 데이터로 <strong>직접 학습</strong> → 부동산 RAG 도메인 최적합</li>
+<li>현재 공개 모델 중 <strong>한국어 검색 최고 성능</strong> (MTEB 한국어 리더보드 1위)</li>
+<li>8,192 토큰으로 긴 스터디 노트 처리 가능</li>
+<li>MIT 라이선스 — 상업화 완전 자유</li>
+<li>BGE-M3 기반 파인튜닝이라 BGE-M3 생태계(Qdrant 등)와 완벽 호환</li>
+</ul>
+<p><strong>Qdrant 연동 예시</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sentence_transformers</span><span class="w"> </span><span class="kn">import</span> <span class="n">SentenceTransformer</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">model</span> <span class="o">=</span> <span class="n">SentenceTransformer</span><span class="p">(</span><span class="s2">&quot;nlpai-lab/KURE-v1&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">embeddings</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">encode</span><span class="p">([</span><span class="s2">&quot;강남 아파트 투자 리스크는?&quot;</span><span class="p">])</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><strong>추천 이유</strong></p>
+<ul>
+<li><strong>단일 모델로 Dense + Sparse 하이브리드 검색</strong> — Qdrant 내장 지원</li>
+<li>100+ 언어 지원 → 향후 다국어 확장 시 재학습 불필요</li>
+<li>파인튜닝 파생 모델 383개 → 부동산 도메인 파인튜닝 사례 풍부</li>
+<li>KURE-v1 대비 한국어 성능 차이 미미 (~1~2%)</li>
+</ul>
+<p><strong>하이브리드 검색 활성화 (Qdrant)</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">FlagEmbedding</span><span class="w"> </span><span class="kn">import</span> <span class="n">BGEM3FlagModel</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">model</span> <span class="o">=</span> <span class="n">BGEM3FlagModel</span><span class="p">(</span><span class="s2">&quot;BAAI/bge-m3&quot;</span><span class="p">,</span> <span class="n">use_fp16</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">output</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    <span class="n">sentences</span><span class="p">,</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>    <span class="n">return_dense</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>   <span class="c1"># Dense 벡터</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>    <span class="n">return_sparse</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># Sparse 가중치 (BM25 대체)</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>    <span class="n">return_colbert_vecs</span><span class="o">=</span><span class="kc">False</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><strong>프로젝트 부적합 이유</strong></p>
+<ul>
+<li><strong>512 토큰 제한</strong> → 현 데이터 구조(긴 스크립트)에 근본적으로 부적합</li>
+<li>KURE-v1, BGE-M3 대비 한국어 검색 성능 열위</li>
+<li>한국어 전문 도메인 학습 데이터 없음</li>
+</ul>
+<p><em>Atomic Facts 단위 청킹만 사용한다면 기술적으로는 가능하나, 위 두 모델이 모든 면에서 우수</em></p>
+</div>
+<div class="tabbed-block">
+<p><strong>프로젝트 부적합 이유</strong></p>
+<ul>
+<li><strong>512 토큰 제한</strong> — 장문서 처리 불가</li>
+<li>CC-BY-SA-4.0 라이선스 — 상업 서비스 시 조건 주의 필요</li>
+<li>금융·법률·부동산 도메인 학습 데이터 없음</li>
+<li>검색(Retrieval)보다 의미 유사도(STS) 특화 → RAG에 최적화되지 않음</li>
+</ul>
+<p><em>경량 재순위(re-ranking) 보조 모델 또는 프로토타입 테스트용으로는 활용 가능</em></p>
+</div>
+</div>
+</div>
+<h3 id="_28">최종 권장 아키텍처<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>임베딩: nlpai-lab/KURE-v1 (기본)
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>벡터 DB: Qdrant (메타데이터 필터 + BM25 별도 통합)
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>하이브리드 검색:
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>  ├─ Dense: KURE-v1 벡터 (시맨틱 검색)
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>  └─ Sparse: Qdrant BM25 또는 BM-25F (키워드 검색)
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>(선택) 향후 도메인 파인튜닝:
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>  KURE-v1 → 부동산 도메인 트리플릿 200~1,000건으로 추가 파인튜닝
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>  → 예상 성능 향상: +3~10% (도메인 특화 효과)
+</code></pre></div>
+<hr />
+<h2 id="_29">참고 자료<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://huggingface.co/nlpai-lab/KURE-v1">nlpai-lab/KURE-v1 — Hugging Face</a></li>
+<li><a href="https://github.com/nlpai-lab/KURE">GitHub: nlpai-lab/KURE</a></li>
+<li><a href="https://huggingface.co/BAAI/bge-m3">BAAI/bge-m3 — Hugging Face</a></li>
+<li><a href="https://arxiv.org/abs/2402.03216">M3-Embedding 논문 arXiv:2402.03216</a> (COLM 2025)</li>
+<li><a href="https://huggingface.co/intfloat/multilingual-e5-large">intfloat/multilingual-e5-large — Hugging Face</a></li>
+<li><a href="https://arxiv.org/abs/2402.05672">Multilingual E5 논문 arXiv:2402.05672</a></li>
+<li><a href="https://huggingface.co/BM-K/KoSimCSE-roberta-multitask">BM-K/KoSimCSE-roberta-multitask — Hugging Face</a></li>
+<li><a href="https://github.com/BM-K/Sentence-Embedding-Is-All-You-Need">GitHub: BM-K/Sentence-Embedding-Is-All-You-Need</a></li>
+<li><a href="https://arxiv.org/abs/2502.07131">KorFinMTEB / TWICE — arXiv:2502.07131</a> (ICLR 2025)</li>
+<li><a href="https://arxiv.org/abs/2502.13595">MMTEB — arXiv:2502.13595</a></li>
+<li><a href="https://huggingface.co/spaces/mteb/leaderboard">MTEB 리더보드 (한국어 필터)</a></li>
+<li><a href="https://github.com/ssisOneTeam/Korean-Embedding-Model-Performance-Benchmark-for-Retriever">한국어 RAG 임베딩 벤치마크 — ssisOneTeam</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  맨위로
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.highlight", "search.suggest", "content.code.copy", "toc.follow"], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
