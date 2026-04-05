@@ -1,0 +1,6556 @@
+
+<!doctype html>
+<html lang="ko" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="대한민국 부동산 RAG 기반 AI 상담/보고서 서비스 기획 문서">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>B-074. 신도시 비교 Opus 4.6 테스트 결과 - 부동산 AI 어드바이저 — 프로젝트 기획</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#b-074-opus-46" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="상단/헤더">
+    <a href="../../../.." title="부동산 AI 어드바이저 — 프로젝트 기획" class="md-header__button md-logo" aria-label="부동산 AI 어드바이저 — 프로젝트 기획" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            부동산 AI 어드바이저 — 프로젝트 기획
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              B-074. 신도시 비교 Opus 4.6 테스트 결과
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="다크 모드로 전환"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="다크 모드로 전환" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="라이트 모드로 전환"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="라이트 모드로 전환" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+        <button type="reset" class="md-search__icon md-icon" title="지우기" aria-label="지우기" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="탭" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  홈
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../project_plan/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  프로젝트 기획서
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../1_rag_mvp/1_rag_mvp_plan/" class="md-tabs__link">
+          
+  
+  
+  Phase 1 — RAG MVP
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../2_domain_ontology/2_domain_ontology_plan/" class="md-tabs__link">
+          
+  
+  
+  Phase 2 — 도메인 온톨로지
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../00_overview/" class="md-tabs__link">
+          
+  
+  
+  Phase 3 — 부동산 RAG 챗봇
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../4_deep_report/00_overview/" class="md-tabs__link">
+          
+  
+  
+  Phase 4 — 딥 리포트
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../settings/" class="md-tabs__link">
+          
+  
+  
+  환경 설정
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="네비게이션" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="부동산 AI 어드바이저 — 프로젝트 기획" class="md-nav__button md-logo" aria-label="부동산 AI 어드바이저 — 프로젝트 기획" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    부동산 AI 어드바이저 — 프로젝트 기획
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    홈
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../project_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    프로젝트 기획서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 1 — RAG MVP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phase 1 — RAG MVP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/1_rag_mvp_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기획서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    세부 계획
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    세부 계획
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/1_1_embedding_data_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.1 임베딩 데이터 테스트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_2" id="__nav_3_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    테스트 결과
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    테스트 결과
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/test_result/20260315_1_sementic_search_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    시맨틱 검색 테스트 (1차)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/test_result/20260315_2_sementic_search_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    시맨틱 검색 테스트 (2차)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/test_result/20260315_3_meta_data_filtering_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    메타데이터 필터링 테스트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/test_result/20260315_4_embedding_quality_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    임베딩 품질 평가
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기술 연구
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    기술 연구
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/tech_research/embedding_models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    한국어 임베딩 모델 비교
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/tech_research/vector_databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vector Database 비교
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/tech_research/hybrid_search_bm25/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hybrid Search (Dense + BM25)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 1 — 검색 개선 연구
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 1 — 검색 개선 연구
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/supplementary_1_search_improvement/01_overview_and_research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    개요 및 외부 연구
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/supplementary_1_search_improvement/02_query_time_improvements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Query-Time 개선
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/supplementary_1_search_improvement/03_post_retrieval_improvements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Post-Retrieval 개선
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/supplementary_1_search_improvement/04_adaptive_rag_generation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Adaptive RAG Generation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/supplementary_1_search_improvement/05_indexing_and_evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    인덱싱 및 평가
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/supplementary_1_search_improvement/06_implementation_and_test_report/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    구현 및 테스트 리포트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2 — 도메인 온톨로지
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phase 2 — 도메인 온톨로지
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/2_domain_ontology_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기획서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/3_legal_doc_rag_strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    법령 문서 RAG 전략
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/4_ontology_build_and_index_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    온톨로지 빌드 + 색인 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/5_phase2_search_test_report/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    검색 테스트 리포트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/6_search_improvement_research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    검색 개선 연구 (외부 사례)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 1 — Contextual Retrieval
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 1 — Contextual Retrieval
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_1_contextual_retrieval/01_contextual_retrieval_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    구현 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_1_contextual_retrieval/02_contextual_prefix_script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prefix 생성 스크립트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_1_contextual_retrieval/03_cron_wrapper_and_yaml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cron Wrapper & YAML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_1_contextual_retrieval/04_index_phase2_modifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    index_phase2 수정 사항
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_1_contextual_retrieval/05_contextual_retrieval_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    적용 결과 리포트 (확장 테스트)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 2 — BGE-M3 Triple-Vector
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 2 — BGE-M3 Triple-Vector
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/01_bgem3_triple_vector_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    전체 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/02_embedder_bgem3_design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Embedder 설계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/03_collection_schema_and_indexing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    컬렉션 스키마 + 인덱싱
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/04_multi_stage_search_pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi-Stage 검색 파이프라인
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/05_benchmark_and_ablation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    벤치마크 및 Ablation Study
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/06_results_and_analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 분석
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/07_colbert_improvement_research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ColBERT 개선 전략 연구
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/08_reranker_module_design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reranker 모듈 설계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/09_benchmark_expansion_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    확장 벤치마크 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/10_expanded_benchmark_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    확장 벤치마크 결과
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 3 — Cross-Domain Query Decomposition
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 3 — Cross-Domain Query Decomposition
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_3_cross_domain/01_query_decomposition_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    구현 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_3_cross_domain/02_query_analyzer_design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QueryAnalyzer 설계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_3_cross_domain/03_search_pipeline_design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SearchPipeline 설계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_3_cross_domain/04_evaluation_framework/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    평가 프레임워크
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_3_cross_domain/05_benchmark_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    벤치마크 결과
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_9" id="__nav_4_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 4 — 순차 보완 전략 (P1-a/b)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 4 — 순차 보완 전략 (P1-a/b)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/01_sequential_improvement_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    순차 개선 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/02_execution_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    실행 프레임워크
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/03_step1_hybrid_strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Step 1 — 하이브리드 전략
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/04_step2_decompose_conservatism/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Step 2 — DECOMPOSE 보수화
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/05_step3_prefilter_refinement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Step 3 — 사전 필터 정교화
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/06_step4_prompt_conservatism/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Step 4 — 프롬프트 보수성
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/07_step5_cross_encoder_fusion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Step 5 — Cross-Encoder 퓨전
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/08_step1to4_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 — Step 1~4 통합
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/09_step5_rerank_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 — Step 5 CE 퓨전
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/7_phase2_comprehensive_evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2 종합 평가
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_11" id="__nav_4_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 5 — 슬랭 Alias + CE 최적화 (Phase 2A)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 5 — 슬랭 Alias + CE 최적화 (Phase 2A)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_5_slang_alias_ce/01_phase2a_quickwins_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Wins 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_5_slang_alias_ce/02_alpha_grid_search/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    α 그리드 서치
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_5_slang_alias_ce/03_conditional_ce_bypass/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    조건부 CE 우회
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_5_slang_alias_ce/04_slang_alias_expansion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    슬랭 Alias 확장
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_5_slang_alias_ce/05_benchmark_verification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    벤치마크 검증 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_5_slang_alias_ce/06_phase2a_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2A 결과
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_5_slang_alias_ce/07_phase2b_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2B/C 결과 (최종)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_12" id="__nav_4_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 6 — Alias Pruning + CRAG
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 6 — Alias Pruning + CRAG
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_6_alias_pruning_crag/01_implementation_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    구현 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_6_alias_pruning_crag/02_alias_pruning_script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alias Pruning 스크립트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_6_alias_pruning_crag/03_crag_retrieval_compensator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CRAG 검색 보정기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_13" id="__nav_4_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    조사 자료
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    조사 자료
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/research/5%EA%B0%9C%ED%98%91%ED%9A%8C%EB%8B%A8%EC%B2%B4_RAG%EC%9E%90%EB%A3%8C%EC%88%98%EC%A7%91_%EC%A1%B0%EC%82%AC%EA%B2%B0%EA%B3%BC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5개 협회·단체 자료수집 조사
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/research/HF_HUG_RAG_%EC%A1%B0%EC%82%AC%EB%B0%A9%EB%B2%95%EB%A1%A0_%EC%82%AC%EC%9D%B4%ED%8A%B8%EB%AA%A9%EB%A1%9D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HF 주택금융공사 조사 방법론
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/research/HUG_%EC%A3%BC%ED%83%9D%EB%8F%84%EC%8B%9C%EB%B3%B4%EC%A6%9D%EA%B3%B5%EC%82%AC_RAG_%EC%A1%B0%EC%82%AC%EB%B0%A9%EB%B2%95%EB%A1%A0_%EC%82%AC%EC%9D%B4%ED%8A%B8%EB%AA%A9%EB%A1%9D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HUG 주택도시보증공사 조사 방법론
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/research/%EA%B5%AD%ED%86%A0%EA%B5%90%ED%86%B5%EB%B6%80_%ED%86%B5%EA%B3%84%EB%88%84%EB%A6%AC_CSV%EC%B2%98%EB%A6%AC_%EA%B2%B0%EA%B3%BC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    국토교통부 통계누리 CSV 처리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 3 — 부동산 RAG 챗봇
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phase 3 — 부동산 RAG 챗봇
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기획서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../evaluation_report/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG vs LLM 평가 보고서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    테스트 데이터
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    테스트 데이터
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/test_set_v1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    테스트 셋 v1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG+LLM 테스트 결과
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RAG+LLM 테스트 결과
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 요약
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_a_singles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part A — 단일 질문 (100개)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_c_singles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part C — 추가 단일 질문 (12개)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_001/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-001 대학생 자취방
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_002/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-002 대학생 주거 지원
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_003/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-003 사회초년생 독립
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_004/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-004 직장인 자취 지역
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_005/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-005 신혼부부 평수/구조
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-006 맞벌이 출퇴근 동선
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-007 자녀 학군 이사
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_008/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-008 아이 키우기 아파트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-009 전원주택 구매
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-010 상가 매입
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-011 경매 입찰
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-012 꼬마빌딩 투자
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-013 단독주택/다가구
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG+LLM v3 결과 (realestate_v3 연동)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RAG+LLM v3 결과 (realestate_v3 연동)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 요약
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_a_singles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part A — 단일 질문 (100개)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_c_singles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part C — 추가 단일 질문 (12개)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_001/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-001 대학생 자취방
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_002/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-002 대학생 주거 지원
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_003/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-003 사회초년생 독립
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_004/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-004 직장인 자취 지역
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_005/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-005 신혼부부 평수/구조
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-006 맞벌이 출퇴근 동선
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-007 자녀 학군 이사
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_008/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-008 아이 키우기 아파트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-009 전원주택 구매
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-010 상가 매입
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-011 경매 입찰
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-012 꼬마빌딩 투자
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-013 단독주택/다가구
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_6" id="__nav_5_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Opus 4.6 베이스라인 결과
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Opus 4.6 베이스라인 결과
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 요약
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_a_singles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part A — 단일 질문 (100개)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_c_singles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part C — 추가 단일 질문 (12개)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_001/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-001 대학생 자취방
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_002/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-002 대학생 주거 지원
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_003/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-003 사회초년생 독립
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_004/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-004 직장인 자취 지역
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_005/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-005 신혼부부 평수/구조
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-006 맞벌이 출퇴근 동선
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-007 자녀 학군 이사
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_008/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-008 아이 키우기 아파트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-009 전원주택 구매
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-010 상가 매입
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-011 경매 입찰
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-012 꼬마빌딩 투자
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-013 단독주택/다가구
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 4 — 딥 리포트
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phase 4 — 딥 리포트
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../4_deep_report/00_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기획서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../4_deep_report/01_api_integration_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API 연동 상세 가이드
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../4_deep_report/02_competitor_analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    경쟁사 분석 상세
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    환경 설정
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    환경 설정
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    개요
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/qdrant_container_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qdrant 벡터 DB 컨테이너
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/embedding_container_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    KURE-v1 임베딩 컨테이너
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/qwen35_27b_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qwen3.5-27B 실행 가이드
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/nemotron3_super_120b_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nemotron3 Super 120B 실행 가이드
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/gemini_cron_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gemini CLI Cron 설정
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/codex_cron_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Codex CLI Cron 설정
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#q1-vs-vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q1. 판교 vs 광교 vs 동탄 어디가 제일 좋아요?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="b-074-opus-46">B-074. 신도시 비교 Opus 4.6 테스트 결과<a class="headerlink" href="#b-074-opus-46" title="Permanent link">&para;</a></h1>
+<p>실행 시각: 2026-04-02 10:16:07
+질문 수: 5</p>
+<hr />
+<h3 id="q1-vs-vs">Q1. 판교 vs 광교 vs 동탄 어디가 제일 좋아요?<a class="headerlink" href="#q1-vs-vs" title="Permanent link">&para;</a></h3>
+<p><strong>입력 토큰</strong>: 3 | <strong>출력 토큰</strong>: 1,475 | <strong>소요시간</strong>: 30,959ms | <strong>CLI 비용</strong>: $0.0469 | <strong>추정 API 비용</strong>: $0.1107
+<strong>대화 컨텍스트</strong>: 0턴 누적 | <strong>후속 제안</strong>: 미감지</p>
+<p><strong>답변:</strong></p>
+<h1 id="vs-vs">판교 vs 광교 vs 동탄 비교 분석<a class="headerlink" href="#vs-vs" title="Permanent link">&para;</a></h1>
+<p>세 곳 모두 경기 남부의 대표적인 신도시이지만, 성격이 상당히 다릅니다. 목적에 따라 추천이 달라집니다.</p>
+<hr />
+<h2 id="1-1">1. 판교 🏆 프리미엄 1위<a class="headerlink" href="#1-1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>입지</strong></td>
+<td>성남시 분당구, 서울 강남 접근성 최고 (신분당선 15분)</td>
+</tr>
+<tr>
+<td><strong>일자리</strong></td>
+<td>판교테크노밸리 (네카라쿠배 등 IT기업 밀집)</td>
+</tr>
+<tr>
+<td><strong>시세</strong></td>
+<td>34평 기준 <strong>15~20억 이상</strong> (가장 비쌈)</td>
+</tr>
+<tr>
+<td><strong>학군</strong></td>
+<td>분당학군 연계, 최상위권</td>
+</tr>
+<tr>
+<td><strong>단점</strong></td>
+<td>진입장벽이 매우 높음, 물량 적음</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>한줄평:</strong> 돈이 된다면 판교가 정답. 강남 접근성 + 자족도시 = 가격 방어력 최강</p>
+</blockquote>
+<hr />
+<h2 id="2">2. 광교 🥈 균형잡힌 선택<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>입지</strong></td>
+<td>수원시 영통구, 신분당선 연장 개통 (강남 30~40분)</td>
+</tr>
+<tr>
+<td><strong>일자리</strong></td>
+<td>경기도청, 삼성디지털시티 인접, 광교비즈니스센터</td>
+</tr>
+<tr>
+<td><strong>시세</strong></td>
+<td>34평 기준 <strong>10~14억대</strong></td>
+</tr>
+<tr>
+<td><strong>학군</strong></td>
+<td>광교 학군 우수 (영통학군 포함)</td>
+</tr>
+<tr>
+<td><strong>장점</strong></td>
+<td>광교호수공원 (자연환경 최고), 깔끔한 도시계획</td>
+</tr>
+<tr>
+<td><strong>단점</strong></td>
+<td>판교 대비 서울 접근성 다소 떨어짐</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>한줄평:</strong> 삶의 질 + 적당한 가격 + 자연환경 원하면 광교</p>
+</blockquote>
+<hr />
+<h2 id="3">3. 동탄 🥉 가성비 + 성장성<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>입지</strong></td>
+<td>화성시, GTX-A 개통으로 서울 접근성 대폭 개선</td>
+</tr>
+<tr>
+<td><strong>일자리</strong></td>
+<td>삼성반도체 화성캠퍼스, 동탄테크노밸리</td>
+</tr>
+<tr>
+<td><strong>시세</strong></td>
+<td>34평 기준 <strong>7~11억대</strong> (가장 저렴)</td>
+</tr>
+<tr>
+<td><strong>학군</strong></td>
+<td>신도시답게 신설학교 多, 학원가 성장 중</td>
+</tr>
+<tr>
+<td><strong>장점</strong></td>
+<td>넓은 물량, 신축 아파트, GTX 호재</td>
+</tr>
+<tr>
+<td><strong>단점</strong></td>
+<td>출퇴근 러시아워 교통체증, 아직 자족기능 성장 중</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>한줄평:</strong> 실거주 가성비 + 미래 가치 상승 기대하면 동탄</p>
+</blockquote>
+<hr />
+<h2 id="_1">🎯 목적별 추천<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>목적</th>
+<th>추천</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>강남 출퇴근</strong></td>
+<td>판교 &gt; 광교 &gt; 동탄</td>
+</tr>
+<tr>
+<td><strong>삼성전자 직장인</strong></td>
+<td>동탄 &gt; 광교 &gt; 판교</td>
+</tr>
+<tr>
+<td><strong>투자 안정성</strong></td>
+<td>판교 &gt; 광교 &gt; 동탄</td>
+</tr>
+<tr>
+<td><strong>투자 상승 여력</strong></td>
+<td>동탄 &gt; 광교 &gt; 판교 (이미 고점)</td>
+</tr>
+<tr>
+<td><strong>자녀 교육</strong></td>
+<td>판교 ≥ 광교 &gt; 동탄</td>
+</tr>
+<tr>
+<td><strong>실거주 가성비</strong></td>
+<td>동탄 &gt; 광교 &gt; 판교</td>
+</tr>
+<tr>
+<td><strong>자연환경·쾌적성</strong></td>
+<td>광교 &gt; 동탄 &gt; 판교</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_2">💡 핵심 조언<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>예산 15억 이상 + 강남권 직장</strong> → 판교 무조건</li>
+<li><strong>예산 10억 내외 + 균형잡힌 삶</strong> → 광교 추천</li>
+<li><strong>예산 7~8억 + 내 집 마련 첫 단추</strong> → 동탄2 신축 추천</li>
+<li><strong>GTX-A 개통 효과</strong>는 동탄의 가장 큰 변수입니다. 수서~동탄 20분대로 서울 접근성이 크게 개선되면서 가격 갭이 좁혀질 가능성이 있습니다.</li>
+</ol>
+<hr />
+<p>혹시 <strong>직장 위치, 예산, 가족 구성</strong> 등을 알려주시면 더 구체적으로 맞춤 추천 드릴 수 있습니다! 😊</p>
+<hr />
+<h3 id="q2">Q2. 각 신도시 장단점 좀 알려주세요<a class="headerlink" href="#q2" title="Permanent link">&para;</a></h3>
+<p><strong>입력 토큰</strong>: 3 | <strong>출력 토큰</strong>: 3,248 | <strong>소요시간</strong>: 62,211ms | <strong>CLI 비용</strong>: $0.1005 | <strong>추정 API 비용</strong>: $0.2436
+<strong>대화 컨텍스트</strong>: 1턴 누적 | <strong>후속 제안</strong>: 미감지</p>
+<p><strong>답변:</strong></p>
+<h1 id="_3">판교 · 광교 · 동탄 상세 장단점 분석<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="_4">🔷 판교 (성남시 분당구)<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="_5">✅ 장점<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>서울 강남 접근성 압도적</strong></li>
+<li>신분당선으로 강남역 15분, 판교IC·대왕판교IC 등 도로망도 우수</li>
+<li>
+<p>경부고속도로, 용인서울고속도로 인접</p>
+</li>
+<li>
+<p><strong>판교테크노밸리 = 자족도시의 정점</strong></p>
+</li>
+<li>네이버, 카카오, 엔씨소프트, 크래프톤 등 IT 대기업 본사 밀집</li>
+<li>
+<p>직주근접 가능, 퇴근 후 도보로 귀가하는 삶 가능</p>
+</li>
+<li>
+<p><strong>학군 최상위</strong></p>
+</li>
+<li>분당 학군과 연계, 대치동에 버금가는 학원 인프라</li>
+<li>
+<p>보평중, 낙생고 등 선호 학교 다수</p>
+</li>
+<li>
+<p><strong>가격 방어력 최강</strong></p>
+</li>
+<li>하락장에서도 낙폭이 작고, 회복 속도 빠름</li>
+<li>
+<p>수요 대비 공급이 절대적으로 부족 → 희소성</p>
+</li>
+<li>
+<p><strong>고소득 인구 밀집</strong></p>
+</li>
+<li>IT 종사자 평균 연봉이 높아 상권·인프라 수준이 높음</li>
+<li>현대백화점 판교점, 알파돔시티 등 프리미엄 상권</li>
+</ol>
+<h3 id="_6">❌ 단점<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>진입장벽이 극도로 높음</strong></li>
+<li>34평 기준 15~20억 이상, 소형 평수도 10억 넘김</li>
+<li>
+<p>신혼부부·사회초년생은 사실상 접근 불가</p>
+</li>
+<li>
+<p><strong>물량 부족 → 매물 자체가 없음</strong></p>
+</li>
+<li>원하는 단지에 매물이 나와도 금방 소진</li>
+<li>
+<p>전세도 구하기 어려움</p>
+</li>
+<li>
+<p><strong>도시 규모가 작음</strong></p>
+</li>
+<li>생활권이 좁아서 대형 공원이나 여가시설 부족</li>
+<li>
+<p>주말 나들이는 결국 외부로 나가야 함</p>
+</li>
+<li>
+<p><strong>주차·교통 체증</strong></p>
+</li>
+<li>테크노밸리 출퇴근 시간대 극심한 정체</li>
+<li>
+<p>판교역 일대 주차난 심각</p>
+</li>
+<li>
+<p><strong>노후화 시작</strong></p>
+</li>
+<li>2009~2012년 입주 단지들이 이미 15년 이상 경과</li>
+<li>리모델링 이슈가 향후 과제</li>
+</ol>
+<hr />
+<h2 id="_7">🔷 광교 (수원시 영통구)<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h3 id="_8">✅ 장점<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>자연환경 3곳 중 최고</strong></li>
+<li>광교호수공원 (국내 최대 도심 호수공원), 광교산 등</li>
+<li>
+<p>산책·조깅·자전거 등 여가생활 뛰어남</p>
+</li>
+<li>
+<p><strong>도시계획 완성도 높음</strong></p>
+</li>
+<li>신도시 설계가 매우 깔끔 (보차분리, 녹지비율 높음)</li>
+<li>
+<p>아파트 단지 배치, 동선이 잘 정리되어 있음</p>
+</li>
+<li>
+<p><strong>경기도 행정 중심지</strong></p>
+</li>
+<li>경기도청, 경기도교육청 소재 → 안정적 수요 기반</li>
+<li>
+<p>법조타운 (수원지방법원·검찰청 이전)</p>
+</li>
+<li>
+<p><strong>신분당선 연장 개통</strong></p>
+</li>
+<li>광교중앙역·광교역에서 강남 30~40분대</li>
+<li>
+<p>향후 신분당선 추가 연장 시 더 개선 가능</p>
+</li>
+<li>
+<p><strong>학군 우수</strong></p>
+</li>
+<li>광교 학군 자체가 좋고, 영통 학원가 이용 가능</li>
+<li>
+<p>교육열 높은 학부모 비율 높음</p>
+</li>
+<li>
+<p><strong>삼성디지털시티 인접</strong></p>
+</li>
+<li>삼성전자 수원 사업장 출퇴근 용이</li>
+<li>관련 협력업체 종사자 수요 탄탄</li>
+</ol>
+<h3 id="_9">❌ 단점<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>서울 접근성은 판교보다 확실히 떨어짐</strong></li>
+<li>강남까지 대중교통 40분, 자차 출퇴근 시 1시간 이상 가능</li>
+<li>
+<p>도로 교통은 용인서울고속도로 정체 심함</p>
+</li>
+<li>
+<p><strong>시세가 이미 많이 오름</strong></p>
+</li>
+<li>10~14억대로 가성비 메리트가 예전만 못함</li>
+<li>
+<p>동탄 대비 상승 여력이 제한적이라는 의견도</p>
+</li>
+<li>
+<p><strong>상권이 분산되어 있음</strong></p>
+</li>
+<li>갤러리아백화점 있지만 대형 상권이 한 곳에 집중되지 않음</li>
+<li>
+<p>분당·판교 상권 대비 규모가 작음</p>
+</li>
+<li>
+<p><strong>대중교통 노선 한정적</strong></p>
+</li>
+<li>신분당선 1개 노선 의존도 높음</li>
+<li>
+<p>버스 환승 없이 이동 가능한 범위가 좁음</p>
+</li>
+<li>
+<p><strong>유동인구 적은 편</strong></p>
+</li>
+<li>주거 위주 도시라 저녁·주말 상권이 조용함</li>
+<li>젊은 층이 즐길 문화시설 부족</li>
+</ol>
+<hr />
+<h2 id="_10">🔷 동탄 (화성시)<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<h3 id="_11">✅ 장점<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>가성비 최강</strong></li>
+<li>34평 기준 7~11억대, 같은 예산으로 더 넓고 새 아파트 가능</li>
+<li>
+<p>첫 내 집 마련 수요에 가장 현실적</p>
+</li>
+<li>
+<p><strong>GTX-A 개통 = 게임체인저</strong></p>
+</li>
+<li>동탄역~수서역 20분대 → 서울 접근성 대폭 개선</li>
+<li>
+<p>향후 GTX 효과로 시세 상승 기대감 큼</p>
+</li>
+<li>
+<p><strong>대규모 신축 아파트 단지</strong></p>
+</li>
+<li>동탄2 신도시 위주로 2018년 이후 입주 단지 다수</li>
+<li>
+<p>커뮤니티 시설 (피트니스, 독서실, 키즈카페 등) 최신식</p>
+</li>
+<li>
+<p><strong>삼성반도체 직주근접</strong></p>
+</li>
+<li>삼성전자 화성캠퍼스 (반도체) 바로 옆</li>
+<li>
+<p>반도체 호황기에는 인구 유입·전세 수요 폭증</p>
+</li>
+<li>
+<p><strong>젊은 도시</strong></p>
+</li>
+<li>30~40대 젊은 가구 비율 높음</li>
+<li>
+<p>학원가·키즈 인프라·카페 거리 등 빠르게 성장 중</p>
+</li>
+<li>
+<p><strong>대형 상권 잘 갖춰짐</strong></p>
+</li>
+<li>롯데백화점 동탄점, 동탄호수공원 일대 상권</li>
+<li>카페·맛집·문화시설 계속 증가 추세</li>
+</ol>
+<h3 id="_12">❌ 단점<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>출퇴근 교통체증 극심</strong> ⚠️ (가장 큰 약점)</li>
+<li>GTX 미이용 시 서울 출퇴근 1시간 30분~2시간</li>
+<li>경부고속도로·1번국도 상습 정체</li>
+<li>
+<p>동탄 내부 도로도 러시아워에 막힘</p>
+</li>
+<li>
+<p><strong>자족기능 아직 성장 중</strong></p>
+</li>
+<li>삼성 제외 시 양질의 일자리가 제한적</li>
+<li>
+<p>동탄테크노밸리 입주율이 판교테크노밸리에 비해 낮음</p>
+</li>
+<li>
+<p><strong>공급 물량 과다 리스크</strong></p>
+</li>
+<li>동탄2만 해도 약 11만 세대, 인근 오산·병점 물량까지 합치면 경쟁 매물 多</li>
+<li>
+<p>하락장에서 가격 방어력이 판교·광교보다 약함</p>
+</li>
+<li>
+<p><strong>학군은 아직 발전 중</strong></p>
+</li>
+<li>학교·학원 인프라가 빠르게 성장하고 있지만 판교·광교 대비 미성숙</li>
+<li>
+<p>고등학교 진학 실적이 아직 검증 단계</p>
+</li>
+<li>
+<p><strong>행정구역이 화성시</strong></p>
+</li>
+<li>성남시(판교), 수원시(광교) 대비 도시 브랜드 약함</li>
+<li>
+<p>의료·관공서 등 인프라가 대도시에 비해 부족한 부분 있음</p>
+</li>
+<li>
+<p><strong>겨울 체감 온도 낮음</strong></p>
+</li>
+<li>평야 지대라 바람이 강하고 겨울에 상당히 추움</li>
+<li>여름 습도도 높은 편</li>
+</ol>
+<hr />
+<h2 id="_13">📊 항목별 종합 비교<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th style="text-align: center;">판교</th>
+<th style="text-align: center;">광교</th>
+<th style="text-align: center;">동탄</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>서울 접근성</td>
+<td style="text-align: center;">★★★★★</td>
+<td style="text-align: center;">★★★☆☆</td>
+<td style="text-align: center;">★★★☆☆ (GTX 시 ★★★★)</td>
+</tr>
+<tr>
+<td>자족기능(일자리)</td>
+<td style="text-align: center;">★★★★★</td>
+<td style="text-align: center;">★★★★☆</td>
+<td style="text-align: center;">★★★☆☆</td>
+</tr>
+<tr>
+<td>학군</td>
+<td style="text-align: center;">★★★★★</td>
+<td style="text-align: center;">★★★★☆</td>
+<td style="text-align: center;">★★★☆☆</td>
+</tr>
+<tr>
+<td>자연환경</td>
+<td style="text-align: center;">★★★☆☆</td>
+<td style="text-align: center;">★★★★★</td>
+<td style="text-align: center;">★★★★☆</td>
+</tr>
+<tr>
+<td>생활 인프라</td>
+<td style="text-align: center;">★★★★☆</td>
+<td style="text-align: center;">★★★★☆</td>
+<td style="text-align: center;">★★★★☆</td>
+</tr>
+<tr>
+<td>가격 접근성</td>
+<td style="text-align: center;">★☆☆☆☆</td>
+<td style="text-align: center;">★★★☆☆</td>
+<td style="text-align: center;">★★★★★</td>
+</tr>
+<tr>
+<td>미래 상승여력</td>
+<td style="text-align: center;">★★☆☆☆</td>
+<td style="text-align: center;">★★★☆☆</td>
+<td style="text-align: center;">★★★★☆</td>
+</tr>
+<tr>
+<td>가격 방어력</td>
+<td style="text-align: center;">★★★★★</td>
+<td style="text-align: center;">★★★★☆</td>
+<td style="text-align: center;">★★★☆☆</td>
+</tr>
+<tr>
+<td>신축 비율</td>
+<td style="text-align: center;">★★☆☆☆</td>
+<td style="text-align: center;">★★★☆☆</td>
+<td style="text-align: center;">★★★★★</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_14">💡 최종 한줄 정리<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>판교</strong> → "비싸지만 실패 확률이 가장 낮은 곳"</li>
+<li><strong>광교</strong> → "살아보면 만족도가 가장 높은 곳"</li>
+<li><strong>동탄</strong> → "지금 들어가면 5년 뒤가 기대되는 곳"</li>
+</ul>
+<p>추가로 <strong>특정 단지나 예산 범위</strong>를 알려주시면 더 구체적으로 안내드리겠습니다! 😊</p>
+<hr />
+<h3 id="q3">Q3. 출퇴근 시간 어디가 제일 나은가요?<a class="headerlink" href="#q3" title="Permanent link">&para;</a></h3>
+<p><strong>입력 토큰</strong>: 3 | <strong>출력 토큰</strong>: 2,204 | <strong>소요시간</strong>: 42,532ms | <strong>CLI 비용</strong>: $0.0944 | <strong>추정 API 비용</strong>: $0.1653
+<strong>대화 컨텍스트</strong>: 2턴 누적 | <strong>후속 제안</strong>: 미감지</p>
+<p><strong>답변:</strong></p>
+<h1 id="_15">판교 · 광교 · 동탄 출퇴근 시간 비교<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h1>
+<p>출퇴근 목적지에 따라 완전히 달라지므로, <strong>주요 목적지별</strong>로 나눠서 정리해드리겠습니다.</p>
+<hr />
+<h2 id="_16">🚇 서울 강남권 출퇴근 (가장 많이 비교하는 기준)<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>판교</th>
+<th>광교</th>
+<th>동탄</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>대중교통</strong></td>
+<td>신분당선 <strong>15~20분</strong></td>
+<td>신분당선 <strong>35~45분</strong></td>
+<td>GTX-A <strong>20~25분</strong> (수서역)</td>
+</tr>
+<tr>
+<td><strong>자차 (비러시)</strong></td>
+<td>20~30분</td>
+<td>40~50분</td>
+<td>40~50분</td>
+</tr>
+<tr>
+<td><strong>자차 (러시아워)</strong></td>
+<td>40~60분</td>
+<td><strong>1시간~1시간 20분</strong></td>
+<td><strong>1시간 20분~2시간</strong></td>
+</tr>
+<tr>
+<td><strong>환승 필요</strong></td>
+<td>거의 없음</td>
+<td>1회 내외</td>
+<td>GTX→지하철 환승 필요</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_17">🏆 강남 출퇴근 승자: <strong>판교 압승</strong><a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<ul>
+<li>신분당선 직통 + 거리 자체가 짧아서 비교 불가</li>
+<li>동탄은 GTX-A 덕분에 <strong>대중교통 한정</strong>으로 광교와 비슷해짐</li>
+<li>단, <strong>자차 출퇴근은 동탄이 가장 고통스러움</strong></li>
+</ul>
+<hr />
+<h2 id="_18">🏢 삼성전자 출퇴근 (수원·화성 사업장)<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>판교</th>
+<th>광교</th>
+<th>동탄</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>삼성 수원 (디지털시티)</strong></td>
+<td>40~60분</td>
+<td><strong>15~25분</strong></td>
+<td>30~40분</td>
+</tr>
+<tr>
+<td><strong>삼성 화성 (반도체)</strong></td>
+<td>50분~1시간 20분</td>
+<td>30~40분</td>
+<td><strong>10~20분</strong></td>
+</tr>
+<tr>
+<td><strong>삼성 기흥 (반도체)</strong></td>
+<td>30~50분</td>
+<td>20~30분</td>
+<td><strong>15~25분</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_19">🏆 삼성 출퇴근 승자: <strong>동탄</strong> (화성·기흥) / <strong>광교</strong> (수원)<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<ul>
+<li>삼성반도체 근무자라면 동탄이 독보적</li>
+<li>삼성 수원 사업장이면 광교가 최적</li>
+</ul>
+<hr />
+<h2 id="_20">🚗 자차 출퇴근 체감 비교<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h2>
+<h3 id="_21">판교<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
+<ul>
+<li>경부고속도로·분당수서도시고속화도로 이용</li>
+<li><strong>판교IC·대왕판교IC</strong> 접근 좋음</li>
+<li>러시아워에도 <strong>강남까지 40분~1시간</strong> 수준으로 참을만함</li>
+<li>판교테크노밸리 내부 정체가 오히려 스트레스</li>
+</ul>
+<h3 id="_22">광교<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<ul>
+<li>용인서울고속도로 이용 → <strong>통행료 부담</strong> (편도 약 3,000~4,000원)</li>
+<li>영동고속도로 합류 구간에서 <strong>상습 병목</strong></li>
+<li>러시아워에 강남까지 <strong>1시간~1시간 20분</strong> 각오해야 함</li>
+</ul>
+<h3 id="_23">동탄<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
+<ul>
+<li>경부고속도로 동탄JC 일대 <strong>전국 최악의 정체 구간</strong> 중 하나</li>
+<li>러시아워 서울까지 <strong>1시간 30분~2시간</strong> 흔함</li>
+<li>GTX 안 타고 자차 출퇴근하면 삶의 질 급락</li>
+<li>동탄 내부 도로(동탄대로, 리베라CC 앞 등)도 막힘</li>
+</ul>
+<hr />
+<h2 id="_24">🚊 대중교통 편의성 비교<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th style="text-align: center;">판교</th>
+<th style="text-align: center;">광교</th>
+<th style="text-align: center;">동탄</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>지하철 노선 수</td>
+<td style="text-align: center;">신분당선</td>
+<td style="text-align: center;">신분당선</td>
+<td style="text-align: center;">GTX-A, SRT</td>
+</tr>
+<tr>
+<td>배차 간격</td>
+<td style="text-align: center;">5~8분</td>
+<td style="text-align: center;">7~10분</td>
+<td style="text-align: center;">GTX 15~20분</td>
+</tr>
+<tr>
+<td>역까지 접근성</td>
+<td style="text-align: center;">★★★★☆</td>
+<td style="text-align: center;">★★★★☆</td>
+<td style="text-align: center;">★★★☆☆ (역세권 한정)</td>
+</tr>
+<tr>
+<td>버스 노선 다양성</td>
+<td style="text-align: center;">★★★★★</td>
+<td style="text-align: center;">★★★☆☆</td>
+<td style="text-align: center;">★★★☆☆</td>
+</tr>
+<tr>
+<td>심야 교통</td>
+<td style="text-align: center;">비교적 양호</td>
+<td style="text-align: center;">보통</td>
+<td style="text-align: center;">취약</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_25">⏰ 실제 직장인 체감 시나리오<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h2>
+<h3 id="9">📌 "강남역 9시 출근" 기준, 집에서 몇 시에 나서야 하나?<a class="headerlink" href="#9" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>출발지</th>
+<th>출발 시각</th>
+<th>소요 시간</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>판교</strong> (판교역 도보권)</td>
+<td>8:20~8:30</td>
+<td>약 30~40분</td>
+</tr>
+<tr>
+<td><strong>광교</strong> (광교중앙역 도보권)</td>
+<td>7:50~8:00</td>
+<td>약 50분~1시간</td>
+</tr>
+<tr>
+<td><strong>동탄</strong> (동탄역 도보권, GTX)</td>
+<td>8:00~8:10</td>
+<td>약 45~55분</td>
+</tr>
+<tr>
+<td><strong>동탄</strong> (동탄역 비도보권)</td>
+<td>7:30~7:40</td>
+<td>약 1시간 10분~20분</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>핵심 포인트:</strong> 동탄은 GTX-A 역세권이냐 아니냐에 따라 <strong>출퇴근 시간이 30분 이상 차이</strong>남</p>
+</blockquote>
+<hr />
+<h2 id="_26">🎯 결론 정리<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>직장 위치</th>
+<th>1등</th>
+<th>2등</th>
+<th>3등</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>서울 강남·서초</strong></td>
+<td>판교</td>
+<td>동탄(GTX)</td>
+<td>광교</td>
+</tr>
+<tr>
+<td><strong>서울 여의도·종로</strong></td>
+<td>판교</td>
+<td>광교</td>
+<td>동탄</td>
+</tr>
+<tr>
+<td><strong>삼성 수원</strong></td>
+<td>광교</td>
+<td>동탄</td>
+<td>판교</td>
+</tr>
+<tr>
+<td><strong>삼성 화성·기흥</strong></td>
+<td>동탄</td>
+<td>광교</td>
+<td>판교</td>
+</tr>
+<tr>
+<td><strong>판교테크노밸리</strong></td>
+<td>판교</td>
+<td>광교</td>
+<td>동탄</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_27">💡 핵심 조언<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>서울 출퇴근이면 판교가 독보적</strong>입니다. 시간은 곧 삶의 질입니다.</li>
+<li><strong>동탄 GTX-A 역세권</strong>(동탄역 도보 10분 이내)이면 강남 출퇴근도 충분히 가능하지만, 비역세권이면 출퇴근이 상당히 고됩니다.</li>
+<li><strong>광교는 자차 통근자에게 불리</strong>합니다. 용인서울고속도로 통행료 + 정체가 매일 누적되면 스트레스가 큽니다.</li>
+<li>맞벌이라면 <strong>두 사람의 직장 위치를 함께 고려</strong>해야 합니다.</li>
+</ol>
+<hr />
+<p>혹시 <strong>구체적인 직장 위치</strong>를 알려주시면 최적의 동선과 추천 단지까지 안내드리겠습니다! 😊</p>
+<hr />
+<h3 id="q4">Q4. 교육 환경은 어디가 좋아요?<a class="headerlink" href="#q4" title="Permanent link">&para;</a></h3>
+<p><strong>입력 토큰</strong>: 3 | <strong>출력 토큰</strong>: 3,160 | <strong>소요시간</strong>: 64,212ms | <strong>CLI 비용</strong>: $0.1319 | <strong>추정 API 비용</strong>: $0.2370
+<strong>대화 컨텍스트</strong>: 3턴 누적 | <strong>후속 제안</strong>: 미감지</p>
+<p><strong>답변:</strong></p>
+<h1 id="_28">판교 · 광교 · 동탄 교육 환경 비교<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="1">🏫 판교 — 교육 환경 1위<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<h3 id="_29">학군 수준<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>분당학군과 완전 연계</strong>되는 것이 최대 강점</li>
+<li>보평초, 판교초 → 보평중, 삼평중 → 낙생고, 분당중앙고 등 선호 학교 라인업</li>
+<li>분당 학군은 <strong>서울 강남(대치·목동) 다음가는 전국 2~3위권 학군</strong></li>
+</ul>
+<h3 id="_30">학원 인프라<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h3>
+<ul>
+<li>분당 정자동·서현동 학원가 바로 이용 가능 (차량 10~15분)</li>
+<li>대형 입시학원 (메가스터디, 대성, 시대인재 등) 분당 캠퍼스 밀집</li>
+<li><strong>영어·수학·과학 전문학원</strong> 밀도가 매우 높음</li>
+<li>최근 판교 자체 학원가(삼평동·판교역 일대)도 급성장</li>
+</ul>
+<h3 id="_31">진학 실적<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h3>
+<ul>
+<li>분당 지역 고교 기준 <strong>SKY·의대 진학률 경기도 최상위</strong></li>
+<li>특목고·자사고 진학률도 높음 (한국외대부고, 용인외고 등 접근 가능)</li>
+<li>학부모 교육열이 극도로 높아 경쟁이 치열</li>
+</ul>
+<h3 id="_32">교육 관련 특징<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>학원비 평균</td>
+<td>월 <strong>100~200만원</strong> (중등 기준, 높은 편)</td>
+</tr>
+<tr>
+<td>학부모 특성</td>
+<td>IT 대기업 고소득 맞벌이 비율 높음</td>
+</tr>
+<tr>
+<td>사교육 의존도</td>
+<td>매우 높음</td>
+</tr>
+<tr>
+<td>도서관·문화시설</td>
+<td>성남시립분당도서관, 판교도서관 등</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>한줄평:</strong> "입시 성과를 최우선으로 본다면 판교(분당학군)가 정답"</p>
+</blockquote>
+<hr />
+<h2 id="2_1">🏫 광교 — 교육 환경 2위 (빠르게 성장 중)<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h2>
+<h3 id="_33">학군 수준<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h3>
+<ul>
+<li>광교 자체 학군이 <strong>경기 남부에서 분당 다음으로 평가</strong>받는 수준</li>
+<li>광교초, 광교호수초 → 광교중, 수원다산중 → 수원 지역 일반고·자율고</li>
+<li><strong>영통학군과 연계</strong> (영통·망포 학원가 이용 가능)</li>
+</ul>
+<h3 id="_34">학원 인프라<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h3>
+<ul>
+<li>광교 중심상업지구·광교카페거리 일대 학원가 형성</li>
+<li>영통 학원가까지 포함하면 <strong>선택지가 꽤 넓음</strong></li>
+<li>다만 분당 학원가 대비 <strong>대형 입시학원 수는 적음</strong></li>
+<li>초등 영어·예체능 학원은 충분히 갖춰져 있음</li>
+</ul>
+<h3 id="_35">진학 실적<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h3>
+<ul>
+<li>광교 입주 시기(2011~2015년)를 고려하면 이제 <strong>고등학교 실적이 본격적으로 나오는 시기</strong></li>
+<li>수원 지역 상위권 고교 진학률 양호</li>
+<li>경기과학고, 수원외고 등 특목고 접근성 좋음</li>
+</ul>
+<h3 id="_36">교육 관련 특징<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>학원비 평균</td>
+<td>월 <strong>80~150만원</strong> (중등 기준)</td>
+</tr>
+<tr>
+<td>학부모 특성</td>
+<td>공무원·전문직·삼성 직원 비율 높음</td>
+</tr>
+<tr>
+<td>사교육 의존도</td>
+<td>높은 편 (분당보다는 낮음)</td>
+</tr>
+<tr>
+<td>도서관·문화시설</td>
+<td>광교푸른숲도서관, 광교홍재도서관 (시설 우수)</td>
+</tr>
+<tr>
+<td>자연 학습환경</td>
+<td>광교호수공원 일대 생태학습, 체험활동 풍부</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>한줄평:</strong> "학업 + 자연 속 균형잡힌 교육환경, 초등학생 자녀라면 최적"</p>
+</blockquote>
+<hr />
+<h2 id="3_1">🏫 동탄 — 교육 환경 3위 (가장 빠르게 성장 중)<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h2>
+<h3 id="_37">학군 수준<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h3>
+<ul>
+<li>동탄2 신도시 중심으로 <strong>신설학교가 대거 개교</strong> (2018년 이후)</li>
+<li>아직 학군으로서의 <strong>트랙레코드(진학 실적)가 짧음</strong></li>
+<li>다만 젊은 학부모 유입이 많아 교육열 자체는 매우 높음</li>
+</ul>
+<h3 id="_38">학원 인프라<a class="headerlink" href="#_38" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>동탄 센트럴파크·메타폴리스 일대</strong> 학원가가 급성장</li>
+<li>2020년 이후 대형 프랜차이즈 학원 대거 입점</li>
+<li>현재 수학·영어·코딩 학원 밀도가 빠르게 높아지는 중</li>
+<li>다만 <strong>최상위권 입시학원은 아직 분당·광교보다 부족</strong></li>
+</ul>
+<h3 id="_39">진학 실적<a class="headerlink" href="#_39" title="Permanent link">&para;</a></h3>
+<ul>
+<li>동탄 지역 고교 역사가 짧아 <strong>아직 명문고 반열은 아님</strong></li>
+<li>동탄국제고(2026년 기준 비교적 신설)가 있으나 실적 축적 중</li>
+<li>화성시 전체로 보면 특목고 진학률은 수원·성남 대비 낮음</li>
+</ul>
+<h3 id="_40">교육 관련 특징<a class="headerlink" href="#_40" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>학원비 평균</td>
+<td>월 <strong>60~120만원</strong> (중등 기준, 상대적으로 저렴)</td>
+</tr>
+<tr>
+<td>학부모 특성</td>
+<td>30대 젊은 부부, 삼성 엔지니어 비율 높음</td>
+</tr>
+<tr>
+<td>사교육 의존도</td>
+<td>높아지는 추세</td>
+</tr>
+<tr>
+<td>도서관·문화시설</td>
+<td>동탄복합문화센터, 화성시립도서관 등 신축 시설</td>
+</tr>
+<tr>
+<td>특이사항</td>
+<td><strong>코딩·AI 교육 학원</strong>이 유독 많음 (삼성 영향)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>한줄평:</strong> "지금은 미성숙하지만 5년 뒤가 기대되는 교육 신흥지"</p>
+</blockquote>
+<hr />
+<h2 id="_41">📊 교육 환경 항목별 비교<a class="headerlink" href="#_41" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">항목</th>
+<th style="text-align: center;">판교</th>
+<th style="text-align: center;">광교</th>
+<th style="text-align: center;">동탄</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">학군 명성·역사</td>
+<td style="text-align: center;">★★★★★</td>
+<td style="text-align: center;">★★★★☆</td>
+<td style="text-align: center;">★★★☆☆</td>
+</tr>
+<tr>
+<td style="text-align: left;">학원가 규모·질</td>
+<td style="text-align: center;">★★★★★</td>
+<td style="text-align: center;">★★★★☆</td>
+<td style="text-align: center;">★★★☆☆</td>
+</tr>
+<tr>
+<td style="text-align: left;">대입 진학 실적</td>
+<td style="text-align: center;">★★★★★</td>
+<td style="text-align: center;">★★★★☆</td>
+<td style="text-align: center;">★★★☆☆</td>
+</tr>
+<tr>
+<td style="text-align: left;">특목고 접근성</td>
+<td style="text-align: center;">★★★★★</td>
+<td style="text-align: center;">★★★★☆</td>
+<td style="text-align: center;">★★★☆☆</td>
+</tr>
+<tr>
+<td style="text-align: left;">학원비 부담</td>
+<td style="text-align: center;">★☆☆☆☆ (비쌈)</td>
+<td style="text-align: center;">★★★☆☆</td>
+<td style="text-align: center;">★★★★☆ (저렴)</td>
+</tr>
+<tr>
+<td style="text-align: left;">학교 시설 신축도</td>
+<td style="text-align: center;">★★★☆☆</td>
+<td style="text-align: center;">★★★★☆</td>
+<td style="text-align: center;">★★★★★</td>
+</tr>
+<tr>
+<td style="text-align: left;">교육환경 성장성</td>
+<td style="text-align: center;">★★☆☆☆ (이미 정점)</td>
+<td style="text-align: center;">★★★★☆</td>
+<td style="text-align: center;">★★★★★</td>
+</tr>
+<tr>
+<td style="text-align: left;">자연·체험 학습</td>
+<td style="text-align: center;">★★★☆☆</td>
+<td style="text-align: center;">★★★★★</td>
+<td style="text-align: center;">★★★★☆</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_42">🎯 자녀 나이별 추천<a class="headerlink" href="#_42" title="Permanent link">&para;</a></h2>
+<h3 id="13">👶 미취학·초등 저학년 (1~3학년)<a class="headerlink" href="#13" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>광교 ≥ 동탄 &gt; 판교</strong>
+- 이 시기는 입시보다 <strong>쾌적한 환경 + 체험활동</strong>이 중요
+- 광교 호수공원 일대 자연학습, 동탄 신축 학교 시설이 장점
+- 판교는 학원 경쟁이 초등 저학년부터 시작되어 부담스러울 수 있음</p>
+</blockquote>
+<h3 id="43">📚 초등 고학년·중학생 (4학년~중3)<a class="headerlink" href="#43" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>판교 &gt; 광교 &gt; 동탄</strong>
+- 본격적인 학원 인프라와 학군이 중요해지는 시기
+- 판교(분당) 학원가의 깊이와 체계가 확실히 앞섬
+- 광교도 충분히 좋지만, 최상위권 목표 시 분당 학원 원정 가는 경우 있음</p>
+</blockquote>
+<h3 id="_43">🎓 고등학생<a class="headerlink" href="#_43" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>판교 압도적 &gt; 광교 &gt; 동탄</strong>
+- 대입은 결국 <strong>학교 내신 경쟁력 + 학원 접근성</strong>이 핵심
+- 분당 지역 고교의 내신 변별력과 입시 노하우가 축적되어 있음
+- 동탄은 고교 역사가 짧아 아직 불리</p>
+</blockquote>
+<hr />
+<h2 id="_44">💡 핵심 조언<a class="headerlink" href="#_44" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>"입시 성과 최우선"</strong> → 판교(분당학군) 외에 답이 없습니다</li>
+<li><strong>"초등 자녀, 행복한 학창시절"</strong> → 광교의 자연환경 + 적당한 교육열이 균형적</li>
+<li><strong>"교육비 부담 줄이면서도 괜찮은 환경"</strong> → 동탄이 가성비 최고</li>
+<li><strong>동탄의 교육 인프라는 현재진행형</strong>으로 성장 중이므로, 지금 초등 저학년이라면 중학교 때쯤엔 상당히 개선될 가능성이 높습니다</li>
+<li><strong>어디에 살든 결국 대치동 원정 학원</strong> 보내는 가정이 있습니다 — 그 경우 판교가 거리상 가장 유리합니다</li>
+</ol>
+<hr />
+<p>자녀 나이와 교육 목표(내신 위주/특목고/의대 등)를 알려주시면 <strong>구체적인 학군 단지 추천</strong>도 가능합니다! 😊</p>
+<hr />
+<h3 id="q5">Q5. 향후 시세 전망은 어떤가요?<a class="headerlink" href="#q5" title="Permanent link">&para;</a></h3>
+<p><strong>입력 토큰</strong>: 3 | <strong>출력 토큰</strong>: 3,565 | <strong>소요시간</strong>: 68,215ms | <strong>CLI 비용</strong>: $0.1617 | <strong>추정 API 비용</strong>: $0.2674
+<strong>대화 컨텍스트</strong>: 4턴 누적 | <strong>후속 제안</strong>: 미감지</p>
+<p><strong>답변:</strong></p>
+<h1 id="2026">판교 · 광교 · 동탄 향후 시세 전망 (2026년 기준)<a class="headerlink" href="#2026" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="2026-4">📈 현재 시세 현황 (2026년 4월 기준)<a class="headerlink" href="#2026-4" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>34평 기준 시세</th>
+<th>최근 2년 흐름</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>판교</strong></td>
+<td>15~22억</td>
+<td>고점 대비 소폭 조정 후 회복세</td>
+</tr>
+<tr>
+<td><strong>광교</strong></td>
+<td>10~15억</td>
+<td>보합~소폭 상승</td>
+</tr>
+<tr>
+<td><strong>동탄</strong></td>
+<td>7~12억</td>
+<td>GTX 개통 전후 상승 탄력</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_45">🔷 판교 시세 전망<a class="headerlink" href="#_45" title="Permanent link">&para;</a></h2>
+<h3 id="_46">상승 요인<a class="headerlink" href="#_46" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>공급 절벽</strong> — 신규 분양이 거의 없음. 희소성이 가격을 지탱</li>
+<li><strong>판교테크노밸리 확장</strong> — 제3판교(낙생지구) 개발로 일자리 추가 유입</li>
+<li><strong>AI·반도체 산업 호황</strong> — IT 기업 고소득 종사자 수요 지속</li>
+<li><strong>강남 대체재 역할</strong> — 강남 아파트가 30억 이상으로 올라가면 판교로 수요 이전</li>
+</ol>
+<h3 id="_47">하락·제한 요인<a class="headerlink" href="#_47" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>이미 고점 부근</strong> — 20억 이상 단지는 추가 상승 여력 제한적</li>
+<li><strong>금리 민감도</strong> — 고가 아파트일수록 금리 인상 시 거래 위축</li>
+<li><strong>노후화 이슈</strong> — 입주 15년 이상 단지 증가, 리모델링 비용 부담</li>
+</ol>
+<h3 id="_48">💰 전망<a class="headerlink" href="#_48" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>향후 3년:</strong> 연 2~5% 완만한 상승 또는 보합
+<strong>향후 5년:</strong> 누적 10~15% 상승 예상 (안정적이나 폭등은 어려움)</p>
+<p>📌 <strong>성격:</strong> 은행 정기예금 같은 투자 — 크게 오르지 않지만 <strong>크게 빠지지도 않음</strong></p>
+</blockquote>
+<hr />
+<h2 id="_49">🔷 광교 시세 전망<a class="headerlink" href="#_49" title="Permanent link">&para;</a></h2>
+<h3 id="_50">상승 요인<a class="headerlink" href="#_50" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>신분당선 연장 효과 지속</strong> — 호매실·봉담 방면 연장 시 광교가 중간 허브 역할</li>
+<li><strong>경기도 행정수도 프리미엄</strong> — 경기도청·법조타운 안정적 수요</li>
+<li><strong>삼성전자 수원 R&amp;D 확대</strong> — 인력 유입 지속</li>
+<li><strong>광교 브랜드 가치 상승</strong> — 살아본 사람들의 만족도가 높아 "떠나지 않는 도시"</li>
+<li><strong>수원특례시 효과</strong> — 행정·인프라 투자 확대 기대</li>
+</ol>
+<h3 id="_51">하락·제한 요인<a class="headerlink" href="#_51" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>시세가 이미 상당히 오름</strong> — 10억 초반이었던 단지들이 13~15억대 진입</li>
+<li><strong>수원 영통·망포 등 주변 공급</strong> — 인근 경쟁 물량이 가격 상단을 제한</li>
+<li><strong>서울 접근성 한계</strong> — 판교·동탄(GTX) 대비 교통 개선 카드가 적음</li>
+</ol>
+<h3 id="_52">💰 전망<a class="headerlink" href="#_52" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>향후 3년:</strong> 연 3~5% 상승 기대
+<strong>향후 5년:</strong> 누적 15~20% 상승 가능</p>
+<p>📌 <strong>성격:</strong> 우량 배당주 같은 투자 — 꾸준히 오르면서 실거주 만족도도 높음</p>
+</blockquote>
+<hr />
+<h2 id="_53">🔷 동탄 시세 전망<a class="headerlink" href="#_53" title="Permanent link">&para;</a></h2>
+<h3 id="_54">상승 요인 ⭐ (가장 많음)<a class="headerlink" href="#_54" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>GTX-A 완전 정착 효과</strong> — 개통 초기보다 노선 안정화 후 시세 반영이 본격화</li>
+<li><strong>GTX-C 추가 개통 가능성</strong> — 동탄~의정부 노선 확정 시 서울 접근성 한 단계 더 개선</li>
+<li><strong>삼성반도체 초대형 투자</strong> — 용인·화성 반도체 클러스터 확장으로 고소득 인구 유입 가속</li>
+<li><strong>동탄테크노밸리 성숙</strong> — 입주 기업 증가 → 자족기능 강화 → 도시 가치 상승</li>
+<li><strong>가격 갭 메리트</strong> — 판교 대비 <strong>10억 이상 저렴</strong>하여 상승 여지가 큼</li>
+<li><strong>인구 구조</strong> — 30~40대 젊은 가구 비율 높아 소비·교육 인프라 선순환</li>
+</ol>
+<h3 id="_55">하락·제한 요인<a class="headerlink" href="#_55" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>공급 물량 리스크</strong> ⚠️ — 동탄2 약 11만 세대 + 인근 오산·병점·봉담 물량</li>
+<li><strong>하락장 낙폭 클 수 있음</strong> — 2022~2023년 조정기에 일부 단지 2~3억 하락 경험</li>
+<li><strong>비역세권 양극화</strong> — GTX 역세권과 비역세권 가격 격차 확대 가능성</li>
+<li><strong>화성시 인프라 한계</strong> — 의료·행정 인프라가 수요 증가 속도를 못 따라갈 수 있음</li>
+</ol>
+<h3 id="_56">💰 전망<a class="headerlink" href="#_56" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>향후 3년:</strong> 연 5~8% 상승 기대 (역세권 기준)
+<strong>향후 5년:</strong> 누적 <strong>20~35% 상승</strong> 가능 (가장 높은 상승률 예상)</p>
+<p>📌 <strong>성격:</strong> 성장주 투자 — 변동성은 크지만 <strong>상승 폭도 가장 클 가능성</strong></p>
+</blockquote>
+<hr />
+<h2 id="_57">📊 시세 전망 종합 비교<a class="headerlink" href="#_57" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th style="text-align: center;">판교</th>
+<th style="text-align: center;">광교</th>
+<th style="text-align: center;">동탄</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>향후 3년 상승률</td>
+<td style="text-align: center;">5~10%</td>
+<td style="text-align: center;">10~15%</td>
+<td style="text-align: center;"><strong>15~25%</strong></td>
+</tr>
+<tr>
+<td>향후 5년 상승률</td>
+<td style="text-align: center;">10~15%</td>
+<td style="text-align: center;">15~20%</td>
+<td style="text-align: center;"><strong>20~35%</strong></td>
+</tr>
+<tr>
+<td>하락장 방어력</td>
+<td style="text-align: center;">★★★★★</td>
+<td style="text-align: center;">★★★★☆</td>
+<td style="text-align: center;">★★★☆☆</td>
+</tr>
+<tr>
+<td>상승 탄력성</td>
+<td style="text-align: center;">★★★☆☆</td>
+<td style="text-align: center;">★★★★☆</td>
+<td style="text-align: center;">★★★★★</td>
+</tr>
+<tr>
+<td>변동성 (리스크)</td>
+<td style="text-align: center;">낮음</td>
+<td style="text-align: center;">중간</td>
+<td style="text-align: center;">높음</td>
+</tr>
+<tr>
+<td>전세가율</td>
+<td style="text-align: center;">45~55%</td>
+<td style="text-align: center;">50~60%</td>
+<td style="text-align: center;"><strong>55~65%</strong></td>
+</tr>
+<tr>
+<td>갭투자 용이성</td>
+<td style="text-align: center;">어려움</td>
+<td style="text-align: center;">보통</td>
+<td style="text-align: center;">상대적 용이</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_58">🔮 시나리오별 전망<a class="headerlink" href="#_58" title="Permanent link">&para;</a></h2>
+<h3 id="1_1">시나리오 1: 금리 인하 + 경기 회복 (낙관적)<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>지역</th>
+<th>5년 후 예상 시세 (34평)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>판교</td>
+<td>18~25억</td>
+</tr>
+<tr>
+<td>광교</td>
+<td>13~18억</td>
+</tr>
+<tr>
+<td>동탄</td>
+<td>10~15억</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2_2">시나리오 2: 현 상황 유지 (중립적)<a class="headerlink" href="#2_2" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>지역</th>
+<th>5년 후 예상 시세 (34평)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>판교</td>
+<td>16~22억</td>
+</tr>
+<tr>
+<td>광교</td>
+<td>11~16억</td>
+</tr>
+<tr>
+<td>동탄</td>
+<td>8~13억</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3_2">시나리오 3: 금리 인상 + 경기 침체 (비관적)<a class="headerlink" href="#3_2" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>지역</th>
+<th>5년 후 예상 시세 (34평)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>판교</td>
+<td>14~19억 (소폭 조정)</td>
+</tr>
+<tr>
+<td>광교</td>
+<td>9~13억</td>
+</tr>
+<tr>
+<td>동탄</td>
+<td>6~10억 (낙폭 가장 큼)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_59">📍 투자 관점 핵심 변수<a class="headerlink" href="#_59" title="Permanent link">&para;</a></h2>
+<h3 id="_60">꼭 지켜봐야 할 것들<a class="headerlink" href="#_60" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>변수</th>
+<th>영향받는 지역</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GTX-C 착공·개통</strong></td>
+<td>동탄 ↑↑</td>
+<td>확정 시 동탄 시세 한 단계 점프</td>
+</tr>
+<tr>
+<td><strong>삼성 반도체 투자 규모</strong></td>
+<td>동탄 ↑↑, 광교 ↑</td>
+<td>용인 반도체 클러스터 300조 투자 현실화 여부</td>
+</tr>
+<tr>
+<td><strong>제3판교 개발</strong></td>
+<td>판교 ↑</td>
+<td>낙생지구 개발로 판교 생활권 확장</td>
+</tr>
+<tr>
+<td><strong>기준금리 방향</strong></td>
+<td>전체</td>
+<td>금리 인하 → 전체 상승, 인상 → 고가 단지부터 타격</td>
+</tr>
+<tr>
+<td><strong>정부 부동산 정책</strong></td>
+<td>전체</td>
+<td>대출 규제 강화 시 고가 판교가 가장 민감</td>
+</tr>
+<tr>
+<td><strong>수도권 광역교통망</strong></td>
+<td>동탄 ↑, 광교 ↑</td>
+<td>신분당선 연장, 인덕원동탄선 등</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_61">🎯 투자 목적별 최종 추천<a class="headerlink" href="#_61" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>투자 성향</th>
+<th>추천</th>
+<th>이유</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>안정형</strong> (잃지 않는 게 중요)</td>
+<td>판교</td>
+<td>하락장에서도 낙폭 최소, 환금성 좋음</td>
+</tr>
+<tr>
+<td><strong>균형형</strong> (적당한 수익 + 안정)</td>
+<td>광교</td>
+<td>실거주 만족 + 꾸준한 상승 기대</td>
+</tr>
+<tr>
+<td><strong>공격형</strong> (높은 수익률 추구)</td>
+<td>동탄 역세권</td>
+<td>상승 여력 가장 크지만 변동성도 큼</td>
+</tr>
+<tr>
+<td><strong>실거주 겸 투자</strong></td>
+<td>광교 or 동탄</td>
+<td>살면서 자산 가치도 올리는 전략</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_62">💡 핵심 조언<a class="headerlink" href="#_62" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>"지금 살 수 있는 곳 중 가장 좋은 곳을 사라"</strong> — 타이밍보다 입지가 중요합니다</li>
+<li><strong>동탄은 반드시 GTX 역세권</strong>(동탄역 도보 15분 이내)을 사야 합니다. 비역세권은 상승 폭이 제한적일 수 있습니다</li>
+<li><strong>판교는 "틀리기 어려운 선택"</strong>이지만 진입 자금이 크므로, 무리한 대출은 금물입니다</li>
+<li><strong>광교는 가장 후회 없는 선택</strong>이 될 가능성이 높습니다. 상승률은 동탄보다 낮아도 하락 리스크가 적고 실거주 만족도가 높습니다</li>
+<li>2026년 현재 <strong>금리 인하 사이클 진입 여부</strong>가 가장 큰 변수입니다. 금리 인하가 본격화되면 세 곳 모두 상승 탄력을 받을 수 있습니다</li>
+</ol>
+<blockquote>
+<p>⚠️ <strong>면책:</strong> 부동산 시세 전망은 예측일 뿐이며, 실제 시장은 정책·경제·글로벌 변수에 따라 달라질 수 있습니다. 투자 결정은 본인의 재무 상황을 종합적으로 고려하여 판단하시기 바랍니다.</p>
+</blockquote>
+<hr />
+<p><strong>예산, 투자 기간, 실거주 여부</strong> 등을 알려주시면 구체적인 단지 추천과 매수 전략까지 안내드리겠습니다! 😊</p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  맨위로
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.highlight", "search.suggest", "content.code.copy", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

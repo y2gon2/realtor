@@ -1,0 +1,8280 @@
+
+<!doctype html>
+<html lang="ko" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="대한민국 부동산 RAG 기반 AI 상담/보고서 서비스 기획 문서">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>B-025. 계약갱신청구권 Opus 4.6 테스트 결과 - 부동산 AI 어드바이저 — 프로젝트 기획</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#b-025-opus-46" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="상단/헤더">
+    <a href="../../../.." title="부동산 AI 어드바이저 — 프로젝트 기획" class="md-header__button md-logo" aria-label="부동산 AI 어드바이저 — 프로젝트 기획" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            부동산 AI 어드바이저 — 프로젝트 기획
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              B-025. 계약갱신청구권 Opus 4.6 테스트 결과
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="다크 모드로 전환"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="다크 모드로 전환" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="라이트 모드로 전환"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="라이트 모드로 전환" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+        <button type="reset" class="md-search__icon md-icon" title="지우기" aria-label="지우기" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="탭" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  홈
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../project_plan/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  프로젝트 기획서
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../1_rag_mvp/1_rag_mvp_plan/" class="md-tabs__link">
+          
+  
+  
+  Phase 1 — RAG MVP
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../2_domain_ontology/2_domain_ontology_plan/" class="md-tabs__link">
+          
+  
+  
+  Phase 2 — 도메인 온톨로지
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../00_overview/" class="md-tabs__link">
+          
+  
+  
+  Phase 3 — 부동산 RAG 챗봇
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../4_deep_report/00_overview/" class="md-tabs__link">
+          
+  
+  
+  Phase 4 — 딥 리포트
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../settings/" class="md-tabs__link">
+          
+  
+  
+  환경 설정
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="네비게이션" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="부동산 AI 어드바이저 — 프로젝트 기획" class="md-nav__button md-logo" aria-label="부동산 AI 어드바이저 — 프로젝트 기획" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    부동산 AI 어드바이저 — 프로젝트 기획
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    홈
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../project_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    프로젝트 기획서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 1 — RAG MVP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phase 1 — RAG MVP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/1_rag_mvp_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기획서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    세부 계획
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    세부 계획
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/1_1_embedding_data_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.1 임베딩 데이터 테스트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_2" id="__nav_3_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    테스트 결과
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    테스트 결과
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/test_result/20260315_1_sementic_search_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    시맨틱 검색 테스트 (1차)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/test_result/20260315_2_sementic_search_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    시맨틱 검색 테스트 (2차)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/test_result/20260315_3_meta_data_filtering_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    메타데이터 필터링 테스트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/test_result/20260315_4_embedding_quality_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    임베딩 품질 평가
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기술 연구
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    기술 연구
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/tech_research/embedding_models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    한국어 임베딩 모델 비교
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/tech_research/vector_databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vector Database 비교
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/tech_research/hybrid_search_bm25/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hybrid Search (Dense + BM25)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 1 — 검색 개선 연구
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 1 — 검색 개선 연구
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/supplementary_1_search_improvement/01_overview_and_research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    개요 및 외부 연구
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/supplementary_1_search_improvement/02_query_time_improvements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Query-Time 개선
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/supplementary_1_search_improvement/03_post_retrieval_improvements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Post-Retrieval 개선
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/supplementary_1_search_improvement/04_adaptive_rag_generation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Adaptive RAG Generation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/supplementary_1_search_improvement/05_indexing_and_evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    인덱싱 및 평가
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/supplementary_1_search_improvement/06_implementation_and_test_report/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    구현 및 테스트 리포트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2 — 도메인 온톨로지
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phase 2 — 도메인 온톨로지
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/2_domain_ontology_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기획서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/3_legal_doc_rag_strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    법령 문서 RAG 전략
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/4_ontology_build_and_index_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    온톨로지 빌드 + 색인 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/5_phase2_search_test_report/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    검색 테스트 리포트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/6_search_improvement_research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    검색 개선 연구 (외부 사례)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 1 — Contextual Retrieval
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 1 — Contextual Retrieval
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_1_contextual_retrieval/01_contextual_retrieval_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    구현 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_1_contextual_retrieval/02_contextual_prefix_script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prefix 생성 스크립트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_1_contextual_retrieval/03_cron_wrapper_and_yaml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cron Wrapper & YAML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_1_contextual_retrieval/04_index_phase2_modifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    index_phase2 수정 사항
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_1_contextual_retrieval/05_contextual_retrieval_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    적용 결과 리포트 (확장 테스트)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 2 — BGE-M3 Triple-Vector
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 2 — BGE-M3 Triple-Vector
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/01_bgem3_triple_vector_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    전체 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/02_embedder_bgem3_design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Embedder 설계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/03_collection_schema_and_indexing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    컬렉션 스키마 + 인덱싱
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/04_multi_stage_search_pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi-Stage 검색 파이프라인
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/05_benchmark_and_ablation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    벤치마크 및 Ablation Study
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/06_results_and_analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 분석
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/07_colbert_improvement_research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ColBERT 개선 전략 연구
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/08_reranker_module_design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reranker 모듈 설계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/09_benchmark_expansion_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    확장 벤치마크 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/10_expanded_benchmark_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    확장 벤치마크 결과
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 3 — Cross-Domain Query Decomposition
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 3 — Cross-Domain Query Decomposition
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_3_cross_domain/01_query_decomposition_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    구현 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_3_cross_domain/02_query_analyzer_design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QueryAnalyzer 설계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_3_cross_domain/03_search_pipeline_design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SearchPipeline 설계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_3_cross_domain/04_evaluation_framework/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    평가 프레임워크
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_3_cross_domain/05_benchmark_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    벤치마크 결과
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_9" id="__nav_4_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 4 — 순차 보완 전략 (P1-a/b)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 4 — 순차 보완 전략 (P1-a/b)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/01_sequential_improvement_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    순차 개선 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/02_execution_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    실행 프레임워크
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/03_step1_hybrid_strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Step 1 — 하이브리드 전략
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/04_step2_decompose_conservatism/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Step 2 — DECOMPOSE 보수화
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/05_step3_prefilter_refinement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Step 3 — 사전 필터 정교화
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/06_step4_prompt_conservatism/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Step 4 — 프롬프트 보수성
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/07_step5_cross_encoder_fusion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Step 5 — Cross-Encoder 퓨전
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/08_step1to4_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 — Step 1~4 통합
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/09_step5_rerank_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 — Step 5 CE 퓨전
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/7_phase2_comprehensive_evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2 종합 평가
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_11" id="__nav_4_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 5 — 슬랭 Alias + CE 최적화 (Phase 2A)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 5 — 슬랭 Alias + CE 최적화 (Phase 2A)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_5_slang_alias_ce/01_phase2a_quickwins_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Wins 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_5_slang_alias_ce/02_alpha_grid_search/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    α 그리드 서치
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_5_slang_alias_ce/03_conditional_ce_bypass/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    조건부 CE 우회
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_5_slang_alias_ce/04_slang_alias_expansion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    슬랭 Alias 확장
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_5_slang_alias_ce/05_benchmark_verification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    벤치마크 검증 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_5_slang_alias_ce/06_phase2a_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2A 결과
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_5_slang_alias_ce/07_phase2b_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2B/C 결과 (최종)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_12" id="__nav_4_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 6 — Alias Pruning + CRAG
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 6 — Alias Pruning + CRAG
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_6_alias_pruning_crag/01_implementation_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    구현 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_6_alias_pruning_crag/02_alias_pruning_script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alias Pruning 스크립트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_6_alias_pruning_crag/03_crag_retrieval_compensator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CRAG 검색 보정기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_13" id="__nav_4_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    조사 자료
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    조사 자료
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/research/5%EA%B0%9C%ED%98%91%ED%9A%8C%EB%8B%A8%EC%B2%B4_RAG%EC%9E%90%EB%A3%8C%EC%88%98%EC%A7%91_%EC%A1%B0%EC%82%AC%EA%B2%B0%EA%B3%BC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5개 협회·단체 자료수집 조사
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/research/HF_HUG_RAG_%EC%A1%B0%EC%82%AC%EB%B0%A9%EB%B2%95%EB%A1%A0_%EC%82%AC%EC%9D%B4%ED%8A%B8%EB%AA%A9%EB%A1%9D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HF 주택금융공사 조사 방법론
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/research/HUG_%EC%A3%BC%ED%83%9D%EB%8F%84%EC%8B%9C%EB%B3%B4%EC%A6%9D%EA%B3%B5%EC%82%AC_RAG_%EC%A1%B0%EC%82%AC%EB%B0%A9%EB%B2%95%EB%A1%A0_%EC%82%AC%EC%9D%B4%ED%8A%B8%EB%AA%A9%EB%A1%9D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HUG 주택도시보증공사 조사 방법론
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/research/%EA%B5%AD%ED%86%A0%EA%B5%90%ED%86%B5%EB%B6%80_%ED%86%B5%EA%B3%84%EB%88%84%EB%A6%AC_CSV%EC%B2%98%EB%A6%AC_%EA%B2%B0%EA%B3%BC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    국토교통부 통계누리 CSV 처리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 3 — 부동산 RAG 챗봇
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phase 3 — 부동산 RAG 챗봇
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기획서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../evaluation_report/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG vs LLM 평가 보고서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    테스트 데이터
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    테스트 데이터
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/test_set_v1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    테스트 셋 v1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG+LLM 테스트 결과
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RAG+LLM 테스트 결과
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 요약
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_a_singles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part A — 단일 질문 (100개)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_c_singles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part C — 추가 단일 질문 (12개)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_001/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-001 대학생 자취방
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_002/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-002 대학생 주거 지원
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_003/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-003 사회초년생 독립
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_004/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-004 직장인 자취 지역
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_005/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-005 신혼부부 평수/구조
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-006 맞벌이 출퇴근 동선
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-007 자녀 학군 이사
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_008/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-008 아이 키우기 아파트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-009 전원주택 구매
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-010 상가 매입
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-011 경매 입찰
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-012 꼬마빌딩 투자
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-013 단독주택/다가구
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG+LLM v3 결과 (realestate_v3 연동)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RAG+LLM v3 결과 (realestate_v3 연동)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 요약
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_a_singles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part A — 단일 질문 (100개)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_c_singles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part C — 추가 단일 질문 (12개)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_001/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-001 대학생 자취방
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_002/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-002 대학생 주거 지원
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_003/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-003 사회초년생 독립
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_004/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-004 직장인 자취 지역
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_005/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-005 신혼부부 평수/구조
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-006 맞벌이 출퇴근 동선
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-007 자녀 학군 이사
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_008/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-008 아이 키우기 아파트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-009 전원주택 구매
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-010 상가 매입
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-011 경매 입찰
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-012 꼬마빌딩 투자
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-013 단독주택/다가구
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_6" id="__nav_5_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Opus 4.6 베이스라인 결과
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Opus 4.6 베이스라인 결과
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 요약
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_a_singles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part A — 단일 질문 (100개)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_c_singles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part C — 추가 단일 질문 (12개)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_001/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-001 대학생 자취방
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_002/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-002 대학생 주거 지원
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_003/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-003 사회초년생 독립
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_004/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-004 직장인 자취 지역
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_005/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-005 신혼부부 평수/구조
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-006 맞벌이 출퇴근 동선
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-007 자녀 학군 이사
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_008/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-008 아이 키우기 아파트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-009 전원주택 구매
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-010 상가 매입
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-011 경매 입찰
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-012 꼬마빌딩 투자
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-013 단독주택/다가구
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 4 — 딥 리포트
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phase 4 — 딥 리포트
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../4_deep_report/00_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기획서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../4_deep_report/01_api_integration_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API 연동 상세 가이드
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../4_deep_report/02_competitor_analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    경쟁사 분석 상세
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    환경 설정
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    환경 설정
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    개요
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/qdrant_container_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qdrant 벡터 DB 컨테이너
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/embedding_container_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    KURE-v1 임베딩 컨테이너
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/qwen35_27b_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qwen3.5-27B 실행 가이드
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/nemotron3_super_120b_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nemotron3 Super 120B 실행 가이드
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/gemini_cron_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gemini CLI Cron 설정
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/codex_cron_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Codex CLI Cron 설정
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#q1-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q1. 계약갱신청구권 쓰면 무조건 2년 더 살 수 있나요?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="b-025-opus-46">B-025. 계약갱신청구권 Opus 4.6 테스트 결과<a class="headerlink" href="#b-025-opus-46" title="Permanent link">&para;</a></h1>
+<p>실행 시각: 2026-04-02 02:12:00
+질문 수: 6</p>
+<hr />
+<h3 id="q1-2">Q1. 계약갱신청구권 쓰면 무조건 2년 더 살 수 있나요?<a class="headerlink" href="#q1-2" title="Permanent link">&para;</a></h3>
+<p><strong>입력 토큰</strong>: 3 | <strong>출력 토큰</strong>: 1,171 | <strong>소요시간</strong>: 27,470ms | <strong>CLI 비용</strong>: $0.0393 | <strong>추정 API 비용</strong>: $0.0879
+<strong>대화 컨텍스트</strong>: 0턴 누적 | <strong>후속 제안</strong>: 감지됨</p>
+<p><strong>답변:</strong></p>
+<h1 id="2">계약갱신청구권, 무조건 2년 더 살 수 있는 건 아닙니다<a class="headerlink" href="#2" title="Permanent link">&para;</a></h1>
+<h2 id="_1">✅ 기본 원칙<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>계약갱신청구권은 <strong>주택임대차보호법 제6조의3</strong>에 따라 임차인이 <strong>1회에 한해</strong> 계약갱신을 요구할 수 있는 권리입니다.</p>
+<ul>
+<li><strong>행사 시기</strong>: 임대차 기간 만료 <strong>6개월~2개월 전</strong> 사이에 행사</li>
+<li><strong>갱신 기간</strong>: 2년</li>
+<li><strong>행사 횟수</strong>: 최초 계약 포함 통틀어 <strong>1회만</strong> 가능</li>
+</ul>
+<hr />
+<h2 id="63-1">❌ 임대인이 거절할 수 있는 경우 (법 제6조의3 제1항 각호)<a class="headerlink" href="#63-1" title="Permanent link">&para;</a></h2>
+<p>다음의 경우 임대인은 갱신을 <strong>정당하게 거절</strong>할 수 있습니다:</p>
+<table>
+<thead>
+<tr>
+<th>사유</th>
+<th>구체적 내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>① 임차인의 의무 위반</strong></td>
+<td>2기(2개월) 이상 차임 연체</td>
+</tr>
+<tr>
+<td><strong>② 거짓·부정한 방법</strong></td>
+<td>허위 정보로 임대차 계약을 체결한 경우</td>
+</tr>
+<tr>
+<td><strong>③ 합의에 의한 변경</strong></td>
+<td>서로 합의하여 임대인이 상당한 보상을 제공한 경우</td>
+</tr>
+<tr>
+<td><strong>④ 임차인의 동의 없는 전대</strong></td>
+<td>무단 전대(다른 사람에게 빌려줌)</td>
+</tr>
+<tr>
+<td><strong>⑤ 임차인의 고의·과실 파손</strong></td>
+<td>임차 목적물을 고의로 훼손한 경우</td>
+</tr>
+<tr>
+<td><strong>⑥ 철거·재건축</strong></td>
+<td>건물의 전부 또는 대부분 철거·재건축이 필요한 경우</td>
+</tr>
+<tr>
+<td><strong>⑦ 임대인 자기 사용(실거주)</strong></td>
+<td>임대인 본인이 <strong>직접 거주</strong>하려는 경우</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_2">🔍 특히 주의할 점: "실거주" 거절<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p><strong>임대인 실거주 사유(⑦)</strong>가 실무에서 가장 많이 문제됩니다.</p>
+<ul>
+<li>임대인이 실거주를 이유로 거절 후 <strong>실제로 거주하지 않으면</strong>, 임차인에게 <strong>갱신 거절로 인한 손해배상</strong> 책임이 있습니다.</li>
+<li>손해배상액은 통상 <strong>갱신 거절 당시 차임의 3개월분</strong>에 해당하는 금액이 기준입니다 (2020년 법 개정 시행령).</li>
+</ul>
+<hr />
+<h2 id="_3">📌 실무 핵심 정리<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>이미 1번 갱신청구권을 썼다면</strong> → 더 이상 행사 불가</li>
+<li><strong>묵시적 갱신 상태에서도</strong> 갱신청구권을 아직 안 썼다면 행사 가능</li>
+<li><strong>차임 증액 한도</strong>: 갱신 시 임대료 인상은 기존 차임의 <strong>5% 이내</strong>로 제한</li>
+<li><strong>전세→월세 전환 시</strong>에도 5% 상한 + 전환율 적용</li>
+</ol>
+<hr />
+<h2 id="_4">💡 실전 팁<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>"계약갱신청구권을 행사하겠습니다"라는 의사표시는 반드시 내용증명 등 서면으로 남기세요.</strong> 구두로만 말하면 나중에 입증이 어렵습니다.</p>
+</blockquote>
+<p>추가로 궁금한 사항(실거주 분쟁, 보증금 반환, 전세사기 대비 등)이 있으시면 말씀해 주세요!</p>
+<p><strong>후속 답변</strong> (자동 수락):</p>
+<h1 id="_5">실거주 분쟁, 보증금 반환, 전세사기 대비 — 상세 가이드<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h1>
+<p>이전 답변 마지막에 말씀드린 세 가지 주제를 하나씩 자세히 안내드리겠습니다.</p>
+<hr />
+<h2 id="1">1️⃣ 실거주 분쟁 — 임대인이 "내가 살겠다"고 거절할 때<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<h3 id="_6">🔎 실거주 거절의 요건<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>임대인이 계약갱신청구권을 실거주 사유로 거절하려면:</p>
+<ul>
+<li><strong>임대인 본인, 직계존속, 직계비속</strong>이 실제 거주할 목적이어야 합니다</li>
+<li>단순히 "살 예정이다"가 아니라 <strong>구체적이고 진정한 거주 의사</strong>가 있어야 합니다</li>
+</ul>
+<h3 id="_7">⚠️ 거짓 실거주 시 제재<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>손해배상</strong></td>
+<td>갱신거절일 당시 <strong>차임 3개월분 + 실제 손해액</strong></td>
+</tr>
+<tr>
+<td><strong>입증 책임</strong></td>
+<td>임대인이 실거주했음을 <strong>임대인 측이 입증</strong>해야 함</td>
+</tr>
+<tr>
+<td><strong>실거주 판단 기준</strong></td>
+<td>통상 <strong>2년 이상 실제 거주</strong>했는지를 봄</td>
+</tr>
+<tr>
+<td><strong>과태료</strong></td>
+<td>거짓 실거주 적발 시 과태료 부과 가능</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_8">📋 임차인의 대응 방법<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>임대인의 거절 통보를 서면(내용증명)으로 받아둘 것</strong></li>
+<li><strong>퇴거 후 해당 주소지의 전입세대 열람</strong>을 주기적으로 확인</li>
+<li>주민센터에서 열람 가능 (이해관계인으로서)</li>
+<li><strong>임대인이 실거주하지 않은 정황</strong> 수집</li>
+<li>부동산 매물로 나와 있는지 확인</li>
+<li>다른 임차인이 새로 들어왔는지 확인</li>
+<li><strong>손해배상 청구 소송</strong> 또는 <strong>임대차분쟁조정위원회</strong> 신청</li>
+</ol>
+<hr />
+<h2 id="2_1">2️⃣ 보증금 반환 — 돌려받지 못할 때 대처법<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h2>
+<h3 id="_9">📌 보증금 반환의 기본 원칙<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<ul>
+<li>임대차 종료일(만료일)에 <strong>임차인이 목적물을 인도함과 동시에</strong> 보증금을 반환받아야 합니다</li>
+<li>법적으로는 <strong>동시이행 관계</strong>이므로, 보증금을 받기 전까지 이사하지 않아도 됩니다</li>
+</ul>
+<h3 id="_10">🛡️ 단계별 대응 절차<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<h4 id="1-23"><strong>1단계: 사전 준비 (만료 2~3개월 전)</strong><a class="headerlink" href="#1-23" title="Permanent link">&para;</a></h4>
+<ul>
+<li>임대인에게 <strong>보증금 반환 의사 확인</strong> (내용증명 발송)</li>
+<li><strong>전입신고 유지</strong> + <strong>확정일자</strong> 확인</li>
+<li>등기부등본 열람 → <strong>근저당, 가압류</strong> 등 권리관계 확인</li>
+</ul>
+<h4 id="2_2"><strong>2단계: 만료일에 반환받지 못한 경우</strong><a class="headerlink" href="#2_2" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>방법</th>
+<th>비용</th>
+<th>소요기간</th>
+<th>비고</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>내용증명 발송</strong></td>
+<td>약 5,000원</td>
+<td>즉시</td>
+<td>심리적 압박 효과</td>
+</tr>
+<tr>
+<td><strong>임대차분쟁조정위원회</strong></td>
+<td>무료</td>
+<td>약 1~2개월</td>
+<td>대한법률구조공단 운영</td>
+</tr>
+<tr>
+<td><strong>지급명령 신청</strong></td>
+<td>인지대 소액</td>
+<td>약 2~4주</td>
+<td>법원에 서면 신청</td>
+</tr>
+<tr>
+<td><strong>임차권등기명령</strong></td>
+<td>약 3~5만원</td>
+<td>약 1~2주</td>
+<td><strong>이사 후에도 대항력 유지</strong></td>
+</tr>
+<tr>
+<td><strong>보증금반환소송</strong></td>
+<td>인지대+송달료</td>
+<td>3~6개월</td>
+<td>최종 수단</td>
+</tr>
+</tbody>
+</table>
+<h4 id="3"><strong>3단계: 임차권등기명령 (핵심!)</strong><a class="headerlink" href="#3" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><strong>이사를 가야 하는데 보증금을 못 받았다면, 반드시 임차권등기명령을 신청하세요!</strong></p>
+</blockquote>
+<ul>
+<li><strong>관할 법원</strong>: 임차주택 소재지 법원</li>
+<li><strong>효과</strong>: 등기 후 이사해도 <strong>대항력·우선변제권 유지</strong></li>
+<li><strong>필요 서류</strong>: </li>
+<li>임대차계약서 사본</li>
+<li>주민등록등본</li>
+<li>건물 등기사항증명서</li>
+<li>임대차 종료 증빙 (내용증명 등)</li>
+</ul>
+<h4 id="4"><strong>4단계: 경매·공매 시 배당 요구</strong><a class="headerlink" href="#4" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>확정일자 + 전입신고</strong> 상태라면 우선변제권으로 배당 요구 가능</li>
+<li>배당요구 종기일까지 반드시 <strong>배당요구서 제출</strong></li>
+</ul>
+<hr />
+<h2 id="3_1">3️⃣ 전세사기 대비 — 계약 전·중·후 체크리스트<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h2>
+<h3 id="_11">🔴 계약 전 필수 확인사항<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<h4 id="_12"><strong>등기부등본 확인 (가장 중요!)</strong><a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>✅ 확인 포인트:
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── 갑구: 소유자가 계약 상대방과 일치하는지
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├── 갑구: 가압류, 가처분, 압류 등기 여부
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>├── 을구: 근저당권 설정 금액
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>├── 을구: 근저당 + 보증금 합계가 시세의 70~80% 이하인지
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>└── 신탁등기 여부 (신탁 시 수탁자와 계약해야 유효)
+</code></pre></div>
+<h4 id="_13"><strong>깡통전세 판별 공식</strong><a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>(선순위 근저당액 + 나의 보증금) ÷ 시세 × 100
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>→ 70% 이하: 비교적 안전
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>→ 70~80%: 주의 필요  
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>→ 80% 이상: 매우 위험 ⚠️
+</code></pre></div>
+<h4 id="_14"><strong>추가 확인사항</strong><a class="headerlink" href="#_14" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>확인 항목</th>
+<th>확인 방법</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>집주인 세금 체납</strong></td>
+<td>국세·지방세 완납증명서 요청 (임대인 동의 필요)</td>
+</tr>
+<tr>
+<td><strong>다가구주택 선순위 임차인</strong></td>
+<td>전입세대 열람 (임대인 동의 필요)</td>
+</tr>
+<tr>
+<td><strong>건축물대장</strong></td>
+<td>위반건축물 여부, 용도 확인</td>
+</tr>
+<tr>
+<td><strong>시세 확인</strong></td>
+<td>국토교통부 실거래가, KB시세 등으로 교차 검증</td>
+</tr>
+<tr>
+<td><strong>공인중개사 확인</strong></td>
+<td>한국공인중개사협회 홈페이지에서 자격 조회</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_15">🟡 계약 시 필수 조치<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>전세보증금 반환보증보험 가입</strong> (가장 강력한 안전장치!)</li>
+<li><strong>HUG(주택도시보증공사)</strong>: 가장 보편적</li>
+<li><strong>SGI서울보증</strong>: 일부 조건에서 유리</li>
+<li><strong>HF한국주택금융공사</strong>: 전세대출 연계 시</li>
+<li>
+<p>📌 <strong>가입 시기</strong>: 전입신고 + 확정일자 후, <strong>계약기간의 1/2 경과 전</strong>까지</p>
+</li>
+<li>
+<p><strong>특약사항 필수 기재</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>권장 특약 예시:
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>- &quot;임대인은 임대차 기간 중 근저당 설정을 추가하지 않는다&quot;
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>- &quot;잔금일까지 등기부등본상 권리변동이 있을 경우 계약을 해제하며, 
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>   임대인은 계약금의 배액을 배상한다&quot;
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>- &quot;임대인은 국세·지방세 완납증명서를 잔금일에 제출한다&quot;
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>잔금 당일 재확인</strong></p>
+</li>
+<li>등기부등본 <strong>당일 재열람</strong> (잔금 치르기 직전!)</li>
+<li>전입신고 <strong>당일 즉시</strong> 처리</li>
+<li>확정일자 <strong>당일 즉시</strong> 받기</li>
+</ol>
+<h3 id="_16">🟢 계약 후 관리<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>시기</th>
+<th>할 일</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>입주 즉시</strong></td>
+<td>전입신고 + 확정일자</td>
+</tr>
+<tr>
+<td><strong>입주 후 1주 내</strong></td>
+<td>전세보증금반환보증보험 가입</td>
+</tr>
+<tr>
+<td><strong>매 3~6개월</strong></td>
+<td>등기부등본 변동사항 확인</td>
+</tr>
+<tr>
+<td><strong>만료 6개월 전</strong></td>
+<td>임대인에게 갱신/종료 의사 통보</td>
+</tr>
+<tr>
+<td><strong>만료 2개월 전</strong></td>
+<td>보증금 반환 계획 서면 확인</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_17">🆘 문제 발생 시 무료 상담 연락처<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>기관</th>
+<th>연락처</th>
+<th>비고</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>대한법률구조공단</strong></td>
+<td>☎ 132</td>
+<td>무료 법률상담·소송지원</td>
+</tr>
+<tr>
+<td><strong>LH 전세피해지원센터</strong></td>
+<td>☎ 1600-1004</td>
+<td>전세사기 피해 전담</td>
+</tr>
+<tr>
+<td><strong>임대차분쟁조정위원회</strong></td>
+<td>각 시·도 소재</td>
+<td>무료 조정</td>
+</tr>
+<tr>
+<td><strong>법률홈닥터</strong></td>
+<td>대한변호사협회</td>
+<td>무료 법률상담</td>
+</tr>
+<tr>
+<td><strong>주거복지재단</strong></td>
+<td>☎ 1600-0777</td>
+<td>긴급 주거지원</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_18">💡 최종 핵심 요약<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h2>
+<blockquote>
+<ol>
+<li><strong>전입신고 + 확정일자</strong>는 입주 당일 반드시!</li>
+<li><strong>전세보증금반환보증보험</strong>은 선택이 아닌 필수!</li>
+<li><strong>등기부등본</strong>은 계약 전·잔금일·거주 중 수시로 확인!</li>
+<li>보증금 못 받으면 <strong>임차권등기명령</strong> 후 이사!</li>
+<li>실거주 거짓 거절은 <strong>손해배상 청구</strong> 가능!</li>
+</ol>
+</blockquote>
+<p>특정 상황에 대해 더 구체적으로 알고 싶으시면 말씀해 주세요. (예: 본인의 계약 조건, 현재 분쟁 상황 등)</p>
+<hr />
+<h3 id="q2">Q2. 집주인이 실거주 한다고 거절하면 어쩌나요?<a class="headerlink" href="#q2" title="Permanent link">&para;</a></h3>
+<p><strong>입력 토큰</strong>: 3 | <strong>출력 토큰</strong>: 1,895 | <strong>소요시간</strong>: 38,354ms | <strong>CLI 비용</strong>: $0.0650 | <strong>추정 API 비용</strong>: $0.1422
+<strong>대화 컨텍스트</strong>: 1턴 누적 | <strong>후속 제안</strong>: 감지됨</p>
+<p><strong>답변:</strong></p>
+<h1 id="_19">집주인이 "실거주" 사유로 갱신을 거절할 때 대응 방법<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="1_1">1️⃣ 먼저, 거절 자체는 적법할 수 있습니다<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h2>
+<p>임대인(집주인)이 <strong>본인, 배우자, 직계존비속(부모·자녀)</strong> 이 실제로 거주하려는 경우, 갱신 거절이 법적으로 가능합니다.</p>
+<blockquote>
+<p>이때 핵심은 <strong>"진짜 살 건지, 거짓인지"</strong>입니다.</p>
+</blockquote>
+<hr />
+<h2 id="2_3">2️⃣ 임차인이 확인·대응해야 할 체크리스트<a class="headerlink" href="#2_3" title="Permanent link">&para;</a></h2>
+<h3 id="_20">✅ 거절 통보를 받았을 때<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>순서</th>
+<th>할 일</th>
+<th>이유</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td><strong>서면(내용증명) 수령 여부 확인</strong></td>
+<td>구두 통보만으로는 효력 다툼 가능</td>
+</tr>
+<tr>
+<td>②</td>
+<td><strong>누가 실거주하는지 특정 요구</strong></td>
+<td>본인인지, 자녀인지, 부모인지 확인</td>
+</tr>
+<tr>
+<td>③</td>
+<td><strong>실거주 의사의 진정성 판단</strong></td>
+<td>매매 광고 중이거나, 다른 임차인 모집 중이면 거짓 가능성</td>
+</tr>
+<tr>
+<td>④</td>
+<td><strong>대화 내용 모두 기록·녹음</strong></td>
+<td>향후 손해배상 청구 시 증거</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3_2">3️⃣ 거짓 실거주(허위 사유)일 경우 — 핵심!<a class="headerlink" href="#3_2" title="Permanent link">&para;</a></h2>
+<h3 id="_21">📌 임대인이 실거주 거절 후 실제로 살지 않으면?<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
+<p><strong>주택임대차보호법 제6조의3 제6항~제8항</strong>에 따라:</p>
+<h3 id="_22">🔴 손해배상 청구 가능<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>법정 손해배상액</strong>: 갱신 거절 당시 <strong>월 차임(또는 환산 월차임)의 3개월분</strong>에 해당하는 금액</li>
+<li>실제 손해가 이보다 크면 <strong>실손해액 전액</strong> 청구도 가능</li>
+</ul>
+<h3 id="_23">🔴 판단 기준 (실무상)<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
+<p>집주인이 갱신 거절 후 다음 행위를 하면 <strong>허위 실거주</strong>로 인정될 가능성이 높습니다:</p>
+<ul>
+<li>❌ 다른 사람에게 <strong>재임대</strong>(새 세입자를 들임)</li>
+<li>❌ <strong>매도</strong>(집을 팔아버림)</li>
+<li>❌ 전입신고를 하지 않거나 <strong>실제 거주 흔적이 없음</strong></li>
+<li>❌ 갱신 거절 후 <strong>상당 기간 공실</strong>로 방치</li>
+</ul>
+<hr />
+<h2 id="4_1">4️⃣ 구체적 대응 절차 (실전 로드맵)<a class="headerlink" href="#4_1" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>[갱신 거절 통보 수령]
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>       │
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>       ▼
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>[실거주 사유 구체적 확인 요청 (내용증명)]
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>       │
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>       ▼
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>[이사 전] 현재 집 상태 사진·영상 촬영 (보증금 분쟁 대비)
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>       │
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>       ▼
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>[이사 후] 해당 주소지 전입세대 열람 (주민센터)
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>       │    → 집주인 본인이 전입했는지 확인
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>       │
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>       ▼
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>[실거주 안 한 정황 포착 시]
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>       │
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>       ├─ ① 내용증명으로 손해배상 청구
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>       ├─ ② 협의 불가 시 → 민사소송 또는 임대차분쟁조정위원회
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>       └─ ③ 증거: 부동산 매물 등록 캡처, 전입세대 열람, 이웃 진술 등
+</code></pre></div>
+<hr />
+<h2 id="5">5️⃣ 증거 확보 방법 (매우 중요!)<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>증거 유형</th>
+<th>수집 방법</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>전입세대 열람</strong></td>
+<td>이사 후 주민센터에서 해당 주소 열람 (이해관계인으로 신청)</td>
+</tr>
+<tr>
+<td><strong>부동산 매물 등록</strong></td>
+<td>네이버부동산, 직방 등에서 해당 주소 매물 캡처</td>
+</tr>
+<tr>
+<td><strong>등기부등본</strong></td>
+<td>소유권 변동(매매) 여부 확인</td>
+</tr>
+<tr>
+<td><strong>현장 확인</strong></td>
+<td>실거주 여부 사진·영상 (우편물 쌓임, 공실 상태 등)</td>
+</tr>
+<tr>
+<td><strong>대화 기록</strong></td>
+<td>카톡, 문자, 녹음 등 집주인과의 대화</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="6">6️⃣ 분쟁 해결 기관<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>기관</th>
+<th>특징</th>
+<th>비용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>대한법률구조공단</strong> (☎ 132)</td>
+<td>무료 법률상담, 소송 지원</td>
+<td>무료~저렴</td>
+</tr>
+<tr>
+<td><strong>임대차분쟁조정위원회</strong> (LH)</td>
+<td>조정 신청, 비교적 빠른 해결</td>
+<td>무료</td>
+</tr>
+<tr>
+<td><strong>민사소송</strong></td>
+<td>확정 판결, 강제력 있음</td>
+<td>소송비용 발생</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_24">💡 핵심 요약<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>집주인이 실거주한다고 하면 일단 거절 자체는 막기 어렵습니다.</strong>
+그러나 <strong>"진짜 살지 않으면 손해배상을 받을 수 있다"</strong>는 것이 임차인의 최대 무기입니다.</p>
+<p>따라서 <strong>이사 후에도 반드시 실거주 여부를 추적·확인</strong>하시고, 허위로 밝혀지면 즉시 법적 조치를 취하세요.</p>
+</blockquote>
+<hr />
+<p>추가로 <strong>보증금 반환 문제</strong>, <strong>이사비용 청구 가능 여부</strong>, <strong>임대차분쟁조정 신청 방법</strong> 등 궁금한 점 있으시면 말씀해 주세요!</p>
+<p><strong>후속 답변</strong> (자동 수락):</p>
+<h1 id="_25">보증금 반환, 이사비용 청구, 임대차분쟁조정 — 종합 가이드<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="part-1">📌 Part 1. 보증금 반환 문제<a class="headerlink" href="#part-1" title="Permanent link">&para;</a></h2>
+<h3 id="1_2">1) 기본 원칙<a class="headerlink" href="#1_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>임대차 종료 시 임대인은 <strong>목적물 반환(이사)과 동시에</strong> 보증금을 돌려줘야 합니다 (동시이행 관계)</li>
+<li>집주인이 실거주를 이유로 갱신을 거절한 경우에도 <strong>보증금 반환 의무는 동일</strong>합니다</li>
+</ul>
+<h3 id="2_4">2) 집주인이 보증금을 안 돌려줄 때 — 단계별 대응<a class="headerlink" href="#2_4" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>[만료일 도래]
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>     │
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>     ▼
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>[① 내용증명 발송] — &quot;○월 ○일까지 보증금 ○○원 반환 요청&quot;
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>     │
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>     ▼  (14일~1개월 내 미반환 시)
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>[② 임차권등기명령 신청] — 관할 법원에 신청
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>     │   → 이사를 나가도 대항력·우선변제권 유지!
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>     │   → 신청 비용: 약 3~5만 원
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>     │
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>     ▼
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>[③ 지급명령 신청 또는 민사소송]
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>     │   → 지급명령: 간편·저렴 (인지대 소액)
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>     │   → 민사소송: 상대방이 이의 시
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>     │
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>     ▼
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>[④ 강제집행] — 판결문 또는 확정된 지급명령으로 강제경매·압류
+</code></pre></div>
+<h3 id="3_3">3) 핵심 포인트: 임차권등기명령<a class="headerlink" href="#3_3" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>신청 시기</strong></td>
+<td>임대차 종료 후 보증금 미반환 시</td>
+</tr>
+<tr>
+<td><strong>신청 장소</strong></td>
+<td>해당 주택 소재지 관할 법원</td>
+</tr>
+<tr>
+<td><strong>효과</strong></td>
+<td>이사 나가도 <strong>대항력 + 우선변제권 유지</strong></td>
+</tr>
+<tr>
+<td><strong>비용</strong></td>
+<td>등록면허세 + 수수료 약 3~5만 원</td>
+</tr>
+<tr>
+<td><strong>소요 기간</strong></td>
+<td>통상 1~2주 내 결정</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>임차권등기명령 없이 이사 나가면 대항력을 잃습니다!</strong> 반드시 이사 전에 신청하거나, 보증금 수령 후 이사하세요.</p>
+</blockquote>
+<h3 id="4_2">4) 보증금반환보증보험 가입자인 경우<a class="headerlink" href="#4_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>HUG(주택도시보증공사)</strong>, <strong>SGI서울보증</strong>, <strong>HF한국주택금융공사</strong> 보증에 가입되어 있다면</li>
+<li>만료 후 1개월 이내 미반환 시 → <strong>보증기관에 직접 보증금 지급 청구</strong> 가능</li>
+<li>보증기관이 먼저 지급한 뒤, 집주인에게 구상권 행사</li>
+</ul>
+<hr />
+<h2 id="part-2">📌 Part 2. 이사비용 청구 가능 여부<a class="headerlink" href="#part-2" title="Permanent link">&para;</a></h2>
+<h3 id="1_3">1) 원칙: 이사비용 자체는 청구 어려움<a class="headerlink" href="#1_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>집주인의 실거주 거절이 <strong>적법한 경우</strong>: 이사비용 청구 근거 없음</li>
+<li>계약 만료에 따른 이사는 임차인이 부담하는 것이 원칙</li>
+</ul>
+<h3 id="2_5">2) 예외: 이사비용 청구가 가능한 경우<a class="headerlink" href="#2_5" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>상황</th>
+<th style="text-align: center;">청구 가능 여부</th>
+<th>근거</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>허위 실거주로 밝혀진 경우</strong></td>
+<td style="text-align: center;">✅ 가능</td>
+<td>불법행위 손해배상 (민법 제750조)</td>
+</tr>
+<tr>
+<td><strong>계약 기간 중 부당한 조기 퇴거 요구</strong></td>
+<td style="text-align: center;">✅ 가능</td>
+<td>채무불이행 손해배상</td>
+</tr>
+<tr>
+<td><strong>적법한 실거주 거절</strong></td>
+<td style="text-align: center;">❌ 불가</td>
+<td>정당한 권리 행사</td>
+</tr>
+<tr>
+<td><strong>합의로 조기 퇴거 시</strong></td>
+<td style="text-align: center;">⚠️ 협의 가능</td>
+<td>당사자 간 합의 사항</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3_4">3) 허위 실거주 시 청구 가능한 손해 범위<a class="headerlink" href="#3_4" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>손해배상 범위
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>├── ① 법정 손해배상: 월 차임 3개월분 (최소 보장)
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>├── ② 이사비용 (이삿짐센터 비용, 중개수수료 등)
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>├── ③ 새 주거지와의 차임 차액 (더 비싼 곳으로 이사한 경우)
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>├── ④ 기타 실손해 (아이 전학 비용, 출퇴근 교통비 증가 등)
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>└── → ①과 ②③④ 중 큰 금액을 청구 가능
+</code></pre></div>
+<h3 id="4_3">4) 실전 팁: 이사비용 관련<a class="headerlink" href="#4_3" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>적법한 실거주 거절이라도 협상의 여지는 있습니다.</strong>
+- "이사비용 일부를 지원해주시면 원만하게 나가겠습니다"
+- 실무상 <strong>이사비 100~300만 원 정도 합의</strong>하는 경우가 적지 않습니다
+- 이런 합의는 <strong>반드시 서면(합의서)</strong> 으로 남기세요</p>
+</blockquote>
+<hr />
+<h2 id="part-3">📌 Part 3. 임대차분쟁조정위원회 신청 방법<a class="headerlink" href="#part-3" title="Permanent link">&para;</a></h2>
+<h3 id="1_4">1) 임대차분쟁조정위원회란?<a class="headerlink" href="#1_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>주택임대차보호법 제14조</strong>에 근거한 공식 분쟁 해결 기구</li>
+<li><strong>LH(한국토지주택공사)</strong> 산하 또는 <strong>각 시·도</strong>에 설치</li>
+<li><strong>무료</strong>로 이용 가능</li>
+<li>소송보다 <strong>빠르고 간편</strong></li>
+</ul>
+<h3 id="2_6">2) 신청 가능한 분쟁 유형<a class="headerlink" href="#2_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li>✅ 계약갱신청구권 관련 분쟁 (실거주 허위 여부 등)</li>
+<li>✅ 차임 증감 분쟁 (5% 초과 인상 등)</li>
+<li>✅ 보증금 반환 분쟁</li>
+<li>✅ 임대차 기간 관련 분쟁</li>
+<li>✅ 주거용 건물의 유지·수선 관련 분쟁</li>
+</ul>
+<h3 id="3_5">3) 신청 절차<a class="headerlink" href="#3_5" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>[① 조정 신청]
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>  │  → 온라인: 대한법률구조공단 홈페이지 (www.klac.or.kr)
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>  │  → 전화: ☎ 132
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>  │  → 방문: 각 지역 법률구조공단 사무소
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>  │  → 준비서류: 임대차계약서, 내용증명 사본, 증거자료
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>  │
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>  ▼
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>[② 사건 배정 및 조정기일 통보] — 약 2~4주
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>  │
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>  ▼
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>[③ 조정기일 출석]
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>  │  → 양 당사자 출석하여 조정위원 앞에서 진술
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>  │  → 비공개 진행
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>  │
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>  ▼
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>[④ 조정안 제시]
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>  │
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>  ├─ 양측 수락 → 재판상 화해와 동일한 효력 (강제집행 가능!)
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>  │
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>  └─ 일방 거부 → 조정 불성립 → 민사소송으로 이행
+</code></pre></div>
+<h3 id="4_4">4) 조정의 장점과 한계<a class="headerlink" href="#4_4" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>비용</strong></td>
+<td>무료</td>
+</tr>
+<tr>
+<td><strong>소요 기간</strong></td>
+<td>신청~조정 완료까지 보통 <strong>1~3개월</strong></td>
+</tr>
+<tr>
+<td><strong>강제력</strong></td>
+<td>양측 합의 시 <strong>판결과 동일한 효력</strong></td>
+</tr>
+<tr>
+<td><strong>한계</strong></td>
+<td>상대방이 거부하면 불성립 → 소송 필요</td>
+</tr>
+<tr>
+<td><strong>출석</strong></td>
+<td>상대방 불출석 시에도 조정안 송달 가능</td>
+</tr>
+</tbody>
+</table>
+<h3 id="5_1">5) 신청 시 준비할 서류 체크리스트<a class="headerlink" href="#5_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[ ] 임대차계약서 사본</li>
+<li>[ ] 갱신 거절 관련 내용증명 (발송·수신분)</li>
+<li>[ ] 집주인과의 카톡/문자 대화 캡처</li>
+<li>[ ] 전입세대 열람 결과 (실거주 미이행 증거)</li>
+<li>[ ] 부동산 매물 등록 화면 캡처</li>
+<li>[ ] 등기부등본 (소유권 변동 확인)</li>
+<li>[ ] 이사 관련 영수증 (이사비, 중개수수료 등)</li>
+<li>[ ] 신분증 사본</li>
+</ul>
+<hr />
+<h2 id="part-4">📌 Part 4. 종합 실전 타임라인 (집주인 실거주 거절 시)<a class="headerlink" href="#part-4" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>[갱신 거절 통보 수령]
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>     │
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>     ▼ (즉시)
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>[내용증명 발송: 실거주자 특정 요청 + 허위 시 법적 조치 예고]
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>     │
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>     ▼ (이사 전)
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>[현재 집 상태 사진·영상 촬영]
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>[보증금 반환 일정 서면 합의]
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>[이사비 협상 (가능하다면)]
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>     │
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>     ▼ (이사일)
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>[보증금 수령 확인 후 이사]
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>[미수령 시 → 임차권등기명령 신청 후 이사]
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>     │
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>     ▼ (이사 후 1~3개월)
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>[전입세대 열람으로 실거주 여부 확인]
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>[부동산 사이트 매물 등록 여부 모니터링]
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>     │
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>     ├─ 실거주 확인됨 → 종료
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>     │
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>     └─ 허위 실거주 확인 시
+<a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>          │
+<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>          ├─ 내용증명으로 손해배상 청구
+<a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a>          ├─ 임대차분쟁조정위원회 신청 (무료)
+<a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a>          └─ 협의 불가 시 → 민사소송
+</code></pre></div>
+<hr />
+<h2 id="_26">💡 최종 핵심 정리<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>상황</th>
+<th>최선의 행동</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>갱신 거절 받았을 때</td>
+<td>내용증명으로 실거주자 특정 요구, 모든 대화 기록</td>
+</tr>
+<tr>
+<td>보증금 못 받을 것 같을 때</td>
+<td><strong>임차권등기명령 먼저</strong>, 그다음 이사</td>
+</tr>
+<tr>
+<td>이사비 받고 싶을 때</td>
+<td>합의서 작성으로 협상, 허위 실거주면 법적 청구</td>
+</tr>
+<tr>
+<td>허위 실거주 의심될 때</td>
+<td>증거 수집 → 분쟁조정위원회(무료) → 민사소송</td>
+</tr>
+<tr>
+<td>무료 법률상담</td>
+<td>☎ <strong>132</strong> (대한법률구조공단)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>추가로 <strong>내용증명 작성 예시</strong>, <strong>임차권등기명령 신청서 작성법</strong>, <strong>조정 신청서 양식</strong> 등 구체적인 서류 작성이 필요하시면 말씀해 주세요!</p>
+<hr />
+<h3 id="q3-5">Q3. 갱신 시 보증금 인상 5% 상한 맞나요?<a class="headerlink" href="#q3-5" title="Permanent link">&para;</a></h3>
+<p><strong>입력 토큰</strong>: 3 | <strong>출력 토큰</strong>: 1,656 | <strong>소요시간</strong>: 31,767ms | <strong>CLI 비용</strong>: $0.0707 | <strong>추정 API 비용</strong>: $0.1242
+<strong>대화 컨텍스트</strong>: 2턴 누적 | <strong>후속 제안</strong>: 감지됨</p>
+<p><strong>답변:</strong></p>
+<h1 id="5_2">계약갱신 시 보증금(차임) 인상 상한 — 5% 맞습니다<a class="headerlink" href="#5_2" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="_27">✅ 법적 근거<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h2>
+<p><strong>주택임대차보호법 제7조 및 같은 법 시행령 제2조의2</strong>에 따라:</p>
+<blockquote>
+<p>계약갱신청구권을 행사하여 갱신되는 경우, 차임 또는 보증금의 증액은 <strong>기존 금액의 5%를 초과하지 못합니다.</strong></p>
+</blockquote>
+<hr />
+<h2 id="_28">📌 구체적 적용 방법<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h2>
+<h3 id="_29">보증금만 있는 경우 (전세)<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>기존 보증금</td>
+<td>3억 원</td>
+</tr>
+<tr>
+<td>최대 인상액</td>
+<td>3억 × 5% = <strong>1,500만 원</strong></td>
+</tr>
+<tr>
+<td>갱신 후 최대 보증금</td>
+<td><strong>3억 1,500만 원</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_30">보증금 + 월세인 경우 (반전세/월세)<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>기존 보증금</td>
+<td>1억 원 / 월세 50만 원</td>
+</tr>
+<tr>
+<td>보증금 최대 인상</td>
+<td>1억 × 5% = <strong>500만 원</strong></td>
+</tr>
+<tr>
+<td>월세 최대 인상</td>
+<td>50만 × 5% = <strong>2만 5천 원</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>보증금과 월세 각각에 5% 상한이 적용</strong>됩니다. 보증금은 그대로 두고 월세만 10% 올리는 식의 편법은 안 됩니다.</p>
+</blockquote>
+<hr />
+<h2 id="_31">🔍 자주 헷갈리는 포인트<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h2>
+<h3 id="1-5">① 5%는 "상한"이지 "당연한 인상폭"이 아닙니다<a class="headerlink" href="#1-5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>집주인이 5%까지 올릴 수 <strong>있다</strong>는 것이지, 반드시 올려야 하는 건 아닙니다</li>
+<li>임차인은 <strong>인상 자체를 거부하거나 협상</strong>할 수 있습니다</li>
+</ul>
+<h3 id="2_7">② 지자체 조례로 더 낮출 수 있습니다<a class="headerlink" href="#2_7" title="Permanent link">&para;</a></h3>
+<p>일부 지자체는 조례로 <strong>5%보다 낮은 상한율</strong>을 정할 수 있습니다. 다만 현재 대부분의 지역은 법정 상한인 5%를 그대로 적용하고 있습니다.</p>
+<h3 id="3_6">③ 계약갱신청구권이 아닌 "합의 갱신"은?<a class="headerlink" href="#3_6" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>갱신 유형</th>
+<th>5% 상한 적용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>계약갱신청구권 행사</strong></td>
+<td>✅ 적용 (강제)</td>
+</tr>
+<tr>
+<td><strong>합의 갱신 (쌍방 합의)</strong></td>
+<td>❌ 적용 안 됨 → 자유롭게 정할 수 있음</td>
+</tr>
+<tr>
+<td><strong>묵시적 갱신</strong></td>
+<td>기존 조건 동일하게 갱신 (인상 없음)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ 이 부분이 매우 중요합니다. <strong>합의 갱신은 5% 제한이 없으므로</strong>, 집주인이 "합의로 갱신하자"고 하면서 큰 폭의 인상을 요구할 수 있습니다. 이때는 <strong>"갱신청구권을 행사하겠다"고 명확히 밝혀야</strong> 5% 상한의 보호를 받습니다.</p>
+</blockquote>
+<hr />
+<h2 id="4_5">④ 전세 → 월세 전환 시에도 제한<a class="headerlink" href="#4_5" title="Permanent link">&para;</a></h2>
+<p>갱신하면서 전세를 월세로 바꾸는 경우, <strong>전월세 전환율</strong> 제한도 적용됩니다:</p>
+<blockquote>
+<p><strong>전환율 상한 = 기준금리(한국은행) + 2%</strong></p>
+</blockquote>
+<p>예시 (기준금리 2.5% 가정):
+| 항목 | 계산 |
+|------|------|
+| 전환율 상한 | 2.5% + 2% = <strong>4.5%</strong> |
+| 보증금 1억 감소 시 월세 전환 | 1억 × 4.5% ÷ 12 = <strong>월 37.5만 원</strong> |</p>
+<hr />
+<h2 id="_32">💡 실전 팁<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h2>
+<blockquote>
+<ol>
+<li><strong>갱신청구권 행사 시 "5% 이내에서만 인상 가능하다"는 점을 내용증명에 함께 기재</strong>하세요.</li>
+<li>집주인이 5% 초과 인상을 요구하면, <strong>"법정 상한 초과"</strong>임을 알리고 거부하면 됩니다.</li>
+<li>5% 초과 인상에 합의해버리면 나중에 돌려받기 어려울 수 있으니, <strong>서명 전에 반드시 확인</strong>하세요.</li>
+</ol>
+</blockquote>
+<hr />
+<p>앞서 말씀드린 <strong>실거주 거절 문제</strong>와 연결해서, 만약 집주인이 "5% 이상 올려줘야 갱신해준다"고 하면 이는 <strong>갱신청구권 거절 사유에 해당하지 않으므로</strong> 임차인이 거부하고 5% 이내 갱신을 관철할 수 있습니다.</p>
+<p>추가로 <strong>보증금 반환</strong>, <strong>확정일자·대항력</strong> 등 궁금한 점 있으시면 말씀해 주세요!</p>
+<p><strong>후속 답변</strong> (자동 수락):</p>
+<h1 id="_33">보증금 반환 &amp; 확정일자·대항력 완전 정리<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="part-1_1">📋 Part 1. 대항력 — 세입자의 기본 방어막<a class="headerlink" href="#part-1_1" title="Permanent link">&para;</a></h2>
+<h3 id="_34">대항력이란?<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>임차인이 제3자(새 집주인, 경매 낙찰자 등)에게도 <strong>"나 여기 살고 있으니 내보내지 못한다"</strong>고 주장할 수 있는 힘입니다.</p>
+</blockquote>
+<h3 id="2_8">✅ 대항력 성립 요건 (2가지 모두 충족해야)<a class="headerlink" href="#2_8" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>요건</th>
+<th>내용</th>
+<th>시점</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>① 주택 인도(입주)</strong></td>
+<td>실제로 이사하여 거주</td>
+<td>이사한 날</td>
+</tr>
+<tr>
+<td><strong>② 전입신고</strong></td>
+<td>주민센터에서 전입신고 완료</td>
+<td>전입신고한 날</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>대항력 발생 시점</strong>: 두 요건을 모두 갖춘 <strong>다음 날 0시</strong>부터 효력 발생</p>
+</blockquote>
+<h3 id="_35">🔴 실무에서 가장 많이 당하는 실수<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>[3월 15일] 잔금 지급 + 이사 + 전입신고
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>[3월 15일] 같은 날 집주인이 은행 근저당 설정
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>     → 근저당이 같은 날 설정되면, 대항력(3/16 0시)보다 
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>       근저당(3/15)이 먼저 → 경매 시 보증금 못 받을 수 있음!
+</code></pre></div>
+<h3 id="_36">💡 예방법<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>잔금일 전날까지 전입신고를 완료</strong>하거나, 잔금일에 <strong>등기부등본을 반드시 재확인</strong>하여 새로운 권리 설정이 없는지 체크하세요.</p>
+</blockquote>
+<hr />
+<h2 id="part-2_1">📋 Part 2. 확정일자 — 보증금 우선변제의 열쇠<a class="headerlink" href="#part-2_1" title="Permanent link">&para;</a></h2>
+<h3 id="_37">확정일자란?<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>임대차계약서에 <strong>주민센터(또는 법원등기소)에서 날짜 도장</strong>을 받는 것입니다. 이것이 있어야 경매 시 보증금을 <strong>우선적으로</strong> 돌려받을 수 있습니다.</p>
+</blockquote>
+<h3 id="3_7">✅ 우선변제권 성립 요건 (3가지 모두)<a class="headerlink" href="#3_7" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>요건</th>
+<th>방법</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>① 대항력</strong> (입주 + 전입신고)</td>
+<td>위에서 설명한 대로</td>
+</tr>
+<tr>
+<td><strong>② 확정일자</strong></td>
+<td>계약서에 확정일자 도장</td>
+</tr>
+<tr>
+<td><strong>③ 배당 요구</strong></td>
+<td>경매 시 법원에 배당요구 신청</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_38">📌 우선변제 순위 결정<a class="headerlink" href="#_38" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>순위는 [대항력 취득일]과 [확정일자] 중 늦은 날짜 기준
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>예시:
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>- 3/15 전입신고 → 대항력 3/16 발생
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>- 3/15 확정일자 받음
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>→ 우선변제권: 3/16부터 (늦은 날짜 기준)
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>만약 3/10에 근저당이 설정되어 있었다면?
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>→ 근저당(3/10)이 우선 → 경매 시 은행이 먼저 배당받음
+</code></pre></div>
+<h3 id="_39">확정일자 받는 방법<a class="headerlink" href="#_39" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>방법</th>
+<th>장소</th>
+<th>비용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>주민센터 방문</strong></td>
+<td>동주민센터</td>
+<td>600원</td>
+</tr>
+<tr>
+<td><strong>등기소 방문</strong></td>
+<td>법원등기소</td>
+<td>600원</td>
+</tr>
+<tr>
+<td><strong>온라인</strong></td>
+<td>대법원 인터넷등기소 (확정일자 온라인 부여 서비스)</td>
+<td>600원</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="part-3_1">📋 Part 3. 보증금 반환 — 만기에 돌려받는 절차<a class="headerlink" href="#part-3_1" title="Permanent link">&para;</a></h2>
+<h3 id="_40">✅ 정상적인 반환 절차<a class="headerlink" href="#_40" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>[만기 2개월 전] 갱신 여부 결정 통보
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>        │
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>        ▼
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>[만기일] 임차인: 집 비워주고 열쇠 반환
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>        임대인: 보증금 전액 반환
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>        │
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>        ▼
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>[동시이행] 퇴거와 보증금 반환은 &quot;동시이행&quot; 관계
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>          → 보증금 안 주면 안 나가도 됨 (법적으로)
+</code></pre></div>
+<h3 id="_41">🔴 보증금을 안 돌려줄 때 — 단계별 대응<a class="headerlink" href="#_41" title="Permanent link">&para;</a></h3>
+<hr />
+<h4 id="1_5"><strong>1단계: 내용증명 발송</strong><a class="headerlink" href="#1_5" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>시기</strong></td>
+<td>만기일 전 또는 만기 직후</td>
+</tr>
+<tr>
+<td><strong>내용</strong></td>
+<td>"○년 ○월 ○일까지 보증금 ○○원을 반환해주세요"</td>
+</tr>
+<tr>
+<td><strong>방법</strong></td>
+<td>우체국 내용증명 (3부 작성, 1부는 우체국 보관)</td>
+</tr>
+<tr>
+<td><strong>비용</strong></td>
+<td>약 2,500원~5,000원</td>
+</tr>
+<tr>
+<td><strong>효과</strong></td>
+<td>법적 최고(催告), 증거 확보</td>
+</tr>
+</tbody>
+</table>
+<h4 id="2_9"><strong>2단계: 임대차분쟁조정위원회 신청</strong><a class="headerlink" href="#2_9" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>신청처</strong></td>
+<td>LH 임대차분쟁조정위원회 (☎ 1600-0777)</td>
+</tr>
+<tr>
+<td><strong>비용</strong></td>
+<td><strong>무료</strong></td>
+</tr>
+<tr>
+<td><strong>기간</strong></td>
+<td>약 1~3개월</td>
+</tr>
+<tr>
+<td><strong>효과</strong></td>
+<td>양측 합의 유도, 조정 성립 시 재판상 화해 효력</td>
+</tr>
+</tbody>
+</table>
+<h4 id="3_8"><strong>3단계: 지급명령 신청 (가장 실용적!)</strong><a class="headerlink" href="#3_8" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>신청처</strong></td>
+<td>관할 법원</td>
+</tr>
+<tr>
+<td><strong>비용</strong></td>
+<td>소송의 <strong>1/10 수준</strong> (보증금 3억 기준 약 15만 원)</td>
+</tr>
+<tr>
+<td><strong>기간</strong></td>
+<td>2주 내 발부 → 이의 없으면 확정</td>
+</tr>
+<tr>
+<td><strong>장점</strong></td>
+<td>빠르고 저렴, 확정 시 강제집행 가능</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>[지급명령 신청] → [법원 발부 (약 1~2주)]
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>       │
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>       ├── 임대인 이의 없음 → 확정 → 강제집행 가능!
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>       │
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>       └── 임대인 이의 제기 → 민사소송으로 전환
+</code></pre></div>
+<h4 id="4_6"><strong>4단계: 민사소송</strong><a class="headerlink" href="#4_6" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>소장 제출</strong></td>
+<td>관할 법원</td>
+</tr>
+<tr>
+<td><strong>소송 기간</strong></td>
+<td>6개월~1년 이상</td>
+</tr>
+<tr>
+<td><strong>변호사 비용</strong></td>
+<td>사건에 따라 다름 (법률구조공단 이용 시 무료~저렴)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="5_3"><strong>5단계: 강제집행</strong><a class="headerlink" href="#5_3" title="Permanent link">&para;</a></h4>
+<p>확정판결 또는 지급명령 확정 후:</p>
+<table>
+<thead>
+<tr>
+<th>집행 방법</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>부동산 강제경매</strong></td>
+<td>해당 주택을 경매에 부쳐 보증금 회수</td>
+</tr>
+<tr>
+<td><strong>채권 압류·추심</strong></td>
+<td>임대인의 예금, 급여 등 압류</td>
+</tr>
+<tr>
+<td><strong>유체동산 압류</strong></td>
+<td>임대인의 동산(자동차 등) 압류</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="part-4_1">📋 Part 4. 소액임차인 최우선변제 — 최후의 안전망<a class="headerlink" href="#part-4_1" title="Permanent link">&para;</a></h2>
+<p>경매가 되더라도 <strong>소액임차인</strong>은 다른 권리자보다 <strong>최우선으로</strong> 일정 금액을 돌려받습니다.</p>
+<h3 id="2026">2026년 현재 기준 (주택임대차보호법 시행령)<a class="headerlink" href="#2026" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>지역</th>
+<th>보증금 기준 (이하)</th>
+<th>최우선변제액</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>서울</strong></td>
+<td>1억 6,500만 원</td>
+<td><strong>5,500만 원</strong></td>
+</tr>
+<tr>
+<td><strong>과밀억제권역 (수도권)</strong></td>
+<td>1억 4,500만 원</td>
+<td><strong>4,800만 원</strong></td>
+</tr>
+<tr>
+<td><strong>광역시 등</strong></td>
+<td>8,500만 원</td>
+<td><strong>2,800만 원</strong></td>
+</tr>
+<tr>
+<td><strong>그 외 지역</strong></td>
+<td>7,500만 원</td>
+<td><strong>2,500만 원</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ 시행령 개정에 따라 금액이 변경될 수 있으므로, 계약 시점의 기준을 확인하세요.</p>
+</blockquote>
+<hr />
+<h2 id="part-5">📋 Part 5. 전세사기 예방 체크리스트<a class="headerlink" href="#part-5" title="Permanent link">&para;</a></h2>
+<p>계약 <strong>전</strong>에 반드시 확인할 사항:</p>
+<table>
+<thead>
+<tr>
+<th>순서</th>
+<th>확인 사항</th>
+<th>확인 방법</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td><strong>등기부등본 확인</strong></td>
+<td>인터넷등기소 (갑구: 소유자, 을구: 근저당·가압류)</td>
+</tr>
+<tr>
+<td>②</td>
+<td><strong>집주인 본인 확인</strong></td>
+<td>신분증 대조 + 등기부 소유자 일치 여부</td>
+</tr>
+<tr>
+<td>③</td>
+<td><strong>시세 대비 보증금 비율</strong></td>
+<td>보증금이 시세의 <strong>70% 이하</strong>인지 확인</td>
+</tr>
+<tr>
+<td>④</td>
+<td><strong>세금 체납 여부</strong></td>
+<td>집주인에게 <strong>미납 국세·지방세 열람</strong> 요청 (동의 필요)</td>
+</tr>
+<tr>
+<td>⑤</td>
+<td><strong>전세보증금 반환보증 가입</strong></td>
+<td>HUG, SGI, HF 등 보증보험 가입 가능 여부 확인</td>
+</tr>
+<tr>
+<td>⑥</td>
+<td><strong>선순위 권리 합산</strong></td>
+<td>근저당 + 보증금 합계가 시세의 <strong>80% 초과</strong> 시 위험</td>
+</tr>
+<tr>
+<td>⑦</td>
+<td><strong>다가구 vs 다세대</strong></td>
+<td>다가구는 다른 세입자 보증금 확인 어려움 → 더 주의</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_42">💡 최종 핵심 요약<a class="headerlink" href="#_42" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>🔐 세입자 보호 3종 세트:
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>  ① 전입신고 (대항력) ─── 제3자에게 대항
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>  ② 확정일자 (우선변제) ── 경매 시 순위 확보  
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>  ③ 전세보증금 반환보증 ── 최후의 보험
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>  → 이 3가지는 계약 당일에 모두 완료하세요!
+</code></pre></div>
+<hr />
+<p>추가로 <strong>전세보증금 반환보증(HUG) 가입 방법</strong>, <strong>임차권등기명령</strong>, <strong>경매 대응 방법</strong> 등 더 궁금한 점이 있으시면 말씀해 주세요!</p>
+<hr />
+<h3 id="q4">Q4. 묵시적 갱신이랑 갱신청구권 차이가 뭔가요?<a class="headerlink" href="#q4" title="Permanent link">&para;</a></h3>
+<p><strong>입력 토큰</strong>: 3 | <strong>출력 토큰</strong>: 2,363 | <strong>소요시간</strong>: 42,903ms | <strong>CLI 비용</strong>: $0.0987 | <strong>추정 API 비용</strong>: $0.1773
+<strong>대화 컨텍스트</strong>: 3턴 누적 | <strong>후속 제안</strong>: 감지됨</p>
+<p><strong>답변:</strong></p>
+<h1 id="vs">묵시적 갱신 vs 계약갱신청구권 — 핵심 차이 정리<a class="headerlink" href="#vs" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="1_6">1️⃣ 개념부터 다릅니다<a class="headerlink" href="#1_6" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>묵시적 갱신</th>
+<th>계약갱신청구권</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>법적 근거</strong></td>
+<td>주택임대차보호법 <strong>제6조 제1항</strong></td>
+<td>주택임대차보호법 <strong>제6조의3</strong></td>
+</tr>
+<tr>
+<td><strong>의미</strong></td>
+<td>아무도 아무 말 안 해서 <strong>자동으로</strong> 갱신</td>
+<td>임차인이 <strong>적극적으로 요구</strong>해서 갱신</td>
+</tr>
+<tr>
+<td><strong>행사 방법</strong></td>
+<td>별도 의사표시 <strong>불필요</strong></td>
+<td>만료 6개월~2개월 전 <strong>서면 통보</strong> 권장</td>
+</tr>
+<tr>
+<td><strong>행사 횟수</strong></td>
+<td><strong>횟수 제한 없음</strong> (계속 가능)</td>
+<td><strong>1회만</strong> 가능</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2_10">2️⃣ 핵심 차이 비교표<a class="headerlink" href="#2_10" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>묵시적 갱신</th>
+<th>계약갱신청구권</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>갱신 기간</strong></td>
+<td><strong>2년으로 간주</strong></td>
+<td><strong>2년</strong></td>
+</tr>
+<tr>
+<td><strong>차임(보증금) 인상</strong></td>
+<td>기존 조건 <strong>동일</strong> (인상 없음)</td>
+<td>기존의 <strong>5% 이내</strong> 인상 가능</td>
+</tr>
+<tr>
+<td><strong>임차인 해지권</strong></td>
+<td>✅ <strong>언제든 3개월 통보 후 해지 가능</strong></td>
+<td>❌ 2년간 원칙적으로 유지</td>
+</tr>
+<tr>
+<td><strong>임대인 해지권</strong></td>
+<td>❌ 정당한 사유 없이 해지 불가</td>
+<td>❌ 정당한 사유 없이 해지 불가</td>
+</tr>
+<tr>
+<td><strong>거절 가능 여부</strong></td>
+<td>임대인이 만료 6~2개월 전 통보해야 거절됨</td>
+<td>임대인이 법정 사유(실거주 등)로 거절 가능</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3_9">3️⃣ 발생 조건이 다릅니다<a class="headerlink" href="#3_9" title="Permanent link">&para;</a></h2>
+<h3 id="_43">묵시적 갱신이 되는 경우<a class="headerlink" href="#_43" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>계약 만료 6개월~2개월 전까지
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>   임대인 → 갱신 거절 통보 ❌ 안 함
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>   임차인 → 갱신 거절 통보 ❌ 안 함
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>   ─────────────────────────────
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>   → 만료일 지나면 자동으로 묵시적 갱신!
+</code></pre></div>
+<h3 id="_44">계약갱신청구권을 행사하는 경우<a class="headerlink" href="#_44" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>계약 만료 6개월~2개월 전 사이에
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>   임차인 → &quot;갱신청구권 행사합니다&quot; 적극 통보 ✅
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>   ─────────────────────────────
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>   → 임대인이 법정 거절 사유 없으면 갱신 확정!
+</code></pre></div>
+<hr />
+<h2 id="4_7">4️⃣ 가장 중요한 실질적 차이: 임차인의 중도 해지권<a class="headerlink" href="#4_7" title="Permanent link">&para;</a></h2>
+<p>이 부분이 <strong>실생활에서 가장 큰 차이</strong>입니다.</p>
+<h3 id="_45">묵시적 갱신 상태<a class="headerlink" href="#_45" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>임차인은 <strong>언제든지</strong> 해지를 통보할 수 있고, 통보 후 <strong>3개월이 지나면</strong> 효력 발생</p>
+<p>→ 이사 계획이 유동적인 분에게 유리</p>
+</blockquote>
+<h3 id="_46">계약갱신청구권 행사<a class="headerlink" href="#_46" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>일반적인 기간 약정 계약과 동일하게 <strong>2년간 구속</strong></p>
+<p>→ 안정적으로 2년 거주할 계획인 분에게 유리</p>
+</blockquote>
+<hr />
+<h2 id="5_4">5️⃣ 어떤 걸 선택해야 할까? (실전 판단 기준)<a class="headerlink" href="#5_4" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>상황</th>
+<th>추천</th>
+<th>이유</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2년 확실히 거주 + 집주인이 보증금 올리려 함</td>
+<td><strong>갱신청구권</strong></td>
+<td>5% 상한 보호</td>
+</tr>
+<tr>
+<td>2년 확실히 거주 + 조건 변동 없음</td>
+<td><strong>어느 쪽이든 무방</strong></td>
+<td>실익 차이 적음</td>
+</tr>
+<tr>
+<td>1년 후 이사할 수도 있음</td>
+<td><strong>묵시적 갱신</strong></td>
+<td>3개월 통보로 자유 해지 가능</td>
+</tr>
+<tr>
+<td>집주인이 갱신 거절 의사를 밝힘</td>
+<td><strong>갱신청구권</strong></td>
+<td>법정 사유 없으면 거절 차단 가능</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="6_1">6️⃣ 자주 하는 오해 바로잡기<a class="headerlink" href="#6_1" title="Permanent link">&para;</a></h2>
+<h3 id="_47">❌ "묵시적 갱신이 되면 갱신청구권을 못 쓴다?"<a class="headerlink" href="#_47" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>아닙니다.</strong> 묵시적 갱신 상태에서도 갱신청구권을 <strong>아직 한 번도 쓴 적이 없다면</strong> 다음 갱신 시점에 행사할 수 있습니다.</p>
+</blockquote>
+<h3 id="1_7">❌ "묵시적 갱신은 1년만 보장된다?"<a class="headerlink" href="#1_7" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>아닙니다.</strong> 묵시적 갱신도 <strong>2년으로 간주</strong>됩니다. 다만 임차인은 언제든 3개월 통보로 해지할 수 있으므로 사실상 유연합니다.</p>
+</blockquote>
+<h3 id="_48">❌ "갱신청구권을 쓰면 묵시적 갱신은 못 한다?"<a class="headerlink" href="#_48" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>아닙니다.</strong> 갱신청구권으로 2년 갱신 후, 그 계약도 만료되면 다시 묵시적 갱신이 될 수 있습니다. (다만 갱신청구권은 이미 소진)</p>
+</blockquote>
+<hr />
+<h2 id="7">7️⃣ 타임라인으로 보는 전체 그림<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>최초 계약 (2년)
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>    │
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>    ├─ [선택A] 갱신청구권 행사 → 2년 갱신 (5% 상한)
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>    │       │
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>    │       └─ 이후 만료 → 묵시적 갱신만 가능 (청구권 소진)
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>    │
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>    ├─ [선택B] 아무 말 안 함 → 묵시적 갱신 (조건 동일, 해지 자유)
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>    │       │
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>    │       └─ 이후에도 갱신청구권 아직 사용 가능!
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>    │
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>    └─ [선택C] 집주인이 갱신 거절 통보
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>            │
+<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>            ├─ 갱신청구권 행사 → 법정 사유 없으면 거절 차단
+<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a>            └─ 갱신청구권 미행사 → 계약 종료, 이사
+</code></pre></div>
+<hr />
+<h2 id="_49">💡 실전 핵심 요약<a class="headerlink" href="#_49" title="Permanent link">&para;</a></h2>
+<blockquote>
+<ol>
+<li><strong>집주인이 조건 변경(인상) 없이 조용하다면</strong> → 묵시적 갱신이 유리 (해지 자유)</li>
+<li><strong>집주인이 큰 폭 인상 또는 퇴거를 요구한다면</strong> → 갱신청구권 행사로 방어</li>
+<li><strong>갱신청구권은 1회뿐이니 "카드"로 아껴두는 전략</strong>도 유효합니다</li>
+</ol>
+</blockquote>
+<hr />
+<p>앞서 논의한 <strong>실거주 거절 대응</strong>, <strong>5% 인상 상한</strong>과 연결해서, 추가로 <strong>묵시적 갱신 중 보증금 반환 절차</strong>나 <strong>퇴거 통보 대응</strong> 등 궁금한 점 있으시면 말씀해 주세요!</p>
+<p><strong>후속 답변</strong> (자동 수락):</p>
+<h1 id="_50">묵시적 갱신 중 보증금 반환 절차 &amp; 퇴거 통보 대응<a class="headerlink" href="#_50" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="part-1_2">Part 1. 묵시적 갱신 중 보증금 반환 절차<a class="headerlink" href="#part-1_2" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="1_8">1️⃣ 기본 구조: 임차인이 먼저 해지 통보<a class="headerlink" href="#1_8" title="Permanent link">&para;</a></h3>
+<p>묵시적 갱신 상태에서는 임차인이 <strong>언제든 해지 통보</strong>를 할 수 있고, 통보일로부터 <strong>3개월 후</strong> 계약이 종료됩니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>임차인 해지 통보 (내용증명)
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>       │
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>       │  ← 3개월 경과 →
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>       │
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>계약 종료 + 보증금 반환 의무 발생
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>       │
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>       ▼
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>이사(퇴거) + 보증금 수령
+</code></pre></div>
+<hr />
+<h3 id="2_11">2️⃣ 보증금 반환 타임라인 (단계별)<a class="headerlink" href="#2_11" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>단계</th>
+<th>시점</th>
+<th>할 일</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>① 해지 통보</strong></td>
+<td>이사 희망일 <strong>3개월+ 전</strong></td>
+<td>내용증명으로 "해지 통보 + 보증금 반환 요청" 발송</td>
+</tr>
+<tr>
+<td><strong>② 집 상태 확인</strong></td>
+<td>이사 <strong>2~4주 전</strong></td>
+<td>집주인과 함께 시설 점검, 원상복구 범위 협의</td>
+</tr>
+<tr>
+<td><strong>③ 이사 당일</strong></td>
+<td>퇴거일</td>
+<td>잔존물 철거, 열쇠 반환, <strong>집 상태 사진·영상 촬영</strong></td>
+</tr>
+<tr>
+<td><strong>④ 보증금 수령</strong></td>
+<td>퇴거일 <strong>당일~직후</strong></td>
+<td>보증금 수령과 <strong>동시에</strong> 퇴거하는 것이 원칙</td>
+</tr>
+<tr>
+<td><strong>⑤ 전입신고 말소</strong></td>
+<td>보증금 수령 <strong>후</strong></td>
+<td>⚠️ 보증금 받기 <strong>전에 절대 전출하지 마세요</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="3_10">3️⃣ 보증금을 안 돌려줄 때 — 단계별 대응<a class="headerlink" href="#3_10" title="Permanent link">&para;</a></h3>
+<h4 id="1-0">🟡 1단계: 독촉 (비용 0원)<a class="headerlink" href="#1-0" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>내용증명</strong> 발송: "○월 ○일까지 보증금 ○○원을 반환하라"</li>
+<li>발송 사실 자체가 법적 증거가 됨</li>
+</ul>
+<h4 id="2_12">🟠 2단계: 임대차분쟁조정위원회 (무료)<a class="headerlink" href="#2_12" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>신청처</td>
+<td><strong>대한법률구조공단</strong> 또는 <strong>LH 임대차분쟁조정위원회</strong></td>
+</tr>
+<tr>
+<td>비용</td>
+<td><strong>무료</strong></td>
+</tr>
+<tr>
+<td>소요 기간</td>
+<td>약 1~3개월</td>
+</tr>
+<tr>
+<td>효력</td>
+<td>양측 수락 시 <strong>재판상 화해</strong>와 동일한 효력</td>
+</tr>
+<tr>
+<td>신청 방법</td>
+<td>온라인(lh.or.kr) 또는 방문</td>
+</tr>
+</tbody>
+</table>
+<h4 id="3_11">🔴 3단계: 법적 조치<a class="headerlink" href="#3_11" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>방법</th>
+<th>보증금 규모</th>
+<th>비용</th>
+<th>소요 기간</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>지급명령 신청</strong></td>
+<td>금액 무관</td>
+<td>소액 (소송의 1/10)</td>
+<td>2주~1개월</td>
+</tr>
+<tr>
+<td><strong>소액사건심판</strong></td>
+<td><strong>3,000만 원 이하</strong></td>
+<td>소액</td>
+<td>1~2개월</td>
+</tr>
+<tr>
+<td><strong>민사소송</strong></td>
+<td>금액 무관</td>
+<td>인지대+송달료</td>
+<td>3~6개월</td>
+</tr>
+<tr>
+<td><strong>임차권등기명령</strong></td>
+<td>금액 무관</td>
+<td>약 3~5만 원</td>
+<td>1~2주</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="4_8">4️⃣ 핵심 무기: 임차권등기명령 ⭐<a class="headerlink" href="#4_8" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>보증금을 못 받고 이사해야 할 때, 반드시 신청하세요.</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>목적</strong></td>
+<td>이사(전출) 후에도 <strong>대항력·우선변제권 유지</strong></td>
+</tr>
+<tr>
+<td><strong>신청 시점</strong></td>
+<td>계약 종료 후 보증금을 반환받지 못한 경우</td>
+</tr>
+<tr>
+<td><strong>신청처</strong></td>
+<td>해당 주택 소재지 <strong>관할 법원</strong></td>
+</tr>
+<tr>
+<td><strong>비용</strong></td>
+<td>등록면허세 + 수수료 약 <strong>3~5만 원</strong></td>
+</tr>
+<tr>
+<td><strong>효과</strong></td>
+<td>등기부등본에 기재 → 집주인이 집을 팔아도 보증금 보호</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>보증금 미반환 상태에서 이사해야 할 때:
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>[임차권등기명령 신청] → [법원 결정 (1~2주)]
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>       │
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>       ▼
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>[등기부에 임차권 등기] → 전출해도 대항력 유지!
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>       │
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>       ▼
+<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>[안심하고 이사] → 이후 보증금 반환 소송 진행
+</code></pre></div>
+<blockquote>
+<p>⚠️ <strong>임차권등기명령 없이 전출하면 대항력을 잃습니다!</strong> 보증금을 못 받은 상태에서 그냥 이사하면 법적 보호를 잃을 수 있으니, 반드시 이 절차를 거치세요.</p>
+</blockquote>
+<hr />
+<h2 id="part-2_2">Part 2. 묵시적 갱신 중 퇴거 통보 대응<a class="headerlink" href="#part-2_2" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="1_9">1️⃣ 집주인이 "나가라"고 할 때 — 법적 효력<a class="headerlink" href="#1_9" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>상황</th>
+<th>효력</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>묵시적 갱신 <strong>전</strong> (만료 6~2개월 전) 통보</td>
+<td>✅ 유효 → 계약 만료 시 종료</td>
+</tr>
+<tr>
+<td>묵시적 갱신 <strong>후</strong> 퇴거 요구</td>
+<td>❌ <strong>원칙적으로 효력 없음</strong></td>
+</tr>
+<tr>
+<td>묵시적 갱신 후 + 갱신청구권 미사용 상태</td>
+<td>갱신청구권 행사로 <strong>2년 더 거주 가능</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_51">핵심 원칙<a class="headerlink" href="#_51" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>묵시적 갱신이 이미 된 상태에서는, <strong>임대인은 정당한 사유 없이 일방적으로 해지할 수 없습니다.</strong></p>
+</blockquote>
+<hr />
+<h3 id="2_13">2️⃣ 집주인의 퇴거 요구 유형별 대응<a class="headerlink" href="#2_13" title="Permanent link">&para;</a></h3>
+<h4 id="a">유형 A: "계약 만료됐으니 나가세요"<a class="headerlink" href="#a" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>→ 묵시적 갱신이 되었다면 만료가 아닙니다.
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>→ &quot;묵시적 갱신 상태이므로 퇴거 의무 없습니다&quot; 내용증명 발송
+</code></pre></div>
+<h4 id="b">유형 B: "집을 팔았으니 나가세요"<a class="headerlink" href="#b" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>→ 매수인(새 집주인)이 임대인 지위를 승계합니다.
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>→ 임차인의 대항력이 있으면 새 주인에게도 보증금 반환 청구 가능
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>→ 나갈 의무 없음 (대항력 있는 경우)
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>대항력 여부</th>
+<th>결과</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅ 전입신고 + 확정일자 있음</td>
+<td>새 주인에게도 대항 가능, 안 나가도 됨</td>
+</tr>
+<tr>
+<td>❌ 대항력 없음</td>
+<td>법적으로 불리, 협상 필요</td>
+</tr>
+</tbody>
+</table>
+<h4 id="c">유형 C: "실거주하겠으니 나가세요"<a class="headerlink" href="#c" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>→ 묵시적 갱신 상태에서의 실거주 주장
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>→ 갱신청구권을 아직 안 썼다면 → 갱신청구권 행사로 대응
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>→ 이미 썼다면 → 실거주 사유의 진정성 확인 후 판단
+</code></pre></div>
+<h4 id="d">유형 D: "재건축/리모델링하니 나가세요"<a class="headerlink" href="#d" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>→ 실제 철거·재건축 허가·인가가 있는지 확인
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>→ 단순 리모델링은 퇴거 사유 아님
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>→ 정당한 재건축이면 → 이주비·이사비 협상
+</code></pre></div>
+<hr />
+<h3 id="3_12">3️⃣ 퇴거 통보 받았을 때 즉시 할 일 (체크리스트)<a class="headerlink" href="#3_12" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>순번</th>
+<th>할 일</th>
+<th>기한</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td><strong>전입신고 상태 확인</strong> (주민센터)</td>
+<td>즉시</td>
+</tr>
+<tr>
+<td>②</td>
+<td><strong>등기부등본 열람</strong> (인터넷등기소)</td>
+<td>즉시</td>
+</tr>
+<tr>
+<td>③</td>
+<td><strong>임대차 계약서 원본 확인</strong> (확정일자 여부)</td>
+<td>즉시</td>
+</tr>
+<tr>
+<td>④</td>
+<td><strong>집주인 통보 내용 기록</strong> (문자·카톡 캡처, 녹음)</td>
+<td>즉시</td>
+</tr>
+<tr>
+<td>⑤</td>
+<td><strong>내용증명 발송</strong> ("묵시적 갱신 상태이며 퇴거 의무 없음")</td>
+<td>3일 이내</td>
+</tr>
+<tr>
+<td>⑥</td>
+<td><strong>무료 법률상담</strong> (132 법률구조공단)</td>
+<td>1주 이내</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="4_9">4️⃣ 집주인이 강제로 퇴거시키려 할 때<a class="headerlink" href="#4_9" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>집주인 행위</th>
+<th>적법 여부</th>
+<th>대응</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>현관 비밀번호 변경</td>
+<td>❌ <strong>불법</strong> (주거침입·권리행사방해)</td>
+<td><strong>경찰 신고 (112)</strong></td>
+</tr>
+<tr>
+<td>짐을 밖에 내놓음</td>
+<td>❌ <strong>불법</strong> (재물손괴·권리행사방해)</td>
+<td><strong>경찰 신고 + 손해배상</strong></td>
+</tr>
+<tr>
+<td>단수·단전</td>
+<td>❌ <strong>불법</strong> (강요죄 가능)</td>
+<td><strong>경찰 신고</strong></td>
+</tr>
+<tr>
+<td>법원 명도소송 → 강제집행</td>
+<td>✅ 유일한 적법 절차</td>
+<td>소송 대응 필요</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>법원의 강제집행 결정 없이 집주인이 임의로 퇴거시키는 것은 모두 불법입니다.</strong> 이런 상황이 발생하면 즉시 경찰에 신고하세요.</p>
+</blockquote>
+<hr />
+<h2 id="part-3_2">Part 3. 내용증명 작성 예시<a class="headerlink" href="#part-3_2" title="Permanent link">&para;</a></h2>
+<h3 id="_52">묵시적 갱신 상태에서 퇴거 거부 + 보증금 반환 요구<a class="headerlink" href="#_52" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>내용증명
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>수신: ○○○ (임대인)  
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>발신: ○○○ (임차인)  
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>일자: 2026년 ○월 ○일
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>제목: 임대차계약 관련 통보
+<a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>
+<a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>1. 본인은 귀하와 ○○시 ○○구 ○○동 ○○호에 대하여
+<a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a>   2024년 ○월 ○일 임대차계약을 체결하고 거주 중입니다.
+<a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a>
+<a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a>2. 위 계약은 2026년 ○월 ○일 만료되었으나, 쌍방 간
+<a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a>   갱신 거절 통보가 없었으므로 주택임대차보호법 제6조
+<a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a>   제1항에 따라 묵시적으로 갱신되었습니다.
+<a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a>
+<a id="__codelineno-22-16" name="__codelineno-22-16" href="#__codelineno-22-16"></a>3. 따라서 귀하의 퇴거 요구는 법적 근거가 없으며,
+<a id="__codelineno-22-17" name="__codelineno-22-17" href="#__codelineno-22-17"></a>   본인은 퇴거 의무가 없음을 통보합니다.
+<a id="__codelineno-22-18" name="__codelineno-22-18" href="#__codelineno-22-18"></a>
+<a id="__codelineno-22-19" name="__codelineno-22-19" href="#__codelineno-22-19"></a>4. (보증금 반환 요구 시) 향후 계약 종료 시 보증금
+<a id="__codelineno-22-20" name="__codelineno-22-20" href="#__codelineno-22-20"></a>   ○○원을 지체 없이 반환하여 주시기 바랍니다.
+<a id="__codelineno-22-21" name="__codelineno-22-21" href="#__codelineno-22-21"></a>
+<a id="__codelineno-22-22" name="__codelineno-22-22" href="#__codelineno-22-22"></a>                                     임차인 ○○○ (인)
+</code></pre></div>
+<hr />
+<h2 id="_53">💡 최종 핵심 요약<a class="headerlink" href="#_53" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>상황</th>
+<th>최선의 행동</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>보증금 못 받고 이사해야 함</td>
+<td><strong>임차권등기명령</strong> 먼저 → 이사 → 소송</td>
+</tr>
+<tr>
+<td>집주인이 나가라고 함</td>
+<td><strong>내용증명</strong>으로 거부 → 무료 법률상담</td>
+</tr>
+<tr>
+<td>집주인이 강제로 쫓아냄</td>
+<td><strong>112 신고</strong> (불법행위)</td>
+</tr>
+<tr>
+<td>보증금 반환 안 해줌</td>
+<td><strong>지급명령 → 강제집행</strong> (가장 빠르고 저렴)</td>
+</tr>
+<tr>
+<td>어디서부터 해야 할지 모름</td>
+<td><strong>☎ 132 (법률구조공단)</strong> 무료 상담부터</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>추가로 <strong>전세보증금 반환보증보험(HUG/SGI)</strong>, <strong>경매 시 보증금 보호 방법</strong>, <strong>소액임차인 최우선변제권</strong> 등 궁금한 점 있으시면 말씀해 주세요!</p>
+<hr />
+<h3 id="q5">Q5. 한번 쓰면 끝인 건가요? 또 쓸 수 있나요?<a class="headerlink" href="#q5" title="Permanent link">&para;</a></h3>
+<p><strong>입력 토큰</strong>: 3 | <strong>출력 토큰</strong>: 1,359 | <strong>소요시간</strong>: 25,737ms | <strong>CLI 비용</strong>: $0.0882 | <strong>추정 API 비용</strong>: $0.1020
+<strong>대화 컨텍스트</strong>: 4턴 누적 | <strong>후속 제안</strong>: 감지됨</p>
+<p><strong>답변:</strong></p>
+<h1 id="1_10">계약갱신청구권은 <strong>딱 1회, 한 번 쓰면 끝</strong>입니다<a class="headerlink" href="#1_10" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="_54">✅ 법적 근거<a class="headerlink" href="#_54" title="Permanent link">&para;</a></h2>
+<p><strong>주택임대차보호법 제6조의3 제1항</strong></p>
+<blockquote>
+<p>임차인은 계약갱신요구권을 <strong>1회에 한하여</strong> 행사할 수 있다.</p>
+</blockquote>
+<p>이 "1회"는 <strong>같은 주택, 같은 임대차 관계</strong> 전체를 통틀어 1회입니다.</p>
+<hr />
+<h2 id="_55">📌 구체적으로 어떻게 카운트되나?<a class="headerlink" href="#_55" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>상황</th>
+<th>갱신청구권 사용 여부</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>최초 계약 2년 → 갱신청구권 행사 → 2년 갱신</td>
+<td>✅ <strong>1회 소진 (끝!)</strong></td>
+</tr>
+<tr>
+<td>이후 다시 갱신청구권 행사 시도</td>
+<td>❌ <strong>불가능</strong></td>
+</tr>
+<tr>
+<td>묵시적 갱신으로 계속 거주</td>
+<td>⭕ 가능 (청구권과 별개)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_56">🔁 그러면 갱신청구권 소진 후에는?<a class="headerlink" href="#_56" title="Permanent link">&para;</a></h2>
+<p>갱신청구권을 쓴 2년이 끝나면, 이후 경로는 <strong>3가지</strong>입니다:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>갱신청구권으로 2년 거주 완료
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>       │
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>       ├─ ① 새로운 계약 체결 (쌍방 합의)
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>       │     → 조건 자유 (5% 상한 적용 안 됨)
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>       │
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>       ├─ ② 묵시적 갱신 (아무도 말 안 하면)
+<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a>       │     → 기존 조건 동일, 임차인 3개월 통보 해지 가능
+<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a>       │
+<a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a>       └─ ③ 임대인이 갱신 거절 통보
+<a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a>             → 이번엔 막을 수 없음 → 계약 종료, 이사
+</code></pre></div>
+<blockquote>
+<p>⚠️ <strong>핵심</strong>: 갱신청구권 소진 후 임대인이 "나가달라"고 하면, 이번에는 <strong>법적으로 막을 방법이 없습니다.</strong> 이것이 "1회"의 무게입니다.</p>
+</blockquote>
+<hr />
+<h2 id="_57">🏠 다른 집으로 이사하면?<a class="headerlink" href="#_57" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>상황</th>
+<th>갱신청구권</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A집에서 갱신청구권 사용 → B집으로 이사</td>
+<td>B집에서 <strong>새로 1회 행사 가능</strong> ✅</td>
+</tr>
+<tr>
+<td>같은 집, 같은 집주인과 <strong>완전히 새 계약</strong> 체결</td>
+<td><strong>새로 1회 행사 가능</strong> ✅</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>갱신청구권은 <strong>"해당 임대차 관계"당 1회</strong>이므로, 집이 바뀌거나 계약이 완전히 새로 시작되면 리셋됩니다.</p>
+</blockquote>
+<hr />
+<h2 id="_58">💡 그래서 실전 전략은?<a class="headerlink" href="#_58" title="Permanent link">&para;</a></h2>
+<p>앞선 대화에서 말씀드린 것처럼:</p>
+<blockquote>
+<p><strong>갱신청구권은 "카드"로 아껴두는 전략이 유효합니다.</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>전략</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🃏 <strong>아껴두기</strong></td>
+<td>집주인과 관계 좋고 조건 변동 없으면 → 묵시적 갱신으로 버티다가, 집주인이 퇴거 요구할 때 갱신청구권 사용</td>
+</tr>
+<tr>
+<td>🛡️ <strong>바로 쓰기</strong></td>
+<td>집주인이 큰 폭 인상 또는 퇴거를 요구 → 즉시 행사하여 5% 상한 + 2년 보장 확보</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_59">📋 한눈에 정리<a class="headerlink" href="#_59" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>1회 쓰면 → 같은 집에서는 끝
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>다른 집 → 새로 1회 가능
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>소진 후 → 묵시적 갱신은 가능하지만, 집주인 퇴거 요구 시 방어 불가
+</code></pre></div>
+<p>추가로 <strong>갱신청구권 소진 후 보증금 반환 절차</strong>나 <strong>묵시적 갱신 중 퇴거 통보 대응</strong> 등 궁금한 점 있으시면 말씀해 주세요!</p>
+<p><strong>후속 답변</strong> (자동 수락):</p>
+<h1 id="_60">갱신청구권 소진 후 보증금 반환 절차 &amp; 묵시적 갱신 중 퇴거 통보 대응<a class="headerlink" href="#_60" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="part-1_3">Part 1. 갱신청구권 소진 후 보증금 반환 절차<a class="headerlink" href="#part-1_3" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="1_11">1️⃣ 기본 원칙<a class="headerlink" href="#1_11" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>임대차 계약이 종료되면 임대인은 <strong>임차인이 목적물을 인도(이사)하는 동시에</strong> 보증금을 반환할 의무가 있습니다. (동시이행 관계)</p>
+</blockquote>
+<p>즉, <strong>"이사 먼저, 보증금 나중"이 아닙니다.</strong> 원칙적으로 동시입니다.</p>
+<hr />
+<h3 id="2_14">2️⃣ 정상적인 반환 흐름<a class="headerlink" href="#2_14" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>계약 종료일 확정 (갱신청구권 소진 후 만료 or 임대인 통보)
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>       │
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>       ▼
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>만료 2~3개월 전: 보증금 반환 일정 협의
+<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>       │
+<a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>       ▼
+<a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a>만료일 당일: 잔금 정산 + 열쇠 인도 + 보증금 수령
+<a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a>       │
+<a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a>       ├─ 전입신고 유지 (보증금 받을 때까지!)
+<a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a>       ├─ 확정일자 유지
+<a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a>       └─ 이사 완료 후 보증금 수령 확인 → 전출신고
+</code></pre></div>
+<hr />
+<h3 id="3_13">3️⃣ 집주인이 보증금을 안 돌려줄 때 — 단계별 대응<a class="headerlink" href="#3_13" title="Permanent link">&para;</a></h3>
+<h4 id="1_12">🟡 1단계: 내용증명 발송<a class="headerlink" href="#1_12" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>시기</strong></td>
+<td>만료일 전 또는 만료 직후</td>
+</tr>
+<tr>
+<td><strong>내용</strong></td>
+<td>"○월 ○일까지 보증금 ○○원을 반환해 주시기 바랍니다"</td>
+</tr>
+<tr>
+<td><strong>방법</strong></td>
+<td>우체국 내용증명 (온라인도 가능: 인터넷우체국)</td>
+</tr>
+<tr>
+<td><strong>비용</strong></td>
+<td>약 3,000~5,000원</td>
+</tr>
+</tbody>
+</table>
+<h4 id="2_15">🟠 2단계: 임대차분쟁조정위원회 신청<a class="headerlink" href="#2_15" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>기관</strong></td>
+<td>대한법률구조공단 산하 임대차분쟁조정위원회</td>
+</tr>
+<tr>
+<td><strong>신청</strong></td>
+<td>온라인(lh.or.kr) 또는 방문</td>
+</tr>
+<tr>
+<td><strong>비용</strong></td>
+<td><strong>무료</strong></td>
+</tr>
+<tr>
+<td><strong>소요 기간</strong></td>
+<td>약 1~3개월</td>
+</tr>
+<tr>
+<td><strong>효력</strong></td>
+<td>쌍방 수락 시 재판상 화해와 동일한 효력</td>
+</tr>
+</tbody>
+</table>
+<h4 id="3_14">🔴 3단계: 지급명령 신청 (가장 실용적!)<a class="headerlink" href="#3_14" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>신청처</strong></td>
+<td>임대 주택 소재지 관할 법원</td>
+</tr>
+<tr>
+<td><strong>비용</strong></td>
+<td>소송의 <strong>1/10 수준</strong> (보증금 2억 기준 약 15~20만 원)</td>
+</tr>
+<tr>
+<td><strong>소요 기간</strong></td>
+<td>약 2~4주</td>
+</tr>
+<tr>
+<td><strong>절차</strong></td>
+<td>신청 → 법원 심사 → 지급명령 발령 → 상대방 이의 없으면 확정</td>
+</tr>
+<tr>
+<td><strong>효력</strong></td>
+<td>확정 시 <strong>판결과 동일</strong> → 강제집행 가능</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>💡 <strong>지급명령이 가장 빠르고 저렴한 방법입니다.</strong> 집주인이 이의를 제기하면 정식 소송으로 전환됩니다.</p>
+</blockquote>
+<h4 id="4_10">⚫ 4단계: 임차권등기명령 + 강제집행<a class="headerlink" href="#4_10" title="Permanent link">&para;</a></h4>
+<p>보증금을 못 받은 상태에서 이사해야 할 때:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>이사 전 반드시!
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>       │
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>       ▼
+<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>관할 법원에 &quot;임차권등기명령&quot; 신청
+<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>       │
+<a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a>       ▼
+<a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a>등기 완료 → 대항력·우선변제권 유지한 채 이사 가능
+<a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a>       │
+<a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a>       ▼
+<a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a>지급명령 또는 판결 확정 후 → 강제경매 신청 가능
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>임차권등기명령이란?</strong></td>
+<td>이사해도 대항력·우선변제권을 유지해주는 법원 명령</td>
+</tr>
+<tr>
+<td><strong>신청 시기</strong></td>
+<td>계약 종료 후 보증금 미반환 시</td>
+</tr>
+<tr>
+<td><strong>비용</strong></td>
+<td>약 5~10만 원</td>
+</tr>
+<tr>
+<td><strong>소요 기간</strong></td>
+<td>약 1~2주</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>임차권등기 없이 이사하면 대항력을 잃습니다!</strong> 보증금을 못 받은 상태에서 절대 그냥 이사하지 마세요.</p>
+</blockquote>
+<hr />
+<h3 id="4_11">4️⃣ 보증금 반환 체크리스트<a class="headerlink" href="#4_11" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>순서</th>
+<th>할 일</th>
+<th>✅</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>계약 만료일 확인</td>
+<td>☐</td>
+</tr>
+<tr>
+<td>2</td>
+<td>만료 3개월 전 반환 일정 협의</td>
+<td>☐</td>
+</tr>
+<tr>
+<td>3</td>
+<td>내용증명으로 반환 요청</td>
+<td>☐</td>
+</tr>
+<tr>
+<td>4</td>
+<td>미반환 시 → 지급명령 또는 조정 신청</td>
+<td>☐</td>
+</tr>
+<tr>
+<td>5</td>
+<td>이사 전 임차권등기명령 신청 (미반환 시)</td>
+<td>☐</td>
+</tr>
+<tr>
+<td>6</td>
+<td>전입신고는 보증금 수령 시까지 유지</td>
+<td>☐</td>
+</tr>
+<tr>
+<td>7</td>
+<td>보증금 수령 확인 후 전출신고</td>
+<td>☐</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="part-2_3">Part 2. 묵시적 갱신 중 퇴거 통보 대응<a class="headerlink" href="#part-2_3" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="1_13">1️⃣ 묵시적 갱신 중 임대인이 "나가라"고 할 때<a class="headerlink" href="#1_13" title="Permanent link">&para;</a></h3>
+<h4 id="_61">핵심 원칙<a class="headerlink" href="#_61" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>묵시적 갱신 상태에서는 <strong>임대인이 일방적으로 해지할 수 없습니다.</strong>
+해지할 수 있는 쪽은 <strong>임차인뿐</strong>입니다. (3개월 통보 후 해지)</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>해지 가능 여부</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>임차인</strong> → 해지 통보</td>
+<td>✅ 가능 (3개월 후 효력)</td>
+</tr>
+<tr>
+<td><strong>임대인</strong> → 해지 통보</td>
+<td>❌ 원칙적으로 불가</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="2_16">2️⃣ 그런데 임대인이 해지할 수 있는 예외 상황<a class="headerlink" href="#2_16" title="Permanent link">&para;</a></h3>
+<p>다음의 경우에는 묵시적 갱신 중이라도 임대인이 해지를 주장할 수 있습니다:</p>
+<table>
+<thead>
+<tr>
+<th>사유</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>임차인 <strong>2기 이상 차임 연체</strong></td>
+<td>월세를 2개월 이상 밀린 경우</td>
+</tr>
+<tr>
+<td>임차인의 <strong>무단 전대</strong></td>
+<td>임대인 동의 없이 다른 사람에게 빌려줌</td>
+</tr>
+<tr>
+<td>임차인의 <strong>고의 훼손</strong></td>
+<td>건물을 심하게 파손한 경우</td>
+</tr>
+<tr>
+<td><strong>건물 멸실</strong> 등</td>
+<td>건물이 없어진 경우</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>위 사유가 없다면, 임대인의 "나가달라"는 통보는 <strong>법적 효력이 없습니다.</strong></p>
+</blockquote>
+<hr />
+<h3 id="3_15">3️⃣ 묵시적 갱신 중 퇴거 요구 시 대응 로드맵<a class="headerlink" href="#3_15" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>임대인: &quot;나가주세요&quot; 통보
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>       │
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>       ▼
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>[확인 1] 갱신청구권을 아직 안 썼는가?
+<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>       │
+<a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a>       ├─ YES → 갱신청구권 행사! (2년 + 5% 상한 보장)
+<a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a>       │
+<a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a>       └─ NO (이미 소진)
+<a id="__codelineno-27-9" name="__codelineno-27-9" href="#__codelineno-27-9"></a>              │
+<a id="__codelineno-27-10" name="__codelineno-27-10" href="#__codelineno-27-10"></a>              ▼
+<a id="__codelineno-27-11" name="__codelineno-27-11" href="#__codelineno-27-11"></a>       [확인 2] 현재 묵시적 갱신 상태인가?
+<a id="__codelineno-27-12" name="__codelineno-27-12" href="#__codelineno-27-12"></a>              │
+<a id="__codelineno-27-13" name="__codelineno-27-13" href="#__codelineno-27-13"></a>              ├─ YES → 임대인 해지 불가! 계속 거주 가능
+<a id="__codelineno-27-14" name="__codelineno-27-14" href="#__codelineno-27-14"></a>              │        (단, 임차인 본인이 원하면 3개월 통보 후 해지)
+<a id="__codelineno-27-15" name="__codelineno-27-15" href="#__codelineno-27-15"></a>              │
+<a id="__codelineno-27-16" name="__codelineno-27-16" href="#__codelineno-27-16"></a>              └─ NO (기간 만료 전 상태)
+<a id="__codelineno-27-17" name="__codelineno-27-17" href="#__codelineno-27-17"></a>                     │
+<a id="__codelineno-27-18" name="__codelineno-27-18" href="#__codelineno-27-18"></a>                     ▼
+<a id="__codelineno-27-19" name="__codelineno-27-19" href="#__codelineno-27-19"></a>              갱신청구권도 없고, 묵시적 갱신도 아니면
+<a id="__codelineno-27-20" name="__codelineno-27-20" href="#__codelineno-27-20"></a>              → 만료일에 계약 종료 → 보증금 반환 + 이사
+</code></pre></div>
+<hr />
+<h3 id="4_12">4️⃣ 실전 대응: 집주인이 압박할 때<a class="headerlink" href="#4_12" title="Permanent link">&para;</a></h3>
+<p>집주인이 법적 근거 없이 퇴거를 압박하는 경우:</p>
+<table>
+<thead>
+<tr>
+<th>집주인 행동</th>
+<th>대응 방법</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"다음 달까지 나가라" 구두 통보</td>
+<td>"법적 해지 사유에 해당하지 않습니다" 서면 회신</td>
+</tr>
+<tr>
+<td>반복적 방문·전화 압박</td>
+<td>대화 녹음 + <strong>경찰 신고</strong> (주거침입·협박 가능)</td>
+</tr>
+<tr>
+<td>도어락 변경·단수·단전</td>
+<td><strong>즉시 경찰 신고</strong> + 손해배상 청구 (불법!)</td>
+</tr>
+<tr>
+<td>"보증금 안 돌려줄 것" 협박</td>
+<td>내용증명 발송 + 임차권등기명령 준비</td>
+</tr>
+<tr>
+<td>새 임차인을 데리고 옴</td>
+<td>동의 없는 방문은 거부 가능, 녹음 필수</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>🚨 <strong>단수·단전·도어락 변경은 명백한 불법행위입니다.</strong> 형사 고소(주거침입죄, 강요죄)도 가능합니다.</p>
+</blockquote>
+<hr />
+<h3 id="5_5">5️⃣ 도움받을 수 있는 기관 총정리<a class="headerlink" href="#5_5" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>기관</th>
+<th>연락처</th>
+<th>도움 내용</th>
+<th>비용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>대한법률구조공단</strong></td>
+<td>☎ 132</td>
+<td>무료 법률상담, 소송 대리</td>
+<td>무료~저렴</td>
+</tr>
+<tr>
+<td><strong>임대차분쟁조정위원회</strong></td>
+<td>LH 콜센터 ☎ 1600-1004</td>
+<td>분쟁 조정</td>
+<td>무료</td>
+</tr>
+<tr>
+<td><strong>주택임대차 상담센터</strong></td>
+<td>☎ 1533-8119</td>
+<td>전화 상담</td>
+<td>무료</td>
+</tr>
+<tr>
+<td><strong>법원</strong></td>
+<td>관할 법원</td>
+<td>지급명령, 임차권등기명령</td>
+<td>소액</td>
+</tr>
+<tr>
+<td><strong>경찰</strong></td>
+<td>☎ 112</td>
+<td>불법 퇴거 압박 시</td>
+<td>무료</td>
+</tr>
+<tr>
+<td><strong>국민권익위원회</strong></td>
+<td>☎ 110</td>
+<td>공공임대 관련 민원</td>
+<td>무료</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_62">💡 전체 핵심 요약<a class="headerlink" href="#_62" title="Permanent link">&para;</a></h2>
+<blockquote>
+<ol>
+<li><strong>보증금 못 받고 절대 이사하지 마세요</strong> → 임차권등기명령 먼저!</li>
+<li><strong>묵시적 갱신 중에는 집주인이 쫓아낼 수 없습니다</strong> → 당당하게 거주</li>
+<li><strong>갱신청구권을 아직 안 썼다면, 퇴거 압박 시 바로 행사하세요</strong> → 2년 확보</li>
+<li><strong>불법 압박(단수·단전·도어락)은 즉시 경찰 신고</strong> → 형사 처벌 가능</li>
+<li><strong>모든 대화는 기록·녹음</strong> → 나중에 가장 강력한 증거</li>
+</ol>
+</blockquote>
+<hr />
+<p>추가로 <strong>전세사기 예방법</strong>, <strong>전세보증보험 가입 방법</strong>, <strong>경매 시 보증금 회수</strong> 등 궁금한 점 있으시면 말씀해 주세요!</p>
+<hr />
+<h3 id="q6">Q6. 갱신 후 집주인이 집 팔겠다고 하면요?<a class="headerlink" href="#q6" title="Permanent link">&para;</a></h3>
+<p><strong>입력 토큰</strong>: 3 | <strong>출력 토큰</strong>: 2,706 | <strong>소요시간</strong>: 51,188ms | <strong>CLI 비용</strong>: $0.1303 | <strong>추정 API 비용</strong>: $0.2030
+<strong>대화 컨텍스트</strong>: 5턴 누적 | <strong>후속 제안</strong>: 감지됨</p>
+<p><strong>답변:</strong></p>
+<h1 id="_63">갱신 후 집주인이 집을 팔겠다고 하면?<a class="headerlink" href="#_63" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="_64">✅ 핵심 결론부터<a class="headerlink" href="#_64" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>집주인이 집을 파는 것 자체는 막을 수 없습니다. 하지만 임차인의 계약은 그대로 유지됩니다.</strong></p>
+</blockquote>
+<p>집이 팔려도 <strong>대항력</strong>을 갖춘 임차인은 새 집주인에게 기존 계약을 그대로 주장할 수 있습니다.</p>
+<hr />
+<h2 id="1_14">1️⃣ "집을 판다"는 것은 갱신 거절 사유가 아닙니다<a class="headerlink" href="#1_14" title="Permanent link">&para;</a></h2>
+<p>앞서 정리한 <strong>법정 거절 사유 7가지</strong>를 다시 보면:</p>
+<table>
+<thead>
+<tr>
+<th>거절 사유</th>
+<th>해당 여부</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>① 2기 이상 차임 연체</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>② 거짓·부정 계약</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>③ 합의 보상</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>④ 무단 전대</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>⑤ 고의 파손</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>⑥ 철거·재건축</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>⑦ 임대인 실거주</td>
+<td>❌</td>
+</tr>
+<tr>
+<td><strong>⑧ 매매(집 팔기)</strong></td>
+<td><strong>❌ 사유에 없음!</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>🔴 <strong>"집을 팔겠다"는 것은 갱신 거절 사유에 해당하지 않습니다.</strong> 따라서 이미 갱신청구권을 행사했거나 계약 기간 중이라면, 매매를 이유로 퇴거를 요구할 수 없습니다.</p>
+</blockquote>
+<hr />
+<h2 id="2_17">2️⃣ 집이 팔리면 어떻게 되나? — 대항력이 핵심<a class="headerlink" href="#2_17" title="Permanent link">&para;</a></h2>
+<h3 id="_65">대항력이 있는 경우 (대부분의 임차인)<a class="headerlink" href="#_65" title="Permanent link">&para;</a></h3>
+<p><strong>대항력 요건</strong>: ① 주택 인도(입주) + ② 전입신고</p>
+<table>
+<thead>
+<tr>
+<th>상황</th>
+<th>결과</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>갱신된 계약 기간 중 집이 팔림</td>
+<td>새 집주인이 <strong>임대인 지위를 승계</strong></td>
+</tr>
+<tr>
+<td>남은 계약 기간</td>
+<td><strong>그대로 유지</strong> (새 집주인이 쫓아낼 수 없음)</td>
+</tr>
+<tr>
+<td>보증금 반환 의무</td>
+<td><strong>새 집주인에게 이전</strong></td>
+</tr>
+<tr>
+<td>차임(월세) 조건</td>
+<td><strong>기존 조건 그대로</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>[기존 집주인 A] ─── 매매 ──→ [새 집주인 B]
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>                                  │
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>                                  ▼
+<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>                    임대인 지위 자동 승계
+<a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>                    기존 계약 조건 그대로 유지
+<a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a>                    보증금 반환 의무도 B에게 이전
+</code></pre></div>
+<h3 id="_66">대항력이 없는 경우 (드물지만 위험)<a class="headerlink" href="#_66" title="Permanent link">&para;</a></h3>
+<p>전입신고를 하지 않았거나, 전입 전에 매매가 이루어진 경우:</p>
+<ul>
+<li>새 집주인에게 임차권을 주장할 수 <strong>없음</strong></li>
+<li>보증금은 <strong>기존 집주인</strong>에게 청구해야 함</li>
+<li>최악의 경우 퇴거 + 보증금 회수 어려움</li>
+</ul>
+<blockquote>
+<p>⚠️ <strong>전입신고의 중요성</strong>이 바로 여기에 있습니다.</p>
+</blockquote>
+<hr />
+<h2 id="3_16">3️⃣ 실전에서 자주 발생하는 시나리오별 대응<a class="headerlink" href="#3_16" title="Permanent link">&para;</a></h2>
+<h3 id="a_1">시나리오 A: 갱신 계약 중 집주인이 "집 팔 테니 나가달라"<a class="headerlink" href="#a_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>대응</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>거부 가능</strong> ✅</td>
+<td>계약 기간 중이므로 퇴거 의무 없음</td>
+</tr>
+<tr>
+<td>매수인에게</td>
+<td>세입자 있는 상태로 매매 가능 (임차권 승계)</td>
+</tr>
+<tr>
+<td>임차인 할 일</td>
+<td>"계약 기간까지 거주하겠다" 서면 통보</td>
+</tr>
+</tbody>
+</table>
+<h3 id="b_1">시나리오 B: 새 집주인이 "내가 살 거니까 나가라" (실거주 주장)<a class="headerlink" href="#b_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>시점</th>
+<th>결과</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>현재 계약 기간 중</strong></td>
+<td>❌ 거절 불가 → 계약 만료까지 거주 가능</td>
+</tr>
+<tr>
+<td><strong>계약 만료 시점</strong> (갱신청구권 이미 소진)</td>
+<td>⭕ 새 집주인이 갱신 거절 가능</td>
+</tr>
+<tr>
+<td><strong>계약 만료 시점</strong> (갱신청구권 미사용)</td>
+<td>임차인이 갱신청구권 행사 가능 → 새 집주인이 법정 사유로만 거절</td>
+</tr>
+</tbody>
+</table>
+<h3 id="c_1">시나리오 C: 집주인이 매매를 위해 "실거주"를 구실로 갱신 거절<a class="headerlink" href="#c_1" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>이것은 앞서 대화에서 다룬 <strong>허위 실거주</strong> 문제와 동일합니다.</p>
+</blockquote>
+<ul>
+<li>실거주 거절 후 <strong>제3자에게 매도</strong> → 허위 실거주로 <strong>손해배상 청구 가능</strong></li>
+<li>증거: 매매계약서, 등기부등본 소유권 이전 기록</li>
+</ul>
+<hr />
+<h2 id="4_13">4️⃣ 보증금은 안전한가? — 가장 걱정되는 부분<a class="headerlink" href="#4_13" title="Permanent link">&para;</a></h2>
+<h3 id="_67">✅ 대항력 + 확정일자가 있으면<a class="headerlink" href="#_67" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>보호 내용</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>우선변제권</strong></td>
+<td>집이 경매로 넘어가더라도 보증금 우선 회수</td>
+</tr>
+<tr>
+<td><strong>새 집주인이 반환 의무 승계</strong></td>
+<td>계약 만료 시 새 집주인이 보증금 돌려줘야 함</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_68">⚠️ 주의할 점<a class="headerlink" href="#_68" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>위험 상황</th>
+<th>대비 방법</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>새 집주인이 보증금 반환 능력 없음</td>
+<td>매매 시점에 <strong>등기부등본</strong> 확인 → 근저당 설정 여부 체크</td>
+</tr>
+<tr>
+<td>기존 집주인이 보증금을 새 집주인에게 안 넘김</td>
+<td>법적으로는 새 집주인 책임이지만, 분쟁 소지 있음</td>
+</tr>
+<tr>
+<td>매매 후 경매로 넘어감</td>
+<td>우선변제권 순위 확인 필수</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5_6">5️⃣ 집이 팔린다는 소식을 들었을 때 체크리스트<a class="headerlink" href="#5_6" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>[매매 소식 접수]
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>       │
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>       ▼
+<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>① 내 대항력 확인 (전입신고 + 거주 유지되고 있는지)
+<a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a>       │
+<a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a>       ▼
+<a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a>② 확정일자 확인 (계약서에 확정일자 받았는지)
+<a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a>       │
+<a id="__codelineno-29-9" name="__codelineno-29-9" href="#__codelineno-29-9"></a>       ▼
+<a id="__codelineno-29-10" name="__codelineno-29-10" href="#__codelineno-29-10"></a>③ 등기부등본 열람 (소유권 이전 여부, 근저당 변동)
+<a id="__codelineno-29-11" name="__codelineno-29-11" href="#__codelineno-29-11"></a>       │
+<a id="__codelineno-29-12" name="__codelineno-29-12" href="#__codelineno-29-12"></a>       ▼
+<a id="__codelineno-29-13" name="__codelineno-29-13" href="#__codelineno-29-13"></a>④ 새 집주인에게 임차인 존재 + 계약 조건 서면 통보
+<a id="__codelineno-29-14" name="__codelineno-29-14" href="#__codelineno-29-14"></a>       │
+<a id="__codelineno-29-15" name="__codelineno-29-15" href="#__codelineno-29-15"></a>       ▼
+<a id="__codelineno-29-16" name="__codelineno-29-16" href="#__codelineno-29-16"></a>⑤ 보증금 반환 의무가 새 집주인에게 승계됨을 확인
+<a id="__codelineno-29-17" name="__codelineno-29-17" href="#__codelineno-29-17"></a>       │
+<a id="__codelineno-29-18" name="__codelineno-29-18" href="#__codelineno-29-18"></a>       ▼
+<a id="__codelineno-29-19" name="__codelineno-29-19" href="#__codelineno-29-19"></a>⑥ 불안하면 → 전세보증보험(HUG/SGI) 가입 여부 확인
+</code></pre></div>
+<hr />
+<h2 id="_69">💡 핵심 요약<a class="headerlink" href="#_69" title="Permanent link">&para;</a></h2>
+<blockquote>
+<ol>
+<li><strong>집을 판다는 것은 갱신 거절 사유가 아닙니다</strong> → 계약 기간 중 퇴거 요구 거부 가능</li>
+<li><strong>대항력이 있으면 새 집주인에게도 계약을 주장</strong>할 수 있습니다</li>
+<li><strong>보증금 반환 의무는 새 집주인에게 자동 승계</strong>됩니다</li>
+<li>다만 <strong>등기부등본을 수시로 확인</strong>하여 근저당 증가·경매 진행 등 위험 신호를 조기에 포착하세요</li>
+</ol>
+</blockquote>
+<hr />
+<p>앞서 논의한 내용과 연결하면:
+- <strong>갱신청구권 소진 전</strong>이라면 → 새 집주인에 대해서도 행사 가능
+- <strong>갱신청구권 소진 후</strong>라면 → 묵시적 갱신은 되지만, 새 집주인이 퇴거 통보하면 방어 어려움</p>
+<p>추가로 <strong>전세보증보험</strong>, <strong>경매 시 보증금 회수</strong>, <strong>근저당 확인 방법</strong> 등 궁금한 점 있으시면 말씀해 주세요!</p>
+<p><strong>후속 답변</strong> (자동 수락):</p>
+<h1 id="_70">전세보증보험, 경매 시 보증금 회수, 근저당 확인 방법 — 상세 가이드<a class="headerlink" href="#_70" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="1_15">1️⃣ 전세보증보험 (보증금 반환 보장)<a class="headerlink" href="#1_15" title="Permanent link">&para;</a></h2>
+<h3 id="_71">전세보증보험이란?<a class="headerlink" href="#_71" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>집주인이 보증금을 돌려주지 못할 때, <strong>보증기관이 대신 돌려주고</strong> 집주인에게 구상권을 행사하는 보험입니다.</p>
+</blockquote>
+<h3 id="3_17">주요 보증기관 3곳<a class="headerlink" href="#3_17" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>기관</th>
+<th>특징</th>
+<th>보증료 수준</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>HUG</strong> (주택도시보증공사)</td>
+<td>가장 대중적, 가입 조건 엄격</td>
+<td>연 0.115~0.154%</td>
+</tr>
+<tr>
+<td><strong>SGI서울보증</strong></td>
+<td>가입 조건 상대적으로 유연</td>
+<td>연 0.183~0.208%</td>
+</tr>
+<tr>
+<td><strong>HF</strong> (한국주택금융공사)</td>
+<td>전세대출 연계 시 자동가입</td>
+<td>대출기관에 따라 다름</td>
+</tr>
+</tbody>
+</table>
+<h3 id="hug">보증료 계산 예시 (HUG 기준)<a class="headerlink" href="#hug" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>보증금</th>
+<th>연 보증료율</th>
+<th>연 보증료</th>
+<th>2년 총액</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3억 원</td>
+<td>0.128%</td>
+<td>약 38.4만 원</td>
+<td>약 76.8만 원</td>
+</tr>
+<tr>
+<td>5억 원</td>
+<td>0.128%</td>
+<td>약 64만 원</td>
+<td>약 128만 원</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>💡 보증료는 임차인 부담이지만, <strong>보증금 수억 원을 날릴 위험 대비 매우 저렴</strong>합니다.</p>
+</blockquote>
+<h3 id="hug-2026">가입 조건 (HUG 기준 — 2026년 현재)<a class="headerlink" href="#hug-2026" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>조건</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>대항력</strong></td>
+<td>전입신고 + 확정일자 완료</td>
+</tr>
+<tr>
+<td><strong>보증금 한도</strong></td>
+<td>수도권 7억 원 이하 / 비수도권 5억 원 이하</td>
+</tr>
+<tr>
+<td><strong>집 시세 대비</strong></td>
+<td>보증금이 집 시세의 <strong>90~100% 이하</strong> (지역별 상이)</td>
+</tr>
+<tr>
+<td><strong>계약 기간</strong></td>
+<td>잔여 계약기간 1개월 이상 남아 있어야 함</td>
+</tr>
+<tr>
+<td><strong>가입 시기</strong></td>
+<td>계약 기간의 <strong>1/2 경과 전</strong>까지 (2년 계약이면 1년 이내)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_72">⚠️ 가입이 거절되는 경우<a class="headerlink" href="#_72" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>사유</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>보증금이 시세 대비 너무 높음</td>
+<td><strong>깡통전세</strong> 위험 → 이 자체가 위험 신호!</td>
+</tr>
+<tr>
+<td>집주인 세금 체납</td>
+<td>국세·지방세 체납 시 보증금보다 세금이 우선</td>
+</tr>
+<tr>
+<td>근저당 과다 설정</td>
+<td>보증금 회수 가능성 낮음</td>
+</tr>
+<tr>
+<td>다세대·다가구 보증금 합산 초과</td>
+<td>집 전체 임차보증금이 시세 초과</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>🔴 <strong>가입이 거절되면 그 집 자체가 위험하다는 신호</strong>입니다. 이 경우 이사를 진지하게 고려하세요.</p>
+</blockquote>
+<h3 id="_73">가입 절차<a class="headerlink" href="#_73" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>① 부동산 계약 체결 + 전입신고 + 확정일자
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>       │
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>       ▼
+<a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>② HUG 홈페이지(www.khug.or.kr) 또는 은행 방문
+<a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a>       │
+<a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a>       ▼
+<a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a>③ 필요 서류 제출
+<a id="__codelineno-30-8" name="__codelineno-30-8" href="#__codelineno-30-8"></a>   - 임대차계약서 사본
+<a id="__codelineno-30-9" name="__codelineno-30-9" href="#__codelineno-30-9"></a>   - 확정일자 부여 증명
+<a id="__codelineno-30-10" name="__codelineno-30-10" href="#__codelineno-30-10"></a>   - 등기부등본
+<a id="__codelineno-30-11" name="__codelineno-30-11" href="#__codelineno-30-11"></a>   - 신분증
+<a id="__codelineno-30-12" name="__codelineno-30-12" href="#__codelineno-30-12"></a>       │
+<a id="__codelineno-30-13" name="__codelineno-30-13" href="#__codelineno-30-13"></a>       ▼
+<a id="__codelineno-30-14" name="__codelineno-30-14" href="#__codelineno-30-14"></a>④ 심사 (보통 3~7영업일)
+<a id="__codelineno-30-15" name="__codelineno-30-15" href="#__codelineno-30-15"></a>       │
+<a id="__codelineno-30-16" name="__codelineno-30-16" href="#__codelineno-30-16"></a>       ▼
+<a id="__codelineno-30-17" name="__codelineno-30-17" href="#__codelineno-30-17"></a>⑤ 보증서 발급 + 보증료 납부
+</code></pre></div>
+<h3 id="_74">보증금 못 받을 때 실제 사용 절차<a class="headerlink" href="#_74" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>계약 만료 → 집주인 보증금 미반환
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>       │
+<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>       ▼
+<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a>① 내용증명 발송 (보증금 반환 최고)
+<a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a>       │
+<a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a>       ▼
+<a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a>② 1개월 경과 후에도 미반환
+<a id="__codelineno-31-8" name="__codelineno-31-8" href="#__codelineno-31-8"></a>       │
+<a id="__codelineno-31-9" name="__codelineno-31-9" href="#__codelineno-31-9"></a>       ▼
+<a id="__codelineno-31-10" name="__codelineno-31-10" href="#__codelineno-31-10"></a>③ HUG에 보증사고 접수
+<a id="__codelineno-31-11" name="__codelineno-31-11" href="#__codelineno-31-11"></a>       │
+<a id="__codelineno-31-12" name="__codelineno-31-12" href="#__codelineno-31-12"></a>       ▼
+<a id="__codelineno-31-13" name="__codelineno-31-13" href="#__codelineno-31-13"></a>④ HUG 심사 후 보증금 대위변제 (통상 1~2개월)
+<a id="__codelineno-31-14" name="__codelineno-31-14" href="#__codelineno-31-14"></a>       │
+<a id="__codelineno-31-15" name="__codelineno-31-15" href="#__codelineno-31-15"></a>       ▼
+<a id="__codelineno-31-16" name="__codelineno-31-16" href="#__codelineno-31-16"></a>⑤ HUG가 집주인에게 구상권 행사 (임차인은 신경 쓸 필요 없음)
+</code></pre></div>
+<hr />
+<h2 id="2_18">2️⃣ 경매 시 보증금 회수 방법<a class="headerlink" href="#2_18" title="Permanent link">&para;</a></h2>
+<h3 id="_75">집이 경매로 넘어가는 상황<a class="headerlink" href="#_75" title="Permanent link">&para;</a></h3>
+<p>집주인이 대출금을 못 갚으면 → 은행이 <strong>담보권 실행</strong> → <strong>경매</strong> 진행</p>
+<h3 id="_76">임차인의 보증금 회수 가능 여부 — "순위"가 전부입니다<a class="headerlink" href="#_76" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>경매 낙찰 대금 배분 순서:
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>
+<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>1순위: 경매 비용
+<a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a>2순위: 최우선변제 소액임차인
+<a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a>3순위: 확정일자 순서에 따른 우선변제권자 vs 근저당권자
+<a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a>       (설정일/확정일자 받은 날짜 순서대로!)
+<a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a>4순위: 일반채권자
+</code></pre></div>
+<h3 id="3_18">핵심 개념 3가지<a class="headerlink" href="#3_18" title="Permanent link">&para;</a></h3>
+<h4 id="1_16">① 대항력 (전입신고 + 거주)<a class="headerlink" href="#1_16" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>대항력 취득일 vs 근저당 설정일</th>
+<th>결과</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>대항력이 먼저</strong> (전입신고가 근저당보다 빠름)</td>
+<td>✅ 낙찰자에게 보증금 반환 요구 가능 + 계약 유지 가능</td>
+</tr>
+<tr>
+<td><strong>근저당이 먼저</strong></td>
+<td>❌ 경매로 임차권 소멸 → 배당으로만 회수</td>
+</tr>
+</tbody>
+</table>
+<h4 id="2_19">② 우선변제권 (대항력 + 확정일자)<a class="headerlink" href="#2_19" title="Permanent link">&para;</a></h4>
+<ul>
+<li>경매 배당 시 <strong>확정일자를 받은 날의 다음 날</strong>부터 우선변제 순위 확보</li>
+<li>근저당 설정일보다 <strong>먼저</strong> 확정일자를 받았으면 → 근저당보다 <strong>먼저</strong> 배당</li>
+</ul>
+<h4 id="3_19">③ 최우선변제권 (소액임차인)<a class="headerlink" href="#3_19" title="Permanent link">&para;</a></h4>
+<p>보증금이 일정 금액 이하인 임차인은 <strong>근저당보다 먼저</strong> 일정 금액을 배당받습니다.</p>
+<table>
+<thead>
+<tr>
+<th>지역</th>
+<th>보증금 한도</th>
+<th>최우선변제 금액</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>서울</strong></td>
+<td>1억 6,500만 원 이하</td>
+<td><strong>5,500만 원</strong></td>
+</tr>
+<tr>
+<td><strong>수도권 과밀억제권역</strong></td>
+<td>1억 4,500만 원 이하</td>
+<td><strong>4,800만 원</strong></td>
+</tr>
+<tr>
+<td><strong>광역시 등</strong></td>
+<td>8,500만 원 이하</td>
+<td><strong>2,800만 원</strong></td>
+</tr>
+<tr>
+<td><strong>그 외</strong></td>
+<td>7,500만 원 이하</td>
+<td><strong>2,500만 원</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ 보증금이 이 한도를 넘으면 최우선변제 대상이 아닙니다. (대부분의 전세가 해당)</p>
+</blockquote>
+<h3 id="3-2">실전 예시: 보증금 3억, 근저당 2억인 집<a class="headerlink" href="#3-2" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>집 시세: 5억
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>근저당 (은행): 2억 (2023.03.01 설정)
+<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>전입신고 + 확정일자: 2023.05.01 (근저당보다 늦음!)
+<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>보증금: 3억
+<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a>
+<a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a>→ 경매 낙찰가: 4억이라면
+<a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a>
+<a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a>배분 순서:
+<a id="__codelineno-33-9" name="__codelineno-33-9" href="#__codelineno-33-9"></a>1. 경매 비용: 약 500만 원
+<a id="__codelineno-33-10" name="__codelineno-33-10" href="#__codelineno-33-10"></a>2. 근저당 은행: 2억 원
+<a id="__codelineno-33-11" name="__codelineno-33-11" href="#__codelineno-33-11"></a>3. 임차인: 남은 금액에서 배당 → 약 1억 9,500만 원
+<a id="__codelineno-33-12" name="__codelineno-33-12" href="#__codelineno-33-12"></a>4. 부족분: 약 1억 500만 원 → 회수 불가능할 수 있음!
+</code></pre></div>
+<blockquote>
+<p>🔴 <strong>근저당보다 늦게 전입한 경우, 보증금 전액 회수가 어려울 수 있습니다.</strong></p>
+</blockquote>
+<h3 id="_77">경매 시 임차인이 해야 할 일<a class="headerlink" href="#_77" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>[경매 개시 통보 수령]
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>       │
+<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>       ▼
+<a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a>① 법원에 배당요구 신청 ⭐ (반드시!)
+<a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a>   - 배당요구 종기일까지 반드시 제출
+<a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a>   - 놓치면 배당에서 제외될 수 있음
+<a id="__codelineno-34-7" name="__codelineno-34-7" href="#__codelineno-34-7"></a>       │
+<a id="__codelineno-34-8" name="__codelineno-34-8" href="#__codelineno-34-8"></a>       ▼
+<a id="__codelineno-34-9" name="__codelineno-34-9" href="#__codelineno-34-9"></a>② 필요 서류:
+<a id="__codelineno-34-10" name="__codelineno-34-10" href="#__codelineno-34-10"></a>   - 임대차계약서 (확정일자 포함)
+<a id="__codelineno-34-11" name="__codelineno-34-11" href="#__codelineno-34-11"></a>   - 전입세대 열람원
+<a id="__codelineno-34-12" name="__codelineno-34-12" href="#__codelineno-34-12"></a>   - 배당요구서 (법원 양식)
+<a id="__codelineno-34-13" name="__codelineno-34-13" href="#__codelineno-34-13"></a>       │
+<a id="__codelineno-34-14" name="__codelineno-34-14" href="#__codelineno-34-14"></a>       ▼
+<a id="__codelineno-34-15" name="__codelineno-34-15" href="#__codelineno-34-15"></a>③ 배당기일에 출석 (또는 대리인)
+<a id="__codelineno-34-16" name="__codelineno-34-16" href="#__codelineno-34-16"></a>       │
+<a id="__codelineno-34-17" name="__codelineno-34-17" href="#__codelineno-34-17"></a>       ▼
+<a id="__codelineno-34-18" name="__codelineno-34-18" href="#__codelineno-34-18"></a>④ 배당금 수령
+<a id="__codelineno-34-19" name="__codelineno-34-19" href="#__codelineno-34-19"></a>       │
+<a id="__codelineno-34-20" name="__codelineno-34-20" href="#__codelineno-34-20"></a>       └─ 부족분은 → 기존 집주인에게 별도 민사소송
+</code></pre></div>
+<blockquote>
+<p>⭐ <strong>가장 중요</strong>: <strong>배당요구 종기일</strong>을 절대 놓치지 마세요! 이 기한을 넘기면 우선변제권이 있어도 배당을 못 받을 수 있습니다.</p>
+</blockquote>
+<hr />
+<h2 id="3_20">3️⃣ 근저당 확인 방법 — 등기부등본 읽는 법<a class="headerlink" href="#3_20" title="Permanent link">&para;</a></h2>
+<h3 id="_78">등기부등본 열람 방법<a class="headerlink" href="#_78" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>방법</th>
+<th>비용</th>
+<th>접근성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>인터넷등기소</strong> (iros.go.kr)</td>
+<td>열람 700원 / 발급 1,000원</td>
+<td>24시간 가능</td>
+</tr>
+<tr>
+<td><strong>대법원 등기정보광장</strong></td>
+<td>동일</td>
+<td>온라인</td>
+</tr>
+<tr>
+<td><strong>무인발급기</strong> (주민센터, 법원)</td>
+<td>1,000원</td>
+<td>영업시간 내</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_79">등기부등본 구조<a class="headerlink" href="#_79" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>┌─────────────────────────────────────┐
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>│ [표제부] - 부동산의 소재지, 면적 등    │
+<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>├─────────────────────────────────────┤
+<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>│ [갑구] - 소유권 관련 사항              │
+<a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a>│   → 소유자가 누구인지                  │
+<a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a>│   → 압류, 가압류, 가처분 등            │
+<a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a>├─────────────────────────────────────┤
+<a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a>│ [을구] - 소유권 이외의 권리            │
+<a id="__codelineno-35-9" name="__codelineno-35-9" href="#__codelineno-35-9"></a>│   → ⭐ 근저당권 (은행 대출)            │
+<a id="__codelineno-35-10" name="__codelineno-35-10" href="#__codelineno-35-10"></a>│   → 전세권, 지상권 등                  │
+<a id="__codelineno-35-11" name="__codelineno-35-11" href="#__codelineno-35-11"></a>└─────────────────────────────────────┘
+</code></pre></div>
+<h3 id="_80">[을구]에서 확인해야 할 핵심 항목<a class="headerlink" href="#_80" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>확인 항목</th>
+<th>의미</th>
+<th>위험 신호</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>근저당권 설정액</strong></td>
+<td>은행 대출의 최대 채권액 (보통 대출금의 120~130%)</td>
+<td>설정액이 집값에 가까우면 🔴 위험</td>
+</tr>
+<tr>
+<td><strong>근저당권자</strong></td>
+<td>돈을 빌려준 곳 (은행, 캐피탈, 개인 등)</td>
+<td>제2금융권·개인이면 ⚠️ 주의</td>
+</tr>
+<tr>
+<td><strong>설정일</strong></td>
+<td>근저당이 설정된 날짜</td>
+<td>내 전입신고보다 빠르면 ⚠️ 순위 밀림</td>
+</tr>
+<tr>
+<td><strong>근저당 개수</strong></td>
+<td>여러 건이면 대출이 많다는 의미</td>
+<td>다수의 근저당 🔴 위험</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_81">[갑구]에서 확인해야 할 위험 신호<a class="headerlink" href="#_81" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>확인 항목</th>
+<th>의미</th>
+<th>위험도</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>가압류</strong></td>
+<td>채권자가 재산 처분 금지 신청</td>
+<td>🔴 매우 위험</td>
+</tr>
+<tr>
+<td><strong>압류</strong></td>
+<td>세금 체납 등으로 강제 압류</td>
+<td>🔴 매우 위험</td>
+</tr>
+<tr>
+<td><strong>임의경매 개시</strong></td>
+<td>이미 경매 절차 시작</td>
+<td>🔴🔴 극도로 위험</td>
+</tr>
+<tr>
+<td><strong>신탁</strong></td>
+<td>소유권이 신탁회사에 있음</td>
+<td>⚠️ 별도 확인 필요</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_82">안전한 집인지 판단하는 공식<a class="headerlink" href="#_82" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>┌──────────────────────────────────────────────┐
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>│                                              │
+<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>│   근저당 설정액 합계 + 내 보증금              │
+<a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a>│   ─────────────────────────── × 100          │
+<a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a>│          집 시세 (KB시세 등)                   │
+<a id="__codelineno-36-6" name="__codelineno-36-6" href="#__codelineno-36-6"></a>│                                              │
+<a id="__codelineno-36-7" name="__codelineno-36-7" href="#__codelineno-36-7"></a>│   → 이 비율이 70% 이하 ✅ 안전               │
+<a id="__codelineno-36-8" name="__codelineno-36-8" href="#__codelineno-36-8"></a>│   → 80% 이상 ⚠️ 주의                        │
+<a id="__codelineno-36-9" name="__codelineno-36-9" href="#__codelineno-36-9"></a>│   → 90% 이상 🔴 위험 (깡통전세 가능성)       │
+<a id="__codelineno-36-10" name="__codelineno-36-10" href="#__codelineno-36-10"></a>│                                              │
+<a id="__codelineno-36-11" name="__codelineno-36-11" href="#__codelineno-36-11"></a>└──────────────────────────────────────────────┘
+</code></pre></div>
+<h3 id="_83">실전 예시<a class="headerlink" href="#_83" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>집 시세: 5억 원 (KB부동산 기준)
+<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>근저당 설정액: 2억 6,000만 원 (실제 대출 약 2억)
+<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>내 보증금: 3억 원
+<a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a>
+<a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a>계산: (2.6억 + 3억) ÷ 5억 × 100 = 112%
+<a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a>
+<a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a>→ 🔴🔴 극도로 위험! 경매 시 보증금 전액 회수 불가능
+</code></pre></div>
+<h3 id="_84">등기부등본, 언제 확인해야 하나?<a class="headerlink" href="#_84" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>시점</th>
+<th>이유</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>계약 전</strong></td>
+<td>근저당 규모 확인 → 안전한 집인지 판단</td>
+</tr>
+<tr>
+<td><strong>잔금일(입주일)</strong></td>
+<td>계약 후 새로운 근저당이 추가됐는지 확인</td>
+</tr>
+<tr>
+<td><strong>갱신 시점</strong></td>
+<td>그 사이 근저당 변동 여부 확인</td>
+</tr>
+<tr>
+<td><strong>집이 매매된다는 소식 접수 시</strong></td>
+<td>소유권 이전, 근저당 변동 확인</td>
+</tr>
+<tr>
+<td><strong>불안할 때 수시로</strong></td>
+<td>700원이면 확인 가능, 자주 하세요!</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_85">💡 전체 핵심 요약 — 앞선 대화와 연결<a class="headerlink" href="#_85" title="Permanent link">&para;</a></h2>
+<p>앞서 논의한 <strong>갱신청구권</strong>, <strong>실거주 거절</strong>, <strong>매매</strong> 상황과 종합하면:</p>
+<table>
+<thead>
+<tr>
+<th>상황</th>
+<th>대비 방법</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>갱신청구권 행사 후 안정적 거주 중</td>
+<td>✅ 전세보증보험 가입 + 등기부등본 수시 확인</td>
+</tr>
+<tr>
+<td>집주인이 실거주 사유로 거절</td>
+<td>이사 후 실거주 여부 추적 → 허위 시 손해배상</td>
+</tr>
+<tr>
+<td>집주인이 집을 매매</td>
+<td>대항력 확인 + 새 집주인에게 임차권 주장</td>
+</tr>
+<tr>
+<td>경매로 넘어감</td>
+<td>배당요구 종기일 내 반드시 배당요구 신청</td>
+</tr>
+<tr>
+<td>깡통전세 의심</td>
+<td>전세보증보험 가입 시도 → 거절되면 이사 검토</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>가장 확실한 안전장치</strong>: ① <strong>전입신고 + 확정일자</strong> ② <strong>전세보증보험 가입</strong> ③ <strong>등기부등본 수시 확인</strong> — 이 세 가지를 반드시 챙기세요.</p>
+</blockquote>
+<hr />
+<p>추가로 <strong>전세보증보험 가입 거절 시 대안</strong>, <strong>경매 배당요구서 작성법</strong>, <strong>전세사기 유형별 대처법</strong> 등 더 궁금한 점 있으시면 말씀해 주세요!</p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  맨위로
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.highlight", "search.suggest", "content.code.copy", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

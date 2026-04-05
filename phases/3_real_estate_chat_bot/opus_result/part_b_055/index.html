@@ -1,0 +1,8596 @@
+
+<!doctype html>
+<html lang="ko" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="대한민국 부동산 RAG 기반 AI 상담/보고서 서비스 기획 문서">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>B-055. 용산 재개발 Opus 4.6 테스트 결과 - 부동산 AI 어드바이저 — 프로젝트 기획</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#b-055-opus-46" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="상단/헤더">
+    <a href="../../../.." title="부동산 AI 어드바이저 — 프로젝트 기획" class="md-header__button md-logo" aria-label="부동산 AI 어드바이저 — 프로젝트 기획" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            부동산 AI 어드바이저 — 프로젝트 기획
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              B-055. 용산 재개발 Opus 4.6 테스트 결과
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="다크 모드로 전환"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="다크 모드로 전환" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="라이트 모드로 전환"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="라이트 모드로 전환" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+        <button type="reset" class="md-search__icon md-icon" title="지우기" aria-label="지우기" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="탭" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  홈
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../project_plan/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  프로젝트 기획서
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../1_rag_mvp/1_rag_mvp_plan/" class="md-tabs__link">
+          
+  
+  
+  Phase 1 — RAG MVP
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../2_domain_ontology/2_domain_ontology_plan/" class="md-tabs__link">
+          
+  
+  
+  Phase 2 — 도메인 온톨로지
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../00_overview/" class="md-tabs__link">
+          
+  
+  
+  Phase 3 — 부동산 RAG 챗봇
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../4_deep_report/00_overview/" class="md-tabs__link">
+          
+  
+  
+  Phase 4 — 딥 리포트
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../settings/" class="md-tabs__link">
+          
+  
+  
+  환경 설정
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="네비게이션" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="부동산 AI 어드바이저 — 프로젝트 기획" class="md-nav__button md-logo" aria-label="부동산 AI 어드바이저 — 프로젝트 기획" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    부동산 AI 어드바이저 — 프로젝트 기획
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    홈
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../project_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    프로젝트 기획서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 1 — RAG MVP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phase 1 — RAG MVP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/1_rag_mvp_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기획서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    세부 계획
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    세부 계획
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/1_1_embedding_data_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.1 임베딩 데이터 테스트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_2" id="__nav_3_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    테스트 결과
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    테스트 결과
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/test_result/20260315_1_sementic_search_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    시맨틱 검색 테스트 (1차)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/test_result/20260315_2_sementic_search_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    시맨틱 검색 테스트 (2차)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/test_result/20260315_3_meta_data_filtering_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    메타데이터 필터링 테스트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/test_result/20260315_4_embedding_quality_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    임베딩 품질 평가
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기술 연구
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    기술 연구
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/tech_research/embedding_models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    한국어 임베딩 모델 비교
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/tech_research/vector_databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vector Database 비교
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/tech_research/hybrid_search_bm25/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hybrid Search (Dense + BM25)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 1 — 검색 개선 연구
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 1 — 검색 개선 연구
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/supplementary_1_search_improvement/01_overview_and_research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    개요 및 외부 연구
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/supplementary_1_search_improvement/02_query_time_improvements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Query-Time 개선
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/supplementary_1_search_improvement/03_post_retrieval_improvements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Post-Retrieval 개선
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/supplementary_1_search_improvement/04_adaptive_rag_generation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Adaptive RAG Generation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/supplementary_1_search_improvement/05_indexing_and_evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    인덱싱 및 평가
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/supplementary_1_search_improvement/06_implementation_and_test_report/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    구현 및 테스트 리포트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2 — 도메인 온톨로지
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phase 2 — 도메인 온톨로지
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/2_domain_ontology_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기획서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/3_legal_doc_rag_strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    법령 문서 RAG 전략
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/4_ontology_build_and_index_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    온톨로지 빌드 + 색인 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/5_phase2_search_test_report/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    검색 테스트 리포트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/6_search_improvement_research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    검색 개선 연구 (외부 사례)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 1 — Contextual Retrieval
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 1 — Contextual Retrieval
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_1_contextual_retrieval/01_contextual_retrieval_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    구현 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_1_contextual_retrieval/02_contextual_prefix_script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prefix 생성 스크립트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_1_contextual_retrieval/03_cron_wrapper_and_yaml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cron Wrapper & YAML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_1_contextual_retrieval/04_index_phase2_modifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    index_phase2 수정 사항
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_1_contextual_retrieval/05_contextual_retrieval_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    적용 결과 리포트 (확장 테스트)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 2 — BGE-M3 Triple-Vector
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 2 — BGE-M3 Triple-Vector
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/01_bgem3_triple_vector_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    전체 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/02_embedder_bgem3_design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Embedder 설계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/03_collection_schema_and_indexing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    컬렉션 스키마 + 인덱싱
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/04_multi_stage_search_pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi-Stage 검색 파이프라인
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/05_benchmark_and_ablation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    벤치마크 및 Ablation Study
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/06_results_and_analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 분석
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/07_colbert_improvement_research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ColBERT 개선 전략 연구
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/08_reranker_module_design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reranker 모듈 설계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/09_benchmark_expansion_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    확장 벤치마크 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/10_expanded_benchmark_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    확장 벤치마크 결과
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 3 — Cross-Domain Query Decomposition
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 3 — Cross-Domain Query Decomposition
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_3_cross_domain/01_query_decomposition_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    구현 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_3_cross_domain/02_query_analyzer_design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QueryAnalyzer 설계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_3_cross_domain/03_search_pipeline_design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SearchPipeline 설계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_3_cross_domain/04_evaluation_framework/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    평가 프레임워크
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_3_cross_domain/05_benchmark_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    벤치마크 결과
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_9" id="__nav_4_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 4 — 순차 보완 전략 (P1-a/b)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 4 — 순차 보완 전략 (P1-a/b)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/01_sequential_improvement_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    순차 개선 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/02_execution_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    실행 프레임워크
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/03_step1_hybrid_strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Step 1 — 하이브리드 전략
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/04_step2_decompose_conservatism/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Step 2 — DECOMPOSE 보수화
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/05_step3_prefilter_refinement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Step 3 — 사전 필터 정교화
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/06_step4_prompt_conservatism/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Step 4 — 프롬프트 보수성
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/07_step5_cross_encoder_fusion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Step 5 — Cross-Encoder 퓨전
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/08_step1to4_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 — Step 1~4 통합
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/09_step5_rerank_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 — Step 5 CE 퓨전
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/7_phase2_comprehensive_evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2 종합 평가
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_11" id="__nav_4_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 5 — 슬랭 Alias + CE 최적화 (Phase 2A)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 5 — 슬랭 Alias + CE 최적화 (Phase 2A)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_5_slang_alias_ce/01_phase2a_quickwins_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Wins 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_5_slang_alias_ce/02_alpha_grid_search/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    α 그리드 서치
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_5_slang_alias_ce/03_conditional_ce_bypass/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    조건부 CE 우회
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_5_slang_alias_ce/04_slang_alias_expansion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    슬랭 Alias 확장
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_5_slang_alias_ce/05_benchmark_verification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    벤치마크 검증 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_5_slang_alias_ce/06_phase2a_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2A 결과
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_5_slang_alias_ce/07_phase2b_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2B/C 결과 (최종)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_12" id="__nav_4_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 6 — Alias Pruning + CRAG
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 6 — Alias Pruning + CRAG
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_6_alias_pruning_crag/01_implementation_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    구현 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_6_alias_pruning_crag/02_alias_pruning_script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alias Pruning 스크립트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_6_alias_pruning_crag/03_crag_retrieval_compensator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CRAG 검색 보정기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_13" id="__nav_4_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    조사 자료
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    조사 자료
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/research/5%EA%B0%9C%ED%98%91%ED%9A%8C%EB%8B%A8%EC%B2%B4_RAG%EC%9E%90%EB%A3%8C%EC%88%98%EC%A7%91_%EC%A1%B0%EC%82%AC%EA%B2%B0%EA%B3%BC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5개 협회·단체 자료수집 조사
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/research/HF_HUG_RAG_%EC%A1%B0%EC%82%AC%EB%B0%A9%EB%B2%95%EB%A1%A0_%EC%82%AC%EC%9D%B4%ED%8A%B8%EB%AA%A9%EB%A1%9D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HF 주택금융공사 조사 방법론
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/research/HUG_%EC%A3%BC%ED%83%9D%EB%8F%84%EC%8B%9C%EB%B3%B4%EC%A6%9D%EA%B3%B5%EC%82%AC_RAG_%EC%A1%B0%EC%82%AC%EB%B0%A9%EB%B2%95%EB%A1%A0_%EC%82%AC%EC%9D%B4%ED%8A%B8%EB%AA%A9%EB%A1%9D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HUG 주택도시보증공사 조사 방법론
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/research/%EA%B5%AD%ED%86%A0%EA%B5%90%ED%86%B5%EB%B6%80_%ED%86%B5%EA%B3%84%EB%88%84%EB%A6%AC_CSV%EC%B2%98%EB%A6%AC_%EA%B2%B0%EA%B3%BC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    국토교통부 통계누리 CSV 처리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 3 — 부동산 RAG 챗봇
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phase 3 — 부동산 RAG 챗봇
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기획서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../evaluation_report/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG vs LLM 평가 보고서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    테스트 데이터
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    테스트 데이터
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/test_set_v1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    테스트 셋 v1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG+LLM 테스트 결과
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RAG+LLM 테스트 결과
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 요약
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_a_singles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part A — 단일 질문 (100개)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_c_singles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part C — 추가 단일 질문 (12개)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_001/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-001 대학생 자취방
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_002/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-002 대학생 주거 지원
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_003/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-003 사회초년생 독립
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_004/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-004 직장인 자취 지역
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_005/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-005 신혼부부 평수/구조
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-006 맞벌이 출퇴근 동선
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-007 자녀 학군 이사
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_008/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-008 아이 키우기 아파트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-009 전원주택 구매
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-010 상가 매입
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-011 경매 입찰
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-012 꼬마빌딩 투자
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-013 단독주택/다가구
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG+LLM v3 결과 (realestate_v3 연동)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RAG+LLM v3 결과 (realestate_v3 연동)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 요약
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_a_singles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part A — 단일 질문 (100개)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_c_singles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part C — 추가 단일 질문 (12개)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_001/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-001 대학생 자취방
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_002/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-002 대학생 주거 지원
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_003/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-003 사회초년생 독립
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_004/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-004 직장인 자취 지역
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_005/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-005 신혼부부 평수/구조
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-006 맞벌이 출퇴근 동선
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-007 자녀 학군 이사
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_008/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-008 아이 키우기 아파트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-009 전원주택 구매
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-010 상가 매입
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-011 경매 입찰
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-012 꼬마빌딩 투자
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-013 단독주택/다가구
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_6" id="__nav_5_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Opus 4.6 베이스라인 결과
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Opus 4.6 베이스라인 결과
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 요약
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_a_singles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part A — 단일 질문 (100개)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_c_singles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part C — 추가 단일 질문 (12개)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_001/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-001 대학생 자취방
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_002/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-002 대학생 주거 지원
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_003/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-003 사회초년생 독립
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_004/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-004 직장인 자취 지역
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_005/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-005 신혼부부 평수/구조
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-006 맞벌이 출퇴근 동선
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-007 자녀 학군 이사
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_008/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-008 아이 키우기 아파트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-009 전원주택 구매
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-010 상가 매입
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-011 경매 입찰
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-012 꼬마빌딩 투자
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-013 단독주택/다가구
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 4 — 딥 리포트
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phase 4 — 딥 리포트
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../4_deep_report/00_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기획서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../4_deep_report/01_api_integration_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API 연동 상세 가이드
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../4_deep_report/02_competitor_analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    경쟁사 분석 상세
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    환경 설정
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    환경 설정
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    개요
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/qdrant_container_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qdrant 벡터 DB 컨테이너
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/embedding_container_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    KURE-v1 임베딩 컨테이너
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/qwen35_27b_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qwen3.5-27B 실행 가이드
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/nemotron3_super_120b_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nemotron3 Super 120B 실행 가이드
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/gemini_cron_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gemini CLI Cron 설정
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/codex_cron_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Codex CLI Cron 설정
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#q1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q1. 용산 재개발 어디까지 진행됐나요?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🏗️ 용산 주요 재개발 사업 현황
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🏗️ 용산 주요 재개발 사업 현황">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 용산정비창 부지 개발 (용산 국제업무지구)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 용산 한남뉴타운 (한남재정비촉진지구)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 용산역 전면구역 (용산역 전면 도시환경정비사업)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 이태원·보광동 일대 정비사업
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 투자·실거주 관점 참고사항
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1️⃣ 용산정비창 부지 (용산 국제업무지구)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1️⃣ 용산정비창 부지 (용산 국제업무지구)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔎 투자 포인트
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2️⃣ 한남재정비촉진지구 (한남뉴타운) - 구역별 상세
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2️⃣ 한남재정비촉진지구 (한남뉴타운) - 구역별 상세">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📍 한남1구역
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📍 한남2구역
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📍 한남3구역 ⭐ (가장 주목)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📍 한남4구역
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📍 한남5구역
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3️⃣ 용산역 전면구역
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4️⃣ 교통 호재 종합
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5️⃣ 실전 투자·실거주 체크리스트
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5️⃣ 실전 투자·실거주 체크리스트">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ 반드시 확인할 것
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ 리스크 요인
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📞 정확한 최신 정보 확인 방법
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📞 정확한 최신 정보 확인 방법">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q2. 용산 정비창 부지 개발 일정이 어떻게 되나요?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🏗️ 용산 정비창 부지 개발 개요
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📅 주요 추진 경과 및 일정
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📅 주요 추진 경과 및 일정">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ 이미 완료된 단계
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔄 진행 중·향후 예상 일정
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔑 핵심 체크포인트
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔑 핵심 체크포인트">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 개발의 핵심 변수
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 개발 구조
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 투자 관점 유의사항
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 정확한 최신 정보 확인처
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1️⃣ 용산 정비창 주변 시세 동향
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1️⃣ 용산 정비창 주변 시세 동향">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2026" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주요 단지별 시세 흐름 (2026년 기준 추정)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        시세 흐름 특징
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        권역별 수혜 강도
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2️⃣ 용산 정비창 관련 투자 전략
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2️⃣ 용산 정비창 관련 투자 전략">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 투자 유형별 전략
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 투자 유형별 전략">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-510" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A. 재개발·재건축 투자 (중장기 5~10년)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B. 기축 아파트 갈아타기 (중기 3~5년)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C. 상가·오피스텔 투자 (주의 필요)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ 투자 시 반드시 확인할 체크리스트
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3️⃣ 용산공원 조성 일정
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3️⃣ 용산공원 조성 일정">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🌳 용산공원 개요
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📅 조성 단계별 일정
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📅 조성 단계별 일정">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1단계: 부분 개방 (완료~진행 중)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2단계: 본격 조성 (진행 중)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3단계: 전면 개방 (예정)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔑 용산공원 핵심 변수
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        용산공원이 부동산 시세에 미치는 영향
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 종합 정리
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌 종합 정리">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q3. 용산 주변 아파트 투자 괜찮을까요?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="b-055-opus-46">B-055. 용산 재개발 Opus 4.6 테스트 결과<a class="headerlink" href="#b-055-opus-46" title="Permanent link">&para;</a></h1>
+<p>실행 시각: 2026-04-02 07:27:28
+질문 수: 5</p>
+<hr />
+<h3 id="q1">Q1. 용산 재개발 어디까지 진행됐나요?<a class="headerlink" href="#q1" title="Permanent link">&para;</a></h3>
+<p><strong>입력 토큰</strong>: 7 | <strong>출력 토큰</strong>: 1,135 | <strong>소요시간</strong>: 29,229ms | <strong>CLI 비용</strong>: $0.0618 | <strong>추정 API 비용</strong>: $0.0852
+<strong>대화 컨텍스트</strong>: 0턴 누적 | <strong>후속 제안</strong>: 감지됨</p>
+<p><strong>답변:</strong></p>
+<p>죄송합니다. 웹 검색 권한이 현재 허용되지 않아 최신 실시간 정보를 가져오지 못했습니다.</p>
+<p>다만, 제가 알고 있는 범위 내에서 <strong>용산 재개발 주요 사업</strong>들의 일반적인 현황을 안내드리겠습니다.</p>
+<hr />
+<h2 id="_1">🏗️ 용산 주요 재개발 사업 현황<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="1">1. 용산정비창 부지 개발 (용산 국제업무지구)<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>위치:</strong> 용산역 일대 약 49만㎡</li>
+<li><strong>사업 주체:</strong> 코레일 + 서울시 + 민간 컨소시엄</li>
+<li>과거 수차례 무산된 이력이 있으며, <strong>용산 마스터플랜</strong> 수립 이후 단계적 개발이 추진되어 왔습니다.</li>
+<li>대통령실 용산 이전 이후 주변 개발에 대한 관심이 크게 높아진 상태입니다.</li>
+</ul>
+<h3 id="2">2. 용산 한남뉴타운 (한남재정비촉진지구)<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>총 5개 구역</strong>으로 나뉘어 진행</li>
+<li><strong>한남3구역</strong>: 가장 대규모(약 5,800세대)로 주목받는 구역</li>
+<li>각 구역별로 조합설립, 사업시행인가, 관리처분인가 등 진행 단계가 상이합니다.</li>
+</ul>
+<h3 id="3">3. 용산역 전면구역 (용산역 전면 도시환경정비사업)<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>용산역 앞 상업·업무 복합개발</li>
+<li>HDC현대산업개발 등 대형 시행사 참여</li>
+</ul>
+<h3 id="4">4. 이태원·보광동 일대 정비사업<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>소규모 정비사업들이 산발적으로 진행 중</li>
+</ul>
+<hr />
+<h2 id="_2">📌 투자·실거주 관점 참고사항<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>호재</strong></td>
+<td>대통령실 이전, GTX-B 용산역 정차, 신분당선 연장 등 교통 호재</td>
+</tr>
+<tr>
+<td><strong>리스크</strong></td>
+<td>사업 지연 가능성, 분담금 증가, 인허가 리스크</td>
+</tr>
+<tr>
+<td><strong>주의사항</strong></td>
+<td>구역별 진행 단계가 천차만별이므로 <strong>개별 구역의 인가 단계</strong>를 반드시 확인해야 함</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<blockquote>
+<p><strong>💡 추천:</strong> 정확한 최신 진행 현황은 아래에서 확인하시는 것이 가장 정확합니다.
+- <strong>서울시 클린업시스템</strong> (cleanup.seoul.go.kr) → 구역별 사업 단계 실시간 조회
+- <strong>용산구청 도시정비과</strong> (☎ 02-2199-7000대)
+- <strong>각 구역 조합 사무실</strong> 직접 문의</p>
+</blockquote>
+<p>특정 구역(예: 한남3구역, 용산정비창 등)에 대해 더 궁금하신 점이 있으시면 말씀해 주세요!</p>
+<p><strong>후속 답변</strong> (자동 수락):</p>
+<p>아쉽게도 웹 검색 권한이 아직 허용되지 않아 최신 실시간 뉴스를 가져올 수 없습니다. </p>
+<p>대신, 제가 알고 있는 범위 내에서 <strong>주요 구역별로 최대한 상세하게</strong> 안내드리겠습니다.</p>
+<hr />
+<h2 id="1_1">1️⃣ 용산정비창 부지 (용산 국제업무지구)<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>위치</strong></td>
+<td>용산역 북측 약 49만㎡ (여의도 면적의 약 1/6)</td>
+</tr>
+<tr>
+<td><strong>역사</strong></td>
+<td>2006년 국제업무지구 지정 → 2013년 사업 무산 → 이후 재추진</td>
+</tr>
+<tr>
+<td><strong>핵심 변화</strong></td>
+<td>2022년 대통령실 용산 이전으로 개발 동력 대폭 강화</td>
+</tr>
+<tr>
+<td><strong>마스터플랜</strong></td>
+<td>서울시 주도로 수립, 업무·상업·주거·공원 복합개발</td>
+</tr>
+<tr>
+<td><strong>개발 방식</strong></td>
+<td>전체를 한꺼번에가 아닌 <strong>블록별 단계적 개발</strong></td>
+</tr>
+<tr>
+<td><strong>예상 규모</strong></td>
+<td>약 10만+ 평 업무·상업시설 + 주거 + 대규모 공원</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_3">🔎 투자 포인트<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>초대형 개발</strong>로 완성 시 강남 못지않은 CBD(중심업무지구) 형성 예상</li>
+<li>다만 전체 개발 완료까지 <strong>10~15년 이상</strong> 장기 사업</li>
+<li>인근 <strong>용산역세권</strong>, <strong>한강로 일대</strong> 시세에 이미 프리미엄 반영</li>
+</ul>
+<hr />
+<h2 id="2-">2️⃣ 한남재정비촉진지구 (한남뉴타운) - 구역별 상세<a class="headerlink" href="#2-" title="Permanent link">&para;</a></h2>
+<h3 id="1_2">📍 한남1구역<a class="headerlink" href="#1_2" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>위치</strong></td>
+<td>한남동 한남대로 인근</td>
+</tr>
+<tr>
+<td><strong>규모</strong></td>
+<td>약 700~800세대</td>
+</tr>
+<tr>
+<td><strong>특징</strong></td>
+<td>비교적 소규모, 한남대로변 접근성 양호</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2_1">📍 한남2구역<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>위치</strong></td>
+<td>한남동 중심부</td>
+</tr>
+<tr>
+<td><strong>규모</strong></td>
+<td>약 1,500~1,800세대</td>
+</tr>
+<tr>
+<td><strong>특징</strong></td>
+<td>한남동 중심 입지, 생활 인프라 우수</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3_1">📍 한남3구역 ⭐ (가장 주목)<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>위치</strong></td>
+<td>보광동 일대</td>
+</tr>
+<tr>
+<td><strong>규모</strong></td>
+<td>약 <strong>5,800세대</strong> (한남뉴타운 최대)</td>
+</tr>
+<tr>
+<td><strong>시공사</strong></td>
+<td>대형 건설사 수주 경쟁 치열</td>
+</tr>
+<tr>
+<td><strong>특징</strong></td>
+<td>한강 조망권 확보 가능, 이태원·한남 생활권</td>
+</tr>
+<tr>
+<td><strong>주목 이유</strong></td>
+<td>압구정·반포급 대단지 프리미엄 기대</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4_1">📍 한남4구역<a class="headerlink" href="#4_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>위치</strong></td>
+<td>한남동 남측</td>
+</tr>
+<tr>
+<td><strong>규모</strong></td>
+<td>약 1,200~1,500세대</td>
+</tr>
+</tbody>
+</table>
+<h3 id="5">📍 한남5구역<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>위치</strong></td>
+<td>한남동 이태원로 인근</td>
+</tr>
+<tr>
+<td><strong>규모</strong></td>
+<td>약 1,400~1,600세대</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3_2">3️⃣ 용산역 전면구역<a class="headerlink" href="#3_2" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>위치</strong></td>
+<td>용산역 정면 (한강대로변)</td>
+</tr>
+<tr>
+<td><strong>성격</strong></td>
+<td>도시환경정비사업 (상업·업무 복합)</td>
+</tr>
+<tr>
+<td><strong>규모</strong></td>
+<td>초고층 복합개발 예상</td>
+</tr>
+<tr>
+<td><strong>참여사</strong></td>
+<td>HDC현대산업개발 등</td>
+</tr>
+<tr>
+<td><strong>핵심</strong></td>
+<td>용산정비창과 연계, 역세권 핵심 상권 형성</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4_2">4️⃣ 교통 호재 종합<a class="headerlink" href="#4_2" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>교통 인프라</th>
+<th>상세</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GTX-A</strong></td>
+<td>수서~동탄 구간 (용산 인근 영향)</td>
+</tr>
+<tr>
+<td><strong>GTX-B</strong></td>
+<td>송도~마석, <strong>용산역 정차</strong> 확정 → 최대 호재</td>
+</tr>
+<tr>
+<td><strong>신분당선 연장</strong></td>
+<td>강남~용산 직결 추진 중</td>
+</tr>
+<tr>
+<td><strong>신안산선</strong></td>
+<td>여의도~안산 (용산 간접 수혜)</td>
+</tr>
+<tr>
+<td><strong>수도권 광역급행</strong></td>
+<td>용산이 서울 교통 허브로 격상</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5_1">5️⃣ 실전 투자·실거주 체크리스트<a class="headerlink" href="#5_1" title="Permanent link">&para;</a></h2>
+<h3 id="_4">✅ 반드시 확인할 것<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>사업 단계 확인</strong> - 구역마다 진행 속도가 다름</li>
+<li>조합설립인가 → 사업시행인가 → 관리처분인가 → 이주·철거 → 착공 → 준공</li>
+<li><strong>추가분담금 예상액</strong> - 조합원 기준 수천만~수억 원 차이</li>
+<li><strong>감정평가 시점</strong> - 종전자산 평가 vs 종후자산 평가 차이</li>
+<li><strong>입주권 vs 분양권</strong> - 매수 시 세금 구조가 완전히 다름</li>
+<li><strong>매도 시 양도세</strong> - 조합원 입주권은 비과세 요건 별도 확인 필요</li>
+</ol>
+<h3 id="_5">⚠️ 리스크 요인<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>리스크</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>사업 지연</strong></td>
+<td>인허가, 조합 내분, 시공사 선정 분쟁 등</td>
+</tr>
+<tr>
+<td><strong>분담금 폭탄</strong></td>
+<td>공사비 상승 시 추가분담금 급증 가능</td>
+</tr>
+<tr>
+<td><strong>금리 변동</strong></td>
+<td>이주비 대출·중도금 대출 금리 부담</td>
+</tr>
+<tr>
+<td><strong>정책 변수</strong></td>
+<td>정비사업 관련 규제 강화/완화</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_6">📞 정확한 최신 정보 확인 방법<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>방법</th>
+<th>연락처/사이트</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>서울시 클린업시스템</strong></td>
+<td><a href="https://cleanup.seoul.go.kr">cleanup.seoul.go.kr</a> → 구역별 인가 단계 실시간 조회</td>
+</tr>
+<tr>
+<td><strong>용산구청 도시정비과</strong></td>
+<td>☎ 02-2199-7000</td>
+</tr>
+<tr>
+<td><strong>한남3구역 조합</strong></td>
+<td>조합 사무실 직접 방문/전화 (현장 확인 필수)</td>
+</tr>
+<tr>
+<td><strong>국토부 실거래가</strong></td>
+<td><a href="https://rt.molit.go.kr">rt.molit.go.kr</a> → 인근 매매·전세 시세 확인</td>
+</tr>
+<tr>
+<td><strong>정비사업 전문 중개사</strong></td>
+<td>현지 공인중개사 2~3곳 비교 상담 권장</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<blockquote>
+<p>💡 <strong>핵심 조언:</strong> 용산은 서울에서 가장 큰 개발 호재가 집중된 지역이지만, 구역별·블록별 진행 속도 차이가 크므로 <strong>"용산이니까 다 좋다"가 아니라 개별 구역 단위로 분석</strong>하셔야 합니다. 특히 매수를 고려하신다면 <strong>조합원 총회 자료, 사업성 분석표, 추정 분담금 내역</strong>을 반드시 확인하세요.</p>
+</blockquote>
+<p>특정 구역에 대해 더 깊이 알고 싶으시거나, 투자/실거주 목적에 따른 맞춤 조언이 필요하시면 말씀해 주세요! 🏠</p>
+<hr />
+<h3 id="q2">Q2. 용산 정비창 부지 개발 일정이 어떻게 되나요?<a class="headerlink" href="#q2" title="Permanent link">&para;</a></h3>
+<p><strong>입력 토큰</strong>: 7 | <strong>출력 토큰</strong>: 1,596 | <strong>소요시간</strong>: 33,791ms | <strong>CLI 비용</strong>: $0.0719 | <strong>추정 API 비용</strong>: $0.1198
+<strong>대화 컨텍스트</strong>: 1턴 누적 | <strong>후속 제안</strong>: 감지됨</p>
+<p><strong>답변:</strong></p>
+<p>웹 검색 권한이 아직 허용되지 않아 최신 실시간 정보를 가져오지 못하는 점 양해 부탁드립니다.</p>
+<p>제가 알고 있는 범위 내에서 <strong>용산 정비창 부지 개발 일정</strong>을 최대한 상세히 안내드리겠습니다.</p>
+<hr />
+<h2 id="_7">🏗️ 용산 정비창 부지 개발 개요<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>위치</strong></td>
+<td>용산역 북측 일대 약 49.3만㎡ (약 15만 평)</td>
+</tr>
+<tr>
+<td><strong>사업 방식</strong></td>
+<td>공공주도 복합개발 (코레일 부지 + 서울시 도시계획)</td>
+</tr>
+<tr>
+<td><strong>주요 시설</strong></td>
+<td>국제업무지구, 주거, 공원, 문화시설 등 복합개발</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_8">📅 주요 추진 경과 및 일정<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h3 id="_9">✅ 이미 완료된 단계<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>시기</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2013년</td>
+<td>용산 국제업무지구 사업 무산 (드림허브 PFV 파산)</td>
+</tr>
+<tr>
+<td>2022년</td>
+<td>대통령실 용산 이전 → 개발 동력 재점화</td>
+</tr>
+<tr>
+<td>2023년</td>
+<td><strong>용산 마스터플랜</strong> 수립 착수 (서울시 + 국토부)</td>
+</tr>
+<tr>
+<td>2023~2024년</td>
+<td>용산공원 1단계 개방, 정비창 부지 토양정화 작업 진행</td>
+</tr>
+<tr>
+<td>2024년</td>
+<td>마스터플랜 초안 발표, 주민·전문가 의견수렴</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_10">🔄 진행 중·향후 예상 일정<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>시기 (예상)</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2025~2026년</td>
+<td>마스터플랜 확정 및 <strong>지구단위계획 수립</strong></td>
+</tr>
+<tr>
+<td>2026~2027년</td>
+<td>사업시행자 선정, 개발 방식 구체화</td>
+</tr>
+<tr>
+<td>2027~2028년</td>
+<td>기반시설(도로·교통 등) 공사 착수</td>
+</tr>
+<tr>
+<td>2030년 이후</td>
+<td>본격적인 건축물 준공·입주 시작</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>주의:</strong> 위 일정은 과거 발표 내용 기반의 <strong>예상 일정</strong>이며, 정치·경제 상황에 따라 변동 가능성이 큽니다.</p>
+</blockquote>
+<hr />
+<h2 id="_11">🔑 핵심 체크포인트<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<h3 id="1_3">1. 개발의 핵심 변수<a class="headerlink" href="#1_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>용산공원과의 연계</strong>: 정비창 부지 일부가 용산공원에 포함되어 공원 조성과 개발이 동시 진행</li>
+<li><strong>토양정화 문제</strong>: 과거 철도 정비시설 부지라 오염 토양 정화에 상당한 시간·비용 소요</li>
+<li><strong>GTX-B, 신분당선 연장</strong> 등 교통 인프라 연동 일정</li>
+</ul>
+<h3 id="2_2">2. 개발 구조<a class="headerlink" href="#2_2" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>[용산 정비창 부지]
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── 공원 구역 → 용산공원 확장 (국가공원)
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├── 복합개발 구역 → 업무·상업·주거 복합
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>└── 공공시설 구역 → 문화·공공기관
+</code></pre></div>
+<h3 id="3_3">3. 투자 관점 유의사항<a class="headerlink" href="#3_3" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>장점</strong></td>
+<td>서울 최대 노른자 부지, 대통령실 인접, 교통 호재 다수</td>
+</tr>
+<tr>
+<td><strong>리스크</strong></td>
+<td>과거 무산 전력, 사업 규모가 워낙 커서 장기간 소요 예상</td>
+</tr>
+<tr>
+<td><strong>주변 시세 영향</strong></td>
+<td>이미 기대감이 상당 부분 반영된 상태 → 추가 상승 여력 냉정한 판단 필요</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_12">📌 정확한 최신 정보 확인처<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>서울시 용산정비창 통합개발 페이지</strong> (seoul.go.kr)</li>
+<li><strong>국토교통부 용산 관련 보도자료</strong> (molit.go.kr)</li>
+<li><strong>코레일 자산개발처</strong> (☎ 042-615-3114)</li>
+<li><strong>용산구청 도시계획과</strong> (☎ 02-2199-7000)</li>
+</ol>
+<hr />
+<p>추가로 <strong>주변 시세 동향</strong>, <strong>투자 전략</strong>, 또는 <strong>용산공원 조성 일정</strong>에 대해 궁금하신 점이 있으시면 말씀해 주세요!</p>
+<p><strong>후속 답변</strong> (자동 수락):</p>
+<p>이전 대화에서 안내드린 <strong>주변 시세 동향</strong>, <strong>투자 전략</strong>, <strong>용산공원 조성 일정</strong> 세 가지 모두 자세히 안내드리겠습니다.</p>
+<hr />
+<h2 id="1_4">1️⃣ 용산 정비창 주변 시세 동향<a class="headerlink" href="#1_4" title="Permanent link">&para;</a></h2>
+<h3 id="2026">주요 단지별 시세 흐름 (2026년 기준 추정)<a class="headerlink" href="#2026" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>단지명</th>
+<th>면적(전용)</th>
+<th>시세 수준</th>
+<th>비고</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>래미안 용산 더 센트럴</strong></td>
+<td>84㎡</td>
+<td>25~30억원대</td>
+<td>용산역 초역세권, 2024년 입주</td>
+</tr>
+<tr>
+<td><strong>용산 푸르지오 써밋</strong></td>
+<td>84㎡</td>
+<td>20~25억원대</td>
+<td>한강변 조망</td>
+</tr>
+<tr>
+<td><strong>용산 센트럴파크 해링턴스퀘어</strong></td>
+<td>84㎡</td>
+<td>22~27억원대</td>
+<td>용산공원 인접</td>
+</tr>
+<tr>
+<td><strong>한남 더힐</strong></td>
+<td>244㎡</td>
+<td>70~80억원대</td>
+<td>초고가 주거 대표 단지</td>
+</tr>
+<tr>
+<td><strong>나인원한남</strong></td>
+<td>206㎡</td>
+<td>70~85억원대</td>
+<td>한남동 랜드마크</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_13">시세 흐름 특징<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>2022년 대통령실 이전</strong> 이후 용산 일대 프리미엄이 급격히 형성</li>
+<li>정비창 개발 기대감 + 교통 호재로 <strong>2023~2025년 꾸준한 상승세</strong> 유지</li>
+<li>다만 <strong>금리 환경, 대출 규제</strong>에 따라 거래량 변동이 큰 편</li>
+<li>정비창 직접 수혜 지역(용산역 주변, 한강로, 이촌동)과 간접 수혜 지역(한남동, 보광동) 간 온도 차이 존재</li>
+</ul>
+<h3 id="_14">권역별 수혜 강도<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>[직접 수혜권 - 강]
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>├── 용산역 주변 (한강로1~3가)
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>├── 이촌동 (한강변)
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>└── 서빙고동
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>[간접 수혜권 - 중]
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>├── 한남동
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>├── 동빙고동
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>└── 보광동·이태원
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>[확산 수혜권 - 약]
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>├── 후암동·남영동
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>└── 마포 용산 접경 지역
+</code></pre></div>
+<hr />
+<h2 id="2_3">2️⃣ 용산 정비창 관련 투자 전략<a class="headerlink" href="#2_3" title="Permanent link">&para;</a></h2>
+<h3 id="_15">🎯 투자 유형별 전략<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<h4 id="a-510">A. 재개발·재건축 투자 (중장기 5~10년)<a class="headerlink" href="#a-510" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>대상</strong></td>
+<td>한남뉴타운(특히 3구역), 용산역 전면구역, 보광동 일대</td>
+</tr>
+<tr>
+<td><strong>핵심 포인트</strong></td>
+<td>조합설립 → 사업시행인가 → 관리처분인가 <strong>단계별 진입 시점</strong>이 중요</td>
+</tr>
+<tr>
+<td><strong>기대 수익</strong></td>
+<td>사업 진행에 따라 프리미엄 30~100% 이상</td>
+</tr>
+<tr>
+<td><strong>리스크</strong></td>
+<td>사업 지연, 추가 분담금, 조합 분쟁</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>💡 팁:</strong> 관리처분인가 이전 단계에서 진입해야 수익 극대화 가능. 단, 분담금 예상액을 반드시 먼저 계산할 것</p>
+</blockquote>
+<h4 id="b-35">B. 기축 아파트 갈아타기 (중기 3~5년)<a class="headerlink" href="#b-35" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>대상</strong></td>
+<td>이촌동 기축(래미안 첼리투스, 한가람 등), 용산 신축 단지</td>
+</tr>
+<tr>
+<td><strong>핵심 포인트</strong></td>
+<td>정비창 개발 확정 시점에 시세 반영 폭이 커짐</td>
+</tr>
+<tr>
+<td><strong>기대 수익</strong></td>
+<td>지구단위계획 확정 전후 10~20% 추가 상승 가능</td>
+</tr>
+<tr>
+<td><strong>리스크</strong></td>
+<td>이미 고가라 추가 상승 여력이 제한적일 수 있음</td>
+</tr>
+</tbody>
+</table>
+<h4 id="c">C. 상가·오피스텔 투자 (주의 필요)<a class="headerlink" href="#c" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>현황</strong></td>
+<td>용산역 주변 상권은 아직 개발 전이라 유동인구 제한적</td>
+</tr>
+<tr>
+<td><strong>전망</strong></td>
+<td>정비창 개발 본격화 시 상권 활성화 기대</td>
+</tr>
+<tr>
+<td><strong>주의</strong></td>
+<td>개발 완료까지 <strong>최소 5~8년</strong> 이상 소요 → 공실 리스크 감안 필요</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_16">⚠️ 투자 시 반드시 확인할 체크리스트<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>토지거래허가구역 지정 여부</strong> → 용산 상당수 지역이 토지거래허가구역으로 지정되어 있어 <strong>실거주 의무 2년</strong> 적용</li>
+<li><strong>대출 규제</strong> → 규제지역 여부에 따라 LTV·DTI 제한</li>
+<li><strong>양도세</strong> → 다주택자 중과 여부, 보유 기간별 세율 확인</li>
+<li><strong>정비사업 진행 단계</strong> → 서울시 클린업시스템에서 실시간 조회</li>
+<li><strong>분담금 추정</strong> → 조합 제공 자료와 실제 차이가 큰 경우가 많으므로 <strong>독립적인 감정평가</strong> 참고</li>
+</ol>
+<hr />
+<h2 id="3_4">3️⃣ 용산공원 조성 일정<a class="headerlink" href="#3_4" title="Permanent link">&para;</a></h2>
+<h3 id="_17">🌳 용산공원 개요<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>면적</strong></td>
+<td>약 243만㎡ (여의도 면적의 약 84%)</td>
+</tr>
+<tr>
+<td><strong>위치</strong></td>
+<td>구 주한미군 용산기지 부지</td>
+</tr>
+<tr>
+<td><strong>성격</strong></td>
+<td>국가공원 (국토부 관할)</td>
+</tr>
+<tr>
+<td><strong>관련 법률</strong></td>
+<td>용산공원 조성 특별법</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_18">📅 조성 단계별 일정<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<h4 id="1_5">1단계: 부분 개방 (완료~진행 중)<a class="headerlink" href="#1_5" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>시기</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2022년</td>
+<td>용산공원 일부 시범 개방 (장교숙소 일대)</td>
+</tr>
+<tr>
+<td>2023~2024년</td>
+<td>캠프킴 부지 등 추가 개방</td>
+</tr>
+<tr>
+<td>2024~2025년</td>
+<td>남측 체육시설·녹지 구간 개방</td>
+</tr>
+</tbody>
+</table>
+<h4 id="2_4">2단계: 본격 조성 (진행 중)<a class="headerlink" href="#2_4" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>시기</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2025~2027년</td>
+<td>미군 잔여 시설 철거 및 <strong>토양 환경정화</strong></td>
+</tr>
+<tr>
+<td>2026~2028년</td>
+<td>공원 기본설계 및 실시설계</td>
+</tr>
+<tr>
+<td>2028~2030년</td>
+<td>주요 공원시설 조성 공사</td>
+</tr>
+</tbody>
+</table>
+<h4 id="3_5">3단계: 전면 개방 (예정)<a class="headerlink" href="#3_5" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>시기</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2030~2035년</td>
+<td>단계적 전면 개방</td>
+</tr>
+<tr>
+<td>2035년 이후</td>
+<td>공원 전체 완성</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_19">🔑 용산공원 핵심 변수<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>[공원 조성 핵심 이슈]
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>│
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>├── 1. 미군기지 반환 잔여 절차
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>│   └── 일부 시설 반환 지연 가능성
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>│
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>├── 2. 토양·지하수 오염 정화
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>│   └── 군사시설 부지 특성상 중금속·유류 오염
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>│   └── 정화 비용 수조원, 기간 3~5년 이상
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>│
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>├── 3. 정비창 부지와의 연결성
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>│   └── 공원 ↔ 정비창 개발지 간 보행 동선
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>│   └── 지하철·도로 등 기반시설 연동
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>│
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>└── 4. 재원 조달
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    └── 국비·시비 배분 비율
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>    └── 민간 참여 범위
+</code></pre></div>
+<h3 id="_20">용산공원이 부동산 시세에 미치는 영향<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>영향</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>이촌동</strong></td>
+<td>공원 남측 접근성 최고 → 시세 직접 반영, "용산공원뷰" 프리미엄 형성</td>
+</tr>
+<tr>
+<td><strong>한남동</strong></td>
+<td>공원 동측 인접 → 한남뉴타운과 시너지</td>
+</tr>
+<tr>
+<td><strong>서빙고동</strong></td>
+<td>공원 내 또는 인접 → 장기적으로 가장 큰 수혜 가능</td>
+</tr>
+<tr>
+<td><strong>후암동·남영동</strong></td>
+<td>공원 서측 → 간접 수혜, 상대적으로 저평가 구간</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_21">📌 종합 정리<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>핵심 내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>시세</strong></td>
+<td>이미 상당한 프리미엄 반영, 추가 상승은 개발 확정 이벤트에 연동</td>
+</tr>
+<tr>
+<td><strong>투자 타이밍</strong></td>
+<td>지구단위계획 확정 전(2026~2027년)이 마지막 저가 매수 기회일 수 있음</td>
+</tr>
+<tr>
+<td><strong>용산공원</strong></td>
+<td>2030년 이후 전면 개방 시 주변 시세 재차 상승 동력</td>
+</tr>
+<tr>
+<td><strong>최대 리스크</strong></td>
+<td>과거 무산 전력, 토양정화 지연, 정치적 변수</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<blockquote>
+<p><strong>💡 실행 가이드:</strong>
+- 당장 투자를 고려하신다면 → <strong>토지거래허가구역 여부 + 실거주 가능 여부</strong>부터 확인
+- 재개발 투자를 고려하신다면 → <strong>한남3구역, 용산역 전면구역</strong> 사업 진행 단계 개별 확인
+- 장기 관점이라면 → <strong>이촌동 기축 아파트</strong>(재건축 가능성 + 공원뷰)가 상대적으로 안정적</p>
+</blockquote>
+<p>특정 단지나 구역에 대해 더 구체적으로 알고 싶으시거나, <strong>매수 시뮬레이션(예산·대출·세금 계산)</strong> 등이 필요하시면 말씀해 주세요!</p>
+<hr />
+<h3 id="q3">Q3. 용산 주변 아파트 투자 괜찮을까요?<a class="headerlink" href="#q3" title="Permanent link">&para;</a></h3>
+<p><strong>입력 토큰</strong>: 3 | <strong>출력 토큰</strong>: 2,126 | <strong>소요시간</strong>: 45,412ms | <strong>CLI 비용</strong>: $0.0786 | <strong>추정 API 비용</strong>: $0.1595
+<strong>대화 컨텍스트</strong>: 2턴 누적 | <strong>후속 제안</strong>: 감지됨</p>
+<p><strong>답변:</strong></p>
+<h1 id="_22">🏠 용산 주변 아파트 투자 분석<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h1>
+<p>이전 대화에서 말씀드린 용산 정비창 개발, 교통 호재 등을 종합적으로 고려하여 <strong>투자 관점에서 냉정하게</strong> 분석해 드리겠습니다.</p>
+<hr />
+<h2 id="_23">✅ 투자 긍정 요인<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h2>
+<h3 id="1_6">1. 개발 호재 집중<a class="headerlink" href="#1_6" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>호재</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>용산 정비창 개발</strong></td>
+<td>서울 최대 노른자 부지 복합개발</td>
+</tr>
+<tr>
+<td><strong>대통령실 이전</strong></td>
+<td>용산 일대 도시 위상 격상</td>
+</tr>
+<tr>
+<td><strong>용산공원 조성</strong></td>
+<td>약 243만㎡ 국가공원 → 주거환경 프리미엄</td>
+</tr>
+<tr>
+<td><strong>GTX-B 용산역</strong></td>
+<td>수도권 30분 생활권 확대</td>
+</tr>
+<tr>
+<td><strong>신분당선 연장</strong></td>
+<td>용산~강남 직결 기대</td>
+</tr>
+<tr>
+<td><strong>신속통합기획</strong></td>
+<td>한남뉴타운 등 주변 정비사업 속도</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2_5">2. 입지적 강점<a class="headerlink" href="#2_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>서울 중심</strong> 업무지구(종로·여의도·강남) 모두 접근성 양호</li>
+<li>한강 조망권 확보 가능 단지 다수</li>
+<li>이태원·한남동 등 <strong>생활 인프라</strong> 우수</li>
+</ul>
+<hr />
+<h2 id="_24">⚠️ 투자 리스크 요인<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h2>
+<h3 id="1_7">1. 가격 부담<a class="headerlink" href="#1_7" title="Permanent link">&para;</a></h3>
+<ul>
+<li>용산 주요 단지 이미 <strong>3.3㎡당 5,000만~1억 원 이상</strong> 형성</li>
+<li>호재가 <strong>선반영</strong>되어 있어 추가 상승 여력 제한적일 수 있음</li>
+</ul>
+<h3 id="2_6">2. 개발 지연 리스크<a class="headerlink" href="#2_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li>용산 정비창은 <strong>과거 무산 전력</strong> 있음 (2013년 드림허브)</li>
+<li>본격 준공까지 <strong>최소 5~10년 이상</strong> 장기 프로젝트</li>
+<li>정치·경제 상황 변화에 따라 일정 변동 가능성 상존</li>
+</ul>
+<h3 id="3_6">3. 금리·규제 변수<a class="headerlink" href="#3_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li>고금리 기조 지속 시 투자 수익률 하락</li>
+<li>다주택자 규제, 양도세, 종부세 등 세금 부담 고려 필수</li>
+</ul>
+<hr />
+<h2 id="_25">📊 용산 주요 단지별 투자 매력도 비교<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>단지/권역</th>
+<th>특징</th>
+<th>투자 매력</th>
+<th>리스크</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>래미안 첼리투스</strong> (이촌동)</td>
+<td>한강변, 용산공원 인접, 대단지</td>
+<td>★★★★☆</td>
+<td>이미 고가, 진입장벽 높음</td>
+</tr>
+<tr>
+<td><strong>한남더힐</strong> (한남동)</td>
+<td>최고급 주거, 한강 조망</td>
+<td>★★★☆☆</td>
+<td>초고가, 환금성 낮음</td>
+</tr>
+<tr>
+<td><strong>한남3구역</strong> (재개발)</td>
+<td>5,800세대 대규모 재개발</td>
+<td>★★★★★</td>
+<td>조합원 분쟁, 분담금 변동</td>
+</tr>
+<tr>
+<td><strong>이촌 한가람·코오롱</strong></td>
+<td>리모델링·재건축 기대</td>
+<td>★★★★☆</td>
+<td>사업 진행 불확실성</td>
+</tr>
+<tr>
+<td><strong>용산 역세권 신축</strong></td>
+<td>교통 편의, 직장인 수요</td>
+<td>★★★☆☆</td>
+<td>소형 위주, 시세차익 제한</td>
+</tr>
+<tr>
+<td><strong>보광동·서빙고</strong> 일대</td>
+<td>저평가 구역, 정비사업 기대</td>
+<td>★★★★☆</td>
+<td>사업 초기 단계, 장기 투자</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_26">💡 투자 유형별 전략 제안<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h2>
+<h3 id="_27">🔹 실거주 + 시세차익 (안정형)<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>추천:</strong> 이촌동 기존 대단지 (래미안 첼리투스, 한가람 등)
+- 용산공원·한강 더블 조망 프리미엄
+- 실거주 만족도 높고, 장기 보유 시 안정적 상승 기대
+- 💰 예산: <strong>20억~35억 이상</strong></p>
+</blockquote>
+<h3 id="_28">🔹 중장기 시세차익 (공격형)<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>추천:</strong> 한남뉴타운 입주권/분양권 (특히 한남3구역)
+- 사업 진행에 따라 단계별 프리미엄 상승 기대
+- ⚠️ 조합 리스크, 분담금 변동 반드시 확인
+- 💰 예산: <strong>15억~25억</strong> (프리미엄 포함)</p>
+</blockquote>
+<h3 id="_29">🔹 소액 투자 (진입형)<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>추천:</strong> 보광동·서빙고 소규모 정비사업 구역 내 빌라/다세대
+- 정비사업 초기 단계 → 저렴한 진입 가능
+- ⚠️ 사업 무산 리스크 있으므로 <strong>잃어도 되는 금액</strong>으로
+- 💰 예산: <strong>5억~10억</strong></p>
+</blockquote>
+<hr />
+<h2 id="5_2">🚨 투자 전 반드시 체크할 5가지<a class="headerlink" href="#5_2" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>1️⃣ 개별 단지/구역의 정확한 인허가 단계 확인
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>2️⃣ 실거래가 추이 (최근 6개월~1년) 꼭 확인
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>3️⃣ 전세가율 체크 → 50% 이하면 갭투자 리스크 ↑
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>4️⃣ 본인의 세금 시뮬레이션 (취득세·보유세·양도세)
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>5️⃣ 대출 가능 여부 및 DSR 한도 사전 확인
+</code></pre></div>
+<hr />
+<h2 id="_30">📌 종합 의견<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>용산은 서울에서 가장 큰 개발 모멘텀을 가진 지역인 것은 사실입니다.</strong> 다만, 이미 시장에서 상당한 프리미엄이 반영된 상태이므로 <strong>"지금 사면 무조건 오른다"는 접근은 위험</strong>합니다.</p>
+<ul>
+<li><strong>실거주 목적</strong>이라면 → 장기적으로 후회 없는 선택이 될 가능성 높음</li>
+<li><strong>순수 투자 목적</strong>이라면 → 진입 시점·가격·보유 기간을 냉정하게 계산하고, <strong>출구 전략(매도 시점)</strong>까지 미리 세워두셔야 합니다.</li>
+</ul>
+</blockquote>
+<hr />
+<p>특정 단지나 구역에 대해 더 깊이 분석해 드릴까요? 또는 <strong>예산 범위</strong>를 알려주시면 맞춤 추천도 가능합니다!</p>
+<p><strong>후속 답변</strong> (자동 수락):</p>
+<h1 id="_31">맞춤 추천을 위해 몇 가지 여쭤볼게요! 🙋<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h1>
+<p>이전 대화에서 <strong>특정 단지/구역 심층 분석</strong> 또는 <strong>예산별 맞춤 추천</strong> 두 가지를 제안드렸는데요, 정확한 맞춤 상담을 위해 아래 사항을 알려주시면 훨씬 구체적으로 안내드릴 수 있습니다.</p>
+<hr />
+<h2 id="_32">📋 알려주시면 좋은 정보<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h2>
+<h3 id="1_8">1️⃣ 투자 예산<a class="headerlink" href="#1_8" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>구간</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>5억~10억</strong></td>
+<td>소액 진입 (빌라/다세대, 정비사업 초기 구역)</td>
+</tr>
+<tr>
+<td><strong>10억~20억</strong></td>
+<td>중소형 아파트, 재개발 입주권</td>
+</tr>
+<tr>
+<td><strong>20억~35억</strong></td>
+<td>이촌동·한남동 기존 대단지</td>
+</tr>
+<tr>
+<td><strong>35억 이상</strong></td>
+<td>프리미엄 대형 평형, 한강 조망권</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2_7">2️⃣ 투자 목적<a class="headerlink" href="#2_7" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>실거주 + 시세차익</strong> (안정형)</li>
+<li><strong>순수 투자 (시세차익 극대화)</strong> (공격형)</li>
+<li><strong>임대 수익형</strong> (월세 수익 중심)</li>
+</ul>
+<h3 id="3_7">3️⃣ 투자 기간<a class="headerlink" href="#3_7" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>단기</strong> (1~3년 내 매도 계획)</li>
+<li><strong>중기</strong> (3~5년)</li>
+<li><strong>장기</strong> (5년 이상, 10년 이상)</li>
+</ul>
+<h3 id="4_3">4️⃣ 현재 주택 보유 상황<a class="headerlink" href="#4_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>무주택자 / 1주택자 / 다주택자</li>
+<li><em>(세금·대출 전략이 완전히 달라집니다)</em></li>
+</ul>
+<h3 id="5_3">5️⃣ 관심 있는 특정 단지나 구역<a class="headerlink" href="#5_3" title="Permanent link">&para;</a></h3>
+<p>예를 들어:
+- 이촌동 (래미안 첼리투스, 한가람, 코오롱 등)
+- 한남뉴타운 (한남3구역 등)
+- 보광동·서빙고 일대
+- 용산역 역세권 신축
+- 기타</p>
+<hr />
+<blockquote>
+<p><strong>💬 예시로 이렇게 말씀해 주시면 됩니다:</strong>
+- <em>"예산 15억, 1주택자, 투자 목적, 5년 보유 생각이에요"</em>
+- <em>"무주택이고 실거주 겸 투자로 이촌동 관심 있어요. 예산 25억 정도요"</em>
+- <em>"소액으로 5~8억 정도 재개발 투자 생각 중입니다"</em></p>
+</blockquote>
+<p>위 정보를 알려주시면 <strong>세금 시뮬레이션, 대출 전략, 구체적 단지 비교, 매수 타이밍</strong>까지 포함한 맞춤 분석을 드리겠습니다! 😊</p>
+<hr />
+<h3 id="q4">Q4. 이촌동 재건축 진행 상황이 어떤가요?<a class="headerlink" href="#q4" title="Permanent link">&para;</a></h3>
+<p><strong>입력 토큰</strong>: 3 | <strong>출력 토큰</strong>: 2,818 | <strong>소요시간</strong>: 51,319ms | <strong>CLI 비용</strong>: $0.1090 | <strong>추정 API 비용</strong>: $0.2114
+<strong>대화 컨텍스트</strong>: 3턴 누적 | <strong>후속 제안</strong>: 감지됨</p>
+<p><strong>답변:</strong></p>
+<h1 id="_33">🏗️ 이촌동 재건축 진행 상황 분석<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h1>
+<p>이전 대화에서 이촌동 단지들을 언급해 드렸는데, 각 단지별로 재건축/리모델링 진행 상황을 상세히 정리해 드리겠습니다.</p>
+<hr />
+<h2 id="_34">📍 이촌동 주요 단지 현황 총정리<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h2>
+<p>이촌동은 크게 <strong>한강맨션 권역(동부이촌동)</strong>과 <strong>중산시범·코오롱 권역(서부이촌동)</strong>으로 나뉩니다.</p>
+<hr />
+<h2 id="23">🔷 동부이촌동 (한강로2가·3가)<a class="headerlink" href="#23" title="Permanent link">&para;</a></h2>
+<h3 id="1_9">1. 한강맨션 아파트<a class="headerlink" href="#1_9" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>준공</strong></td>
+<td>1970년 (약 56년 경과)</td>
+</tr>
+<tr>
+<td><strong>규모</strong></td>
+<td>660세대, 6개동</td>
+</tr>
+<tr>
+<td><strong>용적률</strong></td>
+<td>약 145% → 재건축 시 사업성 양호</td>
+</tr>
+<tr>
+<td><strong>진행 단계</strong></td>
+<td>정밀안전진단 통과 → <strong>조합설립인가</strong> 단계</td>
+</tr>
+<tr>
+<td><strong>이슈</strong></td>
+<td>서울시 최초의 한강변 아파트로 상징성 큼, 한강 조망 프리미엄 극대화 예상</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>🔑 <strong>핵심:</strong> 이촌동에서 재건축 기대감이 가장 높은 단지 중 하나. 낮은 용적률로 사업성 우수하나, 조합원 간 의견 조율이 관건.</p>
+</blockquote>
+<h3 id="2_8">2. 한강대우 아파트<a class="headerlink" href="#2_8" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>준공</strong></td>
+<td>1976년 (약 50년 경과)</td>
+</tr>
+<tr>
+<td><strong>규모</strong></td>
+<td>352세대</td>
+</tr>
+<tr>
+<td><strong>진행 단계</strong></td>
+<td>재건축 추진위 구성 단계</td>
+</tr>
+<tr>
+<td><strong>이슈</strong></td>
+<td>한강맨션과 함께 통합 재건축 논의도 있었으나 별도 추진 가능성</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3_8">3. 이촌 한가람 아파트<a class="headerlink" href="#3_8" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>준공</strong></td>
+<td>1999년 (약 27년 경과)</td>
+</tr>
+<tr>
+<td><strong>규모</strong></td>
+<td>3,600세대 대단지</td>
+</tr>
+<tr>
+<td><strong>방향</strong></td>
+<td>재건축보다는 <strong>리모델링</strong> 추진</td>
+</tr>
+<tr>
+<td><strong>진행 단계</strong></td>
+<td>리모델링 추진위원회 활동 중</td>
+</tr>
+<tr>
+<td><strong>이슈</strong></td>
+<td>준공 연한이 짧아 재건축 대상은 아니며, 리모델링으로 가닥</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_35">🔷 서부이촌동<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h2>
+<h3 id="4_4">4. 이촌 코오롱 아파트<a class="headerlink" href="#4_4" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>준공</strong></td>
+<td>1976년 (약 50년 경과)</td>
+</tr>
+<tr>
+<td><strong>규모</strong></td>
+<td>648세대</td>
+</tr>
+<tr>
+<td><strong>진행 단계</strong></td>
+<td>안전진단 추진 → <strong>재건축 추진위</strong> 활동 중</td>
+</tr>
+<tr>
+<td><strong>이슈</strong></td>
+<td>용산공원 인접 최대 수혜 단지로 주목</td>
+</tr>
+</tbody>
+</table>
+<h3 id="5_4">5. 중산시범 아파트 (현 왕궁아파트 포함)<a class="headerlink" href="#5_4" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>준공</strong></td>
+<td>1971~1974년 (약 52~55년 경과)</td>
+</tr>
+<tr>
+<td><strong>규모</strong></td>
+<td>약 500세대 내외</td>
+</tr>
+<tr>
+<td><strong>진행 단계</strong></td>
+<td>재건축 추진위 구성</td>
+</tr>
+<tr>
+<td><strong>이슈</strong></td>
+<td>용산공원 바로 옆, 정비창 개발과 시너지 기대</td>
+</tr>
+</tbody>
+</table>
+<h3 id="6-lg">6. 이촌 현대·LG 등<a class="headerlink" href="#6-lg" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>준공</strong></td>
+<td>1978~1980년대</td>
+</tr>
+<tr>
+<td><strong>방향</strong></td>
+<td>재건축/리모델링 검토 단계</td>
+</tr>
+<tr>
+<td><strong>이슈</strong></td>
+<td>단지별로 추진 속도 차이 큼</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_36">📊 단지별 진행 단계 한눈에 비교<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>재건축 절차: 추진위 → 안전진단 → 정비구역지정 → 조합설립 → 사업시행인가 → 관리처분 → 착공 → 준공
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>한강맨션    ████████████░░░░░░░░  [조합설립 단계] ⭐ 가장 앞서감
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>한강대우    ██████░░░░░░░░░░░░░░  [추진위 구성]
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>코오롱      ██████░░░░░░░░░░░░░░  [추진위/안전진단]
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>중산시범    █████░░░░░░░░░░░░░░░  [추진위 구성]
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>한가람      ██████░░░░░░░░░░░░░░  [리모델링 추진위]
+</code></pre></div>
+<hr />
+<h2 id="_37">🔑 이촌동 재건축의 핵심 변수<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h2>
+<h3 id="1_10">1. 용산공원 효과<a class="headerlink" href="#1_10" title="Permanent link">&para;</a></h3>
+<ul>
+<li>용산공원(243만㎡) 조성 완료 시 <strong>"한강 + 공원" 더블 프리미엄</strong></li>
+<li>특히 서부이촌동(코오롱·중산시범)은 용산공원 <strong>도보 접근</strong> 가능</li>
+</ul>
+<h3 id="2_9">2. 정비창 개발 연동<a class="headerlink" href="#2_9" title="Permanent link">&para;</a></h3>
+<ul>
+<li>정비창 부지 개발이 본격화되면 이촌동 전체 <strong>도시 인프라 업그레이드</strong></li>
+<li>상업·문화시설 확충 → 주거 가치 상승</li>
+</ul>
+<h3 id="3_9">3. 안전진단 기준 변화<a class="headerlink" href="#3_9" title="Permanent link">&para;</a></h3>
+<ul>
+<li>정부의 안전진단 기준 완화 여부가 재건축 속도에 직결</li>
+<li>기존에 안전진단에서 탈락한 단지도 기준 완화 시 재추진 가능</li>
+</ul>
+<h3 id="4_5">4. 한강변 스카이라인 규제<a class="headerlink" href="#4_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>서울시 한강변 <strong>35층 높이 제한</strong> 완화 논의 진행 중</li>
+<li>완화되면 사업성 대폭 향상 → 재건축 속도 가속화</li>
+</ul>
+<hr />
+<h2 id="_38">💰 투자 관점 분석<a class="headerlink" href="#_38" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>재건축 단지 (한강맨션 등)</th>
+<th>리모델링 단지 (한가람 등)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>기대 수익</strong></td>
+<td>높음 (신축 프리미엄)</td>
+<td>중간 (리모델링 프리미엄)</td>
+</tr>
+<tr>
+<td><strong>소요 기간</strong></td>
+<td>장기 (7~15년)</td>
+<td>중기 (3~7년)</td>
+</tr>
+<tr>
+<td><strong>추가 분담금</strong></td>
+<td>상대적으로 적음 (용적률 여유)</td>
+<td>리모델링 분담금 발생</td>
+</tr>
+<tr>
+<td><strong>리스크</strong></td>
+<td>사업 지연·무산 가능성</td>
+<td>비교적 안정적</td>
+</tr>
+<tr>
+<td><strong>현재 시세</strong></td>
+<td>3.3㎡당 4,000만~6,000만 원대</td>
+<td>3.3㎡당 5,000만~7,000만 원대</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_39">🚨 투자 시 주의사항<a class="headerlink" href="#_39" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>1️⃣ 조합설립 전 단지는 사업 무산 리스크 상존
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>   → &quot;추진위 단계&quot;는 아직 공식 사업이 아님
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>2️⃣ 재건축초과이익환수제 적용 가능성
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>   → 시세 상승분의 상당 부분을 환수당할 수 있음
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>3️⃣ 이주·멸실 시 전세 수요 폭증
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>   → 인근 전세 시장 영향도 함께 고려
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>4️⃣ 재건축 단지는 대출 규제 강함
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>   → 조합원 지위 양도 제한, 전매 제한 확인 필수
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>5️⃣ 분담금 추정치는 변동 가능성 큼
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>   → 공사비 상승기에는 분담금이 예상보다 크게 늘어날 수 있음
+</code></pre></div>
+<hr />
+<h2 id="_40">📌 종합 의견<a class="headerlink" href="#_40" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>이촌동은 <strong>한강 + 용산공원 + 정비창 개발</strong>이라는 서울에서도 유례없는 <strong>트리플 호재</strong>를 가진 지역입니다. 재건축이 본격 완료되면 반포·잠원과 어깨를 나란히 할 수 있는 입지입니다.</p>
+<p>다만, <strong>한강맨션을 제외하면 대부분 아직 초기 단계</strong>이고, 완료까지 상당한 시간이 소요됩니다.
+- <strong>자금 여유 + 장기 보유 가능</strong> → 한강맨션·코오롱 등 재건축 단지 매수 고려 가치 있음
+- <strong>중기 투자</strong> → 한가람 리모델링 쪽이 상대적으로 일정이 빠를 수 있음</p>
+</blockquote>
+<hr />
+<p>특정 단지(예: 한강맨션, 코오롱 등)에 대해 더 깊이 분석해 드릴까요? 또는 <strong>예산 범위</strong>를 알려주시면 맞춤 전략을 제안드리겠습니다!</p>
+<p><strong>후속 답변</strong> (자동 수락):</p>
+<h1 id="_41">🔍 이촌동 핵심 단지 심층 분석<a class="headerlink" href="#_41" title="Permanent link">&para;</a></h1>
+<p>앞서 말씀드린 <strong>한강맨션</strong>, <strong>코오롱</strong>, <strong>한가람(리모델링)</strong> 세 단지를 중심으로 깊이 있게 분석해 드리겠습니다. 예산 범위를 말씀해 주시지 않았으므로, 각 단지별 진입 비용도 함께 안내드리겠습니다.</p>
+<hr />
+<h2 id="1_11">① 한강맨션 아파트 (동부이촌동) ⭐ 가장 주목<a class="headerlink" href="#1_11" title="Permanent link">&para;</a></h2>
+<h3 id="_42">기본 정보<a class="headerlink" href="#_42" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>주소</strong></td>
+<td>용산구 이촌로 72 (이촌동 300-3)</td>
+</tr>
+<tr>
+<td><strong>준공</strong></td>
+<td>1970년</td>
+</tr>
+<tr>
+<td><strong>세대수</strong></td>
+<td>660세대 / 6개동</td>
+</tr>
+<tr>
+<td><strong>면적</strong></td>
+<td>전용 79㎡, 99㎡, 119㎡ 등</td>
+</tr>
+<tr>
+<td><strong>현 용적률</strong></td>
+<td>약 145% (매우 낮음 → 사업성 핵심)</td>
+</tr>
+<tr>
+<td><strong>대지지분</strong></td>
+<td>세대당 대지지분이 큰 편 → 재건축 시 유리</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_43">재건축 진행 상세<a class="headerlink" href="#_43" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>[완료] 재건축 추진위원회 구성
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>[완료] 정밀안전진단 → D등급 (재건축 가능 판정)
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>[완료] 정비구역 지정
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>[진행중] ▶ 조합설립인가 추진 중 ◀
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>[미진행] 건축심의·사업시행인가
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>[미진행] 관리처분인가
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>[미진행] 이주·철거·착공
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>[미진행] 준공·입주
+</code></pre></div>
+<h3 id="_44">사업성 시뮬레이션 (추정)<a class="headerlink" href="#_44" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>현 용적률</strong></td>
+<td>약 145%</td>
+</tr>
+<tr>
+<td><strong>예상 허용 용적률</strong></td>
+<td>270~300% (한강변 특례 적용 시 더 높을 수 있음)</td>
+</tr>
+<tr>
+<td><strong>예상 총 세대수</strong></td>
+<td>1,200~1,500세대 (현 660 → 약 2배)</td>
+</tr>
+<tr>
+<td><strong>일반분양 물량</strong></td>
+<td>500~800세대 추정</td>
+</tr>
+<tr>
+<td><strong>조합원 추가 분담금</strong></td>
+<td>비교적 적을 것으로 예상 (대지지분 대비 용적률 여유 큼)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>💡 <strong>용적률이 145%로 매우 낮다는 것이 최대 강점입니다.</strong> 서울 한강변 아파트 중 이 정도로 낮은 용적률은 거의 없어서, 재건축 시 일반분양 물량을 충분히 확보할 수 있고 조합원 분담금이 적어질 가능성이 높습니다.</p>
+</blockquote>
+<h3 id="_45">시세 및 투자 비용<a class="headerlink" href="#_45" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>면적</th>
+<th>현재 매매가 (추정)</th>
+<th>전세가 (추정)</th>
+<th>갭투자 필요 자금</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>전용 79㎡ (24평형)</td>
+<td>약 18억~22억</td>
+<td>약 6억~8억</td>
+<td>약 12억~14억</td>
+</tr>
+<tr>
+<td>전용 99㎡ (30평형)</td>
+<td>약 22억~27억</td>
+<td>약 7억~9억</td>
+<td>약 15억~18억</td>
+</tr>
+<tr>
+<td>전용 119㎡ (36평형)</td>
+<td>약 26억~32억</td>
+<td>약 8억~10억</td>
+<td>약 18억~22억</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ 위 시세는 추정치입니다. 실거래가는 <strong>국토부 실거래가 공개시스템</strong>(rt.molit.go.kr)에서 반드시 직접 확인하세요.</p>
+</blockquote>
+<h3 id="swot">한강맨션 SWOT 분석<a class="headerlink" href="#swot" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Strength (강점)</strong></td>
+<td>✅ 낮은 용적률(145%) → 최고 수준의 사업성</td>
+</tr>
+<tr>
+<td></td>
+<td>✅ 한강 1열 조망 (재건축 후 극대화)</td>
+</tr>
+<tr>
+<td></td>
+<td>✅ 이촌동 재건축 중 가장 진행 속도 빠름</td>
+</tr>
+<tr>
+<td></td>
+<td>✅ 서울 최초 한강변 아파트라는 상징성</td>
+</tr>
+<tr>
+<td><strong>Weakness (약점)</strong></td>
+<td>⚠️ 이미 높은 시세 (진입장벽)</td>
+</tr>
+<tr>
+<td></td>
+<td>⚠️ 56년 된 건물 → 실거주 불편 (주거 여건 열악)</td>
+</tr>
+<tr>
+<td></td>
+<td>⚠️ 조합설립 후에도 각종 인허가에 수년 소요</td>
+</tr>
+<tr>
+<td><strong>Opportunity (기회)</strong></td>
+<td>🔵 한강변 35층 높이제한 완화 시 사업성 폭증</td>
+</tr>
+<tr>
+<td></td>
+<td>🔵 용산공원 완공 + 정비창 개발 → 입지 프리미엄 극대화</td>
+</tr>
+<tr>
+<td></td>
+<td>🔵 안전진단 기준 완화 정책 기조</td>
+</tr>
+<tr>
+<td><strong>Threat (위협)</strong></td>
+<td>🔴 재건축초과이익환수제 → 시세차익 상당부분 환수 가능</td>
+</tr>
+<tr>
+<td></td>
+<td>🔴 공사비 폭등 시 분담금 증가</td>
+</tr>
+<tr>
+<td></td>
+<td>🔴 부동산 시장 침체 시 사업 지연</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2_10">② 이촌 코오롱 아파트 (서부이촌동) ⭐ 용산공원 최대 수혜<a class="headerlink" href="#2_10" title="Permanent link">&para;</a></h2>
+<h3 id="_46">기본 정보<a class="headerlink" href="#_46" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>주소</strong></td>
+<td>용산구 이촌로 248 일대</td>
+</tr>
+<tr>
+<td><strong>준공</strong></td>
+<td>1976년</td>
+</tr>
+<tr>
+<td><strong>세대수</strong></td>
+<td>648세대</td>
+</tr>
+<tr>
+<td><strong>면적</strong></td>
+<td>전용 61㎡, 84㎡, 108㎡ 등</td>
+</tr>
+<tr>
+<td><strong>현 용적률</strong></td>
+<td>약 180~200%</td>
+</tr>
+<tr>
+<td><strong>핵심 입지</strong></td>
+<td><strong>용산공원 바로 옆</strong> (도보 5분 이내)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_47">재건축 진행 상세<a class="headerlink" href="#_47" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>[완료] 재건축 추진위원회 구성
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>[진행중] ▶ 안전진단 추진 중 ◀
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>[미진행] 정비구역 지정
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>[미진행] 조합설립인가
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>[미진행] 사업시행인가
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>[미진행] 관리처분인가
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>[미진행] 착공·준공
+</code></pre></div>
+<blockquote>
+<p>📌 한강맨션보다 <strong>1~2단계 뒤처져</strong> 있습니다. 안전진단 통과 여부가 최대 관건입니다.</p>
+</blockquote>
+<h3 id="_48">투자 포인트<a class="headerlink" href="#_48" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>최대 강점</strong></td>
+<td>용산공원 초역세권 → "공원 뷰 + 한강 접근성"</td>
+</tr>
+<tr>
+<td><strong>사업성</strong></td>
+<td>용적률 180~200%로 한강맨션보다는 낮지만 여전히 양호</td>
+</tr>
+<tr>
+<td><strong>시세</strong></td>
+<td>한강맨션 대비 <strong>약 70~80% 수준</strong> → 상대적으로 진입장벽 낮음</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_49">시세 및 투자 비용<a class="headerlink" href="#_49" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>면적</th>
+<th>현재 매매가 (추정)</th>
+<th>전세가 (추정)</th>
+<th>갭투자 필요 자금</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>전용 61㎡ (18평형)</td>
+<td>약 13억~16억</td>
+<td>약 5억~6억</td>
+<td>약 8억~10억</td>
+</tr>
+<tr>
+<td>전용 84㎡ (25평형)</td>
+<td>약 17억~21억</td>
+<td>약 6억~8억</td>
+<td>약 11억~13억</td>
+</tr>
+<tr>
+<td>전용 108㎡ (33평형)</td>
+<td>약 21억~26억</td>
+<td>약 7억~9억</td>
+<td>약 14억~17억</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_50">코오롱의 특별한 가치<a class="headerlink" href="#_50" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>                    ┌─────────────┐
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>                    │   한  강     │
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>                    └─────────────┘
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>                    ┌─────────────┐
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>                    │  동부이촌동  │ ← 한강맨션 등
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>                    └─────────────┘
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>    ┌──────────┐    ┌─────────────┐
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>    │ 용산공원  │ ←→ │ 서부이촌동  │ ← 코오롱 ⭐
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>    │ (243만㎡) │    │             │
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>    └──────────┘    └─────────────┘
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>    ┌──────────┐
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>    │ 정비창   │ ← 복합개발 예정
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>    └──────────┘
+</code></pre></div>
+<blockquote>
+<p>💡 코오롱은 <strong>용산공원이 "앞마당"</strong>이 되는 위치입니다. 용산공원 조성이 완료되면 "공원 뷰 프리미엄"이 한강 뷰에 버금가는 가치를 가질 수 있습니다. 뉴욕 센트럴파크 주변 아파트를 생각하시면 됩니다.</p>
+</blockquote>
+<hr />
+<h2 id="3-">③ 이촌 한가람 아파트 (리모델링) - 중기 투자<a class="headerlink" href="#3-" title="Permanent link">&para;</a></h2>
+<h3 id="_51">기본 정보<a class="headerlink" href="#_51" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>준공</strong></td>
+<td>1999년</td>
+</tr>
+<tr>
+<td><strong>세대수</strong></td>
+<td>3,600세대 (이촌동 최대 단지)</td>
+</tr>
+<tr>
+<td><strong>면적</strong></td>
+<td>전용 59㎡~134㎡ 다양</td>
+</tr>
+<tr>
+<td><strong>방향</strong></td>
+<td><strong>리모델링</strong> (재건축 연한 미달)</td>
+</tr>
+<tr>
+<td><strong>현 시세</strong></td>
+<td>전용 84㎡ 기준 약 20억~25억</td>
+</tr>
+</tbody>
+</table>
+<h3 id="vs">리모델링 vs 재건축 차이<a class="headerlink" href="#vs" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>리모델링</th>
+<th>재건축</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>기간</strong></td>
+<td>3~7년 (비교적 단기)</td>
+<td>7~15년 (장기)</td>
+</tr>
+<tr>
+<td><strong>증축</strong></td>
+<td>최대 15% 세대수 증가 가능</td>
+<td>용적률에 따라 대폭 증가</td>
+</tr>
+<tr>
+<td><strong>분담금</strong></td>
+<td>세대당 1억~3억 수준 예상</td>
+<td>사업성에 따라 편차 큼</td>
+</tr>
+<tr>
+<td><strong>이주</strong></td>
+<td>필요 (수직증축 시)</td>
+<td>필요</td>
+</tr>
+<tr>
+<td><strong>장점</strong></td>
+<td>비교적 빠른 사업 완료</td>
+<td>완전한 신축 효과</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_52">투자 매력<a class="headerlink" href="#_52" title="Permanent link">&para;</a></h3>
+<ul>
+<li>3,600세대 <strong>대단지 프리미엄</strong> 유지</li>
+<li>리모델링 완료 시 <strong>신축급 주거환경</strong> + 기존 커뮤니티 유지</li>
+<li>재건축 단지 대비 <strong>시세 변동 리스크 낮음</strong> (이미 양호한 주거환경)</li>
+</ul>
+<hr />
+<h2 id="_53">📊 세 단지 최종 비교<a class="headerlink" href="#_53" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>한강맨션</th>
+<th>코오롱</th>
+<th>한가람</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>사업 유형</strong></td>
+<td>재건축</td>
+<td>재건축</td>
+<td>리모델링</td>
+</tr>
+<tr>
+<td><strong>진행 단계</strong></td>
+<td>★★★★☆</td>
+<td>★★☆☆☆</td>
+<td>★★★☆☆</td>
+</tr>
+<tr>
+<td><strong>사업성</strong></td>
+<td>★★★★★</td>
+<td>★★★★☆</td>
+<td>★★★☆☆</td>
+</tr>
+<tr>
+<td><strong>진입 비용 (84㎡)</strong></td>
+<td>~25억</td>
+<td>~20억</td>
+<td>~23억</td>
+</tr>
+<tr>
+<td><strong>예상 완료 시점</strong></td>
+<td>2032~2035년</td>
+<td>2035~2038년</td>
+<td>2030~2033년</td>
+</tr>
+<tr>
+<td><strong>기대 수익률</strong></td>
+<td>높음</td>
+<td>높음</td>
+<td>중간</td>
+</tr>
+<tr>
+<td><strong>리스크</strong></td>
+<td>중간</td>
+<td>높음 (초기 단계)</td>
+<td>낮음</td>
+</tr>
+<tr>
+<td><strong>실거주 적합도</strong></td>
+<td>✕ (노후)</td>
+<td>✕ (노후)</td>
+<td>○ (양호)</td>
+</tr>
+<tr>
+<td><strong>최대 장점</strong></td>
+<td>한강 1열 + 초저밀</td>
+<td>용산공원 초인접</td>
+<td>대단지 + 빠른 사업</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_54">💡 투자자 유형별 최종 추천<a class="headerlink" href="#_54" title="Permanent link">&para;</a></h2>
+<h3 id="_55">🏆 "확실한 한 방" → 한강맨션<a class="headerlink" href="#_55" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>✔ 자금: 20억 이상 여유
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>✔ 보유 기간: 7~10년 이상 가능
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>✔ 실거주 불편 감수 가능 (또는 전세 놓고 별도 거주)
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>✔ 서울 재건축 중 최고 사업성을 원하는 분
+</code></pre></div>
+<h3 id="_56">🌳 "미래 가치 선점" → 코오롱<a class="headerlink" href="#_56" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>✔ 자금: 15억 이상 여유
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>✔ 보유 기간: 10년 이상 초장기 가능
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>✔ 용산공원 완성 시 폭발적 상승 기대
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>✔ 단, 안전진단 불통과 리스크 감수 가능해야 함
+</code></pre></div>
+<h3 id="_57">🏠 "안정 + 실거주" → 한가람<a class="headerlink" href="#_57" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>✔ 자금: 20억 이상
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>✔ 실거주하면서 리모델링 프리미엄도 챙기고 싶은 분
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>✔ 리스크 최소화 선호
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>✔ 이미 우수한 주거환경에서 중기 시세차익 기대
+</code></pre></div>
+<hr />
+<h2 id="_58">🚨 공통 주의사항<a class="headerlink" href="#_58" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>1. 재건축초과이익환수제</strong>
+- 재건축 완료 시 조합원 1인당 평균 이익이 일정 금액 초과하면 <strong>최대 50%까지 환수</strong>
+- 한강맨션·코오롱 모두 해당 가능성 높음</p>
+<p><strong>2. 조합원 지위 양도 제한</strong>
+- 투기과열지구(용산구 해당)에서는 조합설립인가 이후 <strong>조합원 지위 양도 불가</strong>
+- 한강맨션은 조합설립인가 전에 매수해야 향후 전매 유연성 확보 가능</p>
+<p><strong>3. 실거래 신고가 확인 필수</strong>
+- 급매/신고가 편차가 크므로 <strong>최근 3개월 실거래가</strong> 반드시 확인</p>
+<p><strong>4. 세금 시뮬레이션</strong>
+- 취득세(1~12%), 보유세(재산세+종부세), 양도세(기본세율~75%)
+- 반드시 세무사 상담 후 투자 결정</p>
+</blockquote>
+<hr />
+<p>예산 범위나 투자 목적(실거주/순수투자/갈아타기 등)을 더 구체적으로 알려주시면, <strong>맞춤형 매수 전략과 자금 계획</strong>까지 짜드릴 수 있습니다. 궁금한 점 있으시면 편하게 말씀해 주세요! 😊</p>
+<hr />
+<h3 id="q5">Q5. 용산 국제업무지구가 뭐예요?<a class="headerlink" href="#q5" title="Permanent link">&para;</a></h3>
+<p><strong>입력 토큰</strong>: 3 | <strong>출력 토큰</strong>: 2,412 | <strong>소요시간</strong>: 47,544ms | <strong>CLI 비용</strong>: $0.1163 | <strong>추정 API 비용</strong>: $0.1809
+<strong>대화 컨텍스트</strong>: 4턴 누적 | <strong>후속 제안</strong>: 감지됨</p>
+<p><strong>답변:</strong></p>
+<h1 id="_59">🏙️ 용산 국제업무지구란?<a class="headerlink" href="#_59" title="Permanent link">&para;</a></h1>
+<p>앞서 대화에서 <strong>용산 정비창 부지 개발</strong>을 말씀드렸는데, 용산 국제업무지구는 바로 그 정비창 부지를 중심으로 추진되어 온 <strong>대규모 복합개발 프로젝트</strong>입니다.</p>
+<hr />
+<h2 id="_60">📌 기본 개요<a class="headerlink" href="#_60" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>위치</strong></td>
+<td>용산역 북측, 옛 철도정비창 부지 일대 (약 49.3만㎡)</td>
+</tr>
+<tr>
+<td><strong>목표</strong></td>
+<td>서울의 새로운 <strong>국제 비즈니스 허브</strong> 조성</td>
+</tr>
+<tr>
+<td><strong>성격</strong></td>
+<td>업무·상업·주거·문화·공원이 결합된 <strong>복합도시개발</strong></td>
+</tr>
+<tr>
+<td><strong>비교 대상</strong></td>
+<td>여의도 국제금융센터(IFC), 일본 롯폰기힐즈, 영국 카나리워프 등과 유사한 콘셉트</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_61">📜 추진 역사 (왜 유명한가?)<a class="headerlink" href="#_61" title="Permanent link">&para;</a></h2>
+<h3 id="1-20062013">1단계: 최초 추진 → 무산 (2006~2013)<a class="headerlink" href="#1-20062013" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>시기</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>2006년</strong></td>
+<td>코레일이 정비창을 수색으로 이전하면서 부지 확보</td>
+</tr>
+<tr>
+<td><strong>2007년</strong></td>
+<td><strong>드림허브 PFV(프로젝트금융투자회사)</strong> 설립, 사업 본격 착수</td>
+</tr>
+<tr>
+<td><strong>계획 내용</strong></td>
+<td>620m 초고층 랜드마크 빌딩, 국제업무시설, 컨벤션센터, 호텔, 주거 등</td>
+</tr>
+<tr>
+<td><strong>총 사업비</strong></td>
+<td>약 <strong>31조 원</strong> 규모</td>
+</tr>
+<tr>
+<td><strong>2013년</strong></td>
+<td>글로벌 금융위기 여파 + 자금조달 실패 → <strong>PFV 파산·사업 전면 무산</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ 이 무산 경험이 용산 개발의 <strong>최대 트라우마</strong>이자, 지금도 "또 무산되는 것 아니냐"는 우려의 근거입니다.</p>
+</blockquote>
+<h3 id="2-2022">2단계: 재추진 (2022년~현재)<a class="headerlink" href="#2-2022" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>시기</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>2022년</strong></td>
+<td>대통령실 용산 이전 → 개발 동력 재점화</td>
+</tr>
+<tr>
+<td><strong>2023년</strong></td>
+<td>서울시·국토부 <strong>용산 마스터플랜</strong> 수립 착수</td>
+</tr>
+<tr>
+<td><strong>2024년</strong></td>
+<td>마스터플랜 초안 발표, 공원·개발구역 구분</td>
+</tr>
+<tr>
+<td><strong>2025~2026년</strong></td>
+<td>지구단위계획 수립 및 확정 예정</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_62">🗺️ 개발 구조 (어떻게 바뀌나?)<a class="headerlink" href="#_62" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>┌─────────────────────────────────────────────┐
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>│            용산 정비창 부지 전체              │
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>│                                             │
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>│  ┌──────────┐  ┌──────────┐  ┌───────────┐ │
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>│  │ 용산공원  │  │ 국제업무 │  │ 주거·문화 │ │
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>│  │ (국가공원)│  │   지구   │  │  복합구역  │ │
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>│  │          │  │          │  │           │ │
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>│  │ 녹지·생태│  │ 오피스   │  │ 아파트    │ │
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>│  │ 공원     │  │ 상업시설 │  │ 문화시설  │ │
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>│  │          │  │ 컨벤션   │  │ 공공시설  │ │
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>│  └──────────┘  └──────────┘  └───────────┘ │
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>│                                             │
+<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>│  ──────── 용산역 (KTX·GTX-B·지하철) ─────── │
+<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>└─────────────────────────────────────────────┘
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>구역</th>
+<th>주요 시설</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>국제업무 구역</strong></td>
+<td>글로벌 기업 오피스, 금융기관, 컨벤션센터</td>
+</tr>
+<tr>
+<td><strong>상업·문화 구역</strong></td>
+<td>쇼핑몰, 호텔, 공연장, 미술관</td>
+</tr>
+<tr>
+<td><strong>주거 구역</strong></td>
+<td>고급 주거단지 (아파트·오피스텔)</td>
+</tr>
+<tr>
+<td><strong>공원 구역</strong></td>
+<td>용산공원과 연계된 대규모 녹지</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="vs_1">🔄 과거 vs 현재: 무엇이 달라졌나?<a class="headerlink" href="#vs_1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>과거 (2007년 계획)</th>
+<th>현재 (2023년~ 재추진)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>사업 방식</strong></td>
+<td>민간 주도 (PFV)</td>
+<td><strong>공공 주도</strong> (서울시·국토부·코레일)</td>
+</tr>
+<tr>
+<td><strong>규모</strong></td>
+<td>초고층 620m 등 과대한 계획</td>
+<td>현실적 규모로 조정</td>
+</tr>
+<tr>
+<td><strong>공원 비중</strong></td>
+<td>공원 축소, 개발 극대화</td>
+<td><strong>용산공원 대폭 확대</strong> 후 나머지 개발</td>
+</tr>
+<tr>
+<td><strong>리스크</strong></td>
+<td>민간 자금조달 실패</td>
+<td>공공 재정 + 단계적 개발로 리스크 분산</td>
+</tr>
+<tr>
+<td><strong>정치적 동력</strong></td>
+<td>약함</td>
+<td><strong>대통령실 이전</strong>으로 매우 강함</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_63">💡 이촌동·용산 투자와의 관계<a class="headerlink" href="#_63" title="Permanent link">&para;</a></h2>
+<p>앞서 말씀드린 이촌동 재건축, 한남뉴타운 등과 직접적으로 연결됩니다:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>용산 국제업무지구 완성
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>    ↓
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>주변 상권·교통·인프라 대폭 업그레이드
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>    ↓
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>┌──────────────────────────────────┐
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>│ 이촌동 재건축 단지 → 가치 상승    │
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>│ 한남뉴타운      → 가치 상승    │
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>│ 서빙고·보광동   → 가치 상승    │
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>└──────────────────────────────────┘
+</code></pre></div>
+<blockquote>
+<p>즉, 용산 국제업무지구는 <strong>용산 전체 부동산 가치의 핵심 엔진</strong> 역할을 합니다.</p>
+</blockquote>
+<hr />
+<h2 id="_64">⚠️ 냉정한 현실 체크<a class="headerlink" href="#_64" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>긍정적 시각</th>
+<th>부정적 시각</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>공공 주도로 과거보다 안정적</td>
+<td>여전히 사업 규모가 방대하여 <strong>10년 이상</strong> 소요</td>
+</tr>
+<tr>
+<td>대통령실 효과로 정치적 추진력 강함</td>
+<td>정권 교체 시 동력 약화 가능성</td>
+</tr>
+<tr>
+<td>서울 마지막 대규모 개발 부지</td>
+<td>토양정화·보상 문제 등 변수 다수</td>
+</tr>
+<tr>
+<td>GTX-B 등 교통 호재</td>
+<td>주변 시세에 이미 기대감 상당부분 반영</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_65">📌 한줄 요약<a class="headerlink" href="#_65" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>용산 국제업무지구 = 용산역 옆 옛 철도정비창 부지에 조성하는 서울판 "카나리워프"</strong>
+과거 한 번 무산됐지만, 공공 주도 + 대통령실 이전이라는 강력한 동력으로 재추진 중이며, <strong>용산 일대 부동산 가치의 가장 핵심적인 변수</strong>입니다.</p>
+</blockquote>
+<hr />
+<p>추가로 <strong>용산공원 조성 일정</strong>, <strong>GTX-B 개통 시기</strong>, 또는 <strong>특정 단지 심층 분석</strong>이 궁금하시면 말씀해 주세요!</p>
+<p><strong>후속 답변</strong> (자동 수락):</p>
+<h1 id="gtx-b">📋 용산공원 조성 일정 + GTX-B 개통 시기 + 주요 단지 심층 분석<a class="headerlink" href="#gtx-b" title="Permanent link">&para;</a></h1>
+<p>앞서 말씀드린 세 가지 주제를 모두 자세히 정리해 드리겠습니다.</p>
+<hr />
+<h1 id="1_12">1️⃣ 용산공원 조성 일정<a class="headerlink" href="#1_12" title="Permanent link">&para;</a></h1>
+<h2 id="_66">📌 기본 개요<a class="headerlink" href="#_66" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>정식 명칭</strong></td>
+<td>용산공원 (국가공원)</td>
+</tr>
+<tr>
+<td><strong>위치</strong></td>
+<td>옛 주한미군 용산기지 부지 (용산구 용산동6가 일대)</td>
+</tr>
+<tr>
+<td><strong>면적</strong></td>
+<td>약 <strong>243만㎡</strong> (여의도공원의 약 5.5배, 뉴욕 센트럴파크의 약 70%)</td>
+</tr>
+<tr>
+<td><strong>성격</strong></td>
+<td>대한민국 최초의 <strong>국가공원</strong> (국토부 직접 조성)</td>
+</tr>
+<tr>
+<td><strong>근거 법률</strong></td>
+<td>「용산공원 조성 특별법」</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_67">📅 단계별 조성 일정<a class="headerlink" href="#_67" title="Permanent link">&para;</a></h2>
+<h3 id="_68">✅ 이미 완료된 단계<a class="headerlink" href="#_68" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>시기</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>2017~2021년</strong></td>
+<td>주한미군 용산기지 평택 이전 (단계적)</td>
+</tr>
+<tr>
+<td><strong>2022년</strong></td>
+<td>부지 일부 반환, 용산공원 조성 본격 착수 선언</td>
+</tr>
+<tr>
+<td><strong>2023년 9월</strong></td>
+<td><strong>용산공원 1단계 개방</strong> (약 2.5만㎡, 장교숙소 구역)</td>
+</tr>
+<tr>
+<td><strong>2024년</strong></td>
+<td>2단계 부분 개방 (녹지 산책로 등), 토양·환경 정밀조사 진행</td>
+</tr>
+<tr>
+<td><strong>2025년</strong></td>
+<td>추가 구역 개방, 기반시설 정비</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_69">🔄 향후 예상 일정<a class="headerlink" href="#_69" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>시기 (예상)</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>2025~2027년</strong></td>
+<td><strong>환경정화 작업</strong> (토양오염·지하수 오염 정화) → 가장 시간이 많이 소요되는 단계</td>
+</tr>
+<tr>
+<td><strong>2026~2028년</strong></td>
+<td>공원 <strong>마스터플랜 확정</strong> 및 세부 설계</td>
+</tr>
+<tr>
+<td><strong>2027~2030년</strong></td>
+<td>주요 공원시설 조성공사 (호수, 잔디광장, 문화시설 등)</td>
+</tr>
+<tr>
+<td><strong>2028~2030년</strong></td>
+<td>단계적 추가 개방 (전체의 50~70%)</td>
+</tr>
+<tr>
+<td><strong>2030~2035년</strong></td>
+<td><strong>전면 개방</strong> 목표</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>핵심 변수:</strong> 미군기지 부지 특성상 <strong>환경정화(오염토양 처리)</strong>에 막대한 시간과 비용이 소요됩니다. 미국 측과의 비용 분담 협상도 변수입니다.</p>
+</blockquote>
+<h2 id="_70">🗺️ 공원 구역별 구성 (예상)<a class="headerlink" href="#_70" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>┌─────────────────────────────────────────────┐
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>│               용산공원 전체 배치도             │
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>│                                              │
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>│  [북측] ─── 남산 연결 녹지축 ───── [남산]     │
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>│                                              │
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>│  ┌────────┐  ┌────────┐  ┌────────────────┐ │
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>│  │ 생태   │  │ 역사·  │  │  중앙 잔디광장  │ │
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>│  │ 숲     │  │ 문화   │  │  (대규모 오픈   │ │
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>│  │ 구역   │  │ 구역   │  │   스페이스)     │ │
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>│  └────────┘  └────────┘  └────────────────┘ │
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>│                                              │
+<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>│  ┌────────┐  ┌────────┐  ┌────────────────┐ │
+<a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>│  │ 호수·  │  │ 커뮤니 │  │  체육·레저     │ │
+<a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>│  │ 습지   │  │ 티시설 │  │  구역          │ │
+<a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a>│  └────────┘  └────────┘  └────────────────┘ │
+<a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a>│                                              │
+<a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a>│  [남측] ─── 한강 연결 녹지축 ─── [한강공원]   │
+<a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a>│                                              │
+<a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a>│  [서측] 이촌동  │  [동측] 한남동·보광동       │
+<a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a>└─────────────────────────────────────────────┘
+</code></pre></div>
+<h2 id="_71">💰 주변 부동산 영향<a class="headerlink" href="#_71" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>수혜 지역</th>
+<th>수혜 정도</th>
+<th>이유</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>서부이촌동</strong> (코오롱·중산시범)</td>
+<td>★★★★★</td>
+<td>공원 도보 1~3분, <strong>최대 수혜지</strong></td>
+</tr>
+<tr>
+<td><strong>동부이촌동</strong> (한강맨션·한가람)</td>
+<td>★★★★☆</td>
+<td>한강+공원 더블 프리미엄</td>
+</tr>
+<tr>
+<td><strong>한남동</strong> (한남뉴타운)</td>
+<td>★★★★☆</td>
+<td>공원 동측 접근, 고급 주거 시너지</td>
+</tr>
+<tr>
+<td><strong>보광동·서빙고</strong></td>
+<td>★★★★☆</td>
+<td>저평가 상태에서 공원 수혜 기대</td>
+</tr>
+<tr>
+<td><strong>후암동·남영동</strong></td>
+<td>★★★☆☆</td>
+<td>남산+용산공원 연계</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="2-gtx-b">2️⃣ GTX-B 개통 시기 및 용산 영향<a class="headerlink" href="#2-gtx-b" title="Permanent link">&para;</a></h1>
+<h2 id="gtx-b_1">📌 GTX-B 노선 개요<a class="headerlink" href="#gtx-b_1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>노선</strong></td>
+<td>인천 송도 ↔ 여의도 ↔ <strong>용산</strong> ↔ 서울역 ↔ 청량리 ↔ 남양주 마석</td>
+</tr>
+<tr>
+<td><strong>총 연장</strong></td>
+<td>약 80.1km</td>
+</tr>
+<tr>
+<td><strong>정차역 수</strong></td>
+<td>약 14개역</td>
+</tr>
+<tr>
+<td><strong>최고 속도</strong></td>
+<td>시속 180km</td>
+</tr>
+<tr>
+<td><strong>핵심</strong></td>
+<td>수도권 동서축 광역급행철도</td>
+</tr>
+</tbody>
+</table>
+<h2 id="gtx-b_2">📅 GTX-B 추진 일정<a class="headerlink" href="#gtx-b_2" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>시기</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>2019년</strong></td>
+<td>GTX-B 예비타당성조사 통과</td>
+</tr>
+<tr>
+<td><strong>2022년</strong></td>
+<td>기본계획 수립</td>
+</tr>
+<tr>
+<td><strong>2023년</strong></td>
+<td>실시설계 착수</td>
+</tr>
+<tr>
+<td><strong>2024~2025년</strong></td>
+<td>구간별 착공 시작</td>
+</tr>
+<tr>
+<td><strong>2030년 전후</strong></td>
+<td><strong>1단계 개통 목표</strong> (핵심 구간)</td>
+</tr>
+<tr>
+<td><strong>2032~2033년</strong></td>
+<td>전 구간 개통 목표</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>현실적 전망:</strong> GTX-A도 당초 일정보다 지연된 바 있어, GTX-B도 <strong>2~3년 지연 가능성</strong>을 감안해야 합니다. 실제 개통은 2032~2035년으로 보는 시각도 있습니다.</p>
+</blockquote>
+<h2 id="gtx-b_3">🚆 용산역 GTX-B 개통 효과<a class="headerlink" href="#gtx-b_3" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>GTX-B 개통 시 용산역에서의 소요 시간:
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>용산 ──(10분)──→ 여의도     (현재 지하철 약 20분)
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>용산 ──(5분)───→ 서울역     (현재 지하철 약 5분)
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>용산 ──(15분)──→ 청량리     (현재 지하철 약 30분)
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>용산 ──(25분)──→ 인천 송도   (현재 1시간 이상)
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>용산 ──(20분)──→ 남양주 별내  (현재 1시간 이상)
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>효과</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>직주근접</strong></td>
+<td>수도권 전역에서 용산까지 30분 내 출퇴근 가능</td>
+</tr>
+<tr>
+<td><strong>업무수요</strong></td>
+<td>국제업무지구 입주 기업의 직원 통근 편의 극대화</td>
+</tr>
+<tr>
+<td><strong>주거수요</strong></td>
+<td>용산 거주 시 강남·여의도·종로 모두 빠른 접근</td>
+</tr>
+<tr>
+<td><strong>상권 활성화</strong></td>
+<td>용산역 일대 유동인구 대폭 증가</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_72">🔗 다른 교통 호재와의 시너지<a class="headerlink" href="#_72" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>노선</th>
+<th>내용</th>
+<th>예상 시기</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GTX-B</strong></td>
+<td>용산역 정차, 동서축 광역급행</td>
+<td>2030~2033년</td>
+</tr>
+<tr>
+<td><strong>신분당선 연장</strong></td>
+<td>용산~강남 직결 (용산역 경유)</td>
+<td>2030년 이후</td>
+</tr>
+<tr>
+<td><strong>수인분당선 연장</strong></td>
+<td>청량리~용산 구간 검토</td>
+<td>미정</td>
+</tr>
+<tr>
+<td><strong>KTX</strong></td>
+<td>용산역 기존 운행 중</td>
+<td>운행 중</td>
+</tr>
+<tr>
+<td><strong>지하철 1·4·6호선</strong></td>
+<td>용산역·삼각지역·이촌역 등</td>
+<td>운행 중</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>💡 <strong>핵심:</strong> GTX-B + 신분당선이 모두 개통되면, 용산역은 <strong>서울역에 버금가는 교통 허브</strong>로 도약합니다.</p>
+</blockquote>
+<hr />
+<h1 id="3_10">3️⃣ 이촌동 주요 단지 심층 분석<a class="headerlink" href="#3_10" title="Permanent link">&para;</a></h1>
+<h2 id="_73">🏆 한강맨션 (가장 주목받는 단지)<a class="headerlink" href="#_73" title="Permanent link">&para;</a></h2>
+<h3 id="_74">기본 정보<a class="headerlink" href="#_74" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>주소</strong></td>
+<td>용산구 이촌동 301-170</td>
+</tr>
+<tr>
+<td><strong>준공</strong></td>
+<td>1970년</td>
+</tr>
+<tr>
+<td><strong>세대수</strong></td>
+<td>660세대 (6개동)</td>
+</tr>
+<tr>
+<td><strong>면적</strong></td>
+<td>전용 72~148㎡ (다양한 평형)</td>
+</tr>
+<tr>
+<td><strong>용적률</strong></td>
+<td>약 <strong>145%</strong> (재건축 시 매우 유리)</td>
+</tr>
+<tr>
+<td><strong>건폐율</strong></td>
+<td>약 18%</td>
+</tr>
+<tr>
+<td><strong>대지면적</strong></td>
+<td>약 29,700㎡</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_75">재건축 사업성 분석<a class="headerlink" href="#_75" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>현재 용적률: 145%  →  재건축 후 예상 용적률: 250~300%
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>                       ↓
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>              약 2배의 연면적 확보 가능
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>                       ↓
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>         일반분양 물량 확보 → 사업성 양호
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>추정치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>재건축 후 예상 세대수</strong></td>
+<td>1,200~1,500세대</td>
+</tr>
+<tr>
+<td><strong>예상 일반분양</strong></td>
+<td>500~800세대</td>
+</tr>
+<tr>
+<td><strong>조합원 추가분담금</strong></td>
+<td>상대적으로 적을 전망 (용적률 여유)</td>
+</tr>
+<tr>
+<td><strong>예상 공사 기간</strong></td>
+<td>착공 후 약 3~4년</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_76">강점<a class="headerlink" href="#_76" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>한강 조망</strong>: 1열 한강변 입지, 남향 한강 조망 확보</li>
+<li><strong>낮은 용적률</strong>: 145% → 재건축 사업성 서울 최상위권</li>
+<li><strong>용산공원 인접</strong>: 도보 10분 내 접근</li>
+<li><strong>브랜드 가치</strong>: "이촌동 한강맨션"이라는 상징성</li>
+<li><strong>학군</strong>: 이촌초, 용강중 등 우수 학군</li>
+</ul>
+<h3 id="_77">리스크<a class="headerlink" href="#_77" title="Permanent link">&para;</a></h3>
+<ul>
+<li>조합원 의견 통일 난항 가능성</li>
+<li>재건축초과이익환수제 적용 시 부담 발생</li>
+<li>사업 완료까지 <strong>최소 7~10년</strong> 이상 소요 예상</li>
+</ul>
+<h3 id="_78">현재 시세 (추정, 실거래 기준 확인 필요)<a class="headerlink" href="#_78" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>평형</th>
+<th>매매가 (추정)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>전용 72㎡ (약 22평)</td>
+<td>17억~20억 원</td>
+</tr>
+<tr>
+<td>전용 105㎡ (약 32평)</td>
+<td>22억~27억 원</td>
+</tr>
+<tr>
+<td>전용 148㎡ (약 45평)</td>
+<td>28억~35억 원</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_79">🏗️ 이촌 코오롱 (용산공원 최대 수혜)<a class="headerlink" href="#_79" title="Permanent link">&para;</a></h2>
+<h3 id="_80">기본 정보<a class="headerlink" href="#_80" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>주소</strong></td>
+<td>용산구 이촌동 300-7</td>
+</tr>
+<tr>
+<td><strong>준공</strong></td>
+<td>1976년</td>
+</tr>
+<tr>
+<td><strong>세대수</strong></td>
+<td>648세대</td>
+</tr>
+<tr>
+<td><strong>용적률</strong></td>
+<td>약 <strong>189%</strong></td>
+</tr>
+<tr>
+<td><strong>특징</strong></td>
+<td>용산공원 <strong>바로 옆</strong> (도보 1~2분)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_81">투자 포인트<a class="headerlink" href="#_81" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>용산공원 전면 개방 (2030~2035년)
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>    ↓
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>코오롱 단지 → &quot;용산공원 조망 1열&quot; 프리미엄
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>    ↓
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>재건축 완료 시 → 반포 래미안원베일리급 위상 가능
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>장점</th>
+<th>리스크</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>용산공원 도보 접근 최고 입지</td>
+<td>한강맨션보다 재건축 진행 느림</td>
+</tr>
+<tr>
+<td>한강까지 도보 15분 내</td>
+<td>용적률 189% → 한강맨션보다 사업성 낮음</td>
+</tr>
+<tr>
+<td>정비창 개발 수혜 직접적</td>
+<td>추진위 단계 → 사업 무산 가능성 존재</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_82">🏢 이촌 한가람 (리모델링 추진)<a class="headerlink" href="#_82" title="Permanent link">&para;</a></h2>
+<h3 id="_83">기본 정보<a class="headerlink" href="#_83" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>준공</strong></td>
+<td>1999년</td>
+</tr>
+<tr>
+<td><strong>세대수</strong></td>
+<td>약 3,600세대 (대단지)</td>
+</tr>
+<tr>
+<td><strong>면적</strong></td>
+<td>전용 59~134㎡</td>
+</tr>
+<tr>
+<td><strong>방향</strong></td>
+<td><strong>리모델링</strong> (재건축 연한 미도달)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_84">리모델링 추진 현황<a class="headerlink" href="#_84" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>단계</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>추진위 구성</strong></td>
+<td>✅ 완료</td>
+</tr>
+<tr>
+<td><strong>안전진단</strong></td>
+<td>리모델링용 안전진단 추진 중</td>
+</tr>
+<tr>
+<td><strong>설계·시공사 선정</strong></td>
+<td>미정</td>
+</tr>
+<tr>
+<td><strong>예상 일정</strong></td>
+<td>순조로울 경우 2030년 전후 완공 가능</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_85">리모델링 시 변화<a class="headerlink" href="#_85" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>현재: 3,600세대  →  리모델링 후: 약 4,100~4,200세대 (15% 증축)
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>                    + 전용면적 확대 (별동 증축 방식)
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>                    + 주차장·커뮤니티 현대화
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>                    + 외관 전면 리뉴얼
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>장점</th>
+<th>리스크</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>재건축보다 사업 기간 짧음 (3~5년)</td>
+<td>리모델링 분담금 세대당 2~4억 원 예상</td>
+</tr>
+<tr>
+<td>대단지 프리미엄 유지</td>
+<td>신축 대비 프리미엄 한계</td>
+</tr>
+<tr>
+<td>한강 조망 + 용산공원 접근성</td>
+<td>공사 기간 중 이주 부담</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3_11">📊 3개 단지 종합 비교<a class="headerlink" href="#3_11" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>한강맨션</th>
+<th>코오롱</th>
+<th>한가람</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>사업 방식</strong></td>
+<td>재건축</td>
+<td>재건축</td>
+<td>리모델링</td>
+</tr>
+<tr>
+<td><strong>진행 단계</strong></td>
+<td>⭐ 조합설립</td>
+<td>추진위</td>
+<td>추진위</td>
+</tr>
+<tr>
+<td><strong>예상 완공</strong></td>
+<td>2033~2037년</td>
+<td>2035~2040년</td>
+<td>2029~2032년</td>
+</tr>
+<tr>
+<td><strong>사업성</strong></td>
+<td>★★★★★</td>
+<td>★★★★☆</td>
+<td>★★★☆☆</td>
+</tr>
+<tr>
+<td><strong>한강 조망</strong></td>
+<td>★★★★★</td>
+<td>★★★☆☆</td>
+<td>★★★★☆</td>
+</tr>
+<tr>
+<td><strong>용산공원</strong></td>
+<td>★★★☆☆</td>
+<td>★★★★★</td>
+<td>★★★★☆</td>
+</tr>
+<tr>
+<td><strong>예상 분담금</strong></td>
+<td>적음</td>
+<td>중간</td>
+<td>2~4억</td>
+</tr>
+<tr>
+<td><strong>현재 진입가</strong></td>
+<td>17억~</td>
+<td>14억~</td>
+<td>16억~</td>
+</tr>
+<tr>
+<td><strong>리스크</strong></td>
+<td>중</td>
+<td>높음</td>
+<td>낮음</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_86">💡 투자자 유형별 최종 추천<a class="headerlink" href="#_86" title="Permanent link">&para;</a></h2>
+<h3 id="10">🔹 "10년 묻어둘 수 있다" → <strong>한강맨션</strong><a class="headerlink" href="#10" title="Permanent link">&para;</a></h3>
+<ul>
+<li>재건축 완료 시 <strong>이촌동 대장주</strong> 확정</li>
+<li>한강 1열 + 낮은 용적률 = 최고의 사업성</li>
+<li>💰 필요 자금: <strong>20억~35억</strong></li>
+</ul>
+<h3 id="_87">🔹 "용산공원에 베팅한다" → <strong>코오롱</strong><a class="headerlink" href="#_87" title="Permanent link">&para;</a></h3>
+<ul>
+<li>용산공원 완전 개방 시 <strong>폭발적 가치 상승</strong> 기대</li>
+<li>단, 재건축 일정이 가장 불확실 → <strong>초장기 투자</strong></li>
+<li>💰 필요 자금: <strong>14억~22억</strong></li>
+</ul>
+<h3 id="_88">🔹 "빠른 결과를 원한다" → <strong>한가람 리모델링</strong><a class="headerlink" href="#_88" title="Permanent link">&para;</a></h3>
+<ul>
+<li>재건축 대비 사업 기간 짧고 리스크 낮음</li>
+<li>3,600세대 대단지의 안정감</li>
+<li>💰 필요 자금: <strong>16억~28억</strong> + 분담금 2~4억</li>
+</ul>
+<hr />
+<h2 id="_89">🚨 최종 주의사항<a class="headerlink" href="#_89" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>1️⃣ 위 시세·일정은 추정치이며, 반드시 실거래가·공식 발표를 확인하세요
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>2️⃣ 재건축/리모델링 투자 시 &quot;조합원 지위 양도&quot; 가능 여부 반드시 확인
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>3️⃣ 대출 규제 (DSR, LTV) 사전 확인 → 규제지역 여부에 따라 크게 달라짐
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>4️⃣ 세금 시뮬레이션 필수 (취득세 중과·종부세·양도세)
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>5️⃣ 실거래가 확인: 국토부 실거래가 공개시스템 (rt.molit.go.kr)
+</code></pre></div>
+<hr />
+<p>특정 단지에 대해 <strong>예산에 맞는 구체적 매수 전략</strong>이나, <strong>세금 시뮬레이션</strong>이 필요하시면 말씀해 주세요! 예산 범위를 알려주시면 더 정밀한 맞춤 분석이 가능합니다. 😊</p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  맨위로
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.highlight", "search.suggest", "content.code.copy", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

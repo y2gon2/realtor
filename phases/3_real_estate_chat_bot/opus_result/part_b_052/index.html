@@ -1,0 +1,7467 @@
+
+<!doctype html>
+<html lang="ko" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="대한민국 부동산 RAG 기반 AI 상담/보고서 서비스 기획 문서">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>B-052. 전세사기 후 대처 Opus 4.6 테스트 결과 - 부동산 AI 어드바이저 — 프로젝트 기획</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#b-052-opus-46" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="상단/헤더">
+    <a href="../../../.." title="부동산 AI 어드바이저 — 프로젝트 기획" class="md-header__button md-logo" aria-label="부동산 AI 어드바이저 — 프로젝트 기획" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            부동산 AI 어드바이저 — 프로젝트 기획
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              B-052. 전세사기 후 대처 Opus 4.6 테스트 결과
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="다크 모드로 전환"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="다크 모드로 전환" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="라이트 모드로 전환"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="라이트 모드로 전환" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+        <button type="reset" class="md-search__icon md-icon" title="지우기" aria-label="지우기" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="탭" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  홈
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../project_plan/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  프로젝트 기획서
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../1_rag_mvp/1_rag_mvp_plan/" class="md-tabs__link">
+          
+  
+  
+  Phase 1 — RAG MVP
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../2_domain_ontology/2_domain_ontology_plan/" class="md-tabs__link">
+          
+  
+  
+  Phase 2 — 도메인 온톨로지
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../00_overview/" class="md-tabs__link">
+          
+  
+  
+  Phase 3 — 부동산 RAG 챗봇
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../4_deep_report/00_overview/" class="md-tabs__link">
+          
+  
+  
+  Phase 4 — 딥 리포트
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../settings/" class="md-tabs__link">
+          
+  
+  
+  환경 설정
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="네비게이션" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="부동산 AI 어드바이저 — 프로젝트 기획" class="md-nav__button md-logo" aria-label="부동산 AI 어드바이저 — 프로젝트 기획" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    부동산 AI 어드바이저 — 프로젝트 기획
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    홈
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../project_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    프로젝트 기획서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 1 — RAG MVP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phase 1 — RAG MVP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/1_rag_mvp_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기획서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    세부 계획
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    세부 계획
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/1_1_embedding_data_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.1 임베딩 데이터 테스트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_2" id="__nav_3_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    테스트 결과
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    테스트 결과
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/test_result/20260315_1_sementic_search_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    시맨틱 검색 테스트 (1차)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/test_result/20260315_2_sementic_search_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    시맨틱 검색 테스트 (2차)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/test_result/20260315_3_meta_data_filtering_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    메타데이터 필터링 테스트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/test_result/20260315_4_embedding_quality_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    임베딩 품질 평가
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기술 연구
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    기술 연구
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/tech_research/embedding_models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    한국어 임베딩 모델 비교
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/tech_research/vector_databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vector Database 비교
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/tech_research/hybrid_search_bm25/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hybrid Search (Dense + BM25)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 1 — 검색 개선 연구
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 1 — 검색 개선 연구
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/supplementary_1_search_improvement/01_overview_and_research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    개요 및 외부 연구
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/supplementary_1_search_improvement/02_query_time_improvements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Query-Time 개선
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/supplementary_1_search_improvement/03_post_retrieval_improvements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Post-Retrieval 개선
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/supplementary_1_search_improvement/04_adaptive_rag_generation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Adaptive RAG Generation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/supplementary_1_search_improvement/05_indexing_and_evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    인덱싱 및 평가
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/supplementary_1_search_improvement/06_implementation_and_test_report/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    구현 및 테스트 리포트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2 — 도메인 온톨로지
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phase 2 — 도메인 온톨로지
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/2_domain_ontology_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기획서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/3_legal_doc_rag_strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    법령 문서 RAG 전략
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/4_ontology_build_and_index_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    온톨로지 빌드 + 색인 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/5_phase2_search_test_report/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    검색 테스트 리포트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/6_search_improvement_research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    검색 개선 연구 (외부 사례)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 1 — Contextual Retrieval
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 1 — Contextual Retrieval
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_1_contextual_retrieval/01_contextual_retrieval_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    구현 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_1_contextual_retrieval/02_contextual_prefix_script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prefix 생성 스크립트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_1_contextual_retrieval/03_cron_wrapper_and_yaml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cron Wrapper & YAML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_1_contextual_retrieval/04_index_phase2_modifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    index_phase2 수정 사항
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_1_contextual_retrieval/05_contextual_retrieval_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    적용 결과 리포트 (확장 테스트)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 2 — BGE-M3 Triple-Vector
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 2 — BGE-M3 Triple-Vector
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/01_bgem3_triple_vector_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    전체 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/02_embedder_bgem3_design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Embedder 설계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/03_collection_schema_and_indexing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    컬렉션 스키마 + 인덱싱
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/04_multi_stage_search_pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi-Stage 검색 파이프라인
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/05_benchmark_and_ablation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    벤치마크 및 Ablation Study
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/06_results_and_analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 분석
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/07_colbert_improvement_research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ColBERT 개선 전략 연구
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/08_reranker_module_design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reranker 모듈 설계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/09_benchmark_expansion_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    확장 벤치마크 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/10_expanded_benchmark_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    확장 벤치마크 결과
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 3 — Cross-Domain Query Decomposition
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 3 — Cross-Domain Query Decomposition
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_3_cross_domain/01_query_decomposition_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    구현 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_3_cross_domain/02_query_analyzer_design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QueryAnalyzer 설계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_3_cross_domain/03_search_pipeline_design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SearchPipeline 설계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_3_cross_domain/04_evaluation_framework/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    평가 프레임워크
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_3_cross_domain/05_benchmark_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    벤치마크 결과
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_9" id="__nav_4_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 4 — 순차 보완 전략 (P1-a/b)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 4 — 순차 보완 전략 (P1-a/b)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/01_sequential_improvement_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    순차 개선 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/02_execution_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    실행 프레임워크
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/03_step1_hybrid_strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Step 1 — 하이브리드 전략
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/04_step2_decompose_conservatism/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Step 2 — DECOMPOSE 보수화
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/05_step3_prefilter_refinement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Step 3 — 사전 필터 정교화
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/06_step4_prompt_conservatism/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Step 4 — 프롬프트 보수성
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/07_step5_cross_encoder_fusion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Step 5 — Cross-Encoder 퓨전
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/08_step1to4_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 — Step 1~4 통합
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/09_step5_rerank_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 — Step 5 CE 퓨전
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/7_phase2_comprehensive_evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2 종합 평가
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_11" id="__nav_4_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 5 — 슬랭 Alias + CE 최적화 (Phase 2A)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 5 — 슬랭 Alias + CE 최적화 (Phase 2A)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_5_slang_alias_ce/01_phase2a_quickwins_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Wins 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_5_slang_alias_ce/02_alpha_grid_search/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    α 그리드 서치
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_5_slang_alias_ce/03_conditional_ce_bypass/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    조건부 CE 우회
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_5_slang_alias_ce/04_slang_alias_expansion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    슬랭 Alias 확장
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_5_slang_alias_ce/05_benchmark_verification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    벤치마크 검증 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_5_slang_alias_ce/06_phase2a_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2A 결과
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_5_slang_alias_ce/07_phase2b_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2B/C 결과 (최종)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_12" id="__nav_4_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 6 — Alias Pruning + CRAG
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 6 — Alias Pruning + CRAG
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_6_alias_pruning_crag/01_implementation_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    구현 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_6_alias_pruning_crag/02_alias_pruning_script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alias Pruning 스크립트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_6_alias_pruning_crag/03_crag_retrieval_compensator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CRAG 검색 보정기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_13" id="__nav_4_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    조사 자료
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    조사 자료
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/research/5%EA%B0%9C%ED%98%91%ED%9A%8C%EB%8B%A8%EC%B2%B4_RAG%EC%9E%90%EB%A3%8C%EC%88%98%EC%A7%91_%EC%A1%B0%EC%82%AC%EA%B2%B0%EA%B3%BC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5개 협회·단체 자료수집 조사
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/research/HF_HUG_RAG_%EC%A1%B0%EC%82%AC%EB%B0%A9%EB%B2%95%EB%A1%A0_%EC%82%AC%EC%9D%B4%ED%8A%B8%EB%AA%A9%EB%A1%9D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HF 주택금융공사 조사 방법론
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/research/HUG_%EC%A3%BC%ED%83%9D%EB%8F%84%EC%8B%9C%EB%B3%B4%EC%A6%9D%EA%B3%B5%EC%82%AC_RAG_%EC%A1%B0%EC%82%AC%EB%B0%A9%EB%B2%95%EB%A1%A0_%EC%82%AC%EC%9D%B4%ED%8A%B8%EB%AA%A9%EB%A1%9D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HUG 주택도시보증공사 조사 방법론
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/research/%EA%B5%AD%ED%86%A0%EA%B5%90%ED%86%B5%EB%B6%80_%ED%86%B5%EA%B3%84%EB%88%84%EB%A6%AC_CSV%EC%B2%98%EB%A6%AC_%EA%B2%B0%EA%B3%BC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    국토교통부 통계누리 CSV 처리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 3 — 부동산 RAG 챗봇
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phase 3 — 부동산 RAG 챗봇
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기획서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../evaluation_report/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG vs LLM 평가 보고서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    테스트 데이터
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    테스트 데이터
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/test_set_v1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    테스트 셋 v1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG+LLM 테스트 결과
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RAG+LLM 테스트 결과
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 요약
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_a_singles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part A — 단일 질문 (100개)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_c_singles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part C — 추가 단일 질문 (12개)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_001/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-001 대학생 자취방
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_002/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-002 대학생 주거 지원
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_003/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-003 사회초년생 독립
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_004/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-004 직장인 자취 지역
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_005/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-005 신혼부부 평수/구조
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-006 맞벌이 출퇴근 동선
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-007 자녀 학군 이사
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_008/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-008 아이 키우기 아파트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-009 전원주택 구매
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-010 상가 매입
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-011 경매 입찰
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-012 꼬마빌딩 투자
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-013 단독주택/다가구
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG+LLM v3 결과 (realestate_v3 연동)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RAG+LLM v3 결과 (realestate_v3 연동)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 요약
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_a_singles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part A — 단일 질문 (100개)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_c_singles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part C — 추가 단일 질문 (12개)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_001/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-001 대학생 자취방
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_002/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-002 대학생 주거 지원
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_003/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-003 사회초년생 독립
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_004/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-004 직장인 자취 지역
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_005/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-005 신혼부부 평수/구조
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-006 맞벌이 출퇴근 동선
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-007 자녀 학군 이사
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_008/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-008 아이 키우기 아파트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-009 전원주택 구매
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-010 상가 매입
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-011 경매 입찰
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-012 꼬마빌딩 투자
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-013 단독주택/다가구
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_6" id="__nav_5_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Opus 4.6 베이스라인 결과
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Opus 4.6 베이스라인 결과
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 요약
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_a_singles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part A — 단일 질문 (100개)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_c_singles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part C — 추가 단일 질문 (12개)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_001/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-001 대학생 자취방
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_002/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-002 대학생 주거 지원
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_003/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-003 사회초년생 독립
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_004/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-004 직장인 자취 지역
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_005/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-005 신혼부부 평수/구조
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-006 맞벌이 출퇴근 동선
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-007 자녀 학군 이사
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_008/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-008 아이 키우기 아파트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-009 전원주택 구매
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-010 상가 매입
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-011 경매 입찰
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-012 꼬마빌딩 투자
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-013 단독주택/다가구
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 4 — 딥 리포트
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phase 4 — 딥 리포트
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../4_deep_report/00_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기획서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../4_deep_report/01_api_integration_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API 연동 상세 가이드
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../4_deep_report/02_competitor_analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    경쟁사 분석 상세
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    환경 설정
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    환경 설정
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    개요
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/qdrant_container_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qdrant 벡터 DB 컨테이너
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/embedding_container_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    KURE-v1 임베딩 컨테이너
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/qwen35_27b_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qwen3.5-27B 실행 가이드
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/nemotron3_super_120b_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nemotron3 Super 120B 실행 가이드
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/gemini_cron_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gemini CLI Cron 설정
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/codex_cron_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Codex CLI Cron 설정
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#q1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q1. 전세사기 당한 것 같은데 어디에 신고해야 하나요?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="b-052-opus-46">B-052. 전세사기 후 대처 Opus 4.6 테스트 결과<a class="headerlink" href="#b-052-opus-46" title="Permanent link">&para;</a></h1>
+<p>실행 시각: 2026-04-02 06:49:18
+질문 수: 8</p>
+<hr />
+<h3 id="q1">Q1. 전세사기 당한 것 같은데 어디에 신고해야 하나요?<a class="headerlink" href="#q1" title="Permanent link">&para;</a></h3>
+<p><strong>입력 토큰</strong>: 3 | <strong>출력 토큰</strong>: 1,170 | <strong>소요시간</strong>: 26,450ms | <strong>CLI 비용</strong>: $0.0393 | <strong>추정 API 비용</strong>: $0.0878
+<strong>대화 컨텍스트</strong>: 0턴 누적 | <strong>후속 제안</strong>: 미감지</p>
+<p><strong>답변:</strong></p>
+<h1 id="_1">전세사기 피해 신고 및 대응 방법<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>전세사기가 의심되신다면, <strong>즉시 아래 기관들에 신고·상담</strong>하시기 바랍니다.</p>
+<hr />
+<h2 id="1">🚨 1단계: 즉시 신고<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>기관</th>
+<th>연락처</th>
+<th>비고</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>경찰서 (사이버·경제범죄 수사대)</strong></td>
+<td>☎ 112 또는 관할 경찰서 방문</td>
+<td>사기 <strong>형사고소</strong>가 가장 중요합니다</td>
+</tr>
+<tr>
+<td><strong>검찰청 고소·고발</strong></td>
+<td>☎ 1301</td>
+<td>경찰 외 검찰에 직접 고소도 가능</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2">📋 2단계: 피해 지원 신청<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<h3 id="1_1">① 전세사기피해지원센터<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>☎ 1533-8119</strong></li>
+<li>국토교통부 산하 전세사기 전담 지원기관</li>
+<li>피해 상담, 법률지원, 긴급 주거지원 등 원스톱 지원</li>
+</ul>
+<h3 id="2_1">② 대한법률구조공단<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>☎ 132</strong></li>
+<li><strong>무료 법률상담 및 소송대리</strong> 가능 (소득 기준 충족 시)</li>
+</ul>
+<h3 id="3-hug">③ 주택도시보증공사(HUG)<a class="headerlink" href="#3-hug" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>☎ 1566-9009</strong></li>
+<li>전세보증금반환보증에 가입했다면 <strong>보증금 대위변제</strong> 신청</li>
+</ul>
+<h3 id="4">④ 관할 구청 주거복지과<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>긴급 주거지원, 임시거처 제공 등</li>
+</ul>
+<hr />
+<h2 id="3">📌 3단계: 반드시 해야 할 조치<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>임차권등기명령 신청</strong> (관할 법원)</li>
+<li>이사를 나가더라도 <strong>대항력·우선변제권을 유지</strong>할 수 있습니다</li>
+<li>
+<p>전입신고 상태에서 신청하세요</p>
+</li>
+<li>
+<p><strong>배당요구 신청</strong></p>
+</li>
+<li>
+<p>경매가 진행 중이라면 관할 법원에 <strong>배당요구 종기일 전</strong>에 반드시 신청</p>
+</li>
+<li>
+<p><strong>전세사기피해자법에 따른 피해자 결정 신청</strong></p>
+</li>
+<li>관할 시·군·구청에 <strong>전세사기 피해자 인정 신청</strong></li>
+<li>인정되면 경매 유예, 우선매수권, 긴급 주거지원 등 혜택</li>
+</ol>
+<hr />
+<h2 id="_2">📂 준비해야 할 서류<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>✅ 임대차계약서 원본</li>
+<li>✅ 전세보증금 이체 내역 (통장거래내역서)</li>
+<li>✅ 등기부등본 (현재 상태)</li>
+<li>✅ 전입세대 열람내역</li>
+<li>✅ 임대인과의 대화 기록 (문자, 카톡 등)</li>
+<li>✅ 확정일자 받은 증빙</li>
+</ul>
+<hr />
+<h2 id="_3">⚡ 긴급 조언<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>가장 중요한 것은 "시간"입니다.</strong>
+- 경찰 고소는 <strong>즉시</strong> 진행하세요.
+- 이사 나가기 <strong>전에</strong> 반드시 임차권등기명령부터 신청하세요.
+- 전입신고를 유지한 상태에서 확정일자가 있어야 우선변제권이 보장됩니다.
+- <strong>절대 임대인 말만 믿고 전입신고를 빼지 마세요.</strong></p>
+</blockquote>
+<p>구체적인 상황(깡통전세, 이중계약, 임대인 잠적 등)을 알려주시면 더 맞춤형 조언을 드릴 수 있습니다.</p>
+<hr />
+<h3 id="q2">Q2. 형사고소 가능한가요?<a class="headerlink" href="#q2" title="Permanent link">&para;</a></h3>
+<p><strong>입력 토큰</strong>: 3 | <strong>출력 토큰</strong>: 2,019 | <strong>소요시간</strong>: 41,848ms | <strong>CLI 비용</strong>: $0.0680 | <strong>추정 API 비용</strong>: $0.1515
+<strong>대화 컨텍스트</strong>: 1턴 누적 | <strong>후속 제안</strong>: 미감지</p>
+<p><strong>답변:</strong></p>
+<h1 id="_4">전세사기 형사고소, 가능합니다<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
+<p>네, <strong>전세사기는 형사고소 대상</strong>입니다. 오히려 <strong>가장 먼저 해야 할 일</strong>이 형사고소입니다.</p>
+<hr />
+<h2 id="_5">⚖️ 적용 가능한 죄명<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>죄명</th>
+<th>형법 조항</th>
+<th>해당 상황</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>사기죄</strong></td>
+<td>형법 제347조</td>
+<td>보증금 반환 의사·능력 없이 계약 체결</td>
+</tr>
+<tr>
+<td><strong>부동산 이중매매·이중임대</strong></td>
+<td>형법 제347조</td>
+<td>여러 세입자에게 동시 계약</td>
+</tr>
+<tr>
+<td><strong>횡령죄</strong></td>
+<td>형법 제355조</td>
+<td>보증금을 다른 용도로 유용</td>
+</tr>
+<tr>
+<td><strong>배임죄</strong></td>
+<td>형법 제355조</td>
+<td>근저당 설정 등으로 세입자 권리 침해</td>
+</tr>
+<tr>
+<td><strong>공인중개사법 위반</strong></td>
+<td>공인중개사법</td>
+<td>중개사가 공모·묵인한 경우</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>사기죄 법정형</strong>: 10년 이하 징역 또는 2,000만 원 이하 벌금
+<strong>특경법 적용 시</strong> (피해액 5억 이상): 3년 이상 유기징역</p>
+</blockquote>
+<hr />
+<h2 id="_6">📝 형사고소 방법<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h3 id="1_2">방법 1: 경찰서 방문 고소 (가장 일반적)<a class="headerlink" href="#1_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>관할 경찰서 경제범죄수사팀</strong> 방문</li>
+<li>고소장 + 증거자료 제출</li>
+<li>고소인 조사(진술조서 작성)</li>
+</ul>
+<h3 id="2_2">방법 2: 검찰청 직접 고소<a class="headerlink" href="#2_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>관할 지방검찰청 민원실 방문 또는 <strong>☎ 1301</strong></li>
+<li>경찰 수사가 미진할 경우 효과적</li>
+</ul>
+<h3 id="3_1">방법 3: 온라인 신고<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>경찰청 사이버수사국</strong> (ecrm.police.go.kr)</li>
+<li><strong>국민신문고</strong> (www.epeople.go.kr)</li>
+</ul>
+<hr />
+<h2 id="_7">📂 고소장에 포함할 내용<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>1. 고소인 정보 (본인)
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>2. 피고소인 정보 (임대인, 공모한 중개사 등)
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>3. 고소 취지: &quot;피고소인을 사기죄로 고소합니다&quot;
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>4. 범죄 사실: 시간순으로 구체적 기술
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>   - 계약 일시, 장소
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>   - 보증금 금액 및 지급 일시
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>   - 사기 정황 (기망 행위)
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>5. 증거 목록
+</code></pre></div>
+<hr />
+<h2 id="_8">📎 준비할 증거자료<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<ul>
+<li>✅ <strong>임대차계약서</strong> 사본</li>
+<li>✅ <strong>보증금 송금 내역</strong> (계좌이체 확인서)</li>
+<li>✅ <strong>등기부등본</strong> (근저당, 가압류, 소유권 변동 확인)</li>
+<li>✅ <strong>임대인과 대화 기록</strong> (카톡, 문자, 녹음 등)</li>
+<li>✅ <strong>중개사 관련 자료</strong> (명함, 중개계약서)</li>
+<li>✅ <strong>건축물대장</strong> (불법건축물 여부)</li>
+<li>✅ <strong>선순위 권리관계 정리표</strong> (피해 입증용)</li>
+</ul>
+<hr />
+<h2 id="_9">💡 고소 시 핵심 포인트<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<h3 id="_10">"사기의 고의"를 입증하는 것이 관건입니다<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p>다음 정황이 있으면 <strong>사기 고의 입증에 유리</strong>합니다:</p>
+<ol>
+<li>✅ 계약 당시 이미 <strong>근저당이 보증금을 초과</strong> (깡통전세)</li>
+<li>✅ <strong>여러 세입자에게 동시 계약</strong> (이중·삼중 계약)</li>
+<li>✅ 임대인이 <strong>다수의 부동산을 동일 수법</strong>으로 임대</li>
+<li>✅ 보증금 수령 후 <strong>즉시 다른 용도에 사용</strong></li>
+<li>✅ 임대인이 <strong>잠적하거나 연락 두절</strong></li>
+<li>✅ <strong>허위 서류</strong> 제시 (위조 등기부등본 등)</li>
+<li>✅ 중개사가 <strong>시세보다 높은 보증금</strong>으로 유도</li>
+</ol>
+<hr />
+<h2 id="_11">⚠️ 주의사항<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>"민사 문제라서 고소 안 됩니다"라는 말에 속지 마세요.</strong></p>
+</blockquote>
+<ul>
+<li>경찰이 초기에 "민사 분쟁"이라며 접수를 꺼리는 경우가 있습니다</li>
+<li>이때는 <strong>"고소장 접수 거부는 위법"</strong>임을 분명히 하고, <strong>접수증을 반드시 받으세요</strong></li>
+<li>접수가 안 되면 → <strong>검찰청에 직접 고소</strong> 또는 <strong>감사원·경찰 민원</strong> 제기</li>
+</ul>
+<hr />
+<h2 id="_12">🔄 형사고소 이후 절차<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>고소장 접수 → 사건 배당 → 고소인 조사 → 피고소인 소환조사
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>→ 검찰 송치 → 기소/불기소 결정 → (기소 시) 형사재판
+</code></pre></div>
+<ul>
+<li>수사 기간: 통상 <strong>3~6개월</strong> (사안에 따라 다름)</li>
+<li>불기소 시 → <strong>항고 → 재항고 → 헌법소원</strong> 가능</li>
+</ul>
+<hr />
+<h2 id="_13">🎯 실전 조언<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>순서</th>
+<th>할 일</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1</strong></td>
+<td>고소장 작성 (직접 또는 법률구조공단 ☎132 도움)</td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td>관할 경찰서 경제팀에 접수 + <strong>접수번호 확보</strong></td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td>동일 피해자가 있다면 <strong>공동고소</strong> (수사력 집중 효과)</td>
+</tr>
+<tr>
+<td><strong>4</strong></td>
+<td>형사 진행과 <strong>별도로 민사소송도 병행</strong></td>
+</tr>
+<tr>
+<td><strong>5</strong></td>
+<td>임대인 재산 도피 방지를 위해 <strong>가압류 신청</strong> (민사)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>구체적인 상황을 알려주시면 (예: 깡통전세, 임대인 잠적, 이중계약, 피해 금액 등) <strong>고소장 작성 방향과 전략</strong>을 더 구체적으로 안내해 드리겠습니다.</p>
+<hr />
+<h3 id="q3">Q3. 전세사기 피해자 인정 기준이 뭐예요?<a class="headerlink" href="#q3" title="Permanent link">&para;</a></h3>
+<p><strong>입력 토큰</strong>: 3 | <strong>출력 토큰</strong>: 2,025 | <strong>소요시간</strong>: 39,419ms | <strong>CLI 비용</strong>: $0.0806 | <strong>추정 API 비용</strong>: $0.1519
+<strong>대화 컨텍스트</strong>: 2턴 누적 | <strong>후속 제안</strong>: 미감지</p>
+<p><strong>답변:</strong></p>
+<h1 id="_14">전세사기 피해자 인정 기준<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h1>
+<p>「전세사기피해자 지원 및 주거안정에 관한 특별법」에 따른 피해자 인정 기준을 안내드립니다.</p>
+<hr />
+<h2 id="_15">📌 피해자 인정 요건 (모두 충족해야 함)<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<h3 id="1_3">① 대항력을 갖춘 임차인일 것<a class="headerlink" href="#1_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>주택임대차보호법상 대항요건</strong> 충족</li>
+<li>주택 인도(입주) + 전입신고 완료</li>
+<li>또는 <strong>확정일자</strong>를 받은 임차인</li>
+</ul>
+<h3 id="2_3">② 임대인의 사기 관련 혐의가 있을 것<a class="headerlink" href="#2_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>임대인이 다음 중 하나에 해당:</li>
+<li><strong>형사 기소</strong> (사기, 횡령, 배임 등)</li>
+<li><strong>수사기관에 수사 중</strong> (고소·고발 접수)</li>
+<li><strong>공소제기</strong> 또는 <strong>유죄판결</strong></li>
+<li>⚡ <strong>따라서 형사고소가 선행되어야</strong> 피해자 인정 신청이 가능합니다</li>
+</ul>
+<h3 id="3_2">③ 보증금을 반환받지 못했거나 못할 위험이 있을 것<a class="headerlink" href="#3_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>경매·공매 진행 중이거나 개시 예정</li>
+<li>임대인의 재산이 보증금 반환에 <strong>현저히 부족</strong></li>
+<li>보증금 반환 청구에 임대인이 <strong>응하지 않는 상태</strong></li>
+</ul>
+<h3 id="4_1">④ 보증금이 일정 기준 이하일 것 (서민 요건)<a class="headerlink" href="#4_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>지역</th>
+<th>보증금 상한</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>서울</strong></td>
+<td>3억 원 이하</td>
+</tr>
+<tr>
+<td><strong>수도권 과밀억제권역</strong></td>
+<td>2억 원 이하</td>
+</tr>
+<tr>
+<td><strong>광역시·세종·수도권 기타</strong></td>
+<td>1억 5,000만 원 이하</td>
+</tr>
+<tr>
+<td><strong>그 외 지역</strong></td>
+<td>1억 원 이하</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>※ 기준은 법 개정에 따라 변동될 수 있으므로, 신청 시점에 반드시 재확인하세요.</p>
+</blockquote>
+<h3 id="5">⑤ 임차인 본인이 다주택자가 아닐 것<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>피해 주택 외에 <strong>다른 주택을 소유하지 않아야</strong> 함</li>
+<li>배우자 포함 기준</li>
+</ul>
+<hr />
+<h2 id="_16">🏛️ 신청 절차<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>① 관할 시·군·구청에 피해자 인정 신청
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    ↓
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>② 피해지원위원회 심의·의결
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    ↓
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>③ 피해자 결정 통보 (신청일로부터 약 2개월 내)
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    ↓
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>④ 결정에 불복 시 → 이의신청 가능 (30일 이내)
+</code></pre></div>
+<h3 id="_17">신청 장소<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>피해 주택 소재지 관할 시·군·구청</strong> 주거복지과(또는 주택과)</li>
+<li>전세사기피해지원센터 <strong>☎ 1533-8119</strong>에서 사전 상담 권장</li>
+</ul>
+<hr />
+<h2 id="_18">📂 신청 시 필요 서류<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h2>
+<ul>
+<li>✅ 피해자 결정 신청서 (구청 비치 또는 온라인 다운로드)</li>
+<li>✅ 임대차계약서 사본</li>
+<li>✅ 보증금 지급 증빙 (이체내역서)</li>
+<li>✅ 등기부등본</li>
+<li>✅ 전입세대 열람내역</li>
+<li>✅ 확정일자 부여 증빙</li>
+<li>✅ <strong>형사고소 접수증</strong> 또는 사건번호</li>
+<li>✅ 무주택 확인 서류 (주택 소유 여부 확인서)</li>
+<li>✅ 신분증 사본</li>
+</ul>
+<hr />
+<h2 id="_19">🎁 피해자로 인정되면 받을 수 있는 지원<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>지원 내용</th>
+<th>상세</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>경매 유예</strong></td>
+<td>최대 1년간 경매 절차 유예 (연장 가능)</td>
+</tr>
+<tr>
+<td><strong>우선매수권</strong></td>
+<td>경매 시 피해 주택을 <strong>감정가로 우선 매수</strong> 가능</td>
+</tr>
+<tr>
+<td><strong>긴급 주거지원</strong></td>
+<td>LH 임대주택 우선 입주, 주거비 지원</td>
+</tr>
+<tr>
+<td><strong>보증금 대위변제</strong></td>
+<td>HUG·SGI 등을 통한 보증금 반환 지원</td>
+</tr>
+<tr>
+<td><strong>법률 지원</strong></td>
+<td>무료 법률상담, 소송비용 지원</td>
+</tr>
+<tr>
+<td><strong>금융 지원</strong></td>
+<td>저리 대출, 기존 대출 상환 유예</td>
+</tr>
+<tr>
+<td><strong>세제 혜택</strong></td>
+<td>취득세 감면 등</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_20">⚠️ 핵심 주의사항<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h2>
+<blockquote>
+<h3 id="1_4">1. 형사고소가 <strong>먼저</strong>입니다<a class="headerlink" href="#1_4" title="Permanent link">&para;</a></h3>
+<p>피해자 인정의 전제조건이 "임대인에 대한 수사·기소"이므로, <strong>경찰 고소를 아직 안 하셨다면 즉시 진행하세요.</strong></p>
+<h3 id="2_4">2. 전입신고를 유지하세요<a class="headerlink" href="#2_4" title="Permanent link">&para;</a></h3>
+<p>이사를 나가야 한다면 반드시 <strong>임차권등기명령 신청 후</strong> 이사하세요. 전입신고를 빼면 대항력을 잃어 피해자 인정에도 불리해집니다.</p>
+<h3 id="3_3">3. 동일 피해자 공동 신청<a class="headerlink" href="#3_3" title="Permanent link">&para;</a></h3>
+<p>같은 임대인에게 피해를 입은 세입자들이 <strong>함께 신청</strong>하면 심의가 빨라지고 인정 가능성도 높아집니다.</p>
+</blockquote>
+<hr />
+<h2 id="_21">🔄 이전 안내와 연결 정리<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>순서</th>
+<th>조치</th>
+<th>상태</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1</strong></td>
+<td>경찰 형사고소 접수</td>
+<td>← 지난번 안내 완료</td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td>임차권등기명령 신청</td>
+<td>← 이사 전 필수</td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td><strong>전세사기 피해자 인정 신청</strong></td>
+<td>← <strong>지금 안내해 드린 부분</strong></td>
+</tr>
+<tr>
+<td><strong>4</strong></td>
+<td>민사소송 + 가압류 병행</td>
+<td>← 재산 보전</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>구체적인 상황 (보증금 금액, 지역, 경매 진행 여부, 고소 접수 여부 등)을 알려주시면 <strong>피해자 인정 가능성과 가장 유리한 전략</strong>을 더 구체적으로 분석해 드리겠습니다.</p>
+<hr />
+<h3 id="q4-lh">Q4. LH에서 피해주택 매입해준다는데 어떻게 신청하나요?<a class="headerlink" href="#q4-lh" title="Permanent link">&para;</a></h3>
+<p><strong>입력 토큰</strong>: 3 | <strong>출력 토큰</strong>: 2,579 | <strong>소요시간</strong>: 44,177ms | <strong>CLI 비용</strong>: $0.1070 | <strong>추정 API 비용</strong>: $0.1935
+<strong>대화 컨텍스트</strong>: 3턴 누적 | <strong>후속 제안</strong>: 미감지</p>
+<p><strong>답변:</strong></p>
+<h1 id="lh">LH 전세사기 피해주택 매입 및 임대 지원<a class="headerlink" href="#lh" title="Permanent link">&para;</a></h1>
+<p>전세사기 피해자로 인정되면, <strong>LH(한국토지주택공사)가 피해주택을 매입하여 피해자에게 저렴하게 임대</strong>해주는 제도입니다. 현재 거주 중인 집에서 쫓겨나지 않고 계속 살 수 있는 <strong>가장 실질적인 지원책</strong>입니다.</p>
+<hr />
+<h2 id="_22">📌 제도 개요<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>사업 주체</strong></td>
+<td>LH (한국토지주택공사)</td>
+</tr>
+<tr>
+<td><strong>매입 대상</strong></td>
+<td>전세사기 피해주택 (경매·공매 진행 중인 주택)</td>
+</tr>
+<tr>
+<td><strong>매입 방식</strong></td>
+<td>LH가 경매에서 낙찰 또는 우선매수권 행사로 매입</td>
+</tr>
+<tr>
+<td><strong>매입 후</strong></td>
+<td>피해자에게 <strong>공공임대주택</strong>으로 제공</td>
+</tr>
+<tr>
+<td><strong>임대 기간</strong></td>
+<td>최대 <strong>20년</strong> (2년 단위 갱신)</td>
+</tr>
+<tr>
+<td><strong>임대료</strong></td>
+<td>시세 대비 <strong>30~50% 수준</strong>의 저렴한 임대료</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_23">✅ 신청 자격 (전제조건)<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>「전세사기피해자법」에 따른 피해자 결정을 받은 사람</strong>이어야 합니다.</p>
+</blockquote>
+<ol>
+<li>✅ 전세사기 <strong>피해자로 인정</strong> 결정을 받았을 것 (← 이전 안내 참고)</li>
+<li>✅ 해당 주택에 대해 <strong>경매·공매가 진행</strong> 중이거나 예정일 것</li>
+<li>✅ 피해자가 <strong>우선매수권</strong>을 LH에 양도할 의사가 있을 것</li>
+<li>✅ <strong>무주택자</strong>일 것</li>
+</ol>
+<hr />
+<h2 id="_24">📝 신청 절차 (단계별)<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>① 전세사기 피해자 인정 (시·군·구청)
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    ↓
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>② 우선매수권 부여 (피해지원위원회)
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    ↓
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>③ LH에 매입·임대 신청
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    ↓
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>④ LH 매입 결정 (주택 실사·감정평가)
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    ↓
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>⑤ LH가 경매에서 우선매수권 행사하여 낙찰
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    ↓
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>⑥ 피해자와 LH 간 공공임대차계약 체결
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    ↓
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>⑦ 피해자 계속 거주
+</code></pre></div>
+<h3 id="_25">구체적 신청 방법<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h3>
+<h4 id="1_5">1단계: 피해자 인정 + 우선매수권 확보<a class="headerlink" href="#1_5" title="Permanent link">&para;</a></h4>
+<ul>
+<li>관할 <strong>시·군·구청</strong>에서 피해자 결정 + 우선매수권 부여</li>
+<li>(이전 안내에서 설명드린 절차)</li>
+</ul>
+<h4 id="2-lh">2단계: LH에 매입·임대 신청<a class="headerlink" href="#2-lh" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>신청처</strong>: LH 전세사기피해지원 전담부서</li>
+<li><strong>☎ LH 콜센터: 1600-1004</strong></li>
+<li><strong>온라인</strong>: LH 청약센터 (apply.lh.or.kr) 또는 마이홈포털 (www.myhome.go.kr)</li>
+<li><strong>오프라인</strong>: LH 지역본부 방문 신청</li>
+</ul>
+<h4 id="3_4">3단계: 우선매수권 양도 동의<a class="headerlink" href="#3_4" title="Permanent link">&para;</a></h4>
+<ul>
+<li>피해자 본인의 우선매수권을 <strong>LH에 양도하는 동의서</strong> 작성</li>
+<li>LH가 피해자 대신 경매에서 해당 주택을 매입</li>
+</ul>
+<hr />
+<h2 id="_26">📂 신청 시 필요 서류<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h2>
+<ul>
+<li>✅ 전세사기 피해자 결정문 사본</li>
+<li>✅ 우선매수권 부여 통지서</li>
+<li>✅ 우선매수권 양도 동의서 (LH 양식)</li>
+<li>✅ 임대차계약서 사본</li>
+<li>✅ 등기부등본</li>
+<li>✅ 주민등록등본</li>
+<li>✅ 소득·자산 증빙 서류 (건강보험료 납부확인서 등)</li>
+<li>✅ 무주택 확인서류</li>
+<li>✅ 신분증 사본</li>
+</ul>
+<hr />
+<h2 id="_27">💰 임대 조건 (매입 후)<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>조건</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>보증금</strong></td>
+<td>시세 대비 <strong>대폭 할인</strong> (소득에 따라 차등)</td>
+</tr>
+<tr>
+<td><strong>월 임대료</strong></td>
+<td>주변 시세의 <strong>30~50%</strong> 수준</td>
+</tr>
+<tr>
+<td><strong>임대 기간</strong></td>
+<td><strong>최초 2년</strong>, 최대 <strong>20년까지 갱신</strong> 가능</td>
+</tr>
+<tr>
+<td><strong>우선 분양전환</strong></td>
+<td>일정 기간 거주 후 <strong>분양전환 우선권</strong> 부여 가능</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_28">소득별 임대료 예시 (참고용)<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>소득 기준</th>
+<th>임대료 수준</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>기초생활수급자</td>
+<td>시세의 약 <strong>30%</strong></td>
+</tr>
+<tr>
+<td>중위소득 50% 이하</td>
+<td>시세의 약 <strong>40%</strong></td>
+</tr>
+<tr>
+<td>중위소득 100% 이하</td>
+<td>시세의 약 <strong>50%</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>※ 정확한 금액은 주택 감정가·소득 수준에 따라 개별 산정됩니다.</p>
+</blockquote>
+<hr />
+<h2 id="_29">⚡ 기존 보증금은 어떻게 되나요?<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>이 부분이 가장 중요합니다.</p>
+</blockquote>
+<ul>
+<li>LH가 매입한 금액에서 <strong>선순위 채권(근저당 등)을 제외한 나머지</strong>가 배당으로 돌아옵니다</li>
+<li>피해자의 <strong>우선변제권 순위에 따라 배당금 수령</strong> 가능</li>
+<li>배당금이 보증금 전액에 미치지 못하는 경우가 많지만, <strong>주거는 확보</strong>됩니다</li>
+<li>미회수 보증금에 대해서는 <strong>임대인 상대 별도 민사소송</strong> 병행 가능</li>
+</ul>
+<hr />
+<h2 id="_30">⚠️ 핵심 주의사항<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h2>
+<h3 id="1_6">1. 매입이 안 되는 경우도 있습니다<a class="headerlink" href="#1_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li>주택 상태가 극히 불량한 경우</li>
+<li>위반건축물로 매입 부적격 판정</li>
+<li>감정가 대비 선순위 채권이 과다한 경우</li>
+<li>→ 이 경우 <strong>LH 다른 공공임대주택 입주 지원</strong>으로 대체</li>
+</ul>
+<h3 id="2_5">2. 경매 일정에 주의하세요<a class="headerlink" href="#2_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>LH 매입 신청은 <strong>경매 낙찰 전</strong>에 완료해야 합니다</li>
+<li>경매 기일이 임박했다면 <strong>즉시 LH에 연락</strong>하세요</li>
+</ul>
+<h3 id="3_5">3. 퇴거 요구에 응하지 마세요<a class="headerlink" href="#3_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>LH 매입 절차 진행 중에는 <strong>점유를 유지</strong>하는 것이 중요합니다</li>
+</ul>
+<hr />
+<h2 id="_31">🔄 전체 대응 로드맵 정리<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>순서</th>
+<th>조치</th>
+<th>상태</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1</strong></td>
+<td>경찰 형사고소 접수</td>
+<td>✅ 안내 완료</td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td>임차권등기명령 신청</td>
+<td>✅ 안내 완료</td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td>전세사기 피해자 인정 신청</td>
+<td>✅ 안내 완료</td>
+</tr>
+<tr>
+<td><strong>4</strong></td>
+<td><strong>LH 매입·임대 신청</strong></td>
+<td>← <strong>지금 안내해 드린 부분</strong></td>
+</tr>
+<tr>
+<td><strong>5</strong></td>
+<td>민사소송 + 가압류 병행</td>
+<td>미회수 보증금 대응</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_32">📞 연락처 정리<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>기관</th>
+<th>연락처</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>LH 콜센터</strong></td>
+<td>☎ <strong>1600-1004</strong></td>
+</tr>
+<tr>
+<td><strong>전세사기피해지원센터</strong></td>
+<td>☎ <strong>1533-8119</strong></td>
+</tr>
+<tr>
+<td><strong>마이홈포털</strong></td>
+<td>www.myhome.go.kr</td>
+</tr>
+<tr>
+<td><strong>LH 청약센터</strong></td>
+<td>apply.lh.or.kr</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>현재 <strong>피해자 인정 신청은 하셨는지</strong>, <strong>경매가 진행 중인 상태인지</strong> 알려주시면 지금 시점에서 가장 시급한 조치를 구체적으로 안내해 드리겠습니다.</p>
+<hr />
+<h3 id="q5">Q5. 전세사기 피해자 지원제도 뭐가 있나요?<a class="headerlink" href="#q5" title="Permanent link">&para;</a></h3>
+<p><strong>입력 토큰</strong>: 3 | <strong>출력 토큰</strong>: 3,810 | <strong>소요시간</strong>: 59,674ms | <strong>CLI 비용</strong>: $0.1538 | <strong>추정 API 비용</strong>: $0.2858
+<strong>대화 컨텍스트</strong>: 4턴 누적 | <strong>후속 제안</strong>: 미감지</p>
+<p><strong>답변:</strong></p>
+<h1 id="_33">전세사기 피해자 지원제도 총정리<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h1>
+<p>「전세사기피해자 지원 및 주거안정에 관한 특별법」 및 관련 정부 대책에 따른 <strong>모든 지원제도</strong>를 종합 정리해 드립니다.</p>
+<hr />
+<h2 id="1_7">🏠 1. 주거 안정 지원<a class="headerlink" href="#1_7" title="Permanent link">&para;</a></h2>
+<h3 id="1-lh">① LH 피해주택 매입·임대 (← 이전 안내 완료)<a class="headerlink" href="#1-lh" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>내용</td>
+<td>LH가 피해주택을 매입 후 피해자에게 공공임대</td>
+</tr>
+<tr>
+<td>임대료</td>
+<td>시세의 <strong>30~50%</strong></td>
+</tr>
+<tr>
+<td>임대기간</td>
+<td>최대 <strong>20년</strong></td>
+</tr>
+<tr>
+<td>문의</td>
+<td>☎ 1600-1004</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2_6">② 공공임대주택 우선 입주<a class="headerlink" href="#2_6" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>내용</td>
+<td>LH·SH 공공임대주택에 <strong>우선 배정</strong></td>
+</tr>
+<tr>
+<td>유형</td>
+<td>영구임대, 국민임대, 행복주택 등</td>
+</tr>
+<tr>
+<td>특징</td>
+<td>일반 공모 없이 <strong>특별공급</strong> 자격 부여</td>
+</tr>
+<tr>
+<td>신청</td>
+<td>마이홈포털 (www.myhome.go.kr)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3_6">③ 긴급 주거지원<a class="headerlink" href="#3_6" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>내용</td>
+<td>당장 거처가 없는 경우 <strong>임시거처 제공</strong></td>
+</tr>
+<tr>
+<td>기간</td>
+<td>최대 <strong>6개월</strong> (연장 가능)</td>
+</tr>
+<tr>
+<td>지원금</td>
+<td>월 주거비 지원 (지역별 상이)</td>
+</tr>
+<tr>
+<td>신청</td>
+<td>관할 <strong>시·군·구청 주거복지과</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="4_2">④ 전세임대주택 지원<a class="headerlink" href="#4_2" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>내용</td>
+<td>피해자가 원하는 주택을 LH가 전세 계약 후 저렴하게 재임대</td>
+</tr>
+<tr>
+<td>지원한도</td>
+<td>수도권 <strong>1억 2,000만 원</strong> 이내, 지방 <strong>8,000만 원</strong> 이내</td>
+</tr>
+<tr>
+<td>본인부담</td>
+<td>전세금의 <strong>5% 수준</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2_7">⚖️ 2. 법률·권리 보호 지원<a class="headerlink" href="#2_7" title="Permanent link">&para;</a></h2>
+<h3 id="5_1">⑤ 경매 유예<a class="headerlink" href="#5_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>내용</td>
+<td>피해주택 경매 절차를 <strong>일시 중지</strong></td>
+</tr>
+<tr>
+<td>기간</td>
+<td>최대 <strong>1년</strong> (추가 연장 가능)</td>
+</tr>
+<tr>
+<td>효과</td>
+<td>즉시 퇴거 위험 방지, 대응 시간 확보</td>
+</tr>
+<tr>
+<td>신청</td>
+<td>피해지원위원회 직권 또는 피해자 신청</td>
+</tr>
+</tbody>
+</table>
+<h3 id="6">⑥ 우선매수권 부여<a class="headerlink" href="#6" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>내용</td>
+<td>경매 시 피해주택을 <strong>최고가 낙찰가와 동일 금액</strong>으로 우선 매수 가능</td>
+</tr>
+<tr>
+<td>활용</td>
+<td>본인이 직접 매수 또는 <strong>LH에 양도</strong>하여 매입·임대 전환</td>
+</tr>
+<tr>
+<td>신청</td>
+<td>피해지원위원회에 신청</td>
+</tr>
+</tbody>
+</table>
+<h3 id="7">⑦ 무료 법률지원<a class="headerlink" href="#7" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>기관</th>
+<th>지원 내용</th>
+<th>연락처</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>대한법률구조공단</strong></td>
+<td>무료 법률상담, 소송대리</td>
+<td>☎ <strong>132</strong></td>
+</tr>
+<tr>
+<td><strong>대한변호사협회 법률구조재단</strong></td>
+<td>무료 변호사 선임</td>
+<td>☎ 02-3476-6515</td>
+</tr>
+<tr>
+<td><strong>전세사기피해지원센터</strong></td>
+<td>전담 법률상담</td>
+<td>☎ <strong>1533-8119</strong></td>
+</tr>
+<tr>
+<td><strong>법률홈닥터</strong></td>
+<td>찾아가는 법률서비스</td>
+<td>www.legalclinic.or.kr</td>
+</tr>
+</tbody>
+</table>
+<h3 id="8">⑧ 임차권등기명령<a class="headerlink" href="#8" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>내용</td>
+<td>이사 후에도 <strong>대항력·우선변제권 유지</strong></td>
+</tr>
+<tr>
+<td>신청</td>
+<td>관할 법원</td>
+</tr>
+<tr>
+<td>비용</td>
+<td>인지대·송달료 약 <strong>5만 원 내외</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3_7">💰 3. 금융 지원<a class="headerlink" href="#3_7" title="Permanent link">&para;</a></h2>
+<h3 id="9-hugsgi">⑨ 보증금 반환 대위변제 (HUG·SGI)<a class="headerlink" href="#9-hugsgi" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>대상</td>
+<td>전세보증금반환보증에 <strong>가입한</strong> 피해자</td>
+</tr>
+<tr>
+<td>내용</td>
+<td>보증기관이 보증금을 <strong>먼저 돌려주고</strong> 임대인에게 구상</td>
+</tr>
+<tr>
+<td>신청</td>
+<td>HUG ☎ <strong>1566-9009</strong> / SGI ☎ <strong>1670-7000</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="10">⑩ 긴급 생계비 대출<a class="headerlink" href="#10" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>내용</td>
+<td>보증금 미반환으로 생활이 곤란한 경우 <strong>긴급 대출</strong></td>
+</tr>
+<tr>
+<td>금리</td>
+<td><strong>연 1~2%대</strong> 저금리</td>
+</tr>
+<tr>
+<td>한도</td>
+<td>최대 <strong>1,000만 원</strong></td>
+</tr>
+<tr>
+<td>취급</td>
+<td>주택도시기금 취급 은행 (우리·국민·신한·하나·기업은행)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="11">⑪ 전세자금 대출 상환 유예<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>내용</td>
+<td>기존 전세자금 대출의 <strong>원리금 상환 유예</strong></td>
+</tr>
+<tr>
+<td>기간</td>
+<td>최대 <strong>2년</strong></td>
+</tr>
+<tr>
+<td>신청</td>
+<td>대출 취급 은행</td>
+</tr>
+</tbody>
+</table>
+<h3 id="12">⑫ 전세피해 대출 전환<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>내용</td>
+<td>기존 전세대출을 <strong>저금리 장기대출로 전환</strong></td>
+</tr>
+<tr>
+<td>금리</td>
+<td>연 <strong>1~2%대</strong></td>
+</tr>
+<tr>
+<td>상환</td>
+<td>최대 <strong>20년</strong> 분할상환</td>
+</tr>
+</tbody>
+</table>
+<h3 id="13">⑬ 신용회복 지원<a class="headerlink" href="#13" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>내용</td>
+<td>보증금 미반환으로 인한 <strong>연체·신용하락 방지</strong></td>
+</tr>
+<tr>
+<td>지원</td>
+<td>연체 이력 유예, 신용등급 조정</td>
+</tr>
+<tr>
+<td>신청</td>
+<td>신용회복위원회 ☎ <strong>1600-5500</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4_3">🏥 4. 생활 안정 지원<a class="headerlink" href="#4_3" title="Permanent link">&para;</a></h2>
+<h3 id="14">⑭ 긴급복지지원<a class="headerlink" href="#14" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>내용</td>
+<td>생계비, 의료비, 주거비 등 <strong>긴급 지원</strong></td>
+</tr>
+<tr>
+<td>생계비</td>
+<td>4인 가구 기준 월 약 <strong>162만 원</strong></td>
+</tr>
+<tr>
+<td>신청</td>
+<td>주민센터 또는 ☎ <strong>129</strong> (정부 민원콜센터)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="15">⑮ 심리상담 지원<a class="headerlink" href="#15" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>내용</td>
+<td>전세사기 피해로 인한 <strong>정신건강 상담</strong></td>
+</tr>
+<tr>
+<td>비용</td>
+<td><strong>무료</strong></td>
+</tr>
+<tr>
+<td>신청</td>
+<td>정신건강복지센터 ☎ <strong>1577-0199</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="16">⑯ 이사비 지원<a class="headerlink" href="#16" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>내용</td>
+<td>피해주택에서 이주 시 <strong>이사비용 지원</strong></td>
+</tr>
+<tr>
+<td>금액</td>
+<td>약 <strong>40~80만 원</strong> (가구 규모별 차등)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5_2">🏛️ 5. 세제·행정 지원<a class="headerlink" href="#5_2" title="Permanent link">&para;</a></h2>
+<h3 id="17">⑰ 취득세 감면<a class="headerlink" href="#17" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>내용</td>
+<td>피해자가 새 주택 취득 시 <strong>취득세 감면</strong></td>
+</tr>
+<tr>
+<td>감면율</td>
+<td>최대 <strong>면제</strong> (200만 원 한도)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="18">⑱ 재산세 감면<a class="headerlink" href="#18" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>내용</td>
+<td>우선매수권 행사로 취득한 주택의 재산세 감면</td>
+</tr>
+</tbody>
+</table>
+<h3 id="19">⑲ 양도소득세 특례<a class="headerlink" href="#19" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>내용</td>
+<td>피해 관련 부득이한 양도에 대해 <strong>비과세 특례</strong> 적용 가능</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_34">📊 지원제도 한눈에 보기<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>┌─────────────────────────────────────────────┐
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>│           전세사기 피해자 지원제도            │
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>├─────────────┬─────────────┬─────────────────┤
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>│  주거 안정   │  금융 지원   │  법률·생활     │
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>├─────────────┼─────────────┼─────────────────┤
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>│ LH 매입임대  │ 보증금 대위변제│ 무료 법률상담  │
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>│ 공공임대 특별│ 긴급 생계대출 │ 경매 유예      │
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>│ 긴급 주거   │ 대출상환 유예 │ 우선매수권     │
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>│ 전세임대    │ 대출 전환    │ 긴급복지지원   │
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>│ 이사비 지원  │ 신용회복     │ 심리상담       │
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>│             │ 세제 감면    │ 임차권등기     │
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>└─────────────┴─────────────┴─────────────────┘
+</code></pre></div>
+<hr />
+<h2 id="_35">🎯 신청 우선순위 (실전 권장 순서)<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>순서</th>
+<th>조치</th>
+<th>긴급도</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1</strong></td>
+<td>경찰 형사고소</td>
+<td>🔴 즉시</td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td>임차권등기명령 신청</td>
+<td>🔴 즉시</td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td>전세사기피해지원센터 상담 (☎ 1533-8119)</td>
+<td>🔴 즉시</td>
+</tr>
+<tr>
+<td><strong>4</strong></td>
+<td>피해자 인정 신청 (구청)</td>
+<td>🟠 고소 후 즉시</td>
+</tr>
+<tr>
+<td><strong>5</strong></td>
+<td>경매 유예 신청</td>
+<td>🟠 경매 진행 시</td>
+</tr>
+<tr>
+<td><strong>6</strong></td>
+<td>LH 매입·임대 또는 공공임대 신청</td>
+<td>🟡 피해자 인정 후</td>
+</tr>
+<tr>
+<td><strong>7</strong></td>
+<td>긴급 생계대출·대출 유예 신청</td>
+<td>🟡 필요시</td>
+</tr>
+<tr>
+<td><strong>8</strong></td>
+<td>무료 법률지원 신청 (민사소송)</td>
+<td>🟡 병행</td>
+</tr>
+<tr>
+<td><strong>9</strong></td>
+<td>긴급복지지원·심리상담</td>
+<td>🟢 필요시</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_36">📞 핵심 연락처 총정리<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>기관</th>
+<th>연락처</th>
+<th>역할</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>전세사기피해지원센터</strong></td>
+<td>☎ <strong>1533-8119</strong></td>
+<td><strong>원스톱 총괄 상담</strong> (여기 먼저!)</td>
+</tr>
+<tr>
+<td><strong>LH</strong></td>
+<td>☎ <strong>1600-1004</strong></td>
+<td>매입임대·공공임대</td>
+</tr>
+<tr>
+<td><strong>법률구조공단</strong></td>
+<td>☎ <strong>132</strong></td>
+<td>무료 법률상담·소송</td>
+</tr>
+<tr>
+<td><strong>HUG</strong></td>
+<td>☎ <strong>1566-9009</strong></td>
+<td>보증금 대위변제</td>
+</tr>
+<tr>
+<td><strong>경찰</strong></td>
+<td>☎ <strong>112</strong></td>
+<td>형사고소</td>
+</tr>
+<tr>
+<td><strong>정부 민원</strong></td>
+<td>☎ <strong>129</strong></td>
+<td>긴급복지지원</td>
+</tr>
+<tr>
+<td><strong>신용회복위원회</strong></td>
+<td>☎ <strong>1600-5500</strong></td>
+<td>신용회복</td>
+</tr>
+<tr>
+<td><strong>정신건강위기상담</strong></td>
+<td>☎ <strong>1577-0199</strong></td>
+<td>심리상담</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<blockquote>
+<p><strong>💡 가장 중요한 한 가지</strong>: 여러 기관을 일일이 찾아다니기 어려우시면, <strong>전세사기피해지원센터 ☎ 1533-8119</strong>에 먼저 전화하세요. 피해 상황에 맞는 지원제도를 <strong>원스톱으로 안내</strong>받을 수 있습니다.</p>
+</blockquote>
+<p>현재 어떤 단계까지 진행하셨는지 알려주시면, <strong>지금 시점에서 놓치고 있는 지원제도</strong>가 있는지 점검해 드리겠습니다.</p>
+<hr />
+<h3 id="q6">Q6. 긴급 주거지원 받을 수 있나요?<a class="headerlink" href="#q6" title="Permanent link">&para;</a></h3>
+<p><strong>입력 토큰</strong>: 3 | <strong>출력 토큰</strong>: 2,571 | <strong>소요시간</strong>: 45,988ms | <strong>CLI 비용</strong>: $0.1465 | <strong>추정 API 비용</strong>: $0.1929
+<strong>대화 컨텍스트</strong>: 5턴 누적 | <strong>후속 제안</strong>: 미감지</p>
+<p><strong>답변:</strong></p>
+<h1 id="_37">긴급 주거지원, 받으실 수 있습니다<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h1>
+<p>전세사기 피해자라면 <strong>즉시 신청 가능한 긴급 주거지원</strong>이 여러 가지 있습니다. 상황별로 정리해 드리겠습니다.</p>
+<hr />
+<h2 id="1_8">🚨 1. 전세사기 피해자 전용 긴급 주거지원<a class="headerlink" href="#1_8" title="Permanent link">&para;</a></h2>
+<h3 id="_38">대상<a class="headerlink" href="#_38" title="Permanent link">&para;</a></h3>
+<ul>
+<li>전세사기피해자법에 따라 <strong>피해자로 인정</strong>된 사람</li>
+<li>또는 피해자 인정 <strong>신청 중</strong>인 사람 (심의 전이라도 긴급 시 가능)</li>
+</ul>
+<h3 id="_39">지원 내용<a class="headerlink" href="#_39" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>임시거처 제공</strong></td>
+<td>LH·SH 보유 빈집, 고시원, 모텔 등 임시 숙소</td>
+</tr>
+<tr>
+<td><strong>기간</strong></td>
+<td>최대 <strong>6개월</strong> (연장 가능)</td>
+</tr>
+<tr>
+<td><strong>비용</strong></td>
+<td><strong>무료</strong> 또는 최소 부담</td>
+</tr>
+<tr>
+<td><strong>신청처</strong></td>
+<td>관할 <strong>시·군·구청 주거복지과</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_40">신청 방법<a class="headerlink" href="#_40" title="Permanent link">&para;</a></h3>
+<ol>
+<li>관할 구청 주거복지과 방문 또는 전화</li>
+<li>전세사기피해지원센터 <strong>☎ 1533-8119</strong> 경유 신청</li>
+<li>마이홈포털 (www.myhome.go.kr) 온라인 신청</li>
+</ol>
+<hr />
+<h2 id="2_8">🏠 2. 긴급복지지원법에 따른 주거지원<a class="headerlink" href="#2_8" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>피해자 인정 <strong>전이라도</strong> 신청 가능합니다.</p>
+</blockquote>
+<h3 id="_41">대상<a class="headerlink" href="#_41" title="Permanent link">&para;</a></h3>
+<ul>
+<li>보증금 미반환으로 <strong>거처를 잃었거나 잃을 위기</strong>에 처한 경우</li>
+<li>소득·재산 기준 충족 (위기 상황 시 기준 완화 적용)</li>
+</ul>
+<h3 id="_42">지원 내용<a class="headerlink" href="#_42" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>지원 유형</th>
+<th>금액 (월)</th>
+<th>기간</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>주거비 지원</strong> (1~2인)</td>
+<td>약 <strong>29~40만 원</strong></td>
+<td>최대 <strong>12개월</strong></td>
+</tr>
+<tr>
+<td><strong>주거비 지원</strong> (3~4인)</td>
+<td>약 <strong>55~66만 원</strong></td>
+<td>최대 <strong>12개월</strong></td>
+</tr>
+<tr>
+<td><strong>주거비 지원</strong> (5~6인)</td>
+<td>약 <strong>78~87만 원</strong></td>
+<td>최대 <strong>12개월</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>※ 지역 및 가구 규모에 따라 금액 상이, 위 금액은 참고용</p>
+</blockquote>
+<h3 id="_43">추가 병행 지원 (함께 받을 수 있음)<a class="headerlink" href="#_43" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>생계비</strong></td>
+<td>4인 기준 월 약 <strong>162만 원</strong></td>
+</tr>
+<tr>
+<td><strong>의료비</strong></td>
+<td>300만 원 이내</td>
+</tr>
+<tr>
+<td><strong>교육비</strong></td>
+<td>초등 ~고등학생 자녀 학비</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_44">신청 방법<a class="headerlink" href="#_44" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>☎ 129</strong> (정부 민원콜센터) 전화 한 통이면 접수</li>
+<li>관할 <strong>읍·면·동 주민센터</strong> 방문</li>
+<li>신고 후 <strong>48시간 이내</strong> 현장 확인 → 지원 결정</li>
+</ul>
+<hr />
+<h2 id="3-lhsh">🏢 3. LH·SH 공공임대주택 긴급 배정<a class="headerlink" href="#3-lhsh" title="Permanent link">&para;</a></h2>
+<h3 id="_45">지원 내용<a class="headerlink" href="#_45" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>유형</th>
+<th>조건</th>
+<th>임대료</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>영구임대</strong></td>
+<td>기초생활수급자·차상위</td>
+<td>시세의 <strong>약 30%</strong></td>
+</tr>
+<tr>
+<td><strong>국민임대</strong></td>
+<td>중위소득 70% 이하</td>
+<td>시세의 <strong>약 60~80%</strong></td>
+</tr>
+<tr>
+<td><strong>행복주택</strong></td>
+<td>청년·신혼·고령자</td>
+<td>시세의 <strong>약 60~80%</strong></td>
+</tr>
+<tr>
+<td><strong>매입임대</strong></td>
+<td>저소득층</td>
+<td>시세의 <strong>약 30~50%</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_46">전세사기 피해자 특례<a class="headerlink" href="#_46" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>일반 대기 없이 우선 배정</strong></li>
+<li>소득 기준 일부 <strong>완화 적용</strong></li>
+<li>입주 가능 물량이 있는 즉시 배정</li>
+</ul>
+<h3 id="_47">신청<a class="headerlink" href="#_47" title="Permanent link">&para;</a></h3>
+<ul>
+<li>LH <strong>☎ 1600-1004</strong></li>
+<li>SH (서울) <strong>☎ 1600-3456</strong></li>
+<li>마이홈포털 <strong>www.myhome.go.kr</strong></li>
+</ul>
+<hr />
+<h2 id="4_4">🏨 4. 이사비 지원<a class="headerlink" href="#4_4" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>가구 규모</th>
+<th>지원 금액</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1~2인</td>
+<td>약 <strong>40만 원</strong></td>
+</tr>
+<tr>
+<td>3~4인</td>
+<td>약 <strong>55만 원</strong></td>
+</tr>
+<tr>
+<td>5인 이상</td>
+<td>약 <strong>70~80만 원</strong></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>피해주택에서 이주 시 <strong>1회</strong> 지원</li>
+</ul>
+<hr />
+<h2 id="_48">📝 신청 시 필요 서류<a class="headerlink" href="#_48" title="Permanent link">&para;</a></h2>
+<ul>
+<li>✅ 신분증</li>
+<li>✅ 주민등록등본</li>
+<li>✅ 임대차계약서 사본</li>
+<li>✅ 보증금 미반환 증빙 (내용증명, 계약 만료 확인 등)</li>
+<li>✅ 전세사기 피해자 결정문 (있는 경우)</li>
+<li>✅ 형사고소 접수증 (있는 경우)</li>
+<li>✅ 소득·재산 증빙 (건강보험료 납부확인서, 소득금액증명원 등)</li>
+</ul>
+<blockquote>
+<p>서류가 미비해도 <strong>긴급 상황이면 먼저 접수</strong> 가능합니다. 서류는 추후 보완하면 됩니다.</p>
+</blockquote>
+<hr />
+<h2 id="_49">⚡ 지금 당장 해야 할 것<a class="headerlink" href="#_49" title="Permanent link">&para;</a></h2>
+<h3 id="_50">상황별 즉시 조치<a class="headerlink" href="#_50" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>현재 상황</th>
+<th>즉시 할 일</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>퇴거 통보를 받았다</strong></td>
+<td>☎ 129 → 긴급복지지원 신청 + 구청 주거복지과 연락</td>
+</tr>
+<tr>
+<td><strong>경매로 낙찰되어 명도 위기</strong></td>
+<td>☎ 1533-8119 → 경매 유예 + 긴급 주거지원 동시 신청</td>
+</tr>
+<tr>
+<td><strong>당장 갈 곳이 없다</strong></td>
+<td>☎ 129 또는 구청 → 임시거처 <strong>즉일 배정</strong> 요청</td>
+</tr>
+<tr>
+<td><strong>아직 거주 중이지만 불안하다</strong></td>
+<td>☎ 1533-8119 → 사전 상담으로 대비</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_51">⚠️ 핵심 주의사항<a class="headerlink" href="#_51" title="Permanent link">&para;</a></h2>
+<blockquote>
+<h3 id="1_9">1. 피해자 인정 전이라도 긴급 주거지원은 받을 수 있습니다<a class="headerlink" href="#1_9" title="Permanent link">&para;</a></h3>
+<p>긴급복지지원법에 따른 주거비 지원은 <strong>피해자 인정과 무관하게</strong> 위기 상황이면 신청 가능합니다.</p>
+<h3 id="2_9">2. 여러 지원을 중복으로 받을 수 있습니다<a class="headerlink" href="#2_9" title="Permanent link">&para;</a></h3>
+<p>긴급 주거지원 + 생계비 + 법률지원 등 <strong>동시 신청</strong>하세요.</p>
+<h3 id="3_8">3. "해당 없다"는 답변에 포기하지 마세요<a class="headerlink" href="#3_8" title="Permanent link">&para;</a></h3>
+<p>담당자마다 판단이 다를 수 있으니, <strong>전세사기피해지원센터(☎ 1533-8119)를 통해 재확인</strong>하시기 바랍니다.</p>
+</blockquote>
+<hr />
+<h2 id="_52">🔄 현재까지 안내 진행 현황<a class="headerlink" href="#_52" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>순서</th>
+<th>조치</th>
+<th>상태</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1</strong></td>
+<td>경찰 형사고소</td>
+<td>✅ 안내 완료</td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td>임차권등기명령</td>
+<td>✅ 안내 완료</td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td>피해자 인정 신청</td>
+<td>✅ 안내 완료</td>
+</tr>
+<tr>
+<td><strong>4</strong></td>
+<td>LH 매입·임대</td>
+<td>✅ 안내 완료</td>
+</tr>
+<tr>
+<td><strong>5</strong></td>
+<td>전체 지원제도 총정리</td>
+<td>✅ 안내 완료</td>
+</tr>
+<tr>
+<td><strong>6</strong></td>
+<td><strong>긴급 주거지원</strong></td>
+<td>← <strong>지금 안내해 드린 부분</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>현재 <strong>퇴거 시점이 임박한 상황인지</strong>, <strong>경매가 어느 단계인지</strong> 알려주시면, 가장 빠르게 주거를 확보할 수 있는 방법을 <strong>구체적으로</strong> 안내해 드리겠습니다.</p>
+<hr />
+<h3 id="q7">Q7. 법률 상담 무료로 받을 수 있는 곳이 있나요?<a class="headerlink" href="#q7" title="Permanent link">&para;</a></h3>
+<p><strong>입력 토큰</strong>: 3 | <strong>출력 토큰</strong>: 2,806 | <strong>소요시간</strong>: 45,276ms | <strong>CLI 비용</strong>: $0.1683 | <strong>추정 API 비용</strong>: $0.2105
+<strong>대화 컨텍스트</strong>: 6턴 누적 | <strong>후속 제안</strong>: 미감지</p>
+<p><strong>답변:</strong></p>
+<h1 id="_53">무료 법률상담 받을 수 있는 곳 총정리<a class="headerlink" href="#_53" title="Permanent link">&para;</a></h1>
+<p>네, 전세사기 피해자가 <strong>무료로 법률상담·소송지원</strong>까지 받을 수 있는 기관이 여러 곳 있습니다.</p>
+<hr />
+<h2 id="1_10">🥇 1. 전세사기피해지원센터 (가장 먼저 연락하세요)<a class="headerlink" href="#1_10" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>연락처</strong></td>
+<td>☎ <strong>1533-8119</strong></td>
+</tr>
+<tr>
+<td><strong>운영</strong></td>
+<td>국토교통부 산하 전담기관</td>
+</tr>
+<tr>
+<td><strong>지원 내용</strong></td>
+<td>전세사기 전문 법률상담, 소송 연계, 지원제도 안내</td>
+</tr>
+<tr>
+<td><strong>비용</strong></td>
+<td><strong>무료</strong></td>
+</tr>
+<tr>
+<td><strong>장점</strong></td>
+<td>전세사기에 <strong>특화</strong>되어 있어 가장 정확한 안내 가능</td>
+</tr>
+<tr>
+<td><strong>이용 방법</strong></td>
+<td>전화 상담 → 필요 시 대면 상담 예약</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2_10">🥈 2. 대한법률구조공단<a class="headerlink" href="#2_10" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>연락처</strong></td>
+<td>☎ <strong>132</strong></td>
+</tr>
+<tr>
+<td><strong>홈페이지</strong></td>
+<td>www.klac.or.kr</td>
+</tr>
+<tr>
+<td><strong>지원 내용</strong></td>
+<td>무료 법률상담 + <strong>무료 소송대리</strong></td>
+</tr>
+<tr>
+<td><strong>대상</strong></td>
+<td>기초생활수급자, 차상위계층, 월 소득 835만 원 이하 등</td>
+</tr>
+<tr>
+<td><strong>특례</strong></td>
+<td>전세사기 피해자는 소득 기준 <strong>완화 적용</strong></td>
+</tr>
+<tr>
+<td><strong>전국 지부</strong></td>
+<td>서울·수도권·광역시 등 <strong>전국 62개 지부</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_54">받을 수 있는 지원<a class="headerlink" href="#_54" title="Permanent link">&para;</a></h3>
+<ul>
+<li>✅ 법률상담 (전화·방문·온라인)</li>
+<li>✅ <strong>변호사 무료 선임</strong> (민사·형사 소송대리)</li>
+<li>✅ 소송비용 지원 (인지대·송달료 등)</li>
+<li>✅ 강제집행 지원</li>
+</ul>
+<h3 id="_55">신청 방법<a class="headerlink" href="#_55" title="Permanent link">&para;</a></h3>
+<ol>
+<li>☎ 132 전화 → 상담 예약</li>
+<li>홈페이지에서 <strong>온라인 상담 신청</strong></li>
+<li>가까운 지부 <strong>직접 방문</strong> (신분증 지참)</li>
+</ol>
+<hr />
+<h2 id="3_9">🥉 3. 대한변호사협회 법률구조재단<a class="headerlink" href="#3_9" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>연락처</strong></td>
+<td>☎ <strong>02-3476-6515</strong></td>
+</tr>
+<tr>
+<td><strong>홈페이지</strong></td>
+<td>legalaid.or.kr</td>
+</tr>
+<tr>
+<td><strong>지원 내용</strong></td>
+<td>무료 법률상담 + 소송비용 지원</td>
+</tr>
+<tr>
+<td><strong>대상</strong></td>
+<td>경제적 어려움으로 법률서비스 이용이 곤란한 국민</td>
+</tr>
+<tr>
+<td><strong>비용</strong></td>
+<td><strong>무료</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4_5">4. 법률홈닥터 (찾아가는 법률서비스)<a class="headerlink" href="#4_5" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>연락처</strong></td>
+<td>☎ <strong>132</strong> (법률구조공단 경유)</td>
+</tr>
+<tr>
+<td><strong>홈페이지</strong></td>
+<td>www.legalclinic.or.kr</td>
+</tr>
+<tr>
+<td><strong>지원 내용</strong></td>
+<td>변호사가 <strong>직접 찾아와서</strong> 상담</td>
+</tr>
+<tr>
+<td><strong>대상</strong></td>
+<td>법률 사각지대 취약계층</td>
+</tr>
+<tr>
+<td><strong>비용</strong></td>
+<td><strong>무료</strong></td>
+</tr>
+<tr>
+<td><strong>장점</strong></td>
+<td>방문이 어려운 분들에게 적합</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5_3">5. 마을변호사 (자치단체 운영)<a class="headerlink" href="#5_3" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>신청</strong></td>
+<td>관할 <strong>읍·면·동 주민센터</strong></td>
+</tr>
+<tr>
+<td><strong>내용</strong></td>
+<td>지역 배정 변호사가 <strong>무료 상담</strong></td>
+</tr>
+<tr>
+<td><strong>횟수</strong></td>
+<td>연간 일정 횟수 무료</td>
+</tr>
+<tr>
+<td><strong>장점</strong></td>
+<td>예약 후 주민센터에서 바로 상담 가능</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="6_1">6. 법원 소속 무료 상담<a class="headerlink" href="#6_1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>기관</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>대한법률구조공단 법원 내 상담실</strong></td>
+<td>각 법원 청사 내에 상담 부스 운영, 방문 즉시 상담 가능</td>
+</tr>
+<tr>
+<td><strong>법원 나홀로 소송 지원센터</strong></td>
+<td>직접 소송 진행 시 서류 작성 등 안내</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="7_1">7. 온라인·전화 무료 상담<a class="headerlink" href="#7_1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>채널</th>
+<th>이용 방법</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>대한법률구조공단 온라인 상담</strong></td>
+<td>www.klac.or.kr → 온라인 상담</td>
+</tr>
+<tr>
+<td><strong>법률구조공단 카카오톡</strong></td>
+<td>카카오톡에서 "대한법률구조공단" 검색</td>
+</tr>
+<tr>
+<td><strong>국민콜 110</strong></td>
+<td>☎ <strong>110</strong> → 법률상담 연결 요청</td>
+</tr>
+<tr>
+<td><strong>정부 민원</strong></td>
+<td>☎ <strong>129</strong> → 관련 기관 연결</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_56">📊 기관별 비교표<a class="headerlink" href="#_56" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>기관</th>
+<th style="text-align: center;">상담</th>
+<th style="text-align: center;">소송대리</th>
+<th style="text-align: center;">소송비용</th>
+<th style="text-align: center;">접근성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>전세사기피해지원센터</strong></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">연계</td>
+<td style="text-align: center;">연계</td>
+<td style="text-align: center;">☎ 1533-8119</td>
+</tr>
+<tr>
+<td><strong>대한법률구조공단</strong></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">☎ 132 / 전국 62개소</td>
+</tr>
+<tr>
+<td><strong>변호사협회 법률구조재단</strong></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">☎ 02-3476-6515</td>
+</tr>
+<tr>
+<td><strong>법률홈닥터</strong></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">찾아가는 서비스</td>
+</tr>
+<tr>
+<td><strong>마을변호사</strong></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">주민센터</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_57">💡 실전 추천 순서<a class="headerlink" href="#_57" title="Permanent link">&para;</a></h2>
+<h3 id="_58">지금 바로 이렇게 하세요:<a class="headerlink" href="#_58" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>순서</th>
+<th>행동</th>
+<th>이유</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1</strong></td>
+<td>☎ <strong>1533-8119</strong> 전화</td>
+<td>전세사기 전문 상담 + 지원제도 원스톱 안내</td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td>☎ <strong>132</strong> 전화</td>
+<td>법률구조공단에 <strong>무료 변호사 선임 신청</strong></td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td>가까운 법률구조공단 지부 방문</td>
+<td>증거자료 가지고 가서 <strong>대면 상담</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_59">📂 상담 시 가져갈 서류<a class="headerlink" href="#_59" title="Permanent link">&para;</a></h2>
+<ul>
+<li>✅ 임대차계약서</li>
+<li>✅ 등기부등본</li>
+<li>✅ 보증금 이체 내역</li>
+<li>✅ 임대인과의 대화 기록</li>
+<li>✅ 형사고소 접수증 (있는 경우)</li>
+<li>✅ 피해자 결정문 (있는 경우)</li>
+<li>✅ 경매 관련 서류 (있는 경우)</li>
+<li>✅ <strong>상황을 시간순으로 정리한 메모</strong> (구두 설명보다 훨씬 효과적)</li>
+</ul>
+<hr />
+<h2 id="_60">⚠️ 주의할 점<a class="headerlink" href="#_60" title="Permanent link">&para;</a></h2>
+<blockquote>
+<h3 id="_61">"사선 변호사를 먼저 선임해야 한다"는 말에 주의하세요<a class="headerlink" href="#_61" title="Permanent link">&para;</a></h3>
+<ul>
+<li>무료 법률구조 제도를 먼저 활용하시고, 사안이 복잡해서 별도 선임이 필요한지는 <strong>무료 상담 후에 판단</strong>해도 늦지 않습니다.</li>
+<li>전세사기 전문 변호사가 필요한 경우에도 법률구조공단에서 <strong>전문 변호사를 배정</strong>해 줍니다.</li>
+</ul>
+<h3 id="_62">동일 피해자 공동 대응이 유리합니다<a class="headerlink" href="#_62" title="Permanent link">&para;</a></h3>
+<ul>
+<li>같은 임대인 피해자들이 <strong>공동으로 법률지원 신청</strong>하면 수임 가능성도 높고, 소송 전략도 강화됩니다.</li>
+</ul>
+</blockquote>
+<hr />
+<h2 id="_63">🔄 현재까지 안내 진행 현황<a class="headerlink" href="#_63" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>순서</th>
+<th>조치</th>
+<th>상태</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1</strong></td>
+<td>경찰 형사고소</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td>임차권등기명령</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td>피해자 인정 신청</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>4</strong></td>
+<td>LH 매입·임대</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>5</strong></td>
+<td>전체 지원제도 총정리</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>6</strong></td>
+<td>긴급 주거지원</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>7</strong></td>
+<td><strong>무료 법률상담</strong></td>
+<td>← <strong>지금 안내해 드린 부분</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>현재 <strong>민사소송(보증금 반환 청구, 가압류 등)</strong>까지 진행할 계획이신지, 아니면 <strong>형사고소 단계에서 법률 조력</strong>이 필요하신 건지 알려주시면, 어떤 기관에서 어떤 지원을 신청하는 게 가장 유리한지 <strong>맞춤 안내</strong> 드리겠습니다.</p>
+<hr />
+<h3 id="q8">Q8. 국선변호사 선임 가능한가요?<a class="headerlink" href="#q8" title="Permanent link">&para;</a></h3>
+<p><strong>입력 토큰</strong>: 3 | <strong>출력 토큰</strong>: 2,813 | <strong>소요시간</strong>: 47,540ms | <strong>CLI 비용</strong>: $0.1859 | <strong>추정 API 비용</strong>: $0.2110
+<strong>대화 컨텍스트</strong>: 7턴 누적 | <strong>후속 제안</strong>: 미감지</p>
+<p><strong>답변:</strong></p>
+<h1 id="_64">국선변호사 선임, 상황에 따라 가능합니다<a class="headerlink" href="#_64" title="Permanent link">&para;</a></h1>
+<p>다만, <strong>형사사건과 민사사건에서 국선변호사 제도가 다르게 적용</strong>되므로 정확히 구분해서 안내드리겠습니다.</p>
+<hr />
+<h2 id="1_11">⚖️ 1. 형사사건에서의 국선변호사<a class="headerlink" href="#1_11" title="Permanent link">&para;</a></h2>
+<h3 id="vs">핵심 구분: 피고인 vs 피해자<a class="headerlink" href="#vs" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th style="text-align: center;">국선변호사 선임</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>피고인</strong> (임대인)</td>
+<td style="text-align: center;">✅ 가능</td>
+<td>형사재판에서 피고인에게 국선변호사 배정</td>
+</tr>
+<tr>
+<td><strong>피해자</strong> (세입자 본인)</td>
+<td style="text-align: center;">❌ 불가</td>
+<td>국선변호사는 <strong>피고인을 위한 제도</strong>입니다</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>즉, 전세사기 피해자인 고소인 입장에서는 형사사건 국선변호사를 선임할 수 없습니다.</strong></p>
+</blockquote>
+<h3 id="_65">대신 받을 수 있는 것: 피해자 국선변호사(특례)<a class="headerlink" href="#_65" title="Permanent link">&para;</a></h3>
+<p>「범죄피해자 보호법」 및 특정 범죄에 한해 <strong>피해자 국선변호사</strong> 제도가 있지만, 현재 적용 대상은 <strong>성폭력·아동학대·인신매매 등</strong>에 한정되어 있어 전세사기에는 <strong>직접 적용이 어렵습니다.</strong></p>
+<hr />
+<h2 id="2_11">✅ 2. 전세사기 피해자가 실제로 이용할 수 있는 무료 변호사 제도<a class="headerlink" href="#2_11" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>국선변호사는 안 되지만, 사실상 동일한 효과의 무료 변호사 선임이 가능합니다.</strong></p>
+</blockquote>
+<h3 id="1_12">① 대한법률구조공단 – 무료 소송대리 (가장 추천)<a class="headerlink" href="#1_12" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>연락처</strong></td>
+<td>☎ <strong>132</strong></td>
+</tr>
+<tr>
+<td><strong>지원 내용</strong></td>
+<td><strong>변호사를 무료로 선임</strong>하여 민사·형사 소송대리</td>
+</tr>
+<tr>
+<td><strong>대상</strong></td>
+<td>기초생활수급자, 차상위, 한부모, 월 소득 기준 이하 등</td>
+</tr>
+<tr>
+<td><strong>전세사기 특례</strong></td>
+<td>피해자 인정 시 소득 기준 <strong>완화 적용</strong></td>
+</tr>
+<tr>
+<td><strong>비용</strong></td>
+<td>변호사 수임료 <strong>무료</strong>, 소송비용(인지대·송달료)도 <strong>지원</strong></td>
+</tr>
+</tbody>
+</table>
+<h4 id="_66">지원받을 수 있는 소송 범위<a class="headerlink" href="#_66" title="Permanent link">&para;</a></h4>
+<ul>
+<li>✅ <strong>보증금 반환 청구 소송</strong> (민사)</li>
+<li>✅ <strong>가압류·가처분 신청</strong> (민사)</li>
+<li>✅ <strong>임차권등기명령 신청</strong></li>
+<li>✅ <strong>배당이의 소송</strong></li>
+<li>✅ <strong>형사 고소대리</strong> (고소장 작성 및 수사 단계 조력)</li>
+<li>✅ <strong>형사 항고·재항고</strong> (불기소 처분에 대한 불복)</li>
+</ul>
+<h4 id="_67">신청 방법<a class="headerlink" href="#_67" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>☎ 132 전화 → 상담 예약 → 지부 방문 (서류 지참)
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>→ 소득·자산 심사 → 변호사 배정 → 소송 진행
+</code></pre></div>
+<h3 id="2_12">② 대한변호사협회 법률구조재단<a class="headerlink" href="#2_12" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>연락처</strong></td>
+<td>☎ <strong>02-3476-6515</strong></td>
+</tr>
+<tr>
+<td><strong>지원 내용</strong></td>
+<td>무료 변호사 선임 + 소송비용 지원</td>
+</tr>
+<tr>
+<td><strong>대상</strong></td>
+<td>경제적 곤란으로 변호사 선임이 어려운 국민</td>
+</tr>
+<tr>
+<td><strong>장점</strong></td>
+<td>법률구조공단과 <strong>중복 신청 가능</strong> (한 곳에서 거절당해도 다른 곳 신청)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3_10">③ 전세사기피해지원센터 연계 법률지원<a class="headerlink" href="#3_10" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>연락처</strong></td>
+<td>☎ <strong>1533-8119</strong></td>
+</tr>
+<tr>
+<td><strong>지원 내용</strong></td>
+<td>전세사기 전문 변호사 <strong>무료 연계</strong></td>
+</tr>
+<tr>
+<td><strong>장점</strong></td>
+<td>전세사기 사건 경험이 풍부한 변호사 배정</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="vs_1">📊 국선변호사 vs 무료 법률구조 비교<a class="headerlink" href="#vs_1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>국선변호사</th>
+<th>법률구조공단 무료 변호사</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>대상</strong></td>
+<td>형사 <strong>피고인</strong></td>
+<td>경제적 약자 (피해자 포함)</td>
+</tr>
+<tr>
+<td><strong>전세사기 피해자</strong></td>
+<td>❌ 해당 없음</td>
+<td>✅ <strong>이용 가능</strong></td>
+</tr>
+<tr>
+<td><strong>민사소송</strong></td>
+<td>❌ 불가</td>
+<td>✅ <strong>가능</strong></td>
+</tr>
+<tr>
+<td><strong>형사 고소대리</strong></td>
+<td>❌ 불가</td>
+<td>✅ <strong>가능</strong></td>
+</tr>
+<tr>
+<td><strong>변호사 비용</strong></td>
+<td>국가 부담</td>
+<td><strong>무료</strong> (공단 부담)</td>
+</tr>
+<tr>
+<td><strong>소송비용</strong></td>
+<td>별도</td>
+<td><strong>지원 가능</strong></td>
+</tr>
+<tr>
+<td><strong>변호사 수준</strong></td>
+<td>배정</td>
+<td>전문 분야별 배정</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>결론: 법률구조공단 무료 변호사가 국선변호사보다 오히려 더 넓은 범위의 지원을 받을 수 있습니다.</strong></p>
+</blockquote>
+<hr />
+<h2 id="_68">💰 소득 기준 (법률구조공단)<a class="headerlink" href="#_68" title="Permanent link">&para;</a></h2>
+<h3 id="_69">일반 기준<a class="headerlink" href="#_69" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>가구원 수</th>
+<th>월 소득 상한 (2026년 참고)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1인</td>
+<td>약 <strong>350만 원</strong> 이하</td>
+</tr>
+<tr>
+<td>2인</td>
+<td>약 <strong>580만 원</strong> 이하</td>
+</tr>
+<tr>
+<td>3인</td>
+<td>약 <strong>740만 원</strong> 이하</td>
+</tr>
+<tr>
+<td>4인</td>
+<td>약 <strong>900만 원</strong> 이하</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>※ 정확한 기준은 매년 변동되므로, ☎ 132에서 확인하세요.</p>
+</blockquote>
+<h3 id="_70">전세사기 피해자 특례<a class="headerlink" href="#_70" title="Permanent link">&para;</a></h3>
+<ul>
+<li>소득 기준 <strong>완화 적용</strong> (일반 기준 초과해도 지원 가능)</li>
+<li>피해자 결정문 또는 고소 접수증 제시 시 <strong>우선 심사</strong></li>
+</ul>
+<h3 id="_71">소득 기준 초과 시에도 가능한 방법<a class="headerlink" href="#_71" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>대한변호사협회 법률구조재단</strong>에 별도 신청</li>
+<li><strong>시·도 자체 법률지원 사업</strong> 활용 (서울시, 경기도 등 별도 운영)</li>
+</ul>
+<hr />
+<h2 id="_72">🎯 지금 바로 이렇게 하세요<a class="headerlink" href="#_72" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>순서</th>
+<th>할 일</th>
+<th>연락처</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1</strong></td>
+<td>법률구조공단에 전화하여 <strong>무료 변호사 선임 가능 여부</strong> 확인</td>
+<td>☎ <strong>132</strong></td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td>전세사기피해지원센터에 <strong>법률지원 연계</strong> 요청</td>
+<td>☎ <strong>1533-8119</strong></td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td>가까운 법률구조공단 지부에 <strong>서류 가지고 방문</strong></td>
+<td>www.klac.or.kr에서 지부 검색</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_73">방문 시 준비물<a class="headerlink" href="#_73" title="Permanent link">&para;</a></h3>
+<ul>
+<li>✅ 신분증</li>
+<li>✅ 소득 증빙 (건강보험료 납부확인서, 소득금액증명원)</li>
+<li>✅ 임대차계약서</li>
+<li>✅ 등기부등본</li>
+<li>✅ 보증금 이체 내역</li>
+<li>✅ 형사고소 접수증</li>
+<li>✅ 피해자 결정문 (있는 경우)</li>
+<li>✅ <strong>사건 경위를 시간순으로 정리한 메모</strong></li>
+</ul>
+<hr />
+<h2 id="_74">⚠️ 주의사항<a class="headerlink" href="#_74" title="Permanent link">&para;</a></h2>
+<blockquote>
+<h3 id="_75">법률구조공단 변호사도 충분히 전문적입니다<a class="headerlink" href="#_75" title="Permanent link">&para;</a></h3>
+<p>"무료 변호사는 실력이 떨어진다"는 편견이 있지만, 법률구조공단에는 <strong>전세사기 전담팀</strong>이 운영되고 있고, 다수의 유사 사건을 처리한 경험 많은 변호사가 배정됩니다.</p>
+<h3 id="_76">사선 변호사 선임은 무료 상담 후 판단하세요<a class="headerlink" href="#_76" title="Permanent link">&para;</a></h3>
+<p>무료 법률구조를 먼저 신청하고, 사안의 복잡성에 따라 <strong>사선 변호사가 필요한지 무료 상담에서 조언</strong>을 받으시는 것이 현명합니다.</p>
+</blockquote>
+<hr />
+<p>정리하면, <strong>국선변호사는 피해자 입장에서 선임이 안 되지만, 법률구조공단을 통해 사실상 동일한 무료 변호사 지원을 받을 수 있습니다.</strong> </p>
+<p>현재 <strong>형사 단계 조력이 필요하신지, 민사소송(보증금 반환·가압류) 진행이 필요하신지</strong> 알려주시면 어떤 소송을 어떤 순서로 진행하는 게 유리한지 구체적으로 안내드리겠습니다.</p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  맨위로
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.highlight", "search.suggest", "content.code.copy", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

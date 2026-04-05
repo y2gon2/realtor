@@ -1,0 +1,6931 @@
+
+<!doctype html>
+<html lang="ko" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="대한민국 부동산 RAG 기반 AI 상담/보고서 서비스 기획 문서">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>B-009. 종부세 걱정 Opus 4.6 테스트 결과 - 부동산 AI 어드바이저 — 프로젝트 기획</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#b-009-opus-46" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="상단/헤더">
+    <a href="../../../.." title="부동산 AI 어드바이저 — 프로젝트 기획" class="md-header__button md-logo" aria-label="부동산 AI 어드바이저 — 프로젝트 기획" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            부동산 AI 어드바이저 — 프로젝트 기획
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              B-009. 종부세 걱정 Opus 4.6 테스트 결과
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="다크 모드로 전환"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="다크 모드로 전환" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="라이트 모드로 전환"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="라이트 모드로 전환" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+        <button type="reset" class="md-search__icon md-icon" title="지우기" aria-label="지우기" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="탭" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  홈
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../project_plan/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  프로젝트 기획서
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../1_rag_mvp/1_rag_mvp_plan/" class="md-tabs__link">
+          
+  
+  
+  Phase 1 — RAG MVP
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../2_domain_ontology/2_domain_ontology_plan/" class="md-tabs__link">
+          
+  
+  
+  Phase 2 — 도메인 온톨로지
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../00_overview/" class="md-tabs__link">
+          
+  
+  
+  Phase 3 — 부동산 RAG 챗봇
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../4_deep_report/00_overview/" class="md-tabs__link">
+          
+  
+  
+  Phase 4 — 딥 리포트
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../settings/" class="md-tabs__link">
+          
+  
+  
+  환경 설정
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="네비게이션" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="부동산 AI 어드바이저 — 프로젝트 기획" class="md-nav__button md-logo" aria-label="부동산 AI 어드바이저 — 프로젝트 기획" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    부동산 AI 어드바이저 — 프로젝트 기획
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    홈
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../project_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    프로젝트 기획서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 1 — RAG MVP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phase 1 — RAG MVP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/1_rag_mvp_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기획서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    세부 계획
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    세부 계획
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/1_1_embedding_data_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.1 임베딩 데이터 테스트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_2" id="__nav_3_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    테스트 결과
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    테스트 결과
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/test_result/20260315_1_sementic_search_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    시맨틱 검색 테스트 (1차)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/test_result/20260315_2_sementic_search_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    시맨틱 검색 테스트 (2차)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/test_result/20260315_3_meta_data_filtering_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    메타데이터 필터링 테스트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/test_result/20260315_4_embedding_quality_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    임베딩 품질 평가
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기술 연구
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    기술 연구
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/tech_research/embedding_models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    한국어 임베딩 모델 비교
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/tech_research/vector_databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vector Database 비교
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/tech_research/hybrid_search_bm25/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hybrid Search (Dense + BM25)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 1 — 검색 개선 연구
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 1 — 검색 개선 연구
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/supplementary_1_search_improvement/01_overview_and_research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    개요 및 외부 연구
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/supplementary_1_search_improvement/02_query_time_improvements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Query-Time 개선
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/supplementary_1_search_improvement/03_post_retrieval_improvements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Post-Retrieval 개선
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/supplementary_1_search_improvement/04_adaptive_rag_generation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Adaptive RAG Generation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/supplementary_1_search_improvement/05_indexing_and_evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    인덱싱 및 평가
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/supplementary_1_search_improvement/06_implementation_and_test_report/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    구현 및 테스트 리포트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2 — 도메인 온톨로지
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phase 2 — 도메인 온톨로지
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/2_domain_ontology_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기획서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/3_legal_doc_rag_strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    법령 문서 RAG 전략
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/4_ontology_build_and_index_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    온톨로지 빌드 + 색인 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/5_phase2_search_test_report/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    검색 테스트 리포트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/6_search_improvement_research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    검색 개선 연구 (외부 사례)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 1 — Contextual Retrieval
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 1 — Contextual Retrieval
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_1_contextual_retrieval/01_contextual_retrieval_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    구현 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_1_contextual_retrieval/02_contextual_prefix_script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prefix 생성 스크립트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_1_contextual_retrieval/03_cron_wrapper_and_yaml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cron Wrapper & YAML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_1_contextual_retrieval/04_index_phase2_modifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    index_phase2 수정 사항
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_1_contextual_retrieval/05_contextual_retrieval_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    적용 결과 리포트 (확장 테스트)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 2 — BGE-M3 Triple-Vector
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 2 — BGE-M3 Triple-Vector
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/01_bgem3_triple_vector_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    전체 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/02_embedder_bgem3_design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Embedder 설계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/03_collection_schema_and_indexing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    컬렉션 스키마 + 인덱싱
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/04_multi_stage_search_pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi-Stage 검색 파이프라인
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/05_benchmark_and_ablation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    벤치마크 및 Ablation Study
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/06_results_and_analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 분석
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/07_colbert_improvement_research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ColBERT 개선 전략 연구
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/08_reranker_module_design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reranker 모듈 설계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/09_benchmark_expansion_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    확장 벤치마크 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/10_expanded_benchmark_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    확장 벤치마크 결과
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 3 — Cross-Domain Query Decomposition
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 3 — Cross-Domain Query Decomposition
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_3_cross_domain/01_query_decomposition_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    구현 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_3_cross_domain/02_query_analyzer_design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QueryAnalyzer 설계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_3_cross_domain/03_search_pipeline_design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SearchPipeline 설계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_3_cross_domain/04_evaluation_framework/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    평가 프레임워크
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_3_cross_domain/05_benchmark_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    벤치마크 결과
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_9" id="__nav_4_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 4 — 순차 보완 전략 (P1-a/b)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 4 — 순차 보완 전략 (P1-a/b)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/01_sequential_improvement_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    순차 개선 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/02_execution_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    실행 프레임워크
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/03_step1_hybrid_strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Step 1 — 하이브리드 전략
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/04_step2_decompose_conservatism/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Step 2 — DECOMPOSE 보수화
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/05_step3_prefilter_refinement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Step 3 — 사전 필터 정교화
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/06_step4_prompt_conservatism/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Step 4 — 프롬프트 보수성
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/07_step5_cross_encoder_fusion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Step 5 — Cross-Encoder 퓨전
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/08_step1to4_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 — Step 1~4 통합
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/09_step5_rerank_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 — Step 5 CE 퓨전
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/7_phase2_comprehensive_evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2 종합 평가
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_11" id="__nav_4_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 5 — 슬랭 Alias + CE 최적화 (Phase 2A)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 5 — 슬랭 Alias + CE 최적화 (Phase 2A)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_5_slang_alias_ce/01_phase2a_quickwins_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Wins 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_5_slang_alias_ce/02_alpha_grid_search/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    α 그리드 서치
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_5_slang_alias_ce/03_conditional_ce_bypass/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    조건부 CE 우회
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_5_slang_alias_ce/04_slang_alias_expansion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    슬랭 Alias 확장
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_5_slang_alias_ce/05_benchmark_verification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    벤치마크 검증 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_5_slang_alias_ce/06_phase2a_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2A 결과
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_5_slang_alias_ce/07_phase2b_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2B/C 결과 (최종)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_12" id="__nav_4_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 6 — Alias Pruning + CRAG
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 6 — Alias Pruning + CRAG
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_6_alias_pruning_crag/01_implementation_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    구현 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_6_alias_pruning_crag/02_alias_pruning_script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alias Pruning 스크립트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_6_alias_pruning_crag/03_crag_retrieval_compensator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CRAG 검색 보정기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_13" id="__nav_4_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    조사 자료
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    조사 자료
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/research/5%EA%B0%9C%ED%98%91%ED%9A%8C%EB%8B%A8%EC%B2%B4_RAG%EC%9E%90%EB%A3%8C%EC%88%98%EC%A7%91_%EC%A1%B0%EC%82%AC%EA%B2%B0%EA%B3%BC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5개 협회·단체 자료수집 조사
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/research/HF_HUG_RAG_%EC%A1%B0%EC%82%AC%EB%B0%A9%EB%B2%95%EB%A1%A0_%EC%82%AC%EC%9D%B4%ED%8A%B8%EB%AA%A9%EB%A1%9D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HF 주택금융공사 조사 방법론
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/research/HUG_%EC%A3%BC%ED%83%9D%EB%8F%84%EC%8B%9C%EB%B3%B4%EC%A6%9D%EA%B3%B5%EC%82%AC_RAG_%EC%A1%B0%EC%82%AC%EB%B0%A9%EB%B2%95%EB%A1%A0_%EC%82%AC%EC%9D%B4%ED%8A%B8%EB%AA%A9%EB%A1%9D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HUG 주택도시보증공사 조사 방법론
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/research/%EA%B5%AD%ED%86%A0%EA%B5%90%ED%86%B5%EB%B6%80_%ED%86%B5%EA%B3%84%EB%88%84%EB%A6%AC_CSV%EC%B2%98%EB%A6%AC_%EA%B2%B0%EA%B3%BC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    국토교통부 통계누리 CSV 처리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 3 — 부동산 RAG 챗봇
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phase 3 — 부동산 RAG 챗봇
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기획서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../evaluation_report/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG vs LLM 평가 보고서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    테스트 데이터
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    테스트 데이터
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/test_set_v1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    테스트 셋 v1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG+LLM 테스트 결과
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RAG+LLM 테스트 결과
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 요약
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_a_singles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part A — 단일 질문 (100개)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_c_singles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part C — 추가 단일 질문 (12개)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_001/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-001 대학생 자취방
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_002/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-002 대학생 주거 지원
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_003/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-003 사회초년생 독립
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_004/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-004 직장인 자취 지역
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_005/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-005 신혼부부 평수/구조
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-006 맞벌이 출퇴근 동선
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-007 자녀 학군 이사
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_008/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-008 아이 키우기 아파트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-009 전원주택 구매
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-010 상가 매입
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-011 경매 입찰
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-012 꼬마빌딩 투자
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-013 단독주택/다가구
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG+LLM v3 결과 (realestate_v3 연동)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RAG+LLM v3 결과 (realestate_v3 연동)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 요약
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_a_singles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part A — 단일 질문 (100개)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_c_singles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part C — 추가 단일 질문 (12개)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_001/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-001 대학생 자취방
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_002/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-002 대학생 주거 지원
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_003/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-003 사회초년생 독립
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_004/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-004 직장인 자취 지역
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_005/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-005 신혼부부 평수/구조
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-006 맞벌이 출퇴근 동선
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-007 자녀 학군 이사
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_008/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-008 아이 키우기 아파트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-009 전원주택 구매
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-010 상가 매입
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-011 경매 입찰
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-012 꼬마빌딩 투자
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-013 단독주택/다가구
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_6" id="__nav_5_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Opus 4.6 베이스라인 결과
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Opus 4.6 베이스라인 결과
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 요약
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_a_singles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part A — 단일 질문 (100개)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_c_singles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part C — 추가 단일 질문 (12개)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_001/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-001 대학생 자취방
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_002/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-002 대학생 주거 지원
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_003/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-003 사회초년생 독립
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_004/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-004 직장인 자취 지역
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_005/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-005 신혼부부 평수/구조
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-006 맞벌이 출퇴근 동선
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-007 자녀 학군 이사
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_008/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-008 아이 키우기 아파트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-009 전원주택 구매
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-010 상가 매입
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-011 경매 입찰
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-012 꼬마빌딩 투자
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-013 단독주택/다가구
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 4 — 딥 리포트
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phase 4 — 딥 리포트
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../4_deep_report/00_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기획서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../4_deep_report/01_api_integration_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API 연동 상세 가이드
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../4_deep_report/02_competitor_analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    경쟁사 분석 상세
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    환경 설정
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    환경 설정
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    개요
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/qdrant_container_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qdrant 벡터 DB 컨테이너
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/embedding_container_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    KURE-v1 임베딩 컨테이너
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/qwen35_27b_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qwen3.5-27B 실행 가이드
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/nemotron3_super_120b_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nemotron3 Super 120B 실행 가이드
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/gemini_cron_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gemini CLI Cron 설정
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/codex_cron_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Codex CLI Cron 설정
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#q1-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q1. 종부세 1주택자 기준 공제 얼마예요?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        종합부동산세(종부세) 1세대 1주택자 기본공제
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="종합부동산세(종부세) 1세대 1주택자 기본공제">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        추가 참고사항
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q2. 공시가격 현실화율이 뭔가요? 종부세랑 무슨 관계예요?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        공시가격 현실화율이란?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="공시가격 현실화율이란?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        계산 공식
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        구체적인 예시
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        종부세와의 관계
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="종부세와의 관계">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#20-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        현실화율 변동에 따른 종부세 영향 (시세 20억 원 1주택자 기준)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        현실화율 현황 및 추이
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="현실화율 현황 및 추이">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#20252026" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        정부 정책 방향 (2025~2026년 기준)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        현실화율이 영향을 미치는 세금들
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="현실화율이 영향을 미치는 세금들">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        핵심 요약
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        부동산 공시가격 알리미에서 내 집 공시가격 확인하는 방법
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="부동산 공시가격 알리미에서 내 집 공시가격 확인하는 방법">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        접속 방법
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        단계별 조회 방법
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="단계별 조회 방법">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1단계: 주택 유형 선택
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2단계: 주소 검색
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3단계: 상세 정보 입력
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4단계: 결과 확인
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        조회 후 종부세 셀프 계산 방법
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="조회 후 종부세 셀프 계산 방법">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 1세대 1주택자 종부세 계산 예시
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-1_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        종부세 세율표 (1세대 1주택자)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        추가 꿀팁
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        핵심 요약
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q3. 고령자 공제 받으려면 나이가 어떻게 되어야 해요?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        종부세 고령자 세액공제 나이 기준
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        장기보유 공제와 합산 시
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="장기보유 공제와 합산 시">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        장기보유 공제율
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        합산 공제 한도
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        구체적인 예시
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="구체적인 예시">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주의사항
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q4. 다주택자 종부세 세율이 얼마인가요?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        다주택자 종합부동산세(종부세) 세율
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="다주택자 종합부동산세(종부세) 세율">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        일반 세율 (2주택 이하)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        중과 세율 (3주택 이상 또는 조정대상지역 2주택)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        과거 중과세율과 비교
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        다주택자와 1주택자의 핵심 차이 정리
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        구체적인 예시
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="구체적인 예시">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        핵심 요약
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q5. 종부세 줄이려면 어떤 방법이 있나요?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        종부세를 줄이는 방법 총정리
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="종부세를 줄이는 방법 총정리">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-1-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1️⃣ 1세대 1주택자 혜택 최대한 활용
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2️⃣ 부부 공동명의 vs 단독명의 선택
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2️⃣ 부부 공동명의 vs 단독명의 선택">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        판단 기준 (대략적)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-6-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3️⃣ 과세기준일(6월 1일) 활용
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4️⃣ 임대사업자 등록 활용
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5️⃣ 공시가격 이의신청
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6️⃣ 세부담 상한제 확인
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 상황별 절세 전략 요약
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📋 상황별 절세 전략 요약">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ 마지막 주의사항
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        종부세 시뮬레이션을 도와드리겠습니다!
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="종부세 시뮬레이션을 도와드리겠습니다!">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📝 알려주실 정보
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💡 공시가격을 모르시는 경우
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="b-009-opus-46">B-009. 종부세 걱정 Opus 4.6 테스트 결과<a class="headerlink" href="#b-009-opus-46" title="Permanent link">&para;</a></h1>
+<p>실행 시각: 2026-04-01 23:00:57
+질문 수: 5</p>
+<hr />
+<h3 id="q1-1">Q1. 종부세 1주택자 기준 공제 얼마예요?<a class="headerlink" href="#q1-1" title="Permanent link">&para;</a></h3>
+<p><strong>입력 토큰</strong>: 3 | <strong>출력 토큰</strong>: 445 | <strong>소요시간</strong>: 12,577ms | <strong>CLI 비용</strong>: $0.0211 | <strong>추정 API 비용</strong>: $0.0334
+<strong>대화 컨텍스트</strong>: 0턴 누적 | <strong>후속 제안</strong>: 미감지</p>
+<p><strong>답변:</strong></p>
+<h2 id="1-1">종합부동산세(종부세) 1세대 1주택자 기본공제<a class="headerlink" href="#1-1" title="Permanent link">&para;</a></h2>
+<p><strong>1세대 1주택자: 12억 원</strong> (공시가격 기준)</p>
+<p>참고로 다른 경우와 비교하면:</p>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>기본공제금액</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1세대 1주택자</strong></td>
+<td><strong>12억 원</strong></td>
+</tr>
+<tr>
+<td>일반(다주택자 등)</td>
+<td>9억 원</td>
+</tr>
+<tr>
+<td>법인</td>
+<td>공제 없음</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_1">추가 참고사항<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>세액공제(고령자·장기보유)</strong>: 1세대 1주택자는 고령자 공제(최대 40%)와 장기보유 공제(최대 50%)를 합산하여 <strong>최대 80%</strong>까지 세액공제를 받을 수 있습니다.</li>
+<li><strong>과세 기준</strong>: 공시가격에서 기본공제를 뺀 금액에 <strong>공정시장가액비율(60%)</strong>을 곱한 금액이 과세표준이 됩니다.</li>
+</ul>
+<blockquote>
+<p><strong>예시</strong>: 공시가격 15억 원 1주택자<br />
+과세표준 = (15억 - 12억) × 60% = <strong>1.8억 원</strong></p>
+</blockquote>
+<p>추가로 궁금한 부분 있으시면 편하게 질문해 주세요!</p>
+<hr />
+<h3 id="q2">Q2. 공시가격 현실화율이 뭔가요? 종부세랑 무슨 관계예요?<a class="headerlink" href="#q2" title="Permanent link">&para;</a></h3>
+<p><strong>입력 토큰</strong>: 3 | <strong>출력 토큰</strong>: 1,261 | <strong>소요시간</strong>: 24,997ms | <strong>CLI 비용</strong>: $0.0446 | <strong>추정 API 비용</strong>: $0.0946
+<strong>대화 컨텍스트</strong>: 1턴 누적 | <strong>후속 제안</strong>: 감지됨</p>
+<p><strong>답변:</strong></p>
+<h2 id="_2">공시가격 현실화율이란?<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p><strong>공시가격 현실화율</strong>이란, 실제 시장가격(시세) 대비 정부가 공시하는 가격의 비율을 말합니다.</p>
+<h3 id="_3">계산 공식<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>현실화율 = 공시가격 ÷ 시세(실거래가) × 100</strong></p>
+</blockquote>
+<hr />
+<h3 id="_4">구체적인 예시<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>금액</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>실거래 시세</td>
+<td>20억 원</td>
+</tr>
+<tr>
+<td>현실화율</td>
+<td>70%</td>
+</tr>
+<tr>
+<td><strong>공시가격</strong></td>
+<td><strong>14억 원</strong></td>
+</tr>
+</tbody>
+</table>
+<p>즉, 시세 20억짜리 아파트의 공시가격이 14억 원으로 고시된다는 뜻입니다.</p>
+<hr />
+<h2 id="_5">종부세와의 관계<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>종부세는 <strong>공시가격</strong>을 기준으로 부과되기 때문에, 현실화율이 올라가면 세금이 늘고, 내려가면 세금이 줄어듭니다.</p>
+<h3 id="20-1">현실화율 변동에 따른 종부세 영향 (시세 20억 원 1주택자 기준)<a class="headerlink" href="#20-1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>현실화율 70%</th>
+<th>현실화율 55%</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>시세</td>
+<td>20억 원</td>
+<td>20억 원</td>
+</tr>
+<tr>
+<td><strong>공시가격</strong></td>
+<td><strong>14억 원</strong></td>
+<td><strong>11억 원</strong></td>
+</tr>
+<tr>
+<td>기본공제(1주택)</td>
+<td>-12억 원</td>
+<td>-12억 원</td>
+</tr>
+<tr>
+<td>공제 후 금액</td>
+<td>2억 원</td>
+<td><strong>0원 (비과세)</strong></td>
+</tr>
+<tr>
+<td>과세표준 (×60%)</td>
+<td>1.2억 원</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>종부세 부과</strong></td>
+<td><strong>있음</strong></td>
+<td><strong>없음</strong></td>
+</tr>
+</tbody>
+</table>
+<p>→ 같은 시세 20억 원 주택이라도, <strong>현실화율이 낮으면 종부세를 안 낼 수도 있습니다.</strong></p>
+<hr />
+<h2 id="_6">현실화율 현황 및 추이<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h3 id="20252026">정부 정책 방향 (2025~2026년 기준)<a class="headerlink" href="#20252026" title="Permanent link">&para;</a></h3>
+<ul>
+<li>문재인 정부 시절: 현실화율을 <strong>90%까지 단계적 인상</strong> 계획 추진</li>
+<li>윤석열 정부 이후: 현실화율 인상 계획을 <strong>동결·후퇴</strong>시켜 서민 부담 완화 방향</li>
+<li>현재 현실화율 수준:</li>
+<li><strong>아파트</strong>: 약 <strong>68~72%</strong> 수준</li>
+<li><strong>단독주택</strong>: 약 <strong>50~55%</strong> 수준</li>
+<li><strong>토지</strong>: 약 <strong>65~70%</strong> 수준</li>
+</ul>
+<hr />
+<h2 id="_7">현실화율이 영향을 미치는 세금들<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>공시가격은 종부세뿐 아니라 <strong>여러 세금·부담금의 기준</strong>이 됩니다:</p>
+<table>
+<thead>
+<tr>
+<th>세금/부담금</th>
+<th>영향</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>종합부동산세</strong></td>
+<td>직접 영향 (과세 기준)</td>
+</tr>
+<tr>
+<td><strong>재산세</strong></td>
+<td>직접 영향 (과세 기준)</td>
+</tr>
+<tr>
+<td><strong>건강보험료</strong> (지역가입자)</td>
+<td>공시가격 기준 부과</td>
+</tr>
+<tr>
+<td><strong>기초연금</strong> 수급 판단</td>
+<td>공시가격으로 재산 산정</td>
+</tr>
+<tr>
+<td><strong>각종 복지 수급 기준</strong></td>
+<td>재산 판정에 활용</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="_8">핵심 요약<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>📌 <strong>현실화율이 높아지면</strong> → 공시가격 상승 → 종부세·재산세 등 <strong>세금 부담 증가</strong><br />
+📌 <strong>현실화율이 낮아지면</strong> → 공시가격 하락 → <strong>세금 부담 감소</strong>, 비과세 대상 확대</p>
+</blockquote>
+<p>내 집의 공시가격은 <strong><a href="https://www.realtyprice.kr">국토교통부 부동산 공시가격 알리미</a></strong> 에서 확인할 수 있으니 참고하세요.</p>
+<p>추가 질문 있으시면 편하게 물어보세요!</p>
+<p><strong>후속 답변</strong> (자동 수락):</p>
+<h2 id="_9">부동산 공시가격 알리미에서 내 집 공시가격 확인하는 방법<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<h3 id="_10">접속 방법<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>사이트</strong>: <a href="https://www.realtyprice.kr">국토교통부 부동산 공시가격 알리미</a></p>
+</blockquote>
+<hr />
+<h3 id="_11">단계별 조회 방법<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<h4 id="1">1단계: 주택 유형 선택<a class="headerlink" href="#1" title="Permanent link">&para;</a></h4>
+<p>사이트 접속 후 메인 화면에서 본인 주택 유형을 선택합니다:</p>
+<table>
+<thead>
+<tr>
+<th>유형</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>공동주택(아파트)</strong></td>
+<td>아파트, 연립, 다세대</td>
+</tr>
+<tr>
+<td><strong>표준단독주택</strong></td>
+<td>국토부가 선정한 표준 단독주택</td>
+</tr>
+<tr>
+<td><strong>개별단독주택</strong></td>
+<td>일반 단독주택, 다가구</td>
+</tr>
+<tr>
+<td><strong>표준지 공시지가</strong></td>
+<td>토지(표준지)</td>
+</tr>
+<tr>
+<td><strong>개별 공시지가</strong></td>
+<td>토지(개별)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>대부분의 아파트 소유자는 <strong>"공동주택 공시가격"</strong>을 선택하시면 됩니다.</p>
+</blockquote>
+<hr />
+<h4 id="2">2단계: 주소 검색<a class="headerlink" href="#2" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>시/도 → 시/군/구 → 읍/면/동 → 단지명(아파트명)</strong> 순서로 선택</li>
+<li>또는 <strong>검색창에 아파트 이름을 직접 입력</strong></li>
+</ul>
+<hr />
+<h4 id="3">3단계: 상세 정보 입력<a class="headerlink" href="#3" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>동/호수</strong> 선택</li>
+<li><strong>열람 기준년도</strong> 선택 (2026년 공시가격은 보통 <strong>4월 말~5월 초</strong> 공개)</li>
+</ul>
+<hr />
+<h4 id="4">4단계: 결과 확인<a class="headerlink" href="#4" title="Permanent link">&para;</a></h4>
+<p>조회하면 다음 정보가 표시됩니다:</p>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>공시가격</td>
+<td>○○억 ○○만 원</td>
+</tr>
+<tr>
+<td>전용면적</td>
+<td>○○㎡</td>
+</tr>
+<tr>
+<td>공시기준일</td>
+<td>매년 1월 1일</td>
+</tr>
+<tr>
+<td>열람/이의신청 기간</td>
+<td>표시됨</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="_12">조회 후 종부세 셀프 계산 방법<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<p>공시가격을 확인했다면 직접 종부세를 계산해 볼 수 있습니다:</p>
+<h4 id="1-1_1">📌 1세대 1주택자 종부세 계산 예시<a class="headerlink" href="#1-1_1" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><strong>예시: 공시가격 16억 원 아파트</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>단계</th>
+<th>계산</th>
+<th>금액</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>① 공시가격</td>
+<td>-</td>
+<td>16억 원</td>
+</tr>
+<tr>
+<td>② 기본공제 차감</td>
+<td>16억 - 12억</td>
+<td>4억 원</td>
+</tr>
+<tr>
+<td>③ 공정시장가액비율 적용</td>
+<td>4억 × 60%</td>
+<td><strong>2.4억 원</strong> (과세표준)</td>
+</tr>
+<tr>
+<td>④ 세율 적용 (0.5%)</td>
+<td>2.4억 × 0.5%</td>
+<td>120만 원</td>
+</tr>
+<tr>
+<td>⑤ 재산세 공제액 차감</td>
+<td>약 -30만 원</td>
+<td>약 <strong>90만 원</strong></td>
+</tr>
+<tr>
+<td>⑥ 세액공제 (고령·장기보유)</td>
+<td>해당 시 추가 공제</td>
+<td>더 줄어듦</td>
+</tr>
+</tbody>
+</table>
+<h4 id="1-1_2">종부세 세율표 (1세대 1주택자)<a class="headerlink" href="#1-1_2" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>과세표준</th>
+<th>세율</th>
+<th>누진공제</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3억 이하</td>
+<td>0.5%</td>
+<td>-</td>
+</tr>
+<tr>
+<td>3억~6억</td>
+<td>0.7%</td>
+<td>60만 원</td>
+</tr>
+<tr>
+<td>6억~12억</td>
+<td>1.0%</td>
+<td>240만 원</td>
+</tr>
+<tr>
+<td>12억~25억</td>
+<td>1.3%</td>
+<td>600만 원</td>
+</tr>
+<tr>
+<td>25억~50억</td>
+<td>1.5%</td>
+<td>1,100만 원</td>
+</tr>
+<tr>
+<td>50억 초과</td>
+<td>2.0%</td>
+<td>3,600만 원</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="_13">추가 꿀팁<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>이의신청 가능</strong>: 공시가격이 너무 높다고 느끼면 <strong>열람 기간 내 이의신청</strong> 가능 (보통 4~5월)</li>
+<li><strong>모바일 조회</strong>: 네이버·카카오에서 <strong>"공시가격"</strong> 검색해도 바로 조회 가능</li>
+<li><strong>국세청 홈택스</strong>: <a href="https://www.hometax.go.kr">홈택스</a>에서 <strong>종부세 미리 계산</strong> 서비스도 제공</li>
+</ol>
+<hr />
+<h3 id="_14">핵심 요약<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>🏠 <strong>realtyprice.kr 접속 → 공동주택 선택 → 주소/동호수 입력 → 공시가격 확인</strong><br />
+💰 <strong>공시가격 - 12억(1주택 공제) → × 60% = 과세표준 → 세율 적용 = 종부세</strong></p>
+</blockquote>
+<p>공시가격을 확인하신 후 구체적인 세금 계산이 필요하시면, 금액을 알려주시면 제가 직접 계산해 드리겠습니다! 😊</p>
+<hr />
+<h3 id="q3">Q3. 고령자 공제 받으려면 나이가 어떻게 되어야 해요?<a class="headerlink" href="#q3" title="Permanent link">&para;</a></h3>
+<p><strong>입력 토큰</strong>: 3 | <strong>출력 토큰</strong>: 903 | <strong>소요시간</strong>: 17,403ms | <strong>CLI 비용</strong>: $0.0434 | <strong>추정 API 비용</strong>: $0.0678
+<strong>대화 컨텍스트</strong>: 2턴 누적 | <strong>후속 제안</strong>: 미감지</p>
+<p><strong>답변:</strong></p>
+<h2 id="_15">종부세 고령자 세액공제 나이 기준<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<p><strong>1세대 1주택자</strong>로서 아래 나이 기준을 충족하면 공제를 받을 수 있습니다.</p>
+<table>
+<thead>
+<tr>
+<th>연령</th>
+<th>공제율</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>만 60세 이상 ~ 만 65세 미만</strong></td>
+<td><strong>20%</strong></td>
+</tr>
+<tr>
+<td><strong>만 65세 이상 ~ 만 70세 미만</strong></td>
+<td><strong>30%</strong></td>
+</tr>
+<tr>
+<td><strong>만 70세 이상</strong></td>
+<td><strong>40%</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>※ 나이 기준은 <strong>과세기준일(매년 6월 1일)</strong> 기준으로 판단합니다.</p>
+</blockquote>
+<hr />
+<h2 id="_16">장기보유 공제와 합산 시<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
+<p>앞서 말씀드린 것처럼, 고령자 공제는 <strong>장기보유 공제</strong>와 합산 적용됩니다.</p>
+<h3 id="_17">장기보유 공제율<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>보유 기간</th>
+<th>공제율</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5년 이상 ~ 10년 미만</td>
+<td>20%</td>
+</tr>
+<tr>
+<td>10년 이상 ~ 15년 미만</td>
+<td>40%</td>
+</tr>
+<tr>
+<td>15년 이상</td>
+<td>50%</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_18">합산 공제 한도<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>고령자 공제 + 장기보유 공제 = 최대 80%</strong></p>
+</blockquote>
+<hr />
+<h2 id="_19">구체적인 예시<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h2>
+<p><strong>만 70세, 16년 보유한 1주택자</strong> (공시가격 15억 원)</p>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>계산</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>공시가격</td>
+<td>15억 원</td>
+</tr>
+<tr>
+<td>기본공제</td>
+<td>-12억 원</td>
+</tr>
+<tr>
+<td>공정시장가액비율 적용</td>
+<td>3억 × 60% = <strong>1.8억 원</strong></td>
+</tr>
+<tr>
+<td>종부세 산출세액</td>
+<td>약 108만 원</td>
+</tr>
+<tr>
+<td>고령자 공제 (만 70세↑)</td>
+<td><strong>40%</strong></td>
+</tr>
+<tr>
+<td>장기보유 공제 (15년↑)</td>
+<td><strong>50%</strong></td>
+</tr>
+<tr>
+<td>합산 공제</td>
+<td><strong>80%</strong> (한도 적용)</td>
+</tr>
+<tr>
+<td><strong>최종 납부세액</strong></td>
+<td>약 <strong>21.6만 원</strong></td>
+</tr>
+</tbody>
+</table>
+<p>→ 고령 + 장기보유 조건을 모두 갖추면 세 부담이 <strong>대폭 줄어듭니다.</strong></p>
+<hr />
+<h3 id="_20">주의사항<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<ul>
+<li>고령자 공제는 <strong>1세대 1주택자만</strong> 적용 가능합니다 (다주택자 불가)</li>
+<li>부부 공동명의인 경우, 1주택 특례를 신청해야 고령자·장기보유 공제를 받을 수 있습니다</li>
+<li>나이는 <strong>주민등록상 생년월일</strong> 기준이며, 과세기준일(6월 1일)에 해당 나이여야 합니다</li>
+</ul>
+<p>추가로 궁금한 점 있으시면 편하게 질문해 주세요!</p>
+<hr />
+<h3 id="q4">Q4. 다주택자 종부세 세율이 얼마인가요?<a class="headerlink" href="#q4" title="Permanent link">&para;</a></h3>
+<p><strong>입력 토큰</strong>: 3 | <strong>출력 토큰</strong>: 1,596 | <strong>소요시간</strong>: 27,256ms | <strong>CLI 비용</strong>: $0.0663 | <strong>추정 API 비용</strong>: $0.1197
+<strong>대화 컨텍스트</strong>: 3턴 누적 | <strong>후속 제안</strong>: 미감지</p>
+<p><strong>답변:</strong></p>
+<h2 id="_21">다주택자 종합부동산세(종부세) 세율<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h2>
+<p>현행 종부세 세율은 <strong>2주택 이하</strong>와 <strong>3주택 이상(조정대상지역 2주택 포함)</strong>으로 구분됩니다.</p>
+<hr />
+<h3 id="2_1">일반 세율 (2주택 이하)<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>과세표준</th>
+<th>세율</th>
+<th>누진공제</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3억 원 이하</td>
+<td><strong>0.5%</strong></td>
+<td>-</td>
+</tr>
+<tr>
+<td>3억 ~ 6억 원</td>
+<td><strong>0.7%</strong></td>
+<td>60만 원</td>
+</tr>
+<tr>
+<td>6억 ~ 12억 원</td>
+<td><strong>1.0%</strong></td>
+<td>240만 원</td>
+</tr>
+<tr>
+<td>12억 ~ 25억 원</td>
+<td><strong>1.3%</strong></td>
+<td>600만 원</td>
+</tr>
+<tr>
+<td>25억 ~ 50억 원</td>
+<td><strong>1.5%</strong></td>
+<td>1,100만 원</td>
+</tr>
+<tr>
+<td>50억 ~ 94억 원</td>
+<td><strong>2.0%</strong></td>
+<td>3,600만 원</td>
+</tr>
+<tr>
+<td>94억 원 초과</td>
+<td><strong>2.7%</strong></td>
+<td>10,180만 원</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="3-2">중과 세율 (3주택 이상 또는 조정대상지역 2주택)<a class="headerlink" href="#3-2" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>과세표준</th>
+<th>세율</th>
+<th>누진공제</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3억 원 이하</td>
+<td><strong>0.5%</strong></td>
+<td>-</td>
+</tr>
+<tr>
+<td>3억 ~ 6억 원</td>
+<td><strong>0.7%</strong></td>
+<td>60만 원</td>
+</tr>
+<tr>
+<td>6억 ~ 12억 원</td>
+<td><strong>1.0%</strong></td>
+<td>240만 원</td>
+</tr>
+<tr>
+<td>12억 ~ 25억 원</td>
+<td><strong>1.3%</strong></td>
+<td>600만 원</td>
+</tr>
+<tr>
+<td>25억 ~ 50억 원</td>
+<td><strong>1.5%</strong></td>
+<td>1,100만 원</td>
+</tr>
+<tr>
+<td>50억 ~ 94억 원</td>
+<td><strong>2.0%</strong></td>
+<td>3,600만 원</td>
+</tr>
+<tr>
+<td>94억 원 초과</td>
+<td><strong>2.7%</strong></td>
+<td>10,180만 원</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>※ 위 세율은 <strong>2023년 세법 개정 이후</strong> 기준으로, 기존의 다주택 중과세율(최대 5~6%)이 <strong>대폭 완화</strong>되어 현재는 일반 세율과 동일하게 적용되고 있습니다.</p>
+</blockquote>
+<hr />
+<h2 id="_22">과거 중과세율과 비교<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>개정 전 (2022년)</th>
+<th>현행 (2023년~)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>다주택 최고세율</td>
+<td><strong>5.0%</strong> (3주택↑)</td>
+<td><strong>2.7%</strong></td>
+</tr>
+<tr>
+<td>2주택(조정지역) 최고세율</td>
+<td><strong>5.0%</strong></td>
+<td><strong>2.7%</strong></td>
+</tr>
+<tr>
+<td>일반 최고세율</td>
+<td>2.7%</td>
+<td>2.7%</td>
+</tr>
+</tbody>
+</table>
+<p>→ 사실상 <strong>다주택 중과가 폐지</strong>되고 일반세율로 통합된 상태입니다.</p>
+<hr />
+<h2 id="1_1">다주택자와 1주택자의 핵심 차이 정리<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>1세대 1주택자</th>
+<th>다주택자</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>기본공제</strong></td>
+<td><strong>12억 원</strong></td>
+<td><strong>9억 원</strong></td>
+</tr>
+<tr>
+<td><strong>세율</strong></td>
+<td>동일 (0.5~2.7%)</td>
+<td>동일 (0.5~2.7%)</td>
+</tr>
+<tr>
+<td><strong>고령자 공제</strong></td>
+<td>✅ 가능 (최대 40%)</td>
+<td>❌ 불가</td>
+</tr>
+<tr>
+<td><strong>장기보유 공제</strong></td>
+<td>✅ 가능 (최대 50%)</td>
+<td>❌ 불가</td>
+</tr>
+<tr>
+<td><strong>세액공제 합산 한도</strong></td>
+<td>최대 80%</td>
+<td>없음</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_23">구체적인 예시<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h2>
+<p><strong>공시가격 합계 20억 원인 2주택자</strong></p>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>계산</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>공시가격 합계</td>
+<td>20억 원</td>
+</tr>
+<tr>
+<td>기본공제</td>
+<td>-9억 원</td>
+</tr>
+<tr>
+<td>공정시장가액비율</td>
+<td>(20억 - 9억) × 60% = <strong>6.6억 원</strong></td>
+</tr>
+<tr>
+<td>적용 세율</td>
+<td>1.0% (6억~12억 구간)</td>
+</tr>
+<tr>
+<td>산출세액</td>
+<td>6.6억 × 1.0% - 240만 = <strong>420만 원</strong></td>
+</tr>
+<tr>
+<td>세액공제</td>
+<td><strong>없음</strong> (다주택자)</td>
+</tr>
+<tr>
+<td><strong>최종 납부세액</strong></td>
+<td>약 <strong>420만 원</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>같은 조건에서 1주택자였다면 기본공제 12억 + 고령자·장기보유 공제까지 적용되어 세 부담이 훨씬 적습니다.</p>
+</blockquote>
+<hr />
+<h3 id="_24">핵심 요약<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>📌 현행법상 다주택자 <strong>중과세율은 사실상 폐지</strong>되어 세율 자체는 1주택자와 동일<br />
+📌 하지만 <strong>기본공제가 3억 원 적고</strong>, <strong>고령자·장기보유 공제를 못 받는 것</strong>이 실질적인 차이<br />
+📌 정치 상황에 따라 중과세율이 다시 부활할 가능성도 있으므로 정책 변화에 주의 필요</p>
+</blockquote>
+<p>추가로 궁금한 점 있으시면 편하게 질문해 주세요!</p>
+<hr />
+<h3 id="q5">Q5. 종부세 줄이려면 어떤 방법이 있나요?<a class="headerlink" href="#q5" title="Permanent link">&para;</a></h3>
+<p><strong>입력 토큰</strong>: 3 | <strong>출력 토큰</strong>: 2,450 | <strong>소요시간</strong>: 45,755ms | <strong>CLI 비용</strong>: $0.0975 | <strong>추정 API 비용</strong>: $0.1838
+<strong>대화 컨텍스트</strong>: 4턴 누적 | <strong>후속 제안</strong>: 감지됨</p>
+<p><strong>답변:</strong></p>
+<h2 id="_25">종부세를 줄이는 방법 총정리<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h2>
+<p>앞서 대화에서 다룬 내용들을 종합하면, 크게 <strong>6가지 전략</strong>으로 나눌 수 있습니다.</p>
+<hr />
+<h3 id="1-1-1">1️⃣ 1세대 1주택자 혜택 최대한 활용<a class="headerlink" href="#1-1-1" title="Permanent link">&para;</a></h3>
+<p>앞서 설명드린 것처럼, 1주택자는 다주택자 대비 혜택이 큽니다.</p>
+<table>
+<thead>
+<tr>
+<th>혜택 항목</th>
+<th>절세 효과</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>기본공제 12억 원 (다주택 대비 +3억)</td>
+<td>과세표준 자체가 줄어듦</td>
+</tr>
+<tr>
+<td>고령자 공제 (만 60세↑)</td>
+<td>최대 40% 세액공제</td>
+</tr>
+<tr>
+<td>장기보유 공제 (5년↑)</td>
+<td>최대 50% 세액공제</td>
+</tr>
+<tr>
+<td><strong>합산 한도</strong></td>
+<td><strong>최대 80% 감면</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>✅ <strong>핵심</strong>: 다주택 상태라면 불필요한 주택을 정리하여 1주택자가 되는 것이 가장 확실한 절세 방법입니다.</p>
+</blockquote>
+<hr />
+<h3 id="2-vs">2️⃣ 부부 공동명의 vs 단독명의 선택<a class="headerlink" href="#2-vs" title="Permanent link">&para;</a></h3>
+<p>부부 공동명의(각 50%)로 하면 <strong>인별 과세</strong> 원칙에 따라 각각 9억 원씩, 합계 <strong>18억 원 공제</strong>를 받을 수 있습니다.</p>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>단독명의 (1주택 특례)</th>
+<th>공동명의 (각 50%)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>기본공제</td>
+<td>12억 원</td>
+<td><strong>9억 × 2 = 18억 원</strong></td>
+</tr>
+<tr>
+<td>고령자·장기보유 공제</td>
+<td>✅ 가능 (최대 80%)</td>
+<td>❌ 불가</td>
+</tr>
+<tr>
+<td>유리한 경우</td>
+<td>고령 + 장기보유 조건 충족 시</td>
+<td><strong>공시가격이 매우 높을 때</strong></td>
+</tr>
+</tbody>
+</table>
+<h4 id="_26">판단 기준 (대략적)<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>공시가격 약 17~18억 원 이하</strong> → 단독명의(1주택 특례)가 유리한 경우 많음</li>
+<li><strong>공시가격 약 18억 원 초과</strong> → 공동명의가 유리한 경우 많음</li>
+<li>단, <strong>고령자·장기보유 공제율이 높으면</strong> 단독명의가 더 유리할 수 있으므로 <strong>개별 계산 필수</strong></li>
+</ul>
+<blockquote>
+<p>💡 공동명의자도 <strong>1주택 특례 신청</strong>을 하면 단독명의처럼 12억 공제 + 고령자·장기보유 공제를 받을 수 있습니다. 매년 유리한 쪽을 선택하세요.</p>
+</blockquote>
+<hr />
+<h3 id="3-6-1">3️⃣ 과세기준일(6월 1일) 활용<a class="headerlink" href="#3-6-1" title="Permanent link">&para;</a></h3>
+<p>종부세는 <strong>매년 6월 1일</strong> 기준으로 소유자에게 부과됩니다.</p>
+<table>
+<thead>
+<tr>
+<th>매매 시점</th>
+<th>종부세 부담자</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>5월 31일 이전</strong> 매도 완료</td>
+<td>매수자 부담</td>
+</tr>
+<tr>
+<td><strong>6월 1일</strong> 보유 중</td>
+<td><strong>본인 부담</strong></td>
+</tr>
+<tr>
+<td><strong>6월 2일 이후</strong> 매도</td>
+<td>본인 부담 (이미 확정)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>✅ 주택을 팔 계획이 있다면 <strong>5월 31일까지 잔금·등기이전을 완료</strong>하면 그 해 종부세를 피할 수 있습니다.
+반대로, 주택을 살 계획이면 <strong>6월 2일 이후</strong> 취득하면 그 해 종부세 부담이 없습니다.</p>
+</blockquote>
+<hr />
+<h3 id="4_1">4️⃣ 임대사업자 등록 활용<a class="headerlink" href="#4_1" title="Permanent link">&para;</a></h3>
+<p>일정 요건을 충족하는 <strong>등록 임대주택</strong>은 종부세 합산에서 제외될 수 있습니다.</p>
+<table>
+<thead>
+<tr>
+<th>요건</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>주택 유형</td>
+<td>공시가격 <strong>6억 원 이하</strong> (수도권 기준)</td>
+</tr>
+<tr>
+<td>임대 기간</td>
+<td><strong>10년 이상</strong> 의무 임대</td>
+</tr>
+<tr>
+<td>임대료 인상</td>
+<td>연 <strong>5% 이내</strong> 제한 준수</td>
+</tr>
+<tr>
+<td>등록</td>
+<td>지자체 + 세무서 <strong>이중 등록</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>주의</strong>: 의무기간 미준수 시 과태료 + 세금 추징이 있으므로 신중하게 판단해야 합니다. 또한 정책 변경이 잦은 영역이라 최신 요건을 꼭 확인하세요.</p>
+</blockquote>
+<hr />
+<h3 id="5">5️⃣ 공시가격 이의신청<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
+<p>내 집의 공시가격이 <strong>시세 대비 과도하게 높게</strong> 책정되었다고 판단되면 이의신청이 가능합니다.</p>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>신청 기간</td>
+<td>공시가격 열람 기간 (매년 3~4월경)</td>
+</tr>
+<tr>
+<td>신청 방법</td>
+<td>부동산 공시가격 알리미 또는 시·군·구청</td>
+</tr>
+<tr>
+<td>필요 자료</td>
+<td>인근 실거래가, 감정평가서 등</td>
+</tr>
+<tr>
+<td>효과</td>
+<td>공시가격 인하 → 종부세·재산세 모두 감소</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>💡 특히 <strong>단독주택·토지</strong>는 현실화율 편차가 커서 이의신청 성공률이 상대적으로 높습니다.</p>
+</blockquote>
+<hr />
+<h3 id="6">6️⃣ 세부담 상한제 확인<a class="headerlink" href="#6" title="Permanent link">&para;</a></h3>
+<p>전년도 대비 종부세가 급격히 오르는 것을 방지하는 <strong>세부담 상한</strong> 제도가 있습니다.</p>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>세부담 상한</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1세대 1주택 (일반)</td>
+<td>전년 대비 <strong>150%</strong></td>
+</tr>
+<tr>
+<td>그 외</td>
+<td>전년 대비 <strong>150%</strong></td>
+</tr>
+</tbody>
+</table>
+<p>→ 공시가격이 급등하더라도 전년도 세액의 1.5배를 초과하여 부과되지 않으므로, 자동으로 적용됩니다.</p>
+<hr />
+<h2 id="_27">📋 상황별 절세 전략 요약<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>상황</th>
+<th>추천 전략</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>다주택자</td>
+<td>불필요한 주택 매도 → <strong>1주택자 전환</strong></td>
+</tr>
+<tr>
+<td>고가 1주택 보유</td>
+<td><strong>공동명의 vs 단독명의</strong> 유불리 비교</td>
+</tr>
+<tr>
+<td>만 60세 이상 1주택자</td>
+<td><strong>고령자 + 장기보유 공제</strong> 최대 활용</td>
+</tr>
+<tr>
+<td>매매 계획 있음</td>
+<td><strong>6월 1일 기준</strong> 매도·매수 시점 조절</td>
+</tr>
+<tr>
+<td>공시가격 과다 의심</td>
+<td><strong>이의신청</strong> 검토</td>
+</tr>
+<tr>
+<td>저가 다주택</td>
+<td><strong>임대사업자 등록</strong> 검토 (요건 확인)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="_28">⚠️ 마지막 주의사항<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h3>
+<ul>
+<li>절세와 <strong>탈세는 다릅니다</strong>. 위장 매도, 명의신탁 등은 과세당국의 조사 대상입니다.</li>
+<li>부부 공동명의 전환 시 <strong>증여세·취득세</strong>가 발생할 수 있으므로, 종부세 절감액과 비교하여 <strong>종합적으로</strong> 판단해야 합니다.</li>
+<li>세법은 매년 바뀔 수 있으므로, 큰 금액이 관련된 경우 <strong>세무사 상담을 병행</strong>하시는 것을 추천드립니다.</li>
+</ul>
+<p>추가로 본인 상황에 맞는 구체적인 시뮬레이션이 필요하시면 말씀해 주세요!</p>
+<p><strong>후속 답변</strong> (자동 수락):</p>
+<h2 id="_29">종부세 시뮬레이션을 도와드리겠습니다!<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h2>
+<p>맞춤형 계산을 위해 몇 가지 정보가 필요합니다. 아래 항목들을 알려주시면 구체적인 세액 산출과 절세 방안을 비교해 드리겠습니다.</p>
+<hr />
+<h3 id="_30">📝 알려주실 정보<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>번호</th>
+<th>항목</th>
+<th>예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td><strong>보유 주택 수</strong></td>
+<td>1주택 / 2주택 / 3주택 이상</td>
+</tr>
+<tr>
+<td>②</td>
+<td><strong>각 주택의 공시가격</strong> (또는 대략적인 시세)</td>
+<td>예: 아파트A 공시가 14억, 아파트B 공시가 5억</td>
+</tr>
+<tr>
+<td>③</td>
+<td><strong>명의</strong></td>
+<td>단독명의 / 부부 공동명의 (지분 비율)</td>
+</tr>
+<tr>
+<td>④</td>
+<td><strong>본인 나이</strong> (만 나이)</td>
+<td>예: 만 63세</td>
+</tr>
+<tr>
+<td>⑤</td>
+<td><strong>주택 보유 기간</strong></td>
+<td>예: 12년 보유</td>
+</tr>
+<tr>
+<td>⑥</td>
+<td><strong>조정대상지역 여부</strong></td>
+<td>해당 주택 소재지</td>
+</tr>
+<tr>
+<td>⑦</td>
+<td><strong>임대사업자 등록 여부</strong></td>
+<td>있음 / 없음</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="_31">💡 공시가격을 모르시는 경우<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h3>
+<p>대략적인 <strong>시세(실거래가)</strong>만 알려주셔도 현실화율을 적용하여 추정 계산이 가능합니다.</p>
+<blockquote>
+<p>정확한 공시가격은 <strong><a href="https://www.realtyprice.kr">부동산 공시가격 알리미</a></strong> 에서 주소를 입력하면 바로 확인할 수 있습니다.</p>
+</blockquote>
+<hr />
+<p>위 정보를 알려주시면 다음과 같이 분석해 드리겠습니다:</p>
+<ol>
+<li><strong>현재 상태 종부세 산출</strong></li>
+<li><strong>공동명의 전환 시 세액 비교</strong> (해당 시)</li>
+<li><strong>1주택 전환 시 절감 효과</strong> (다주택자인 경우)</li>
+<li><strong>고령자·장기보유 공제 적용 시뮬레이션</strong></li>
+<li><strong>가장 유리한 절세 방안 추천</strong></li>
+</ol>
+<p>편하게 알려주세요! 😊</p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  맨위로
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.highlight", "search.suggest", "content.code.copy", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

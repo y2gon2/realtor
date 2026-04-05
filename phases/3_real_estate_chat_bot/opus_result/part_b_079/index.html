@@ -1,0 +1,7167 @@
+
+<!doctype html>
+<html lang="ko" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="대한민국 부동산 RAG 기반 AI 상담/보고서 서비스 기획 문서">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>B-079. 이혼 시 부동산 Opus 4.6 테스트 결과 - 부동산 AI 어드바이저 — 프로젝트 기획</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#b-079-opus-46" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="상단/헤더">
+    <a href="../../../.." title="부동산 AI 어드바이저 — 프로젝트 기획" class="md-header__button md-logo" aria-label="부동산 AI 어드바이저 — 프로젝트 기획" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            부동산 AI 어드바이저 — 프로젝트 기획
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              B-079. 이혼 시 부동산 Opus 4.6 테스트 결과
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="다크 모드로 전환"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="다크 모드로 전환" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="라이트 모드로 전환"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="라이트 모드로 전환" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+        <button type="reset" class="md-search__icon md-icon" title="지우기" aria-label="지우기" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="탭" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  홈
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../project_plan/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  프로젝트 기획서
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../1_rag_mvp/1_rag_mvp_plan/" class="md-tabs__link">
+          
+  
+  
+  Phase 1 — RAG MVP
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../2_domain_ontology/2_domain_ontology_plan/" class="md-tabs__link">
+          
+  
+  
+  Phase 2 — 도메인 온톨로지
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../00_overview/" class="md-tabs__link">
+          
+  
+  
+  Phase 3 — 부동산 RAG 챗봇
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../4_deep_report/00_overview/" class="md-tabs__link">
+          
+  
+  
+  Phase 4 — 딥 리포트
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../settings/" class="md-tabs__link">
+          
+  
+  
+  환경 설정
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="네비게이션" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="부동산 AI 어드바이저 — 프로젝트 기획" class="md-nav__button md-logo" aria-label="부동산 AI 어드바이저 — 프로젝트 기획" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    부동산 AI 어드바이저 — 프로젝트 기획
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    홈
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../project_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    프로젝트 기획서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 1 — RAG MVP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phase 1 — RAG MVP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/1_rag_mvp_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기획서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    세부 계획
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    세부 계획
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/1_1_embedding_data_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.1 임베딩 데이터 테스트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_2" id="__nav_3_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    테스트 결과
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    테스트 결과
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/test_result/20260315_1_sementic_search_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    시맨틱 검색 테스트 (1차)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/test_result/20260315_2_sementic_search_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    시맨틱 검색 테스트 (2차)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/test_result/20260315_3_meta_data_filtering_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    메타데이터 필터링 테스트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/test_result/20260315_4_embedding_quality_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    임베딩 품질 평가
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기술 연구
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    기술 연구
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/tech_research/embedding_models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    한국어 임베딩 모델 비교
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/tech_research/vector_databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vector Database 비교
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/tech_research/hybrid_search_bm25/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hybrid Search (Dense + BM25)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 1 — 검색 개선 연구
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 1 — 검색 개선 연구
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/supplementary_1_search_improvement/01_overview_and_research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    개요 및 외부 연구
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/supplementary_1_search_improvement/02_query_time_improvements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Query-Time 개선
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/supplementary_1_search_improvement/03_post_retrieval_improvements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Post-Retrieval 개선
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/supplementary_1_search_improvement/04_adaptive_rag_generation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Adaptive RAG Generation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/supplementary_1_search_improvement/05_indexing_and_evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    인덱싱 및 평가
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/supplementary_1_search_improvement/06_implementation_and_test_report/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    구현 및 테스트 리포트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2 — 도메인 온톨로지
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phase 2 — 도메인 온톨로지
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/2_domain_ontology_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기획서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/3_legal_doc_rag_strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    법령 문서 RAG 전략
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/4_ontology_build_and_index_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    온톨로지 빌드 + 색인 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/5_phase2_search_test_report/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    검색 테스트 리포트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/6_search_improvement_research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    검색 개선 연구 (외부 사례)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 1 — Contextual Retrieval
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 1 — Contextual Retrieval
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_1_contextual_retrieval/01_contextual_retrieval_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    구현 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_1_contextual_retrieval/02_contextual_prefix_script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prefix 생성 스크립트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_1_contextual_retrieval/03_cron_wrapper_and_yaml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cron Wrapper & YAML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_1_contextual_retrieval/04_index_phase2_modifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    index_phase2 수정 사항
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_1_contextual_retrieval/05_contextual_retrieval_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    적용 결과 리포트 (확장 테스트)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 2 — BGE-M3 Triple-Vector
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 2 — BGE-M3 Triple-Vector
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/01_bgem3_triple_vector_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    전체 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/02_embedder_bgem3_design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Embedder 설계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/03_collection_schema_and_indexing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    컬렉션 스키마 + 인덱싱
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/04_multi_stage_search_pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi-Stage 검색 파이프라인
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/05_benchmark_and_ablation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    벤치마크 및 Ablation Study
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/06_results_and_analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 분석
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/07_colbert_improvement_research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ColBERT 개선 전략 연구
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/08_reranker_module_design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reranker 모듈 설계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/09_benchmark_expansion_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    확장 벤치마크 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/10_expanded_benchmark_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    확장 벤치마크 결과
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 3 — Cross-Domain Query Decomposition
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 3 — Cross-Domain Query Decomposition
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_3_cross_domain/01_query_decomposition_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    구현 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_3_cross_domain/02_query_analyzer_design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QueryAnalyzer 설계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_3_cross_domain/03_search_pipeline_design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SearchPipeline 설계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_3_cross_domain/04_evaluation_framework/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    평가 프레임워크
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_3_cross_domain/05_benchmark_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    벤치마크 결과
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_9" id="__nav_4_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 4 — 순차 보완 전략 (P1-a/b)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 4 — 순차 보완 전략 (P1-a/b)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/01_sequential_improvement_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    순차 개선 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/02_execution_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    실행 프레임워크
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/03_step1_hybrid_strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Step 1 — 하이브리드 전략
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/04_step2_decompose_conservatism/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Step 2 — DECOMPOSE 보수화
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/05_step3_prefilter_refinement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Step 3 — 사전 필터 정교화
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/06_step4_prompt_conservatism/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Step 4 — 프롬프트 보수성
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/07_step5_cross_encoder_fusion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Step 5 — Cross-Encoder 퓨전
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/08_step1to4_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 — Step 1~4 통합
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/09_step5_rerank_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 — Step 5 CE 퓨전
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/7_phase2_comprehensive_evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2 종합 평가
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_11" id="__nav_4_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 5 — 슬랭 Alias + CE 최적화 (Phase 2A)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 5 — 슬랭 Alias + CE 최적화 (Phase 2A)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_5_slang_alias_ce/01_phase2a_quickwins_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Wins 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_5_slang_alias_ce/02_alpha_grid_search/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    α 그리드 서치
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_5_slang_alias_ce/03_conditional_ce_bypass/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    조건부 CE 우회
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_5_slang_alias_ce/04_slang_alias_expansion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    슬랭 Alias 확장
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_5_slang_alias_ce/05_benchmark_verification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    벤치마크 검증 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_5_slang_alias_ce/06_phase2a_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2A 결과
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_5_slang_alias_ce/07_phase2b_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2B/C 결과 (최종)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_12" id="__nav_4_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 6 — Alias Pruning + CRAG
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 6 — Alias Pruning + CRAG
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_6_alias_pruning_crag/01_implementation_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    구현 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_6_alias_pruning_crag/02_alias_pruning_script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alias Pruning 스크립트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_6_alias_pruning_crag/03_crag_retrieval_compensator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CRAG 검색 보정기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_13" id="__nav_4_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    조사 자료
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    조사 자료
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/research/5%EA%B0%9C%ED%98%91%ED%9A%8C%EB%8B%A8%EC%B2%B4_RAG%EC%9E%90%EB%A3%8C%EC%88%98%EC%A7%91_%EC%A1%B0%EC%82%AC%EA%B2%B0%EA%B3%BC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5개 협회·단체 자료수집 조사
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/research/HF_HUG_RAG_%EC%A1%B0%EC%82%AC%EB%B0%A9%EB%B2%95%EB%A1%A0_%EC%82%AC%EC%9D%B4%ED%8A%B8%EB%AA%A9%EB%A1%9D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HF 주택금융공사 조사 방법론
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/research/HUG_%EC%A3%BC%ED%83%9D%EB%8F%84%EC%8B%9C%EB%B3%B4%EC%A6%9D%EA%B3%B5%EC%82%AC_RAG_%EC%A1%B0%EC%82%AC%EB%B0%A9%EB%B2%95%EB%A1%A0_%EC%82%AC%EC%9D%B4%ED%8A%B8%EB%AA%A9%EB%A1%9D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HUG 주택도시보증공사 조사 방법론
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/research/%EA%B5%AD%ED%86%A0%EA%B5%90%ED%86%B5%EB%B6%80_%ED%86%B5%EA%B3%84%EB%88%84%EB%A6%AC_CSV%EC%B2%98%EB%A6%AC_%EA%B2%B0%EA%B3%BC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    국토교통부 통계누리 CSV 처리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 3 — 부동산 RAG 챗봇
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phase 3 — 부동산 RAG 챗봇
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기획서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../evaluation_report/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG vs LLM 평가 보고서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    테스트 데이터
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    테스트 데이터
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/test_set_v1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    테스트 셋 v1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG+LLM 테스트 결과
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RAG+LLM 테스트 결과
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 요약
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_a_singles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part A — 단일 질문 (100개)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_c_singles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part C — 추가 단일 질문 (12개)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_001/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-001 대학생 자취방
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_002/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-002 대학생 주거 지원
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_003/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-003 사회초년생 독립
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_004/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-004 직장인 자취 지역
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_005/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-005 신혼부부 평수/구조
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-006 맞벌이 출퇴근 동선
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-007 자녀 학군 이사
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_008/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-008 아이 키우기 아파트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-009 전원주택 구매
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-010 상가 매입
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-011 경매 입찰
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-012 꼬마빌딩 투자
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-013 단독주택/다가구
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG+LLM v3 결과 (realestate_v3 연동)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RAG+LLM v3 결과 (realestate_v3 연동)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 요약
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_a_singles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part A — 단일 질문 (100개)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_c_singles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part C — 추가 단일 질문 (12개)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_001/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-001 대학생 자취방
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_002/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-002 대학생 주거 지원
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_003/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-003 사회초년생 독립
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_004/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-004 직장인 자취 지역
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_005/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-005 신혼부부 평수/구조
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-006 맞벌이 출퇴근 동선
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-007 자녀 학군 이사
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_008/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-008 아이 키우기 아파트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-009 전원주택 구매
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-010 상가 매입
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-011 경매 입찰
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-012 꼬마빌딩 투자
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-013 단독주택/다가구
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_6" id="__nav_5_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Opus 4.6 베이스라인 결과
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Opus 4.6 베이스라인 결과
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 요약
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_a_singles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part A — 단일 질문 (100개)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_c_singles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part C — 추가 단일 질문 (12개)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_001/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-001 대학생 자취방
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_002/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-002 대학생 주거 지원
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_003/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-003 사회초년생 독립
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_004/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-004 직장인 자취 지역
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_005/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-005 신혼부부 평수/구조
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-006 맞벌이 출퇴근 동선
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-007 자녀 학군 이사
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_008/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-008 아이 키우기 아파트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-009 전원주택 구매
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-010 상가 매입
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-011 경매 입찰
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-012 꼬마빌딩 투자
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-013 단독주택/다가구
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 4 — 딥 리포트
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phase 4 — 딥 리포트
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../4_deep_report/00_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기획서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../4_deep_report/01_api_integration_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API 연동 상세 가이드
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../4_deep_report/02_competitor_analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    경쟁사 분석 상세
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    환경 설정
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    환경 설정
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    개요
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/qdrant_container_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qdrant 벡터 DB 컨테이너
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/embedding_container_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    KURE-v1 임베딩 컨테이너
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/qwen35_27b_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qwen3.5-27B 실행 가이드
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/nemotron3_super_120b_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nemotron3 Super 120B 실행 가이드
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/gemini_cron_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gemini CLI Cron 설정
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/codex_cron_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Codex CLI Cron 설정
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#q1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q1. 이혼하면 공동명의 아파트 어떻게 되나요?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="b-079-opus-46">B-079. 이혼 시 부동산 Opus 4.6 테스트 결과<a class="headerlink" href="#b-079-opus-46" title="Permanent link">&para;</a></h1>
+<p>실행 시각: 2026-04-02 11:08:35
+질문 수: 5</p>
+<hr />
+<h3 id="q1">Q1. 이혼하면 공동명의 아파트 어떻게 되나요?<a class="headerlink" href="#q1" title="Permanent link">&para;</a></h3>
+<p><strong>입력 토큰</strong>: 3 | <strong>출력 토큰</strong>: 1,297 | <strong>소요시간</strong>: 29,694ms | <strong>CLI 비용</strong>: $0.0425 | <strong>추정 API 비용</strong>: $0.0973
+<strong>대화 컨텍스트</strong>: 0턴 누적 | <strong>후속 제안</strong>: 감지됨</p>
+<p><strong>답변:</strong></p>
+<h1 id="_1">이혼 시 공동명의 아파트 처리 방법<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="1">1. 협의이혼의 경우<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p>당사자 간 <strong>합의</strong>로 처리 방식을 결정합니다.</p>
+<table>
+<thead>
+<tr>
+<th>방법</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>한쪽이 인수</strong></td>
+<td>일방이 지분을 넘겨받고, 상대방에게 지분 가액을 정산</td>
+</tr>
+<tr>
+<td><strong>매도 후 분배</strong></td>
+<td>아파트를 매각하고 매각대금을 나눠 가짐</td>
+</tr>
+<tr>
+<td><strong>지분 유지</strong></td>
+<td>이혼 후에도 공동명의 유지 (비추천, 분쟁 소지 큼)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2">2. 재판이혼(조정·소송)의 경우<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<p>법원이 <strong>재산분할 청구</strong>에 따라 결정합니다.</p>
+<ul>
+<li><strong>재산분할 비율</strong>: 통상 <strong>5:5</strong>가 원칙이나, 기여도에 따라 달라질 수 있음</li>
+<li>기여도 판단 요소: 소득, 가사노동, 양육, 재산 형성 기여 등</li>
+<li><strong>청구 기한</strong>: 이혼 확정일로부터 <strong>2년 이내</strong> 청구해야 함</li>
+</ul>
+<hr />
+<h2 id="3">3. 세금 문제 (핵심!)<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<h3 id="_2">📌 협의이혼 시 재산분할<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>세목</th>
+<th>과세 여부</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>취득세</strong></td>
+<td>과세 (지분 이전받는 쪽, 약 <strong>1.5~3.5%</strong>)</td>
+</tr>
+<tr>
+<td><strong>양도소득세</strong></td>
+<td><strong>비과세</strong> (재산분할은 양도가 아닌 '고유재산 회복'으로 봄)</td>
+</tr>
+<tr>
+<td><strong>증여세</strong></td>
+<td><strong>비과세</strong> (정상적 재산분할이면 증여로 보지 않음)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>주의</strong>: 위장이혼을 통한 세금 회피 목적이 인정되면 <strong>증여세가 부과</strong>될 수 있습니다.</p>
+</blockquote>
+<h3 id="_3">📌 이혼 전 지분 이전 시<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>이혼 <strong>전에</strong> 지분을 넘기면 <strong>증여</strong>로 간주되어 <strong>증여세 과세</strong> 대상</li>
+<li>반드시 <strong>이혼 성립 후</strong> 재산분할로 이전해야 세금 혜택</li>
+</ul>
+<hr />
+<h2 id="4">4. 대출(주담대)이 있는 경우<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>채무 승계</strong>: 지분을 인수하는 쪽이 대출도 함께 승계하는 것이 일반적</li>
+<li><strong>은행 동의 필요</strong>: 채무자 변경 시 은행의 승인이 반드시 필요</li>
+<li><strong>연대보증</strong>: 기존 연대보증 해지 여부도 반드시 확인</li>
+</ul>
+<hr />
+<h2 id="5">5. 실무 처리 절차<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>① 이혼 합의 또는 판결 확정
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    ↓
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>② 재산분할 협의서 작성 (공증 권장)
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    ↓
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>③ 등기소에 소유권이전등기 신청
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    - 필요서류: 이혼확인서, 재산분할협의서, 등기신청서 등
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    ↓
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>④ 취득세 납부 후 등기 완료
+</code></pre></div>
+<hr />
+<h2 id="_4">💡 실용 팁<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>재산분할협의서는 반드시 공증</strong>받으세요. 나중에 분쟁 시 강력한 증거가 됩니다.</li>
+<li><strong>이혼 전에 지분을 이전하지 마세요.</strong> 증여세 폭탄을 맞을 수 있습니다.</li>
+<li><strong>1가구 1주택 비과세</strong> 요건도 함께 점검하세요. 이혼 후 각자 주택 수가 달라지면 양도세 비과세 적용이 달라질 수 있습니다.</li>
+<li>복잡한 경우 <strong>법무사 + 세무사</strong> 동시 상담을 추천합니다.</li>
+</ol>
+<p>추가로 궁금한 부분(대출 승계, 양육권과 주거권 관계 등)이 있으시면 말씀해 주세요!</p>
+<p><strong>후속 답변</strong> (자동 수락):</p>
+<h1 id="_5">대출 승계 &amp; 양육권과 주거권 관계 상세 안내<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h1>
+<p>앞서 언급드린 두 가지 주제를 자세히 설명드리겠습니다.</p>
+<hr />
+<h2 id="1_1">📌 1. 대출 승계 (주택담보대출이 있는 공동명의 아파트)<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h2>
+<h3 id="1_2">(1) 기본 구조<a class="headerlink" href="#1_2" title="Permanent link">&para;</a></h3>
+<p>공동명의 아파트에 주담대가 있는 경우, 대출도 보통 <strong>공동채무(연대채무)</strong>입니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>[이혼 전]
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  아파트 소유: A 50% + B 50%
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  주담대 채무: A + B 연대책임 (예: 3억 원)
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>[이혼 후 - A가 단독 인수 시]
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>  아파트 소유: A 100%
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>  주담대 채무: A 단독 → 은행 승인 필요!
+</code></pre></div>
+<h3 id="2_1">(2) 대출 승계 절차<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>단계</th>
+<th>내용</th>
+<th>주의사항</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>① 은행 사전 상담</strong></td>
+<td>채무자 변경 가능 여부 확인</td>
+<td>소득·신용도 심사 다시 받음</td>
+</tr>
+<tr>
+<td><strong>② 채무인수 신청</strong></td>
+<td>인수하는 쪽이 단독 채무자로 변경 신청</td>
+<td>DSR 규제 충족 필요</td>
+</tr>
+<tr>
+<td><strong>③ 은행 심사</strong></td>
+<td>단독 소득으로 상환 가능한지 심사</td>
+<td><strong>거절될 수 있음</strong></td>
+</tr>
+<tr>
+<td><strong>④ 채무인수 계약</strong></td>
+<td>기존 대출 조건 유지 또는 재약정</td>
+<td>금리 변경 가능성 있음</td>
+</tr>
+<tr>
+<td><strong>⑤ 연대보증 해지</strong></td>
+<td>나가는 쪽의 연대보증 해제</td>
+<td><strong>반드시 서면 확인</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="3_1">(3) 은행이 승계를 거절하는 경우<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h3>
+<p>실무에서 매우 흔합니다. 이때 대안은:</p>
+<ul>
+<li><strong>대환대출</strong>: 인수자 명의로 새 대출을 받아 기존 대출을 상환</li>
+<li><strong>매도 후 정산</strong>: 아파트를 팔고 대출 상환 후 잔액 분배</li>
+<li><strong>기존 대출 유지</strong>: 명의만 변경하고 대출은 공동 유지 (⚠️ <strong>매우 위험</strong> - 상대방이 안 갚으면 내가 갚아야 함)</li>
+</ul>
+<h3 id="4-dsr">(4) DSR 규제 핵심 체크<a class="headerlink" href="#4-dsr" title="Permanent link">&para;</a></h3>
+<p>2026년 현재 <strong>스트레스 DSR 3단계</strong>가 적용되고 있으므로:</p>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DSR 한도</strong></td>
+<td>수도권 40%, 비수도권 40%</td>
+</tr>
+<tr>
+<td><strong>산정 방식</strong></td>
+<td>모든 대출의 원리금 상환액 / 연소득</td>
+</tr>
+<tr>
+<td><strong>핵심</strong></td>
+<td>단독 소득으로 DSR을 충족해야 승계 가능</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>💡 <strong>팁</strong>: 이혼 전에 반드시 은행에 <strong>사전 상담</strong>을 받으세요. 승계가 안 되면 전체 계획이 틀어집니다.</p>
+</blockquote>
+<hr />
+<h2 id="2_2">📌 2. 양육권과 주거권의 관계<a class="headerlink" href="#2_2" title="Permanent link">&para;</a></h2>
+<h3 id="1_3">(1) 양육권자의 주거권 보호<a class="headerlink" href="#1_3" title="Permanent link">&para;</a></h3>
+<p>법원은 이혼 시 <strong>미성년 자녀의 복리</strong>를 최우선으로 고려합니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>양육권자(주로 자녀를 키우는 쪽)
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    → 주거 안정이 필요
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    → 재산분할에서 유리하게 작용할 수 있음
+</code></pre></div>
+<h3 id="2_3">(2) 재산분할에서 양육권자가 유리한 점<a class="headerlink" href="#2_3" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>상황</th>
+<th>법원 판단 경향</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>양육권자가 아파트 거주 중</strong></td>
+<td>양육권자에게 아파트를 배분하는 경향</td>
+</tr>
+<tr>
+<td><strong>자녀 학교 문제</strong></td>
+<td>전학 없이 거주할 수 있도록 배려</td>
+</tr>
+<tr>
+<td><strong>소득이 낮은 양육권자</strong></td>
+<td>주거 안정을 위해 지분을 더 배분하기도 함</td>
+</tr>
+<tr>
+<td><strong>양육비와 연계</strong></td>
+<td>아파트 거주를 양육비의 일부로 인정하기도 함</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3_2">(3) 실무에서 자주 나오는 패턴<a class="headerlink" href="#3_2" title="Permanent link">&para;</a></h3>
+<p><strong>패턴 A: 양육권자가 아파트 인수</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>- 양육권자가 상대 지분을 인수
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>- 인수 대금은 양육비·위자료와 상계 처리
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>- 자녀가 성년이 될 때까지 거주 보장
+</code></pre></div></p>
+<p><strong>패턴 B: 비양육권자가 아파트 인수 + 거주권 부여</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>- 비양육권자가 소유권을 가져가되
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>- 양육권자에게 일정 기간 거주권(사용대차) 부여
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>- 거주 기간은 보통 자녀 성년 시까지
+</code></pre></div></p>
+<p><strong>패턴 C: 매도 후 양육권자에게 더 많이 분배</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>- 아파트를 매각
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>- 양육권자에게 5:5 이상 (예: 6:4)으로 분배
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>- 양육비 선급 성격으로 인정
+</code></pre></div></p>
+<h3 id="4_1">(4) 임차권(전세·월세)인 경우<a class="headerlink" href="#4_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>양육권자가 <strong>임차권을 승계</strong>받는 것이 일반적</li>
+<li>임대차보호법상 <strong>주민등록 + 점유</strong>를 유지하면 대항력 유지</li>
+<li>이혼 후에도 자녀와 함께 거주 중이면 대항력 인정</li>
+</ul>
+<hr />
+<h2 id="3_3">📌 3. 종합 실무 체크리스트<a class="headerlink" href="#3_3" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>□ 1단계: 현황 파악
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>   ├ 아파트 시세 확인 (KB시세, 실거래가)
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>   ├ 대출 잔액 및 조건 확인
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>   ├ 각자 소득·재산 정리
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>   └ 자녀 양육 계획 수립
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>□ 2단계: 은행 사전 상담
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>   ├ 대출 승계 가능 여부
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>   ├ DSR 충족 여부
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>   └ 대환대출 조건 확인
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>□ 3단계: 합의 또는 조정
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>   ├ 재산분할 비율 협의
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>   ├ 양육권·양육비 결정
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>   ├ 위자료 결정
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>   └ 재산분할협의서 작성 (공증!)
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>□ 4단계: 이혼 신고 및 등기
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>   ├ 이혼 신고 (법원 확인 후)
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>   ├ 소유권이전등기 신청
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>   ├ 취득세 납부
+<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>   └ 대출 채무인수 완료
+<a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>
+<a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a>□ 5단계: 사후 관리
+<a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a>   ├ 건강보험 변경
+<a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a>   ├ 주민등록 정리
+<a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a>   └ 자녀 관련 서류 변경
+</code></pre></div>
+<hr />
+<h2 id="_6">⚠️ 꼭 기억하세요<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>대출 승계는 이혼 합의 전에 은행부터 확인</strong>하세요. 승계 불가 시 계획 전체를 수정해야 합니다.</li>
+<li><strong>양육권자라고 무조건 아파트를 받는 것은 아닙니다.</strong> 다만 법원이 자녀 복리를 고려해 유리하게 판단하는 경향이 있습니다.</li>
+<li><strong>재산분할협의서에 대출 관련 조항을 반드시 포함</strong>하세요. "상대방이 대출을 안 갚으면 어떻게 할 것인지"를 명확히 정해야 합니다.</li>
+<li>복잡한 경우 <strong>이혼 전문 변호사 + 법무사 + 세무사</strong> 팀 상담을 강력 추천합니다.</li>
+</ol>
+<hr />
+<p>더 구체적인 상황(예: 아파트 시세, 대출 잔액, 자녀 유무 등)을 알려주시면 <strong>맞춤형 시뮬레이션</strong>도 해드릴 수 있습니다. 궁금한 점 있으시면 편하게 말씀해 주세요!</p>
+<hr />
+<h3 id="q2">Q2. 재산분할 비율이 어떻게 되나요?<a class="headerlink" href="#q2" title="Permanent link">&para;</a></h3>
+<p><strong>입력 토큰</strong>: 3 | <strong>출력 토큰</strong>: 1,757 | <strong>소요시간</strong>: 35,521ms | <strong>CLI 비용</strong>: $0.0623 | <strong>추정 API 비용</strong>: $0.1318
+<strong>대화 컨텍스트</strong>: 1턴 누적 | <strong>후속 제안</strong>: 미감지</p>
+<p><strong>답변:</strong></p>
+<h1 id="_7">이혼 시 재산분할 비율 상세 안내<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h1>
+<h2 id="1_4">1. 기본 원칙<a class="headerlink" href="#1_4" title="Permanent link">&para;</a></h2>
+<p>법원은 <strong>"부부 공동재산 형성에 대한 기여도"</strong>를 기준으로 분할 비율을 정합니다.</p>
+<blockquote>
+<p>판례상 기본 출발점은 <strong>5:5 (50:50)</strong>이지만, 실제로는 사안에 따라 <strong>3:7 ~ 6:4</strong> 범위에서 결정되는 경우가 많습니다.</p>
+</blockquote>
+<hr />
+<h2 id="2_4">2. 기여도 판단 요소<a class="headerlink" href="#2_4" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>요소</th>
+<th>구체적 내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>경제적 기여</strong></td>
+<td>소득 수준, 재산 형성에 투입한 금액</td>
+</tr>
+<tr>
+<td><strong>가사노동 기여</strong></td>
+<td>육아, 가사, 내조 등 (경제활동과 동등하게 평가)</td>
+</tr>
+<tr>
+<td><strong>특유재산 투입</strong></td>
+<td>혼전 재산, 상속·증여 받은 재산을 공동재산에 투입한 경우</td>
+</tr>
+<tr>
+<td><strong>혼인 기간</strong></td>
+<td>길수록 균등 분할(5:5)에 가까워지는 경향</td>
+</tr>
+<tr>
+<td><strong>재산 감소 원인</strong></td>
+<td>도박, 낭비 등으로 재산을 감소시킨 책임</td>
+</tr>
+<tr>
+<td><strong>장래 생활능력</strong></td>
+<td>이혼 후 경제적 자립 가능성</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3_4">3. 실제 판례 경향<a class="headerlink" href="#3_4" title="Permanent link">&para;</a></h2>
+<h3 id="_8">📌 맞벌이 부부<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>5:5</strong> 또는 이에 가까운 비율이 일반적</li>
+<li>소득 차이가 크더라도 가사·육아 분담을 고려하면 큰 차이 나지 않음</li>
+</ul>
+<h3 id="_9">📌 외벌이 부부 (한쪽만 소득)<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<ul>
+<li>전업주부 측에 보통 <strong>30~40%</strong> 인정</li>
+<li>혼인 기간이 <strong>10년 이상</strong>이면 <strong>40~50%</strong>까지 올라가는 경향</li>
+<li>최근 판례는 전업주부의 기여도를 <strong>점점 높게</strong> 인정하는 추세</li>
+</ul>
+<h3 id="_10">📌 고소득자·전문직 부부<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<ul>
+<li>고소득자 측에 <strong>6:4 ~ 7:3</strong>으로 더 높은 비율 인정되는 경우 있음</li>
+<li>단, 배우자의 내조 기여도가 크면 <strong>5:5</strong>에 가까워짐</li>
+</ul>
+<hr />
+<h2 id="4-vs">4. 분할 대상 vs 비대상<a class="headerlink" href="#4-vs" title="Permanent link">&para;</a></h2>
+<h3 id="_11">✅ 분할 대상 (공동재산)<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<ul>
+<li>혼인 중 취득한 부동산, 예금, 주식, 퇴직금, 연금</li>
+<li>혼인 중 형성한 사업체 가치</li>
+<li><strong>대출 등 채무도 포함</strong> (빚도 나눕니다)</li>
+</ul>
+<h3 id="_12">❌ 분할 비대상 (특유재산)<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<ul>
+<li>혼인 <strong>전</strong> 각자 보유한 재산</li>
+<li>혼인 중 <strong>상속·증여</strong>받은 재산</li>
+<li>단, 특유재산이라도 <strong>상대방이 유지·증식에 기여</strong>했으면 분할 대상에 포함될 수 있음</li>
+</ul>
+<hr />
+<h2 id="5_1">5. 공동명의 아파트에 적용하면<a class="headerlink" href="#5_1" title="Permanent link">&para;</a></h2>
+<p>구체적인 예시로 설명드리겠습니다:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>[예시] 시가 10억 아파트, 지분 5:5 공동명의, 대출 3억
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>• 순자산 = 10억 - 3억 = 7억
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>• 재산분할 비율 5:5 → 각 3.5억
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>• 재산분할 비율 6:4 → 4.2억 : 2.8억
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>→ 한쪽이 아파트를 인수하는 경우:
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>  인수자가 상대방 몫(2.8억~3.5억)을 현금 정산
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>  + 대출 3억 승계
+</code></pre></div>
+<hr />
+<h2 id="6">6. 비율을 유리하게 받으려면<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>재산 형성 기여 증거 확보</strong>: 급여명세서, 계좌이체 내역, 대출 상환 기록</li>
+<li><strong>가사·육아 기여 증거</strong>: 어린이집 등하원, 병원 기록, 카드 사용 내역</li>
+<li><strong>특유재산 투입 증명</strong>: 혼전 예금에서 아파트 매수대금 이체한 내역 등</li>
+<li><strong>상대방 과실 입증</strong>: 재산 낭비, 은닉 등이 있으면 비율에 영향</li>
+</ol>
+<hr />
+<h2 id="_13">💡 핵심 정리<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>상황</th>
+<th>예상 분할 비율</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>맞벌이, 혼인 10년 이상</td>
+<td><strong>5:5</strong></td>
+</tr>
+<tr>
+<td>외벌이, 혼인 10년 이상</td>
+<td><strong>4:6 ~ 5:5</strong></td>
+</tr>
+<tr>
+<td>외벌이, 혼인 5년 미만</td>
+<td><strong>3:7 ~ 4:6</strong></td>
+</tr>
+<tr>
+<td>고소득 전문직 + 전업주부</td>
+<td><strong>3.5:6.5 ~ 4.5:5.5</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ 위 비율은 판례 경향이며, <strong>개별 사건의 구체적 사정</strong>에 따라 달라집니다. 정확한 비율 산정은 <strong>가사전문 변호사 상담</strong>을 꼭 받으시길 권합니다.</p>
+</blockquote>
+<p>혹시 <strong>본인 상황에 맞는 구체적인 시나리오</strong>(예: 혼인 기간, 소득 구조, 대출 규모 등)를 알려주시면 더 맞춤형으로 안내해 드릴 수 있습니다!</p>
+<hr />
+<h3 id="q3">Q3. 재산분할로 받은 집에 세금 있나요?<a class="headerlink" href="#q3" title="Permanent link">&para;</a></h3>
+<p><strong>입력 토큰</strong>: 3 | <strong>출력 토큰</strong>: 1,966 | <strong>소요시간</strong>: 38,528ms | <strong>CLI 비용</strong>: $0.0784 | <strong>추정 API 비용</strong>: $0.1475
+<strong>대화 컨텍스트</strong>: 2턴 누적 | <strong>후속 제안</strong>: 미감지</p>
+<p><strong>답변:</strong></p>
+<h1 id="_14">이혼 재산분할로 받은 집의 세금 정리<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h1>
+<h2 id="1_5">1. 재산분할 시점의 세금<a class="headerlink" href="#1_5" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>세목</th>
+<th>과세 여부</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>증여세</strong></td>
+<td>❌ <strong>비과세</strong></td>
+<td>재산분할은 증여가 아닌 '고유재산 회복'으로 봄</td>
+</tr>
+<tr>
+<td><strong>양도소득세</strong></td>
+<td>❌ <strong>비과세</strong></td>
+<td>지분을 넘겨주는 쪽에게 양도세 없음</td>
+</tr>
+<tr>
+<td><strong>취득세</strong></td>
+<td>✅ <strong>과세</strong></td>
+<td>지분을 받는 쪽이 납부해야 함</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2_5">2. 취득세 (받을 때 내는 세금)<a class="headerlink" href="#2_5" title="Permanent link">&para;</a></h2>
+<h3 id="_15">📌 세율<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>세율</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>상대방 지분 이전받는 경우</td>
+<td><strong>약 1.5% ~ 3.5%</strong> (지방교육세·농어촌특별세 포함)</td>
+</tr>
+<tr>
+<td>조정대상지역 여부, 주택 수</td>
+<td>세율에 영향</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_16">📌 계산 예시<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>아파트 시가 10억, 상대방 지분 50% 이전받는 경우
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>• 취득세 과세표준 = 5억 (이전받는 지분 가액)
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>• 취득세율 약 1.5% 적용 시 → 약 750만 원
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>• 취득세율 약 3.5% 적용 시 → 약 1,750만 원
+</code></pre></div>
+<blockquote>
+<p>⚠️ 이미 본인 지분 50%를 보유 중이므로, <strong>상대방 지분(50%)에 대해서만</strong> 취득세가 부과됩니다.</p>
+</blockquote>
+<hr />
+<h2 id="3_5">3. 보유할 때 내는 세금<a class="headerlink" href="#3_5" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>세목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>재산세</strong></td>
+<td>매년 7·9월 부과, 공시가격 기준</td>
+</tr>
+<tr>
+<td><strong>종합부동산세</strong></td>
+<td>1세대 1주택자는 공시가 <strong>12억 초과</strong> 시 과세</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>이혼 후 <strong>1주택자</strong>가 되면 종부세 부담이 줄어들 수 있음</li>
+<li>반대로 다른 주택이 있으면 <strong>다주택자</strong>로 종부세 중과 가능</li>
+</ul>
+<hr />
+<h2 id="4_2">4. 나중에 팔 때 내는 세금 (양도소득세) ⭐ 가장 중요!<a class="headerlink" href="#4_2" title="Permanent link">&para;</a></h2>
+<h3 id="_17">📌 취득시기·취득가액 판단<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>기준</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>본인 기존 지분</strong></td>
+<td>최초 매수 당시의 취득일·취득가액</td>
+</tr>
+<tr>
+<td><strong>재산분할로 받은 지분</strong></td>
+<td><strong>재산분할일(등기접수일)</strong>이 취득일, <strong>이전 당시 시가</strong>가 취득가액</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>💡 즉, 재산분할로 받은 지분은 <strong>받을 당시 시가로 새로 취득</strong>한 것으로 봅니다.</p>
+</blockquote>
+<h3 id="1-1">📌 1세대 1주택 비과세 (핵심!)<a class="headerlink" href="#1-1" title="Permanent link">&para;</a></h3>
+<p><strong>비과세 요건</strong> (2026년 기준):
+- 이혼 후 <strong>1세대 1주택</strong> 보유
+- <strong>2년 이상 보유</strong> (조정대상지역은 2년 거주 요건 추가)
+- 양도가액 <strong>12억 이하</strong></p>
+<h3 id="_18">📌 보유기간 계산 주의<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>[예시]
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>• 2020년: 부부 공동명의로 아파트 매수 (지분 각 50%)
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>• 2026년: 이혼으로 상대방 지분 50% 재산분할 이전받음
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>• 2028년: 아파트 매도
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>→ 본인 기존 지분 50%: 보유기간 8년 (2020~2028) ✅ 비과세 가능
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>→ 재산분할 지분 50%: 보유기간 2년 (2026~2028) ✅ 비과세 가능
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>   (단, 거주요건 충족 필요)
+</code></pre></div>
+<h3 id="_19">📌 다주택인 경우<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<p>이혼 후 본인 명의 주택이 <strong>2채 이상</strong>이면:
+- 양도세 <strong>중과세율</strong> 적용 가능 (기본세율 + 20~30%p)
+- 장기보유특별공제 배제
+- <strong>일시적 2주택 특례</strong> 등 활용 여부 검토 필요</p>
+<hr />
+<h2 id="5_2">5. 세금 절세 포인트 정리<a class="headerlink" href="#5_2" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>포인트</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>① <strong>이혼 전에 이전하지 말 것</strong></td>
+<td>이혼 전 이전 = 증여 → <strong>증여세 과세</strong></td>
+</tr>
+<tr>
+<td>② <strong>재산분할 협의서 명확 작성</strong></td>
+<td>"재산분할"임을 명시해야 비과세 인정</td>
+</tr>
+<tr>
+<td>③ <strong>1주택 비과세 전략 수립</strong></td>
+<td>이혼 후 주택 수 관리가 핵심</td>
+</tr>
+<tr>
+<td>④ <strong>취득시기 확인</strong></td>
+<td>재산분할 지분의 보유기간 별도 계산됨에 주의</td>
+</tr>
+<tr>
+<td>⑤ <strong>위장이혼 의심받지 않도록</strong></td>
+<td>실질적 이혼이 아니면 증여세·가산세 부과 위험</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_20">💡 핵심 요약<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>받을 때:  취득세만 납부 (증여세·양도세 없음)
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>보유할 때: 재산세 + (종부세)
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>팔 때:   1세대 1주택이면 비과세 가능
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>         → 단, 보유·거주 요건 충족해야 함
+</code></pre></div>
+<blockquote>
+<p>⚠️ 세금 문제는 <strong>개인 상황(주택 수, 보유기간, 지역, 금액)</strong>에 따라 크게 달라지므로, 재산분할 전에 <strong>세무사 사전 상담</strong>을 꼭 받으시길 권합니다. 상담 비용(10~20만 원)으로 수천만 원 절세가 가능한 경우가 많습니다.</p>
+</blockquote>
+<p>구체적인 상황(아파트 시가, 보유기간, 다른 주택 보유 여부 등)을 알려주시면 더 정확한 세금 시뮬레이션을 해드릴 수 있습니다!</p>
+<hr />
+<h3 id="q4">Q4. 위자료로 집을 받으면 취득세 내야 하나요?<a class="headerlink" href="#q4" title="Permanent link">&para;</a></h3>
+<p><strong>입력 토큰</strong>: 3 | <strong>출력 토큰</strong>: 2,071 | <strong>소요시간</strong>: 37,945ms | <strong>CLI 비용</strong>: $0.0933 | <strong>추정 API 비용</strong>: $0.1554
+<strong>대화 컨텍스트</strong>: 3턴 누적 | <strong>후속 제안</strong>: 감지됨</p>
+<p><strong>답변:</strong></p>
+<h1 id="_21">위자료로 집을 받을 때 세금 정리<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h1>
+<h2 id="1_6">1. 핵심 결론: 취득세 <strong>납부해야 합니다</strong><a class="headerlink" href="#1_6" title="Permanent link">&para;</a></h2>
+<p>위자료로 부동산을 받는 경우에도 <strong>소유권 이전</strong>이 발생하므로 취득세가 부과됩니다.</p>
+<hr />
+<h2 id="2-vs">2. 위자료 vs 재산분할 세금 비교<a class="headerlink" href="#2-vs" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>세목</th>
+<th>재산분할</th>
+<th>위자료</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>취득세</strong></td>
+<td>✅ 과세</td>
+<td>✅ 과세</td>
+</tr>
+<tr>
+<td><strong>양도소득세</strong> (주는 쪽)</td>
+<td>❌ 비과세</td>
+<td>⚠️ <strong>과세 가능</strong></td>
+</tr>
+<tr>
+<td><strong>증여세</strong></td>
+<td>❌ 비과세</td>
+<td>❌ 비과세</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>가장 큰 차이</strong>: 위자료로 집을 넘기는 쪽에게 <strong>양도소득세</strong>가 부과될 수 있다는 점입니다. 재산분할과 결정적으로 다릅니다.</p>
+</blockquote>
+<hr />
+<h2 id="3_6">3. 받는 쪽: 취득세 상세<a class="headerlink" href="#3_6" title="Permanent link">&para;</a></h2>
+<h3 id="_22">📌 세율<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>세율</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>일반 주택 (6억 이하)</td>
+<td><strong>약 1.1%</strong></td>
+</tr>
+<tr>
+<td>일반 주택 (6억 초과 ~ 9억 이하)</td>
+<td><strong>약 1.1% ~ 3.3%</strong></td>
+</tr>
+<tr>
+<td>일반 주택 (9억 초과)</td>
+<td><strong>약 3.3%</strong></td>
+</tr>
+<tr>
+<td>다주택자·법인</td>
+<td><strong>최대 12%</strong> 중과 가능</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_23">📌 과세표준<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>시가인정액</strong> 기준 (실거래가, 감정가 등)</li>
+<li>위자료 금액과 시가가 다를 경우 <strong>시가</strong> 기준으로 과세</li>
+</ul>
+<hr />
+<h2 id="4_3">4. 주는 쪽: 양도소득세 문제 ⭐ 핵심!<a class="headerlink" href="#4_3" title="Permanent link">&para;</a></h2>
+<p>위자료로 부동산을 넘기는 것은 세법상 <strong>"대물변제"</strong>로 봅니다.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>위자료 채무(금전) → 부동산으로 갚음 → &quot;양도&quot;에 해당
+</code></pre></div>
+<h3 id="_24">📌 양도세 과세 구조<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>양도가액</strong></td>
+<td>위자료 금액 또는 시가 중 큰 금액</td>
+</tr>
+<tr>
+<td><strong>취득가액</strong></td>
+<td>당초 매수가액</td>
+</tr>
+<tr>
+<td><strong>양도차익</strong></td>
+<td>양도가액 - 취득가액 - 필요경비</td>
+</tr>
+<tr>
+<td><strong>세율</strong></td>
+<td>일반세율 6% ~ 45% (보유기간·주택 수에 따라 다름)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_25">📌 계산 예시<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>[예시] 남편이 위자료 대신 아파트를 아내에게 넘기는 경우
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>• 아파트 시가: 8억
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>• 남편 취득가액: 5억 (5년 전 매수)
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>• 양도차익: 8억 - 5억 = 3억
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>• 양도소득세: 약 6,000만 ~ 8,000만 원 (세율·공제에 따라 변동)
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>→ 집을 넘기는 남편에게 양도세 부과!
+</code></pre></div>
+<blockquote>
+<p>💡 단, <strong>1세대 1주택 비과세 요건</strong>을 충족하면 양도세가 면제될 수 있습니다.</p>
+</blockquote>
+<hr />
+<h2 id="5-vs">5. 재산분할 vs 위자료, 무엇이 유리한가?<a class="headerlink" href="#5-vs" title="Permanent link">&para;</a></h2>
+<h3 id="_26">📌 세금 측면 비교표<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>[동일한 집을 이전하는 경우]
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>◆ &quot;재산분할&quot;로 처리 시
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>  • 받는 쪽: 취득세만 부담
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>  • 주는 쪽: 양도세 없음 ✅
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>◆ &quot;위자료&quot;로 처리 시  
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>  • 받는 쪽: 취득세 부담
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>  • 주는 쪽: 양도세 부과 가능 ❌
+</code></pre></div>
+<h3 id="_27">📌 결론<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>유불리</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>세금만 보면</strong></td>
+<td>재산분할이 <strong>압도적으로 유리</strong></td>
+</tr>
+<tr>
+<td><strong>위자료가 필요한 경우</strong></td>
+<td>위자료는 현금으로 받고, 집은 재산분할로 처리하는 것이 절세</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="6_1">6. 실무 절세 전략<a class="headerlink" href="#6_1" title="Permanent link">&para;</a></h2>
+<h3 id="_28">✅ 가장 좋은 방법<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>① 집은 &quot;재산분할&quot;로 이전 → 양도세 없음
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>② 위자료는 &quot;현금&quot;으로 별도 수령
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>③ 이혼합의서에 명확히 구분 기재
+</code></pre></div>
+<h3 id="_29">⚠️ 피해야 할 방법<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>❌ 위자료 명목으로 집을 이전
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>   → 주는 쪽에 양도세 발생
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>   → 총 세금 부담이 크게 증가
+</code></pre></div>
+<hr />
+<h2 id="7">7. 이혼합의서 작성 시 주의<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>[좋은 예]
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>&quot;아파트 ○○호는 재산분할로 갑에게 이전한다.
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a> 위자료로 을이 갑에게 금 ○○만 원을 지급한다.&quot;
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>[나쁜 예]  
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>&quot;위자료로 아파트 ○○호를 갑에게 이전한다.&quot;
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>→ 양도세 폭탄 위험!
+</code></pre></div>
+<blockquote>
+<p>📝 합의서에 <strong>"재산분할"과 "위자료"를 명확히 구분</strong>해서 기재하는 것이 세금 절세의 핵심입니다.</p>
+</blockquote>
+<hr />
+<h2 id="_30">💡 핵심 요약<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>질문</th>
+<th>답변</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>위자료로 집 받으면 취득세?</td>
+<td>✅ <strong>낸다</strong></td>
+</tr>
+<tr>
+<td>위자료로 집 주면 양도세?</td>
+<td>✅ <strong>낼 수 있다</strong> (재산분할과 큰 차이)</td>
+</tr>
+<tr>
+<td>어떻게 하는 게 유리?</td>
+<td>집은 <strong>재산분할</strong>, 위자료는 <strong>현금</strong>으로 분리</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ 이혼 시 재산 이전은 <strong>명목(재산분할 vs 위자료)에 따라 세금이 수천만 원 차이</strong>날 수 있으므로, 합의서 작성 전에 반드시 <strong>세무사·변호사와 사전 협의</strong>하시기 바랍니다.</p>
+</blockquote>
+<p>추가로 궁금한 사항(위자료 산정 기준, 합의서 작성 방법 등)이 있으시면 말씀해 주세요!</p>
+<p><strong>후속 답변</strong> (자동 수락):</p>
+<h1 id="_31">위자료 산정 기준 &amp; 이혼합의서 작성 방법 상세 안내<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="part-1">Part 1. 위자료 산정 기준<a class="headerlink" href="#part-1" title="Permanent link">&para;</a></h2>
+<h3 id="1_7">1. 위자료란?<a class="headerlink" href="#1_7" title="Permanent link">&para;</a></h3>
+<p>이혼의 <strong>유책사유(잘못)</strong>로 인해 정신적 고통을 받은 배우자에게 지급하는 <strong>손해배상금</strong>입니다.</p>
+<blockquote>
+<p>재산분할은 "같이 모은 재산을 나누는 것", 위자료는 "잘못에 대한 대가"로 <strong>성격이 완전히 다릅니다.</strong></p>
+</blockquote>
+<hr />
+<h3 id="2_6">2. 위자료 인정 사유<a class="headerlink" href="#2_6" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>사유</th>
+<th>위자료 수준</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>부정행위(외도)</strong></td>
+<td>가장 높음 (핵심 유책사유)</td>
+</tr>
+<tr>
+<td><strong>가정폭력</strong></td>
+<td>높음</td>
+</tr>
+<tr>
+<td><strong>경제적 학대 (생활비 미지급 등)</strong></td>
+<td>중간~높음</td>
+</tr>
+<tr>
+<td><strong>시댁·처가 갈등 방치</strong></td>
+<td>중간</td>
+</tr>
+<tr>
+<td><strong>정당한 이유 없는 가출·별거</strong></td>
+<td>중간</td>
+</tr>
+<tr>
+<td><strong>성적 부조화·거부</strong></td>
+<td>중간</td>
+</tr>
+<tr>
+<td><strong>심한 모욕·폭언</strong></td>
+<td>중간</td>
+</tr>
+<tr>
+<td><strong>협의이혼 (쌍방 과실)</strong></td>
+<td>낮거나 없음</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="3_7">3. 위자료 금액 판단 요소<a class="headerlink" href="#3_7" title="Permanent link">&para;</a></h3>
+<p>법원은 아래 요소를 <strong>종합적으로</strong> 고려합니다.</p>
+<table>
+<thead>
+<tr>
+<th>요소</th>
+<th>내용</th>
+<th>금액에 미치는 영향</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>유책 정도</strong></td>
+<td>외도 횟수·기간, 폭력 심각성 등</td>
+<td>클수록 ↑</td>
+</tr>
+<tr>
+<td><strong>혼인 기간</strong></td>
+<td>길수록 정신적 피해 크다고 봄</td>
+<td>길수록 ↑</td>
+</tr>
+<tr>
+<td><strong>자녀 유무</strong></td>
+<td>미성년 자녀가 있으면 피해 가중</td>
+<td>있으면 ↑</td>
+</tr>
+<tr>
+<td><strong>유책배우자의 경제력</strong></td>
+<td>소득·재산이 많을수록</td>
+<td>많을수록 ↑</td>
+</tr>
+<tr>
+<td><strong>피해배우자의 경제력</strong></td>
+<td>경제적 약자일수록</td>
+<td>약할수록 ↑</td>
+</tr>
+<tr>
+<td><strong>혼인 파탄 경위</strong></td>
+<td>쌍방 과실 비율</td>
+<td>상대 과실 클수록 ↑</td>
+</tr>
+<tr>
+<td><strong>이혼 후 생활 상황</strong></td>
+<td>피해배우자의 생활 곤란 정도</td>
+<td>곤란할수록 ↑</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="4_4">4. 위자료 금액 현실적 범위<a class="headerlink" href="#4_4" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>상황</th>
+<th>대략적 금액 범위</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>일반적 성격 차이 이혼</td>
+<td><strong>0원 ~ 1,000만 원</strong></td>
+</tr>
+<tr>
+<td>외도 (단발성)</td>
+<td><strong>1,000만 ~ 3,000만 원</strong></td>
+</tr>
+<tr>
+<td>외도 (장기·반복)</td>
+<td><strong>3,000만 ~ 5,000만 원</strong></td>
+</tr>
+<tr>
+<td>외도 + 혼외자녀 출산</td>
+<td><strong>5,000만 ~ 1억 원</strong></td>
+</tr>
+<tr>
+<td>가정폭력 (경미)</td>
+<td><strong>1,000만 ~ 3,000만 원</strong></td>
+</tr>
+<tr>
+<td>가정폭력 (심각·상해)</td>
+<td><strong>3,000만 ~ 7,000만 원</strong></td>
+</tr>
+<tr>
+<td>고소득자·재벌 등</td>
+<td><strong>1억 원 이상</strong> 가능</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ 위 금액은 <strong>판례 경향</strong>이며, 법원은 금액을 자유롭게 판단합니다. 일반적으로 기대보다 <strong>적게 나오는 경우가 많습니다.</strong></p>
+</blockquote>
+<hr />
+<h3 id="5_3">5. 위자료 청구 기한<a class="headerlink" href="#5_3" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>기한</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>협의이혼</td>
+<td>이혼 성립일로부터 <strong>3년</strong> (불법행위 손해배상 소멸시효)</td>
+</tr>
+<tr>
+<td>재판이혼</td>
+<td>소송 중 함께 청구하는 것이 일반적</td>
+</tr>
+<tr>
+<td>상대방 외도상대(제3자)</td>
+<td>외도 사실을 안 날로부터 <strong>3년</strong>, 외도일로부터 <strong>10년</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="part-2">Part 2. 이혼합의서 작성 방법<a class="headerlink" href="#part-2" title="Permanent link">&para;</a></h2>
+<h3 id="1_8">1. 합의서에 반드시 포함할 항목<a class="headerlink" href="#1_8" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>┌─────────────────────────────────────┐
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>│         이혼합의서 필수 항목          │
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>├─────────────────────────────────────┤
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>│ ① 당사자 인적사항                    │
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>│ ② 이혼 합의 의사 표시                │
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>│ ③ 재산분할 내용 (부동산, 예금 등)     │
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>│ ④ 위자료 금액 및 지급 방법            │
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>│ ⑤ 자녀 양육권·친권자 지정             │
+<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>│ ⑥ 양육비 금액·지급 방법·기간          │
+<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>│ ⑦ 면접교섭권 (자녀 만남 방법)         │
+<a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>│ ⑧ 채무(대출) 부담 관계               │
+<a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>│ ⑨ 기타 합의 사항                     │
+<a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a>│ ⑩ 작성일, 서명·날인                  │
+<a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a>└─────────────────────────────────────┘
+</code></pre></div>
+<hr />
+<h3 id="2_7">2. 실제 합의서 샘플 (세금 절세형)<a class="headerlink" href="#2_7" title="Permanent link">&para;</a></h3>
+<p>아래는 <strong>재산분할과 위자료를 분리</strong>한 절세형 합의서 핵심 조항입니다.</p>
+<hr />
+<blockquote>
+<p><strong>이혼합의서</strong></p>
+<p>갑: 홍길동 (주민등록번호: ○○○○○○-○○○○○○○)
+주소: 서울시 ○○구 ○○로 ○○, ○○아파트 ○○○호</p>
+<p>을: 김영희 (주민등록번호: ○○○○○○-○○○○○○○)
+주소: (상동)</p>
+<p>갑과 을은 협의이혼에 합의하고, 다음과 같이 약정한다.</p>
+<hr />
+<p><strong>제1조 (이혼 합의)</strong>
+갑과 을은 협의에 의하여 이혼하기로 한다.</p>
+<hr />
+<p><strong>제2조 (재산분할)</strong> ← ⭐ 집은 여기에!</p>
+<p>① 갑과 을의 공동명의인 서울시 ○○구 ○○로 ○○, ○○아파트 ○○○호(이하 "본건 부동산")에 대하여, <strong>갑의 지분 전부를 재산분할로 을에게 이전</strong>한다.</p>
+<p>② 본건 부동산에 설정된 ○○은행 근저당권(채권최고액 금 ○억 원) 및 이에 관한 대출 잔액 금 ○억 ○천만 원은 <strong>을이 전액 승계</strong>한다.</p>
+<p>③ 갑 명의 ○○은행 예금 ○천만 원은 갑이 보유하고, 을 명의 ○○은행 예금 ○천만 원은 을이 보유한다.</p>
+<p>④ 위 재산분할은 혼인 기간 중 쌍방의 재산 형성 기여도를 고려하여 합의한 것이다.</p>
+<p>⑤ 소유권이전등기에 필요한 비용(취득세, 등기비용 등)은 <strong>을이 부담</strong>한다.</p>
+<hr />
+<p><strong>제3조 (위자료)</strong> ← ⭐ 현금으로 분리!</p>
+<p>① 갑은 을에게 위자료로 금 ○○○○만 원을 지급한다.</p>
+<p>② 위자료는 이혼신고 완료일로부터 ○개월 이내에 을의 아래 계좌로 송금한다.
+- 은행: ○○은행 / 계좌번호: ○○○-○○○-○○○○○ / 예금주: 김영희</p>
+<p>③ 갑이 기한 내 위자료를 지급하지 않을 경우, 미지급 금액에 대하여 연 <strong>5%</strong>의 지연이자를 가산한다.</p>
+<hr />
+<p><strong>제4조 (자녀 양육)</strong></p>
+<p>① 갑과 을 사이의 미성년 자녀 홍○○(○○○○년생)의 친권자 및 양육자는 <strong>을</strong>로 정한다.</p>
+<p>② 갑은 양육비로 매월 금 ○○○만 원을 자녀가 성년에 달하는 날이 속하는 달까지 매월 ○일에 을의 계좌로 지급한다.</p>
+<p>③ 양육비는 물가상승률 등을 고려하여 ○년마다 협의하여 조정할 수 있다.</p>
+<hr />
+<p><strong>제5조 (면접교섭)</strong></p>
+<p>① 갑은 매월 <strong>제2, 제4 토요일</strong> 오전 10시부터 일요일 오후 6시까지 자녀와 면접교섭할 수 있다.</p>
+<p>② 여름·겨울 방학 중 각 <strong>7일간</strong> 갑이 자녀와 함께 지낼 수 있다.</p>
+<p>③ 면접교섭의 구체적 방법은 자녀의 의사와 복리를 우선 고려하여 상호 협의한다.</p>
+<hr />
+<p><strong>제6조 (채무 정리)</strong></p>
+<p>① 본 합의서에 명시되지 않은 갑의 채무는 갑이, 을의 채무는 을이 각자 부담한다.</p>
+<p>② 일방의 채무로 인해 타방이 손해를 입은 경우, 이를 배상하기로 한다.</p>
+<hr />
+<p><strong>제7조 (기타)</strong></p>
+<p>① 갑과 을은 본 합의서에 기재된 것 이외에 상대방에 대하여 재산분할, 위자료, 기타 일체의 금전 청구를 하지 않는다.</p>
+<p>② 본 합의서의 내용을 성실히 이행하기로 하며, 위반 시 강제집행을 감수한다.</p>
+<hr />
+<p><strong>○○○○년 ○○월 ○○일</strong></p>
+<p>갑: 홍길동 (서명/인)
+을: 김영희 (서명/인)</p>
+</blockquote>
+<hr />
+<h3 id="3_8">3. 합의서 작성 시 핵심 주의사항<a class="headerlink" href="#3_8" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>번호</th>
+<th>주의사항</th>
+<th>이유</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td><strong>집은 반드시 "재산분할" 항목에</strong> 기재</td>
+<td>위자료로 기재하면 양도세 발생</td>
+</tr>
+<tr>
+<td>②</td>
+<td><strong>위자료는 현금으로 분리</strong> 기재</td>
+<td>세금 절세의 핵심</td>
+</tr>
+<tr>
+<td>③</td>
+<td><strong>공증 필수</strong></td>
+<td>불이행 시 강제집행 가능</td>
+</tr>
+<tr>
+<td>④</td>
+<td><strong>대출 승계 명시</strong></td>
+<td>은행 동의 전 합의서에 먼저 기재</td>
+</tr>
+<tr>
+<td>⑤</td>
+<td><strong>"일체의 청구를 하지 않는다" 문구</strong> 포함</td>
+<td>추후 추가 청구 방지</td>
+</tr>
+<tr>
+<td>⑥</td>
+<td><strong>양육비 지급 종기·방법 구체적으로</strong></td>
+<td>모호하면 분쟁 소지</td>
+</tr>
+<tr>
+<td>⑦</td>
+<td><strong>지연이자 조항</strong> 포함</td>
+<td>이행 강제력 확보</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="4_5">4. 공증 방법<a class="headerlink" href="#4_5" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>어디서</strong></td>
+<td>공증인 사무소 (법무법인, 합동법률사무소)</td>
+</tr>
+<tr>
+<td><strong>누가</strong></td>
+<td>갑·을 <strong>모두 출석</strong> (대리인 가능하나 본인 출석 권장)</td>
+</tr>
+<tr>
+<td><strong>필요서류</strong></td>
+<td>신분증, 인감증명서, 주민등록등본, 합의서</td>
+</tr>
+<tr>
+<td><strong>비용</strong></td>
+<td>약 <strong>10만 ~ 30만 원</strong> (위자료·양육비 금액에 따라 변동)</td>
+</tr>
+<tr>
+<td><strong>효력</strong></td>
+<td><strong>집행력 있는 공정증서</strong> → 불이행 시 바로 강제집행 가능</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>💡 <strong>"집행인낙 공정증서"</strong>로 작성하면, 상대방이 위자료·양육비를 안 줄 때 <strong>별도 소송 없이</strong> 바로 재산압류가 가능합니다.</p>
+</blockquote>
+<hr />
+<h3 id="5_4">5. 전체 절차 타임라인<a class="headerlink" href="#5_4" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>① 합의서 초안 작성
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>   ↓
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>② 세무사 상담 (재산분할·위자료 구분 검토, 세금 시뮬레이션)
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>   ↓  
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>③ 변호사/법무사 검토 (법적 효력·누락 조항 확인)
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>   ↓
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>④ 공증인 사무소에서 공정증서 작성
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>   ↓
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>⑤ 법원에 협의이혼 의사 확인 신청
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>   ↓
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a>⑥ 숙려기간 (자녀 있으면 3개월, 없으면 1개월)
+<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>   ↓
+<a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a>⑦ 법원 출석 → 이혼 확인 → 이혼신고
+<a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a>   ↓
+<a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a>⑧ 등기소에서 소유권이전등기 (재산분할)
+<a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a>   ↓
+<a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a>⑨ 취득세 납부 → 등기 완료
+<a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a>   ↓
+<a id="__codelineno-18-19" name="__codelineno-18-19" href="#__codelineno-18-19"></a>⑩ 위자료 현금 지급
+</code></pre></div>
+<hr />
+<h2 id="_32">💡 최종 핵심 정리<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>핵심</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>집(부동산)</strong></td>
+<td>반드시 <strong>"재산분할"</strong>로 이전 → 양도세 없음</td>
+</tr>
+<tr>
+<td><strong>위자료</strong></td>
+<td><strong>현금</strong>으로 분리 수령</td>
+</tr>
+<tr>
+<td><strong>합의서</strong></td>
+<td>재산분할·위자료 <strong>명확히 구분</strong> 기재</td>
+</tr>
+<tr>
+<td><strong>공증</strong></td>
+<td><strong>집행인낙 공정증서</strong> 작성 필수</td>
+</tr>
+<tr>
+<td><strong>세금 상담</strong></td>
+<td>합의서 작성 <strong>전에</strong> 세무사 상담</td>
+</tr>
+<tr>
+<td><strong>비용</strong></td>
+<td>세무사(10~20만) + 공증(10~30만) = 총 20~50만 원으로 <strong>수천만 원 절세</strong> 가능</td>
+</tr>
+</tbody>
+</table>
+<p>추가로 궁금한 사항(양육비 산정 기준, 협의이혼 절차, 등기 방법 등)이 있으시면 편하게 질문해 주세요!</p>
+<hr />
+<h3 id="q5">Q5. 이혼 전에 명의이전하면 문제 있나요?<a class="headerlink" href="#q5" title="Permanent link">&para;</a></h3>
+<p><strong>입력 토큰</strong>: 3 | <strong>출력 토큰</strong>: 2,821 | <strong>소요시간</strong>: 53,658ms | <strong>CLI 비용</strong>: $0.1249 | <strong>추정 API 비용</strong>: $0.2116
+<strong>대화 컨텍스트</strong>: 4턴 누적 | <strong>후속 제안</strong>: 감지됨</p>
+<p><strong>답변:</strong></p>
+<h1 id="_33">이혼 전 명의이전 시 발생하는 문제점<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h1>
+<h2 id="1_9">1. 핵심 결론: <strong>절대 비추천합니다</strong><a class="headerlink" href="#1_9" title="Permanent link">&para;</a></h2>
+<p>이혼 <strong>전</strong>에 명의를 이전하면 세금·법률 양쪽에서 심각한 문제가 발생할 수 있습니다.</p>
+<hr />
+<h2 id="2_8">2. 세금 문제 (가장 큰 리스크)<a class="headerlink" href="#2_8" title="Permanent link">&para;</a></h2>
+<h3 id="_34">📌 증여세 폭탄<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h3>
+<p>이혼 전에는 법적으로 아직 <strong>부부</strong>이므로, 명의이전 = <strong>배우자 증여</strong>로 간주됩니다.</p>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>이혼 전 이전</th>
+<th>이혼 후 재산분할</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>증여세</strong></td>
+<td>✅ <strong>과세</strong></td>
+<td>❌ 비과세</td>
+</tr>
+<tr>
+<td><strong>양도소득세</strong> (주는 쪽)</td>
+<td>상황에 따라 과세</td>
+<td>❌ 비과세</td>
+</tr>
+<tr>
+<td><strong>취득세</strong></td>
+<td>✅ 과세 (3.5%)</td>
+<td>✅ 과세 (1.5~3.5%)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_35">📌 증여세 계산 예시<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>[예시] 시가 10억 아파트 지분 50%를 이혼 전 배우자에게 이전
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>• 증여재산가액: 5억
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>• 배우자 증여공제: 6억 → 5억 전액 공제 가능 ✅
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>→ 이 경우는 증여세 0원?
+</code></pre></div>
+<blockquote>
+<p>⚠️ <strong>함정이 있습니다!</strong> 아래 "이혼 전제 증여" 문제를 꼭 확인하세요.</p>
+</blockquote>
+<hr />
+<h2 id="3_9">3. "이혼 전제 증여"의 함정 ⭐<a class="headerlink" href="#3_9" title="Permanent link">&para;</a></h2>
+<h3 id="6_2">📌 배우자 증여공제 6억을 쓰더라도 문제<a class="headerlink" href="#6_2" title="Permanent link">&para;</a></h3>
+<p>국세청은 다음 패턴을 <strong>집중 감시</strong>합니다:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>배우자 증여 (공제 6억 활용) → 곧바로 이혼
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>상황</th>
+<th>국세청 판단</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>증여 후 <strong>단기간 내 이혼</strong></td>
+<td>재산분할을 위장한 증여로 의심</td>
+</tr>
+<tr>
+<td>증여 후 <strong>수증자가 바로 매도</strong></td>
+<td>양도세 회피 목적으로 판단 가능</td>
+</tr>
+<tr>
+<td>이혼 합의가 이미 진행 중인데 증여</td>
+<td><strong>부당행위계산 부인</strong> 적용 가능</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_36">📌 국세청 추징 사례<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>[실제 사례 유형]
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>• 남편 → 아내에게 아파트 증여 (배우자 공제 적용, 증여세 0원)
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>• 3개월 후 협의이혼
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>• 아내가 아파트 매도
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>→ 국세청 판단: 양도세 회피 목적의 증여
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>→ 남편에게 양도소득세 추징 + 가산세 부과
+<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>→ 또는 증여 자체를 부인하고 재산분할로 재계산
+</code></pre></div>
+<hr />
+<h2 id="4_6">4. 양도소득세 문제 (주는 쪽)<a class="headerlink" href="#4_6" title="Permanent link">&para;</a></h2>
+<h3 id="510">📌 이혼 전 증여 후 5년(10년) 이내 매도 시<a class="headerlink" href="#510" title="Permanent link">&para;</a></h3>
+<p><strong>이월과세</strong> 규정이 적용됩니다:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>배우자에게 증여 → 수증자(받은 사람)가 매도 시
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>• 취득가액 = 증여자(준 사람)의 원래 취득가액으로 계산
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>• 즉, 증여로 취득가액을 높여서 양도세를 줄이려는 시도가 차단됨
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>이월과세 적용 기간</strong></td>
+<td>증여일로부터 <strong>10년 이내</strong> 매도 시</td>
+</tr>
+<tr>
+<td><strong>효과</strong></td>
+<td>증여자의 취득가액·취득시기로 양도세 계산</td>
+</tr>
+<tr>
+<td><strong>결과</strong></td>
+<td>절세 효과 <strong>없음</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_37">📌 비교 예시<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>[시나리오] 남편 취득가 4억 → 현재 시가 10억
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>◆ 이혼 전 증여 후 아내가 매도
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>  • 양도차익: 10억 - 4억 = 6억 (이월과세)
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>  • 양도세: 약 2억 원 이상
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>
+<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a>◆ 이혼 후 재산분할로 이전 후 아내가 매도  
+<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a>  • 취득가액: 재산분할 당시 시가 10억
+<a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a>  • 양도차익: 10억 - 10억 = 0원
+<a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a>  • 양도세: 0원 ✅
+</code></pre></div>
+<blockquote>
+<p>💡 <strong>차이가 2억 원 이상</strong> 발생할 수 있습니다!</p>
+</blockquote>
+<hr />
+<h2 id="5_5">5. 법률적 문제<a class="headerlink" href="#5_5" title="Permanent link">&para;</a></h2>
+<h3 id="_38">📌 재산분할 청구권 약화<a class="headerlink" href="#_38" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>문제</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>재산분할 범위 축소</strong></td>
+<td>이미 이전한 재산은 분할 대상에서 제외될 위험</td>
+</tr>
+<tr>
+<td><strong>반환 청구 곤란</strong></td>
+<td>이전 후 상대방이 이혼을 거부하거나 조건을 변경하면 돌려받기 어려움</td>
+</tr>
+<tr>
+<td><strong>소유권 분쟁</strong></td>
+<td>이혼이 무산될 경우 소유권 회복이 복잡해짐</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_39">📌 채권자 문제<a class="headerlink" href="#_39" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>명의이전 후 상대방에게 채권자가 있다면?
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>→ 이전한 부동산이 상대방 채권자에 의해 압류·경매 위험
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>→ 돌이킬 수 없는 손해 발생
+</code></pre></div>
+<h3 id="_40">📌 사해행위 취소 위험<a class="headerlink" href="#_40" title="Permanent link">&para;</a></h3>
+<ul>
+<li>명의이전자에게 <strong>채무</strong>가 있는 경우</li>
+<li>채권자가 <strong>사해행위 취소소송</strong>을 제기할 수 있음</li>
+<li>법원이 명의이전을 <strong>취소</strong>하고 원상복구 명령 가능</li>
+</ul>
+<hr />
+<h2 id="6_3">6. 취득세 불이익<a class="headerlink" href="#6_3" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>취득세율</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>이혼 전 증여</td>
+<td><strong>3.5%</strong> (증여 취득세율)</td>
+</tr>
+<tr>
+<td>이혼 후 재산분할</td>
+<td><strong>1.5~3.5%</strong> (일반 유상취득 세율 적용 가능)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>이혼 전 이전이 취득세도 <strong>더 비쌀 수 있습니다.</strong></p>
+</blockquote>
+<hr />
+<h2 id="7_1">7. 시간별 위험도 정리<a class="headerlink" href="#7_1" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>[명의이전 시점별 위험]
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>이혼 전 이전     ██████████ 위험 매우 높음
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a> ↓               • 증여세 과세
+<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>                  • 이월과세 적용
+<a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>                  • 법적 분쟁 위험
+<a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a>
+<a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a>이혼 확정 직후   ██ 안전
+<a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a> ↓               • 재산분할 비과세 적용
+<a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a>                  • 법적 보호 받음
+<a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a>
+<a id="__codelineno-25-12" name="__codelineno-25-12" href="#__codelineno-25-12"></a>이혼 후 2년 경과 ██████████ 청구 불가
+<a id="__codelineno-25-13" name="__codelineno-25-13" href="#__codelineno-25-13"></a>                  • 재산분할 청구권 소멸
+</code></pre></div>
+<hr />
+<h2 id="8">8. 올바른 처리 순서<a class="headerlink" href="#8" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>✅ 올바른 순서
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>① 재산분할 협의서 작성 (공증)
+<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>     ↓
+<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>② 이혼 신고 (협의이혼 숙려기간: 자녀 有 3개월, 無 1개월)
+<a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a>     ↓
+<a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a>③ 이혼 확정
+<a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a>     ↓
+<a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a>④ 재산분할에 따른 소유권이전등기 신청
+<a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a>     ↓
+<a id="__codelineno-26-11" name="__codelineno-26-11" href="#__codelineno-26-11"></a>⑤ 취득세 납부 → 등기 완료
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>❌ 잘못된 순서
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>① 명의이전 먼저 → 증여세·양도세 문제 발생
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>② 그 다음 이혼 → 국세청 추징 위험
+</code></pre></div>
+<hr />
+<h2 id="_41">💡 핵심 요약<a class="headerlink" href="#_41" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>질문</th>
+<th>답변</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>이혼 전 명의이전 가능한가?</td>
+<td>가능하지만 <strong>절대 비추천</strong></td>
+</tr>
+<tr>
+<td>왜 안 되나?</td>
+<td>증여세 과세 + 양도세 이월과세 + 법적 분쟁 위험</td>
+</tr>
+<tr>
+<td>얼마나 손해?</td>
+<td>수천만 원 ~ <strong>수억 원</strong> 차이 발생 가능</td>
+</tr>
+<tr>
+<td>어떻게 해야 하나?</td>
+<td><strong>이혼 확정 후 재산분할로 이전</strong>이 정답</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ 이전 대화에서도 말씀드렸듯이, 집은 반드시 <strong>"이혼 확정 후 재산분할"</strong> 명목으로 이전하셔야 합니다. 이혼 전 명의이전은 <strong>세금 폭탄 + 법적 리스크</strong>를 동시에 안게 되는 최악의 선택입니다.</p>
+</blockquote>
+<p>추가로 궁금한 사항(숙려기간 중 재산 보호 방법, 상대방이 재산을 빼돌리는 경우 대응 등)이 있으시면 말씀해 주세요!</p>
+<p><strong>후속 답변</strong> (자동 수락):</p>
+<h1 id="_42">이혼 숙려기간 중 재산 보호 방법 &amp; 재산 은닉 대응<a class="headerlink" href="#_42" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="part-1_1">Part 1. 숙려기간 중 재산 보호 방법<a class="headerlink" href="#part-1_1" title="Permanent link">&para;</a></h2>
+<h3 id="1_10">1. 숙려기간이란?<a class="headerlink" href="#1_10" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>기간</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>미성년 자녀 <strong>없는</strong> 경우</td>
+<td><strong>1개월</strong></td>
+</tr>
+<tr>
+<td>미성년 자녀 <strong>있는</strong> 경우</td>
+<td><strong>3개월</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>이 기간 동안 아직 법적으로 <strong>부부</strong>이므로, 상대방이 재산을 처분하거나 빼돌릴 위험이 있습니다.</p>
+</blockquote>
+<hr />
+<h3 id="2_9">2. 부동산 보호: 처분금지가처분 신청 ⭐<a class="headerlink" href="#2_9" title="Permanent link">&para;</a></h3>
+<p>가장 강력하고 확실한 방법입니다.</p>
+<h4 id="_43">📌 처분금지가처분이란?<a class="headerlink" href="#_43" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>법원에 신청하여 상대방이 부동산을 
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>매도·담보설정·명의변경하지 못하도록 
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>등기부에 &quot;가처분&quot; 기입을 하는 제도
+</code></pre></div>
+<h4 id="_44">📌 신청 방법<a class="headerlink" href="#_44" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>신청 법원</strong></td>
+<td>부동산 소재지 관할 법원</td>
+</tr>
+<tr>
+<td><strong>신청 자격</strong></td>
+<td>배우자 (재산분할청구권 보전 목적)</td>
+</tr>
+<tr>
+<td><strong>필요 서류</strong></td>
+<td>가처분신청서, 소명자료(혼인관계증명서, 등기부등본, 재산 관련 자료)</td>
+</tr>
+<tr>
+<td><strong>담보금</strong></td>
+<td>부동산 가액의 약 <strong>10~20%</strong> (법원이 결정, 현금 또는 보증보험증권)</td>
+</tr>
+<tr>
+<td><strong>처리 기간</strong></td>
+<td>약 <strong>1~2주</strong> (긴급 시 수일 내 가능)</td>
+</tr>
+<tr>
+<td><strong>비용</strong></td>
+<td>인지대 + 송달료 약 5~10만 원 + 담보금 + 변호사 비용</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_45">📌 담보금 부담을 줄이는 방법<a class="headerlink" href="#_45" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>• 보증보험증권 활용: 현금 대신 보험료(담보금의 약 3~5%)만 납부
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>  예) 담보금 5,000만 원 → 보험료 약 150만~250만 원으로 해결
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>
+<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>• 담보제공명령 감액 신청: 사정을 소명하여 담보금 인하 요청
+</code></pre></div>
+<h4 id="_46">📌 가처분 효과<a class="headerlink" href="#_46" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>등기부에 &quot;처분금지가처분&quot; 기입
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>  ↓
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>상대방이 매도·근저당 설정 시도해도
+<a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>  ↓
+<a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a>가처분 후 행위는 가처분권자에게 대항 불가
+<a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a>  ↓
+<a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a>사실상 부동산 동결 ✅
+</code></pre></div>
+<hr />
+<h3 id="3_10">3. 예금·금융재산 보호<a class="headerlink" href="#3_10" title="Permanent link">&para;</a></h3>
+<h4 id="_47">📌 채권가압류 신청<a class="headerlink" href="#_47" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>대상</strong></td>
+<td>상대방 명의 은행 예금, 증권계좌, 보험 해약환급금 등</td>
+</tr>
+<tr>
+<td><strong>효과</strong></td>
+<td>상대방이 예금을 인출하지 못하도록 동결</td>
+</tr>
+<tr>
+<td><strong>신청 법원</strong></td>
+<td>상대방 주소지 또는 은행 소재지 관할 법원</td>
+</tr>
+<tr>
+<td><strong>담보금</strong></td>
+<td>가압류 금액의 약 <strong>10~30%</strong></td>
+</tr>
+</tbody>
+</table>
+<h4 id="_48">📌 신청 시 필요한 정보<a class="headerlink" href="#_48" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>• 상대방 거래 은행명 + 지점명
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>• 계좌번호 (모르면 은행명만으로도 가능)
+<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>• 대략적인 예금 규모 소명자료
+</code></pre></div>
+<blockquote>
+<p>💡 <strong>계좌번호를 모를 때</strong>: 은행명만 알면 "채무자 ○○은행 ○○지점에 대한 예금채권"으로 포괄적 가압류 가능</p>
+</blockquote>
+<hr />
+<h3 id="4_7">4. 사전 재산 조회 방법<a class="headerlink" href="#4_7" title="Permanent link">&para;</a></h3>
+<h4 id="482">📌 가사소송 중 재산조회 (가사소송법 제48조의2)<a class="headerlink" href="#482" title="Permanent link">&para;</a></h4>
+<p>이혼소송 또는 재산분할 심판 청구 시, 법원에 <strong>재산명시·재산조회</strong>를 신청할 수 있습니다.</p>
+<table>
+<thead>
+<tr>
+<th>조회 대상</th>
+<th>조회 기관</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>부동산</strong></td>
+<td>국토교통부 (전국 부동산 조회)</td>
+</tr>
+<tr>
+<td><strong>예금</strong></td>
+<td>금융감독원 (전 금융기관 일괄 조회)</td>
+</tr>
+<tr>
+<td><strong>보험</strong></td>
+<td>보험협회</td>
+</tr>
+<tr>
+<td><strong>증권·주식</strong></td>
+<td>한국예탁결제원</td>
+</tr>
+<tr>
+<td><strong>자동차</strong></td>
+<td>국토교통부</td>
+</tr>
+<tr>
+<td><strong>퇴직연금</strong></td>
+<td>근로복지공단</td>
+</tr>
+<tr>
+<td><strong>국민연금</strong></td>
+<td>국민연금공단</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ 이 제도는 <strong>소송·심판이 진행 중</strong>이어야 이용 가능합니다. 소송 전이라면 아래 방법을 활용하세요.</p>
+</blockquote>
+<h4 id="_49">📌 소송 전 자체 조사 방법<a class="headerlink" href="#_49" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>방법</th>
+<th>구체적 내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>등기부등본 열람</strong></td>
+<td>인터넷등기소에서 상대방 소유 부동산 확인</td>
+</tr>
+<tr>
+<td><strong>건강보험 피부양자 조회</strong></td>
+<td>상대방 직장 및 소득 추정</td>
+</tr>
+<tr>
+<td><strong>신용정보 조회</strong></td>
+<td>결혼 중 동의하에 확보한 자료 활용</td>
+</tr>
+<tr>
+<td><strong>카드·통장 내역 확보</strong></td>
+<td>공동가계 운영 자료로 활용</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="5_6">5. 숙려기간 중 즉시 해야 할 체크리스트<a class="headerlink" href="#5_6" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>□ ① 공동명의 부동산 등기부등본 발급 → 현재 상태 확인
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>□ ② 상대방 단독명의 부동산 등기부등본 확인
+<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>□ ③ 처분금지가처분 신청 검토 (부동산 보호)
+<a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a>□ ④ 공동계좌 잔액 확인 및 스크린샷 보관
+<a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a>□ ⑤ 상대방 재산 관련 증거 확보 (급여명세서, 통장사본 등)
+<a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a>□ ⑥ 대출 현황 파악 (은행 문의)
+<a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a>□ ⑦ 재산분할 협의서 초안 작성
+<a id="__codelineno-32-8" name="__codelineno-32-8" href="#__codelineno-32-8"></a>□ ⑧ 변호사·세무사 상담 예약
+</code></pre></div>
+<hr />
+<h2 id="part-2_1">Part 2. 상대방이 재산을 빼돌리는 경우 대응<a class="headerlink" href="#part-2_1" title="Permanent link">&para;</a></h2>
+<h3 id="1_11">1. 재산 은닉·처분의 유형<a class="headerlink" href="#1_11" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>유형</th>
+<th>구체적 행위</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>부동산 처분</strong></td>
+<td>아파트 급매, 제3자에게 명의이전</td>
+</tr>
+<tr>
+<td><strong>부동산 담보설정</strong></td>
+<td>근저당 설정 후 대출금 은닉</td>
+</tr>
+<tr>
+<td><strong>예금 인출</strong></td>
+<td>대량 현금 인출, 타인 계좌로 이체</td>
+</tr>
+<tr>
+<td><strong>주식·코인 처분</strong></td>
+<td>매도 후 현금화하여 은닉</td>
+</tr>
+<tr>
+<td><strong>허위 채무 생성</strong></td>
+<td>지인에게 차용증 작성하여 채무 부풀리기</td>
+</tr>
+<tr>
+<td><strong>사업체 이용</strong></td>
+<td>법인 또는 사업자 명의로 재산 이전</td>
+</tr>
+<tr>
+<td><strong>가족 명의 이전</strong></td>
+<td>부모·형제에게 증여 또는 명의신탁</td>
+</tr>
+<tr>
+<td><strong>해외 이전</strong></td>
+<td>해외 계좌로 송금</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="2_10">2. 대응 방법 (단계별)<a class="headerlink" href="#2_10" title="Permanent link">&para;</a></h3>
+<h4 id="1_12">✅ 1단계: 증거 확보 (최우선)<a class="headerlink" href="#1_12" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>[확보해야 할 증거]
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>
+<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>📄 금융 관련
+<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>  • 상대방 통장 거래내역 (최근 1~2년)
+<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a>  • 카드 사용내역
+<a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a>  • 대출 내역서
+<a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a>  • 보험 가입내역
+<a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a>
+<a id="__codelineno-33-9" name="__codelineno-33-9" href="#__codelineno-33-9"></a>🏠 부동산 관련
+<a id="__codelineno-33-10" name="__codelineno-33-10" href="#__codelineno-33-10"></a>  • 등기부등본 (갑구·을구 전부)
+<a id="__codelineno-33-11" name="__codelineno-33-11" href="#__codelineno-33-11"></a>  • 부동산 매매계약서 사본
+<a id="__codelineno-33-12" name="__codelineno-33-12" href="#__codelineno-33-12"></a>  • 시세 자료 (실거래가 조회)
+<a id="__codelineno-33-13" name="__codelineno-33-13" href="#__codelineno-33-13"></a>
+<a id="__codelineno-33-14" name="__codelineno-33-14" href="#__codelineno-33-14"></a>💼 소득 관련
+<a id="__codelineno-33-15" name="__codelineno-33-15" href="#__codelineno-33-15"></a>  • 급여명세서, 원천징수영수증
+<a id="__codelineno-33-16" name="__codelineno-33-16" href="#__codelineno-33-16"></a>  • 사업소득 관련 자료
+<a id="__codelineno-33-17" name="__codelineno-33-17" href="#__codelineno-33-17"></a>  • 종합소득세 신고서
+<a id="__codelineno-33-18" name="__codelineno-33-18" href="#__codelineno-33-18"></a>
+<a id="__codelineno-33-19" name="__codelineno-33-19" href="#__codelineno-33-19"></a>📸 기타
+<a id="__codelineno-33-20" name="__codelineno-33-20" href="#__codelineno-33-20"></a>  • 고가 동산 (명품, 골드바, 미술품 등) 사진
+<a id="__codelineno-33-21" name="__codelineno-33-21" href="#__codelineno-33-21"></a>  • 자동차 등록증
+<a id="__codelineno-33-22" name="__codelineno-33-22" href="#__codelineno-33-22"></a>  • 상대방과의 재산 관련 대화 캡처
+</code></pre></div>
+<blockquote>
+<p>⚠️ <strong>증거는 이혼 이야기가 나오기 전에 확보</strong>하는 것이 가장 좋습니다. 이혼 의사를 밝힌 후에는 상대방이 은닉을 시작할 수 있습니다.</p>
+</blockquote>
+<h4 id="2_11">✅ 2단계: 법적 보전 조치<a class="headerlink" href="#2_11" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>조치</th>
+<th>효과</th>
+<th>시기</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>처분금지가처분</strong></td>
+<td>부동산 처분 차단</td>
+<td>즉시</td>
+</tr>
+<tr>
+<td><strong>채권가압류</strong></td>
+<td>예금 인출 차단</td>
+<td>즉시</td>
+</tr>
+<tr>
+<td><strong>사해행위취소 소송</strong></td>
+<td>이미 처분한 재산 원상회복</td>
+<td>처분 사실 인지 후</td>
+</tr>
+<tr>
+<td><strong>재산조회 신청</strong></td>
+<td>숨긴 재산 탐색</td>
+<td>소송 개시 후</td>
+</tr>
+</tbody>
+</table>
+<h4 id="3_11">✅ 3단계: 사해행위 취소소송 (이미 빼돌린 경우)<a class="headerlink" href="#3_11" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>[사해행위 취소란?]
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>상대방이 재산분할을 피하기 위해 
+<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>제3자에게 재산을 이전한 행위를 
+<a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a>법원이 취소하고 원상복구시키는 제도
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>요건</strong></td>
+<td>① 채무 초과 상태에서 ② 재산 감소 행위를 ③ 알면서 한 경우</td>
+</tr>
+<tr>
+<td><strong>대상</strong></td>
+<td>명의이전, 증여, 헐값 매도, 허위 채무 등</td>
+</tr>
+<tr>
+<td><strong>제소 기한</strong></td>
+<td>사해행위를 안 날로부터 <strong>1년</strong>, 행위일로부터 <strong>5년</strong></td>
+</tr>
+<tr>
+<td><strong>효과</strong></td>
+<td>명의이전 취소 + 재산 원상회복</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_50">📌 실제 사례<a class="headerlink" href="#_50" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>[판례 유형 1] 
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>남편이 이혼 직전 아파트를 자기 어머니에게 증여
+<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>→ 아내가 사해행위취소 소송 제기
+<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>→ 법원: &quot;재산분할 청구권을 해하는 사해행위&quot; 인정
+<a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a>→ 증여 취소, 아파트 원상회복 ✅
+<a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a>
+<a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a>[판례 유형 2]
+<a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a>아내가 예금 2억을 친정어머니 계좌로 이체
+<a id="__codelineno-35-9" name="__codelineno-35-9" href="#__codelineno-35-9"></a>→ 남편이 채권가압류 + 사해행위취소 청구
+<a id="__codelineno-35-10" name="__codelineno-35-10" href="#__codelineno-35-10"></a>→ 법원: 반환 명령 ✅
+</code></pre></div>
+<hr />
+<h3 id="3_12">3. 허위 채무(가짜 빚) 대응<a class="headerlink" href="#3_12" title="Permanent link">&para;</a></h3>
+<p>상대방이 재산분할 몫을 줄이기 위해 <strong>가짜 빚</strong>을 만드는 경우가 있습니다.</p>
+<table>
+<thead>
+<tr>
+<th>의심 포인트</th>
+<th>구체적 내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>갑자기 등장한 차용증</strong></td>
+<td>이혼 직전 지인에게 빌렸다는 차용증</td>
+</tr>
+<tr>
+<td><strong>가족에게 빌린 돈</strong></td>
+<td>부모·형제에게 차용증 소급 작성</td>
+</tr>
+<tr>
+<td><strong>사업 관련 채무</strong></td>
+<td>사업상 손해를 과장</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_51">📌 대응 방법<a class="headerlink" href="#_51" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>• 차용증의 작성일, 이체 내역, 상환 기록 확인 요구
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>• 공증 여부 확인 (소급 작성 차용증은 공증 없는 경우 많음)
+<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>• 법원에 금융거래 조회 신청 → 실제 금전 이동 여부 확인
+<a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a>• 필적 감정, 인영 감정 신청 가능
+</code></pre></div>
+<hr />
+<h3 id="4_8">4. 재산 은닉에 대한 제재<a class="headerlink" href="#4_8" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>제재</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>재산분할 비율 조정</strong></td>
+<td>재산을 은닉한 쪽에 <strong>불리하게</strong> 비율 조정</td>
+</tr>
+<tr>
+<td><strong>은닉 재산 전액 인정</strong></td>
+<td>숨긴 재산을 상대방 몫에서 차감</td>
+</tr>
+<tr>
+<td><strong>과태료</strong></td>
+<td>재산명시 절차에서 허위 진술 시 <strong>1,000만 원 이하 과태료</strong></td>
+</tr>
+<tr>
+<td><strong>감치</strong></td>
+<td>재산명시 불이행 시 <strong>20일 이내 감치(구금)</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="part-3">Part 3. 실전 타임라인 정리<a class="headerlink" href="#part-3" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>[이혼 결심 ~ 재산분할 완료까지]
+<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>
+<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>▶ STEP 1. 이혼 결심 (상대에게 말하기 전)
+<a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a>   □ 재산 현황 전수 조사 (부동산, 예금, 보험, 연금, 차량)
+<a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a>   □ 증거 확보 (통장사본, 급여명세서, 등기부등본 등)
+<a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a>   □ 변호사 상담 (가사전문)
+<a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a>   □ 세무사 상담 (재산분할 세금 시뮬레이션)
+<a id="__codelineno-37-8" name="__codelineno-37-8" href="#__codelineno-37-8"></a>
+<a id="__codelineno-37-9" name="__codelineno-37-9" href="#__codelineno-37-9"></a>▶ STEP 2. 이혼 의사 통보 직후
+<a id="__codelineno-37-10" name="__codelineno-37-10" href="#__codelineno-37-10"></a>   □ 처분금지가처분 신청 (부동산)
+<a id="__codelineno-37-11" name="__codelineno-37-11" href="#__codelineno-37-11"></a>   □ 채권가압류 신청 (예금, 보험)
+<a id="__codelineno-37-12" name="__codelineno-37-12" href="#__codelineno-37-12"></a>   □ 공동계좌 잔액 확인 및 보전
+<a id="__codelineno-37-13" name="__codelineno-37-13" href="#__codelineno-37-13"></a>
+<a id="__codelineno-37-14" name="__codelineno-37-14" href="#__codelineno-37-14"></a>▶ STEP 3. 숙려기간 (1~3개월)
+<a id="__codelineno-37-15" name="__codelineno-37-15" href="#__codelineno-37-15"></a>   □ 재산분할 협의 진행
+<a id="__codelineno-37-16" name="__codelineno-37-16" href="#__codelineno-37-16"></a>   □ 합의서 초안 작성 (변호사 검토)
+<a id="__codelineno-37-17" name="__codelineno-37-17" href="#__codelineno-37-17"></a>   □ 세금 최적화 방안 확정
+<a id="__codelineno-37-18" name="__codelineno-37-18" href="#__codelineno-37-18"></a>
+<a id="__codelineno-37-19" name="__codelineno-37-19" href="#__codelineno-37-19"></a>▶ STEP 4. 이혼 확정
+<a id="__codelineno-37-20" name="__codelineno-37-20" href="#__codelineno-37-20"></a>   □ 이혼신고서 제출
+<a id="__codelineno-37-21" name="__codelineno-37-21" href="#__codelineno-37-21"></a>   □ 재산분할 협의서 공증
+<a id="__codelineno-37-22" name="__codelineno-37-22" href="#__codelineno-37-22"></a>
+<a id="__codelineno-37-23" name="__codelineno-37-23" href="#__codelineno-37-23"></a>▶ STEP 5. 재산분할 실행
+<a id="__codelineno-37-24" name="__codelineno-37-24" href="#__codelineno-37-24"></a>   □ 소유권이전등기 신청
+<a id="__codelineno-37-25" name="__codelineno-37-25" href="#__codelineno-37-25"></a>   □ 취득세 납부
+<a id="__codelineno-37-26" name="__codelineno-37-26" href="#__codelineno-37-26"></a>   □ 대출 승계 처리 (은행)
+<a id="__codelineno-37-27" name="__codelineno-37-27" href="#__codelineno-37-27"></a>   □ 가처분·가압류 해제
+</code></pre></div>
+<hr />
+<h2 id="_52">💡 비용 안내<a class="headerlink" href="#_52" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>예상 비용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>처분금지가처분 신청</td>
+<td>인지대 5만 원 + 담보금(보증보험료 150~300만 원)</td>
+</tr>
+<tr>
+<td>채권가압류 신청</td>
+<td>인지대 5만 원 + 담보금</td>
+</tr>
+<tr>
+<td>변호사 상담</td>
+<td>30분 약 5~10만 원</td>
+</tr>
+<tr>
+<td>변호사 선임 (협의이혼)</td>
+<td>약 200~500만 원</td>
+</tr>
+<tr>
+<td>변호사 선임 (재판이혼)</td>
+<td>약 500~1,500만 원</td>
+</tr>
+<tr>
+<td>세무사 상담</td>
+<td>약 10~20만 원</td>
+</tr>
+<tr>
+<td>공증 비용</td>
+<td>약 10~30만 원</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_53">⚠️ 최종 당부<a class="headerlink" href="#_53" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>이혼 이야기를 꺼내기 전에 증거부터 확보</strong>하세요. 순서가 바뀌면 상대방이 재산을 은닉할 시간을 줍니다.</li>
+<li><strong>가처분·가압류는 빠를수록 좋습니다.</strong> 상대방이 먼저 처분하면 사해행위 취소까지 가야 하므로 시간과 비용이 몇 배로 듭니다.</li>
+<li><strong>혼자 처리하지 마세요.</strong> 가사전문 변호사의 도움을 받으면 재산분할 비율도 유리해지고, 절차적 실수도 방지할 수 있습니다.</li>
+<li><strong>세금은 사전에 시뮬레이션</strong>하세요. 같은 재산이라도 처리 방식에 따라 세금이 <strong>수천만 원</strong> 차이 납니다.</li>
+</ol>
+<p>추가로 궁금한 부분(가처분 신청서 작성법, 변호사 선임 시 주의사항, 양육권과 주거권 관계 등)이 있으시면 편하게 질문해 주세요!</p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  맨위로
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.highlight", "search.suggest", "content.code.copy", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,7812 @@
+
+<!doctype html>
+<html lang="ko" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="대한민국 부동산 RAG 기반 AI 상담/보고서 서비스 기획 문서">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>B-090. 이사 실무 Opus 4.6 테스트 결과 - 부동산 AI 어드바이저 — 프로젝트 기획</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#b-090-opus-46" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="상단/헤더">
+    <a href="../../../.." title="부동산 AI 어드바이저 — 프로젝트 기획" class="md-header__button md-logo" aria-label="부동산 AI 어드바이저 — 프로젝트 기획" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            부동산 AI 어드바이저 — 프로젝트 기획
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              B-090. 이사 실무 Opus 4.6 테스트 결과
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="다크 모드로 전환"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="다크 모드로 전환" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="라이트 모드로 전환"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="라이트 모드로 전환" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+        <button type="reset" class="md-search__icon md-icon" title="지우기" aria-label="지우기" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="탭" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  홈
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../project_plan/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  프로젝트 기획서
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../1_rag_mvp/1_rag_mvp_plan/" class="md-tabs__link">
+          
+  
+  
+  Phase 1 — RAG MVP
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../2_domain_ontology/2_domain_ontology_plan/" class="md-tabs__link">
+          
+  
+  
+  Phase 2 — 도메인 온톨로지
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../00_overview/" class="md-tabs__link">
+          
+  
+  
+  Phase 3 — 부동산 RAG 챗봇
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../4_deep_report/00_overview/" class="md-tabs__link">
+          
+  
+  
+  Phase 4 — 딥 리포트
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../settings/" class="md-tabs__link">
+          
+  
+  
+  환경 설정
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="네비게이션" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="부동산 AI 어드바이저 — 프로젝트 기획" class="md-nav__button md-logo" aria-label="부동산 AI 어드바이저 — 프로젝트 기획" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    부동산 AI 어드바이저 — 프로젝트 기획
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    홈
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../project_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    프로젝트 기획서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 1 — RAG MVP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phase 1 — RAG MVP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/1_rag_mvp_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기획서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    세부 계획
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    세부 계획
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/1_1_embedding_data_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.1 임베딩 데이터 테스트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_2" id="__nav_3_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    테스트 결과
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    테스트 결과
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/test_result/20260315_1_sementic_search_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    시맨틱 검색 테스트 (1차)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/test_result/20260315_2_sementic_search_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    시맨틱 검색 테스트 (2차)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/test_result/20260315_3_meta_data_filtering_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    메타데이터 필터링 테스트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/test_result/20260315_4_embedding_quality_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    임베딩 품질 평가
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기술 연구
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    기술 연구
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/tech_research/embedding_models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    한국어 임베딩 모델 비교
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/tech_research/vector_databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vector Database 비교
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/tech_research/hybrid_search_bm25/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hybrid Search (Dense + BM25)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 1 — 검색 개선 연구
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 1 — 검색 개선 연구
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/supplementary_1_search_improvement/01_overview_and_research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    개요 및 외부 연구
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/supplementary_1_search_improvement/02_query_time_improvements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Query-Time 개선
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/supplementary_1_search_improvement/03_post_retrieval_improvements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Post-Retrieval 개선
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/supplementary_1_search_improvement/04_adaptive_rag_generation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Adaptive RAG Generation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/supplementary_1_search_improvement/05_indexing_and_evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    인덱싱 및 평가
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/supplementary_1_search_improvement/06_implementation_and_test_report/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    구현 및 테스트 리포트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2 — 도메인 온톨로지
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phase 2 — 도메인 온톨로지
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/2_domain_ontology_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기획서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/3_legal_doc_rag_strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    법령 문서 RAG 전략
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/4_ontology_build_and_index_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    온톨로지 빌드 + 색인 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/5_phase2_search_test_report/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    검색 테스트 리포트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/6_search_improvement_research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    검색 개선 연구 (외부 사례)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 1 — Contextual Retrieval
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 1 — Contextual Retrieval
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_1_contextual_retrieval/01_contextual_retrieval_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    구현 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_1_contextual_retrieval/02_contextual_prefix_script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prefix 생성 스크립트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_1_contextual_retrieval/03_cron_wrapper_and_yaml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cron Wrapper & YAML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_1_contextual_retrieval/04_index_phase2_modifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    index_phase2 수정 사항
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_1_contextual_retrieval/05_contextual_retrieval_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    적용 결과 리포트 (확장 테스트)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 2 — BGE-M3 Triple-Vector
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 2 — BGE-M3 Triple-Vector
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/01_bgem3_triple_vector_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    전체 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/02_embedder_bgem3_design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Embedder 설계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/03_collection_schema_and_indexing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    컬렉션 스키마 + 인덱싱
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/04_multi_stage_search_pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi-Stage 검색 파이프라인
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/05_benchmark_and_ablation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    벤치마크 및 Ablation Study
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/06_results_and_analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 분석
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/07_colbert_improvement_research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ColBERT 개선 전략 연구
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/08_reranker_module_design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reranker 모듈 설계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/09_benchmark_expansion_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    확장 벤치마크 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_2_bge_m3_triple_vector/10_expanded_benchmark_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    확장 벤치마크 결과
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 3 — Cross-Domain Query Decomposition
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 3 — Cross-Domain Query Decomposition
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_3_cross_domain/01_query_decomposition_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    구현 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_3_cross_domain/02_query_analyzer_design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QueryAnalyzer 설계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_3_cross_domain/03_search_pipeline_design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SearchPipeline 설계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_3_cross_domain/04_evaluation_framework/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    평가 프레임워크
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_3_cross_domain/05_benchmark_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    벤치마크 결과
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_9" id="__nav_4_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 4 — 순차 보완 전략 (P1-a/b)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 4 — 순차 보완 전략 (P1-a/b)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/01_sequential_improvement_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    순차 개선 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/02_execution_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    실행 프레임워크
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/03_step1_hybrid_strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Step 1 — 하이브리드 전략
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/04_step2_decompose_conservatism/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Step 2 — DECOMPOSE 보수화
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/05_step3_prefilter_refinement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Step 3 — 사전 필터 정교화
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/06_step4_prompt_conservatism/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Step 4 — 프롬프트 보수성
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/07_step5_cross_encoder_fusion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Step 5 — Cross-Encoder 퓨전
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/08_step1to4_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 — Step 1~4 통합
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_4_adjusting_strategy/09_step5_rerank_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 — Step 5 CE 퓨전
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/7_phase2_comprehensive_evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2 종합 평가
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_11" id="__nav_4_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 5 — 슬랭 Alias + CE 최적화 (Phase 2A)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 5 — 슬랭 Alias + CE 최적화 (Phase 2A)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_5_slang_alias_ce/01_phase2a_quickwins_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Wins 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_5_slang_alias_ce/02_alpha_grid_search/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    α 그리드 서치
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_5_slang_alias_ce/03_conditional_ce_bypass/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    조건부 CE 우회
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_5_slang_alias_ce/04_slang_alias_expansion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    슬랭 Alias 확장
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_5_slang_alias_ce/05_benchmark_verification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    벤치마크 검증 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_5_slang_alias_ce/06_phase2a_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2A 결과
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_5_slang_alias_ce/07_phase2b_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2B/C 결과 (최종)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_12" id="__nav_4_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 6 — Alias Pruning + CRAG
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 6 — Alias Pruning + CRAG
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_6_alias_pruning_crag/01_implementation_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    구현 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_6_alias_pruning_crag/02_alias_pruning_script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alias Pruning 스크립트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/supplementary_6_alias_pruning_crag/03_crag_retrieval_compensator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CRAG 검색 보정기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_13" id="__nav_4_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    조사 자료
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    조사 자료
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/research/5%EA%B0%9C%ED%98%91%ED%9A%8C%EB%8B%A8%EC%B2%B4_RAG%EC%9E%90%EB%A3%8C%EC%88%98%EC%A7%91_%EC%A1%B0%EC%82%AC%EA%B2%B0%EA%B3%BC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5개 협회·단체 자료수집 조사
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/research/HF_HUG_RAG_%EC%A1%B0%EC%82%AC%EB%B0%A9%EB%B2%95%EB%A1%A0_%EC%82%AC%EC%9D%B4%ED%8A%B8%EB%AA%A9%EB%A1%9D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HF 주택금융공사 조사 방법론
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/research/HUG_%EC%A3%BC%ED%83%9D%EB%8F%84%EC%8B%9C%EB%B3%B4%EC%A6%9D%EA%B3%B5%EC%82%AC_RAG_%EC%A1%B0%EC%82%AC%EB%B0%A9%EB%B2%95%EB%A1%A0_%EC%82%AC%EC%9D%B4%ED%8A%B8%EB%AA%A9%EB%A1%9D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HUG 주택도시보증공사 조사 방법론
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2_domain_ontology/research/%EA%B5%AD%ED%86%A0%EA%B5%90%ED%86%B5%EB%B6%80_%ED%86%B5%EA%B3%84%EB%88%84%EB%A6%AC_CSV%EC%B2%98%EB%A6%AC_%EA%B2%B0%EA%B3%BC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    국토교통부 통계누리 CSV 처리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 3 — 부동산 RAG 챗봇
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phase 3 — 부동산 RAG 챗봇
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기획서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../evaluation_report/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG vs LLM 평가 보고서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    테스트 데이터
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    테스트 데이터
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/test_set_v1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    테스트 셋 v1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG+LLM 테스트 결과
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RAG+LLM 테스트 결과
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 요약
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_a_singles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part A — 단일 질문 (100개)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_c_singles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part C — 추가 단일 질문 (12개)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_001/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-001 대학생 자취방
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_002/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-002 대학생 주거 지원
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_003/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-003 사회초년생 독립
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_004/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-004 직장인 자취 지역
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_005/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-005 신혼부부 평수/구조
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-006 맞벌이 출퇴근 동선
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-007 자녀 학군 이사
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_008/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-008 아이 키우기 아파트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-009 전원주택 구매
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-010 상가 매입
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-011 경매 입찰
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-012 꼬마빌딩 투자
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result/part_d_013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-013 단독주택/다가구
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG+LLM v3 결과 (realestate_v3 연동)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RAG+LLM v3 결과 (realestate_v3 연동)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 요약
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_a_singles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part A — 단일 질문 (100개)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_c_singles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part C — 추가 단일 질문 (12개)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_001/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-001 대학생 자취방
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_002/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-002 대학생 주거 지원
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_003/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-003 사회초년생 독립
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_004/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-004 직장인 자취 지역
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_005/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-005 신혼부부 평수/구조
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-006 맞벌이 출퇴근 동선
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-007 자녀 학군 이사
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_008/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-008 아이 키우기 아파트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-009 전원주택 구매
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-010 상가 매입
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-011 경매 입찰
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-012 꼬마빌딩 투자
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../result_v3/part_d_013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-013 단독주택/다가구
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_6" id="__nav_5_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Opus 4.6 베이스라인 결과
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Opus 4.6 베이스라인 결과
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 요약
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_a_singles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part A — 단일 질문 (100개)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_c_singles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part C — 추가 단일 질문 (12개)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_001/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-001 대학생 자취방
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_002/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-002 대학생 주거 지원
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_003/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-003 사회초년생 독립
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_004/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-004 직장인 자취 지역
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_005/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-005 신혼부부 평수/구조
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-006 맞벌이 출퇴근 동선
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-007 자녀 학군 이사
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_008/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-008 아이 키우기 아파트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-009 전원주택 구매
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-010 상가 매입
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-011 경매 입찰
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-012 꼬마빌딩 투자
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part_d_013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-013 단독주택/다가구
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 4 — 딥 리포트
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phase 4 — 딥 리포트
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../4_deep_report/00_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기획서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../4_deep_report/01_api_integration_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API 연동 상세 가이드
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../4_deep_report/02_competitor_analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    경쟁사 분석 상세
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    환경 설정
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    환경 설정
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    개요
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/qdrant_container_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qdrant 벡터 DB 컨테이너
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/embedding_container_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    KURE-v1 임베딩 컨테이너
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/qwen35_27b_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qwen3.5-27B 실행 가이드
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/nemotron3_super_120b_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nemotron3 Super 120B 실행 가이드
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/gemini_cron_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gemini CLI Cron 설정
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/codex_cron_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Codex CLI Cron 설정
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#q1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q1. 이사비용 보통 얼마나 드나요?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="b-090-opus-46">B-090. 이사 실무 Opus 4.6 테스트 결과<a class="headerlink" href="#b-090-opus-46" title="Permanent link">&para;</a></h1>
+<p>실행 시각: 2026-04-02 12:51:11
+질문 수: 5</p>
+<hr />
+<h3 id="q1">Q1. 이사비용 보통 얼마나 드나요?<a class="headerlink" href="#q1" title="Permanent link">&para;</a></h3>
+<p><strong>입력 토큰</strong>: 3 | <strong>출력 토큰</strong>: 974 | <strong>소요시간</strong>: 29,918ms | <strong>CLI 비용</strong>: $0.0343 | <strong>추정 API 비용</strong>: $0.0731
+<strong>대화 컨텍스트</strong>: 0턴 누적 | <strong>후속 제안</strong>: 감지됨</p>
+<p><strong>답변:</strong></p>
+<h1 id="2026">🚚 이사비용 안내 (2026년 기준)<a class="headerlink" href="#2026" title="Permanent link">&para;</a></h1>
+<p>이사비용은 <strong>이사 유형, 짐의 양, 이동 거리</strong>에 따라 크게 달라집니다.</p>
+<hr />
+<h2 id="_1">📦 이사 유형별 비용<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="1">1. 일반이사 (용달이사)<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>원룸/투룸:</strong> 30만~80만 원</li>
+<li>짐 싸기·풀기를 본인이 직접 해야 함</li>
+<li>가장 저렴한 옵션</li>
+</ul>
+<h3 id="2">2. 반포장이사<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>원룸/투룸:</strong> 60만~120만 원</li>
+<li><strong>20~30평대:</strong> 120만~200만 원</li>
+<li>큰 가전/가구는 업체가, 소형 짐은 본인이 포장</li>
+<li>가성비가 좋아 가장 인기 있는 방식</li>
+</ul>
+<h3 id="3">3. 포장이사 (풀서비스)<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>20평대:</strong> 150만~250만 원</li>
+<li><strong>30평대:</strong> 200만~350만 원</li>
+<li><strong>40평대 이상:</strong> 300만~500만 원+</li>
+<li>포장·운반·정리까지 업체가 전부 처리</li>
+</ul>
+<hr />
+<h2 id="_2">💰 비용에 영향을 주는 요인<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>요인</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>짐의 양</strong></td>
+<td>트럭 크기(1톤~5톤)에 따라 가격 차이</td>
+</tr>
+<tr>
+<td><strong>이동 거리</strong></td>
+<td>같은 시/구 내 vs 타 지역 (장거리는 추가요금)</td>
+</tr>
+<tr>
+<td><strong>층수·엘리베이터</strong></td>
+<td>엘리베이터 없는 고층은 사다리차 비용 추가</td>
+</tr>
+<tr>
+<td><strong>사다리차</strong></td>
+<td>보통 <strong>5만~15만 원</strong> 별도</td>
+</tr>
+<tr>
+<td><strong>이사 시기</strong></td>
+<td>🔺 2~3월, 8~9월 성수기에는 <strong>20~50% 할증</strong></td>
+</tr>
+<tr>
+<td><strong>주말/공휴일</strong></td>
+<td>평일 대비 <strong>10~20% 할증</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_3">💡 이사비용 절약 팁<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>비수기(4~7월, 10~12월)</strong> 에 이사하면 저렴</li>
+<li><strong>평일 오전</strong> 이사가 가장 저렴</li>
+<li>최소 <strong>3~4곳 견적 비교</strong> 필수 (이사모아, 짐카 등 앱 활용)</li>
+<li>불필요한 짐은 미리 정리·처분</li>
+<li><strong>이사 표준계약서</strong> 작성하고, <strong>이사적재물 배상보험</strong> 가입 여부 확인</li>
+</ol>
+<hr />
+<h2 id="_4">⚠️ 주의사항<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<ul>
+<li>너무 저렴한 업체는 <strong>추가 비용 요구</strong>하는 경우가 많으니 주의</li>
+<li>반드시 <strong>현장 방문 견적</strong> 또는 <strong>영상 견적</strong>을 받으세요</li>
+<li>파손·분실 시 보상 조건을 사전에 확인하세요</li>
+</ul>
+<p>추가로 궁금한 사항 (예: 특정 평수, 지역 간 이동 등)이 있으시면 말씀해 주세요! 😊</p>
+<p><strong>후속 답변</strong> (자동 수락):</p>
+<h1 id="2026_1">🚚 이사비용 상세 가이드 (2026년 기준)<a class="headerlink" href="#2026_1" title="Permanent link">&para;</a></h1>
+<p>이전 안내드린 내용을 더 구체적으로 알려드리겠습니다.</p>
+<hr />
+<h2 id="1_1">1️⃣ 평수별·유형별 상세 비용표<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h2>
+<h3 id="58">🔹 원룸 (5~8평)<a class="headerlink" href="#58" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>유형</th>
+<th>같은 구 내</th>
+<th>같은 시 내</th>
+<th>타 지역(장거리)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>용달이사</td>
+<td>25만~40만</td>
+<td>35만~60만</td>
+<td>50만~80만</td>
+</tr>
+<tr>
+<td>반포장이사</td>
+<td>50만~70만</td>
+<td>70만~100만</td>
+<td>90만~130만</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1218">🔹 투룸·쓰리룸 (12~18평)<a class="headerlink" href="#1218" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>유형</th>
+<th>같은 구 내</th>
+<th>같은 시 내</th>
+<th>타 지역(장거리)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>반포장이사</td>
+<td>80만~130만</td>
+<td>100만~160만</td>
+<td>150만~220만</td>
+</tr>
+<tr>
+<td>포장이사</td>
+<td>120만~180만</td>
+<td>150만~220만</td>
+<td>200만~300만</td>
+</tr>
+</tbody>
+</table>
+<h3 id="20">🔹 아파트 20평대<a class="headerlink" href="#20" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>유형</th>
+<th>같은 구 내</th>
+<th>같은 시 내</th>
+<th>타 지역(장거리)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>반포장이사</td>
+<td>120만~180만</td>
+<td>150만~200만</td>
+<td>200만~280만</td>
+</tr>
+<tr>
+<td>포장이사</td>
+<td>170만~250만</td>
+<td>200만~300만</td>
+<td>280만~400만</td>
+</tr>
+</tbody>
+</table>
+<h3 id="30">🔹 아파트 30평대<a class="headerlink" href="#30" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>유형</th>
+<th>같은 구 내</th>
+<th>같은 시 내</th>
+<th>타 지역(장거리)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>반포장이사</td>
+<td>160만~230만</td>
+<td>200만~280만</td>
+<td>270만~380만</td>
+</tr>
+<tr>
+<td>포장이사</td>
+<td>220만~350만</td>
+<td>280만~400만</td>
+<td>350만~500만</td>
+</tr>
+</tbody>
+</table>
+<h3 id="40">🔹 아파트 40평대 이상<a class="headerlink" href="#40" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>유형</th>
+<th>같은 구 내</th>
+<th>같은 시 내</th>
+<th>타 지역(장거리)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>포장이사</td>
+<td>300만~450만</td>
+<td>350만~500만</td>
+<td>450만~650만+</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ 위 금액은 <strong>평균 시세</strong>이며, 업체·지역·짐의 양에 따라 차이가 있습니다.</p>
+</blockquote>
+<hr />
+<h2 id="2_1">2️⃣ 추가 비용 항목 상세<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>비용</th>
+<th>비고</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>사다리차 (일반)</strong></td>
+<td>5만~10만 원</td>
+<td>3층 이상, 엘리베이터 없을 때</td>
+</tr>
+<tr>
+<td><strong>사다리차 (고층/대형)</strong></td>
+<td>10만~20만 원</td>
+<td>10층 이상 또는 대형 가구</td>
+</tr>
+<tr>
+<td><strong>에어컨 이전 설치</strong></td>
+<td>8만~15만 원/대</td>
+<td>이전+설치+배관 포함</td>
+</tr>
+<tr>
+<td><strong>에어컨 추가 배관</strong></td>
+<td>1만~3만 원/m</td>
+<td>배관 길이 초과 시</td>
+</tr>
+<tr>
+<td><strong>세탁기·냉장고 설치</strong></td>
+<td>3만~5만 원/대</td>
+<td>연결·설치 포함</td>
+</tr>
+<tr>
+<td><strong>피아노 운반</strong></td>
+<td>15만~30만 원</td>
+<td>크기·층수에 따라 상이</td>
+</tr>
+<tr>
+<td><strong>장거리 할증</strong></td>
+<td>기본료의 30~50%</td>
+<td>보통 100km 이상</td>
+</tr>
+<tr>
+<td><strong>성수기 할증</strong></td>
+<td>기본료의 20~50%</td>
+<td>2~3월, 8~9월</td>
+</tr>
+<tr>
+<td><strong>주말·공휴일 할증</strong></td>
+<td>기본료의 10~20%</td>
+<td>토·일·공휴일</td>
+</tr>
+<tr>
+<td><strong>야간 이사 할증</strong></td>
+<td>기본료의 20~30%</td>
+<td>오후 6시 이후</td>
+</tr>
+<tr>
+<td><strong>보양 작업</strong></td>
+<td>5만~15만 원</td>
+<td>신축 아파트 바닥·벽 보호</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3_1">3️⃣ 이사 유형별 서비스 범위 비교<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>서비스 항목</th>
+<th>용달이사</th>
+<th>반포장이사</th>
+<th>포장이사</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>소형 짐 포장</td>
+<td>❌ 본인</td>
+<td>❌ 본인</td>
+<td>✅ 업체</td>
+</tr>
+<tr>
+<td>대형 가전·가구 포장</td>
+<td>❌ 본인</td>
+<td>✅ 업체</td>
+<td>✅ 업체</td>
+</tr>
+<tr>
+<td>운반·상차</td>
+<td>✅ 업체</td>
+<td>✅ 업체</td>
+<td>✅ 업체</td>
+</tr>
+<tr>
+<td>운송</td>
+<td>✅ 업체</td>
+<td>✅ 업체</td>
+<td>✅ 업체</td>
+</tr>
+<tr>
+<td>하차·배치</td>
+<td>✅ 업체</td>
+<td>✅ 업체</td>
+<td>✅ 업체</td>
+</tr>
+<tr>
+<td>짐 풀기·정리</td>
+<td>❌ 본인</td>
+<td>❌ 본인</td>
+<td>✅ 업체</td>
+</tr>
+<tr>
+<td>청소 서비스</td>
+<td>❌</td>
+<td>❌</td>
+<td>△ (옵션)</td>
+</tr>
+<tr>
+<td>작업 인원</td>
+<td>1~2명</td>
+<td>2~3명</td>
+<td>3~5명</td>
+</tr>
+<tr>
+<td>소요 시간</td>
+<td>1~3시간</td>
+<td>2~4시간</td>
+<td>3~6시간</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4">4️⃣ 견적 비교 방법 (실전)<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<h3 id="_5">📱 온라인 견적 플랫폼<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>플랫폼</th>
+<th>특징</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>짐카</strong></td>
+<td>실시간 견적 비교, 리뷰 많음</td>
+</tr>
+<tr>
+<td><strong>이사모아</strong></td>
+<td>다수 업체 동시 견적</td>
+</tr>
+<tr>
+<td><strong>오늘의이사</strong></td>
+<td>영상 견적 가능</td>
+</tr>
+<tr>
+<td><strong>당근마켓</strong></td>
+<td>지역 소규모 업체 찾기 유용</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_6">📋 견적 받을 때 확인사항<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>총 비용에 포함된 항목</strong> (사다리차, 에어컨 등 포함 여부)</li>
+<li><strong>추가 비용 발생 조건</strong> 명확히 확인</li>
+<li><strong>작업 인원 수</strong> (적으면 시간이 오래 걸림)</li>
+<li><strong>파손·분실 시 보상 범위</strong></li>
+<li><strong>이사적재물 배상책임보험</strong> 가입 여부</li>
+<li><strong>우천 시 대응 방법</strong></li>
+</ol>
+<hr />
+<h2 id="5">5️⃣ 이사 전 체크리스트<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<h3 id="23">📅 이사 2~3주 전<a class="headerlink" href="#23" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[ ] 이사업체 <strong>3곳 이상 견적</strong> 비교</li>
+<li>[ ] <strong>이사 표준계약서</strong> 작성</li>
+<li>[ ] 불필요한 짐 정리 (중고 판매·폐기)</li>
+<li>[ ] 전입신고·주소변경 준비 서류 확인</li>
+</ul>
+<h3 id="1_2">📅 이사 1주 전<a class="headerlink" href="#1_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[ ] 관리사무소에 <strong>이사 일정 통보</strong> (아파트의 경우 엘리베이터 예약)</li>
+<li>[ ] 전기·가스·수도·인터넷 <strong>이전 신청</strong></li>
+<li>[ ] 우편물 <strong>주소 변경 신청</strong> (인터넷우체국)</li>
+<li>[ ] 귀중품·중요서류 별도 보관</li>
+</ul>
+<h3 id="_7">📅 이사 당일<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[ ] 가스·수도·전기 <strong>검침</strong> (사진 촬영)</li>
+<li>[ ] 짐 상태 사전 <strong>사진 촬영</strong> (파손 분쟁 대비)</li>
+<li>[ ] 업체와 짐 목록 <strong>최종 확인</strong></li>
+<li>[ ] 이사 완료 후 <strong>짐 파손 여부 즉시 확인</strong></li>
+</ul>
+<h3 id="14">📅 이사 후 14일 이내<a class="headerlink" href="#14" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[ ] <strong>전입신고</strong> (주민센터 방문 또는 정부24 온라인)</li>
+<li>[ ] 운전면허증·차량등록증 주소 변경</li>
+<li>[ ] 은행·카드사·보험 주소 변경</li>
+<li>[ ] 아이 학교·어린이집 전학 처리</li>
+</ul>
+<hr />
+<h2 id="6">6️⃣ 이사비용 절약 핵심 팁<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>비수기 평일 오전</strong>이 가장 저렴 (4~7월, 10~12월)</li>
+<li><strong>월초·월말 피하기</strong> — 월중이 가장 한산</li>
+<li>짐을 줄이면 <strong>트럭 사이즈가 줄어</strong> 비용 절감</li>
+<li>에어컨 이전은 <strong>이사업체 말고 전문 업체</strong>에 별도 의뢰하면 더 저렴할 수 있음</li>
+<li>포장 박스는 <strong>마트·온라인</strong>에서 미리 구해서 직접 포장하면 반포장이사로 전환 가능</li>
+</ol>
+<hr />
+<p>궁금한 부분이 있으시면 편하게 질문해 주세요! 예를 들어:
+- "<strong>서울 → 부산</strong> 30평대 포장이사 비용은?"
+- "<strong>원룸 용달이사</strong> 가장 저렴하게 하는 법은?"
+- "<strong>이사 표준계약서</strong>는 어떻게 작성하나요?"</p>
+<p>무엇이든 도와드리겠습니다! 😊</p>
+<hr />
+<h3 id="q2">Q2. 이사 업체 선택 어떻게 하나요?<a class="headerlink" href="#q2" title="Permanent link">&para;</a></h3>
+<p><strong>입력 토큰</strong>: 3 | <strong>출력 토큰</strong>: 1,664 | <strong>소요시간</strong>: 33,876ms | <strong>CLI 비용</strong>: $0.0580 | <strong>추정 API 비용</strong>: $0.1248
+<strong>대화 컨텍스트</strong>: 1턴 누적 | <strong>후속 제안</strong>: 감지됨</p>
+<p><strong>답변:</strong></p>
+<h1 id="_8">🏠 이사 업체 선택 가이드<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="1-34">1단계: 견적 비교 (최소 3~4곳)<a class="headerlink" href="#1-34" title="Permanent link">&para;</a></h2>
+<h3 id="_9">📱 견적 비교 플랫폼 활용<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>플랫폼</th>
+<th>특징</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>짐카</strong></td>
+<td>실시간 견적 비교, 리뷰 확인 가능</td>
+</tr>
+<tr>
+<td><strong>이사모아</strong></td>
+<td>다수 업체 한 번에 견적 요청</td>
+</tr>
+<tr>
+<td><strong>오늘의이사</strong></td>
+<td>영상 견적 지원</td>
+</tr>
+<tr>
+<td><strong>당근마켓</strong></td>
+<td>지역 소규모 업체 찾기 용이</td>
+</tr>
+<tr>
+<td><strong>네이버/카카오 검색</strong></td>
+<td>"지역명 + 포장이사"로 검색</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>💡 <strong>핵심:</strong> 전화 견적만으로 계약하지 마시고, 반드시 <strong>현장 방문 견적</strong> 또는 <strong>영상 견적</strong>을 받으세요. 당일 추가 비용 분쟁을 예방할 수 있습니다.</p>
+</blockquote>
+<hr />
+<h2 id="2_2">2단계: 업체 신뢰도 확인<a class="headerlink" href="#2_2" title="Permanent link">&para;</a></h2>
+<h3 id="_10">✅ 반드시 체크할 항목<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p><strong>1. 허가 업체 여부</strong>
+- <strong>화물자동차 운송사업 허가증</strong> 보유 여부 확인
+- 국토교통부 "화물운송사업 허가 조회" 시스템에서 검색 가능
+- 무허가 업체는 사고 시 보상받기 어려움</p>
+<p><strong>2. 이사적재물 배상보험 가입 여부</strong>
+- 파손·분실 시 보상의 핵심
+- 보험 가입증명서를 요청해서 직접 확인</p>
+<p><strong>3. 리뷰 및 평판</strong>
+- 네이버, 카카오, 견적 플랫폼의 <strong>실제 이용 후기</strong> 확인
+- 별점보다 <strong>부정적 리뷰의 내용</strong>을 주의 깊게 볼 것
+- 리뷰가 너무 적거나 극단적으로 좋기만 한 업체는 주의</p>
+<p><strong>4. 사업 경력</strong>
+- 최소 <strong>3년 이상</strong> 운영된 업체가 안정적
+- 사업자등록증 확인</p>
+<hr />
+<h2 id="3_2">3단계: 계약 시 확인사항<a class="headerlink" href="#3_2" title="Permanent link">&para;</a></h2>
+<h3 id="_11">📋 이사 표준계약서 작성 필수<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>반드시 포함되어야 할 내용:
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>─────────────────────────
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>☑ 이사 날짜 및 시간
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>☑ 출발지 ↔ 도착지 주소
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>☑ 총 비용 및 결제 방법
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>☑ 추가 비용 발생 조건 (사다리차, 장거리 등)
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>☑ 서비스 범위 (포장/운반/정리 등)
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>☑ 파손·분실 시 배상 기준
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>☑ 계약 취소·변경 시 위약금 조건
+</code></pre></div>
+<h3 id="_12">💰 결제 관련<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>계약금:</strong> 총 비용의 10% 이내가 일반적</li>
+<li><strong>잔금:</strong> 이사 완료 후 짐 확인하고 지불</li>
+<li>현금 결제만 고집하는 업체는 ⚠️ 주의 (세금계산서·카드 결제 가능 업체 선호)</li>
+</ul>
+<hr />
+<h2 id="4_1">4단계: 이사 당일 체크리스트<a class="headerlink" href="#4_1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>순서</th>
+<th>확인사항</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>이사 전</td>
+<td>짐 목록 작성, 귀중품은 직접 운반</td>
+</tr>
+<tr>
+<td>운반 중</td>
+<td>가전·가구에 보양재(뽁뽁이 등) 처리 여부 확인</td>
+</tr>
+<tr>
+<td>도착 후</td>
+<td><strong>즉시</strong> 가전 작동·가구 파손 여부 확인</td>
+</tr>
+<tr>
+<td>정산 전</td>
+<td>모든 짐 확인 후 잔금 지불</td>
+</tr>
+<tr>
+<td>이사 후</td>
+<td>파손 발견 시 <strong>사진 촬영 → 즉시 업체 연락</strong> (시간이 지나면 보상 어려움)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_13">⚠️ 이런 업체는 피하세요<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>현장 견적 없이</strong> 전화로만 가격을 확정하는 업체</li>
+<li>견적보다 <strong>현저히 저렴한 가격</strong>을 제시하는 업체 (당일 추가 비용 요구 가능성 ↑)</li>
+<li><strong>계약서 작성을 꺼리는</strong> 업체</li>
+<li>보험 가입 여부를 <strong>명확히 답변하지 못하는</strong> 업체</li>
+<li>리뷰에서 <strong>"추가 비용", "파손 후 연락 두절"</strong> 등의 불만이 반복되는 업체</li>
+</ol>
+<hr />
+<h2 id="_14">📌 요약: 좋은 업체 선택 공식<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>여러 곳 견적 비교</strong> → <strong>허가·보험 확인</strong> → <strong>리뷰 검증</strong> → <strong>표준계약서 작성</strong> → <strong>이사 후 즉시 점검</strong></p>
+</blockquote>
+<p>이 순서만 지키시면 대부분의 이사 분쟁을 예방할 수 있습니다.</p>
+<hr />
+<p>특정 지역이나 이사 유형(원룸, 아파트 등)에 맞는 추천이 필요하시면 말씀해 주세요! 😊</p>
+<p><strong>후속 답변</strong> (자동 수락):</p>
+<p>감사합니다! 😊 맞춤 추천을 드리기 위해 몇 가지 정보가 필요합니다.</p>
+<hr />
+<h2 id="_15">📋 아래 내용을 알려주시면 딱 맞는 안내를 드릴게요<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<p><strong>1. 이사 유형</strong>
+- 원룸/오피스텔 이사인가요?
+- 아파트 이사인가요? (몇 평대인지도 알려주세요)
+- 빌라/주택 이사인가요?</p>
+<p><strong>2. 출발지 → 도착지</strong>
+- 어디에서 어디로 이사하시나요?
+- 예) 서울 관악구 → 경기 성남시</p>
+<p><strong>3. 이사 시기</strong>
+- 대략 언제쯤 이사 예정이신가요?
+- 예) 5월 중순, 날짜 미정 등</p>
+<p><strong>4. 선호하는 이사 방식</strong>
+- <strong>일반이사</strong> (직접 포장, 저렴)
+- <strong>반포장이사</strong> (큰 짐만 업체가, 가성비 좋음)
+- <strong>포장이사</strong> (업체가 전부 처리, 편리)</p>
+<p><strong>5. 예산</strong>
+- 대략적인 예산 범위가 있으신가요?</p>
+<hr />
+<p>위 정보를 알려주시면 <strong>예상 비용, 해당 지역 업체 찾는 방법, 주의사항</strong> 등을 구체적으로 안내해 드리겠습니다!</p>
+<hr />
+<h3 id="q3">Q3. 이사 날짜 잡을 때 주의할 점이 있나요?<a class="headerlink" href="#q3" title="Permanent link">&para;</a></h3>
+<p><strong>입력 토큰</strong>: 3 | <strong>출력 토큰</strong>: 1,992 | <strong>소요시간</strong>: 40,223ms | <strong>CLI 비용</strong>: $0.0766 | <strong>추정 API 비용</strong>: $0.1494
+<strong>대화 컨텍스트</strong>: 2턴 누적 | <strong>후속 제안</strong>: 감지됨</p>
+<p><strong>답변:</strong></p>
+<h1 id="_16">📅 이사 날짜 잡을 때 주의할 점<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="1_3">1. 시기별 비용 차이 (가장 중요!)<a class="headerlink" href="#1_3" title="Permanent link">&para;</a></h2>
+<h3 id="2050">🔺 성수기 (비용 20~50% 할증)<a class="headerlink" href="#2050" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>시기</th>
+<th>이유</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>2~3월</strong></td>
+<td>졸업·입학·인사이동 시즌</td>
+</tr>
+<tr>
+<td><strong>8~9월</strong></td>
+<td>가을 이사 시즌, 전세 만기 집중</td>
+</tr>
+<tr>
+<td><strong>월말(25일~말일)</strong></td>
+<td>전세·월세 만기일이 월말에 집중</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_17">🔽 비수기 (가장 저렴)<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>시기</th>
+<th>절약 효과</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>4~7월, 10~12월</strong></td>
+<td>성수기 대비 20~30% 저렴</td>
+</tr>
+<tr>
+<td><strong>월초~중순(1~15일)</strong></td>
+<td>업체 여유 있어 협상 가능</td>
+</tr>
+<tr>
+<td><strong>평일 오전</strong></td>
+<td>가장 저렴한 시간대</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>💡 <strong>같은 달이라도 월초 평일 vs 월말 주말은 수십만 원 차이</strong>가 날 수 있습니다.</p>
+</blockquote>
+<hr />
+<h2 id="2_3">2. 요일·시간대 선택<a class="headerlink" href="#2_3" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>비용</th>
+<th>비고</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>평일 오전 (8~10시)</strong></td>
+<td>가장 저렴 ✅</td>
+<td>업체 선호 시간대, 여유 있는 작업 가능</td>
+</tr>
+<tr>
+<td><strong>평일 오후</strong></td>
+<td>보통</td>
+<td>오전 이사 밀릴 경우 지연 가능성</td>
+</tr>
+<tr>
+<td><strong>토요일</strong></td>
+<td>10~20% 할증</td>
+<td>수요 많아 조기 예약 필수</td>
+</tr>
+<tr>
+<td><strong>일요일·공휴일</strong></td>
+<td>20~30% 할증</td>
+<td>업체에 따라 운영 안 하는 곳도 있음</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3_3">3. 손 없는 날 (이삿날 택일)<a class="headerlink" href="#3_3" title="Permanent link">&para;</a></h2>
+<p>전통적으로 많은 분들이 참고하는 <strong>"손 없는 날"</strong>이 있습니다.</p>
+<h3 id="2026_2">2026년 주요 손 없는 날 참고<a class="headerlink" href="#2026_2" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>월</th>
+<th>손 없는 날 (음력 기준 매월 반복)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>매월</td>
+<td>음력 <strong>9, 10, 19, 20, 29, 30일</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ 손 없는 날에 이사가 집중되기 때문에, 오히려 <strong>비용이 올라가고 예약이 어려울 수 있습니다.</strong> 비용 절약이 목적이라면 손 없는 날을 피하는 것도 전략입니다.</p>
+</blockquote>
+<hr />
+<h2 id="4_2">4. 전입·전출 날짜와의 조율<a class="headerlink" href="#4_2" title="Permanent link">&para;</a></h2>
+<h3 id="_18">⚡ 핵심: 잔금일 = 이사일 맞추기<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>[매도인/임대인 퇴거] → [잔금 지급] → [이사 입주] → [전입신고]
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>         ↑                                        ↑
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    같은 날 오전                              이사 당일 즉시!
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>체크 포인트</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>잔금일과 이사일 일치</strong></td>
+<td>날짜가 다르면 짐 보관 비용 발생 가능</td>
+</tr>
+<tr>
+<td><strong>전입신고는 이사 당일</strong></td>
+<td>전입신고 즉시 해야 <strong>전세보증금 보호(확정일자)</strong> 효력 발생</td>
+</tr>
+<tr>
+<td><strong>기존 집 명도일 확인</strong></td>
+<td>나가는 집의 퇴거일과 들어가는 집의 입주일 겹침 주의</td>
+</tr>
+<tr>
+<td><strong>공실 기간 최소화</strong></td>
+<td>이중 월세 방지를 위해 날짜 조율</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>🚨 <strong>전세 입주 시:</strong> 잔금 지급 → 이사 → <strong>당일 전입신고 + 확정일자</strong> 이 순서를 반드시 지켜야 보증금이 보호됩니다.</p>
+</blockquote>
+<hr />
+<h2 id="5_1">5. 날씨 확인<a class="headerlink" href="#5_1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>날씨</th>
+<th>영향</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>비/눈</strong></td>
+<td>짐 손상 위험 ↑, 작업 시간 지연, 추가 보양 작업 필요</td>
+</tr>
+<tr>
+<td><strong>한파/폭염</strong></td>
+<td>가전제품 이동 시 고장 위험, 작업자 컨디션 저하</td>
+</tr>
+<tr>
+<td><strong>장마철 (6~7월)</strong></td>
+<td>비수기라 저렴하지만 습기·곰팡이 주의</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>💡 이사 <strong>3~5일 전</strong> 기상예보를 꼭 확인하고, 악천후 시 업체와 일정 변경 가능 여부를 미리 협의하세요.</p>
+</blockquote>
+<hr />
+<h2 id="6_1">6. 예약 시기<a class="headerlink" href="#6_1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>시기</th>
+<th>권장 예약 시점</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>성수기</strong></td>
+<td>최소 <strong>3~4주 전</strong> 예약</td>
+</tr>
+<tr>
+<td><strong>비수기</strong></td>
+<td><strong>1~2주 전</strong>이면 충분</td>
+</tr>
+<tr>
+<td><strong>손 없는 날 + 주말</strong></td>
+<td><strong>한 달 전</strong> 예약 권장</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_19">📌 이사 날짜 선택 체크리스트<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>☑ 잔금일과 이사일이 일치하는가?
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>☑ 전입신고를 당일 할 수 있는 날인가? (주말·공휴일은 무인민원기 활용)
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>☑ 성수기/월말/주말 할증을 감수할 수 있는가?
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>☑ 날씨 예보를 확인했는가?
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>☑ 충분한 여유를 두고 예약했는가?
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>☑ 기존 집 퇴거일과 충돌하지 않는가?
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>☑ 이사 후 정리할 시간 여유가 있는가? (가능하면 다음 날 휴무)
+</code></pre></div>
+<hr />
+<h2 id="_20">💡 최적의 이사 날짜 공식<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>비수기 + 월초~중순 + 평일 오전 + 맑은 날</strong>
+= 💰 최저 비용 + 🕐 여유로운 작업 + 📋 당일 전입신고 가능</p>
+</blockquote>
+<hr />
+<p>이사 날짜 관련해서 <strong>잔금일 조율</strong>이나 <strong>전입신고 절차</strong> 등 더 궁금한 점이 있으시면 편하게 물어보세요! 😊</p>
+<p><strong>후속 답변</strong> (자동 수락):</p>
+<h1 id="_21">📋 잔금일 조율 &amp; 전입신고 절차 완전 가이드<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="part-1">Part 1: 잔금일 조율<a class="headerlink" href="#part-1" title="Permanent link">&para;</a></h2>
+<h3 id="_22">🔑 잔금일이 중요한 이유<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<p>잔금일 = <strong>소유권(또는 임차권) 이전일</strong> = <strong>이사일</strong>이 되어야 가장 안전합니다.</p>
+<hr />
+<h3 id="_23">📌 매매의 경우<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>[계약]──→[중도금]──→[잔금일]──→[소유권이전등기]
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>                        │
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>                   이 날 = 이사일
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>상세 내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>잔금일 결정 시점</strong></td>
+<td>매매계약서 작성 시 매도인과 협의하여 확정</td>
+</tr>
+<tr>
+<td><strong>통상 기간</strong></td>
+<td>계약일로부터 <strong>30~60일 후</strong></td>
+</tr>
+<tr>
+<td><strong>조율 포인트</strong></td>
+<td>매도인의 이사 일정과 맞춰야 함 (매도인도 다른 곳으로 이사 가야 하므로)</td>
+</tr>
+<tr>
+<td><strong>잔금일 변경</strong></td>
+<td>쌍방 합의 시 가능, 단 <strong>서면 합의</strong> 필수</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_24">⚠️ 잔금일 조율 시 주의사항<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h4>
+<p><strong>1. 매도인 퇴거 확인</strong>
+- 잔금일 당일 오전에 매도인이 완전히 퇴거했는지 <strong>반드시 현장 확인</strong>
+- 짐이 남아있으면 잔금 지급을 보류할 수 있음</p>
+<p><strong>2. 대출 실행일 확인</strong>
+- 주담대(주택담보대출)가 있다면 <strong>은행 대출 실행일 = 잔금일</strong>이어야 함
+- 은행에 미리 확인: 대출 실행까지 보통 <strong>2~3주</strong> 소요
+- ⚠️ <strong>은행 영업일(평일)에만 대출 실행 가능</strong> → 잔금일은 반드시 평일로!</p>
+<p><strong>3. 등기 접수</strong>
+- 잔금 지급 후 <strong>당일 소유권이전등기 접수</strong> 필수
+- 법무사를 미리 선정하고, 잔금일에 동행하도록 예약</p>
+<hr />
+<h3 id="_25">📌 전세/월세의 경우<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>[계약]──→[잔금일]──→[이사]──→[전입신고+확정일자]──→[보증금 보호!]
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>              │          │              │
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>         같은 날      같은 날        같은 날 ⭐
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>상세 내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>잔금일 결정</strong></td>
+<td>임대인과 협의, 기존 세입자 퇴거일 이후로 설정</td>
+</tr>
+<tr>
+<td><strong>통상 기간</strong></td>
+<td>계약일로부터 <strong>2~4주 후</strong> (신규) 또는 <strong>만기일</strong> (갱신 후 이사 시)</td>
+</tr>
+<tr>
+<td><strong>핵심 원칙</strong></td>
+<td>잔금일 = 이사일 = 전입신고일 (같은 날!)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_26">⚡ 전세 잔금일 조율 핵심 체크리스트<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>☑ 기존 세입자 퇴거 완료 확인
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>☑ 임대인에게 잔금 지급 방법 확인 (계좌이체 등)
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>☑ 전입신고 가능한 날인지 확인 (주말도 무인민원기로 가능)
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>☑ 확정일자 받을 수 있는 날인지 확인
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>☑ 전세보증금반환보증보험 가입 일정 확인
+</code></pre></div>
+<hr />
+<h3 id="_27">📌 기존 집 ↔ 새 집 날짜 조율 시나리오<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h3>
+<h4 id="_28">✅ 이상적인 시나리오<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>기존 집 만기일:  4월 30일
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>새 집 잔금일:   4월 30일
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>→ 오전: 새 집 잔금 지급 + 열쇠 수령
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>→ 오전~오후: 이사 (기존 집 → 새 집)
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>→ 오후: 전입신고 + 확정일자
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>→ 기존 집 보증금 돌려받기
+</code></pre></div>
+<h4 id="_29">⚠️ 날짜가 안 맞는 경우 대처법<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>상황</th>
+<th>해결 방법</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>새 집 입주가 더 빠른 경우</strong></td>
+<td>기존 집 조기 퇴거 → 보증금 조기 반환 협의</td>
+</tr>
+<tr>
+<td><strong>기존 집 퇴거가 더 빠른 경우</strong></td>
+<td>짐 보관 서비스 이용 (1일 5~15만 원) 또는 지인 집 임시 보관</td>
+</tr>
+<tr>
+<td><strong>같은 날이지만 시간 부족</strong></td>
+<td>이사 업체에 <strong>오전 첫 타임</strong> 예약, 잔금은 아침 일찍 처리</td>
+</tr>
+<tr>
+<td><strong>보증금 돌려받아야 잔금 치르는 경우</strong></td>
+<td>같은 날 <strong>오전에 기존 집 보증금 수령 → 오후에 새 집 잔금 지급</strong> 순서로 조율</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>🚨 <strong>보증금 연계 이사</strong>(기존 보증금 → 새 잔금)의 경우, 반드시 <strong>양쪽 임대인과 시간까지 세밀하게 조율</strong>해야 합니다. 필요 시 공인중개사가 중간에서 조율해 줍니다.</p>
+</blockquote>
+<hr />
+<h2 id="part-2">Part 2: 전입신고 절차 (완전 정리)<a class="headerlink" href="#part-2" title="Permanent link">&para;</a></h2>
+<h3 id="_30">🏛️ 전입신고란?<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>주소지를 이전하는 행정 절차로, <strong>전세/월세 보증금 보호의 필수 요건</strong>입니다.</p>
+</blockquote>
+<hr />
+<h3 id="_31">⏰ 전입신고 시기<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>기한</th>
+<th>비고</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>법적 의무</strong></td>
+<td>전입일로부터 <strong>14일 이내</strong></td>
+<td>미신고 시 과태료 5만 원</td>
+</tr>
+<tr>
+<td><strong>권장 시기</strong></td>
+<td><strong>이사 당일 즉시!</strong> ⭐</td>
+<td>보증금 보호를 위해 하루라도 빨리</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>🚨 <strong>왜 당일이 중요한가?</strong>
+- 주택임대차보호법상 보증금 보호(대항력)는 <strong>전입신고 다음 날 0시</strong>부터 효력 발생
+- 하루 늦으면 하루만큼 보증금이 보호받지 못하는 공백 발생</p>
+</blockquote>
+<hr />
+<h3 id="4_3">📝 전입신고 방법 (4가지)<a class="headerlink" href="#4_3" title="Permanent link">&para;</a></h3>
+<h4 id="1_4">방법 1: 주민센터 방문 (가장 확실)<a class="headerlink" href="#1_4" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>준비물:
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>  ✅ 신분증 (주민등록증, 운전면허증)
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>  ✅ 임대차계약서 원본 (확정일자 동시 신청 시)
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>처리 시간: 즉시 (대기 포함 10~20분)
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>비용: 전입신고 무료 / 확정일자 600원
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>운영 시간: 평일 09:00~18:00
+</code></pre></div>
+<h4 id="2-24">방법 2: 정부24 온라인 (가장 편리)<a class="headerlink" href="#2-24" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>절차:
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>  1. 정부24 (gov.kr) 접속
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>  2. 로그인 (공동인증서/간편인증)
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>  3. &quot;전입신고&quot; 검색 → 신청
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>  4. 새 주소 입력 → 세대주 관계 설정
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>  5. 제출
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>처리 시간: 신청 후 1~3일 (담당자 승인 필요)
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>⚠️ 확정일자는 온라인으로 별도 신청 필요
+</code></pre></div>
+<h4 id="3_4">방법 3: 무인민원발급기 (주말·공휴일 가능!)<a class="headerlink" href="#3_4" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>위치: 주민센터, 지하철역, 대형마트 등
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>운영: 연중무휴 (일부 24시간)
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>준비물: 신분증
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>⭐ 주말에 이사할 경우 이 방법 활용!
+</code></pre></div>
+<h4 id="4-24">방법 4: 정부24 앱 (모바일)<a class="headerlink" href="#4-24" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>스마트폰에서 정부24 앱 설치 → 전입신고 신청
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>공동인증서 또는 간편인증 필요
+</code></pre></div>
+<hr />
+<h3 id="_32">📌 확정일자 받기<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>확정일자란?</strong></td>
+<td>임대차계약서에 날짜 도장을 받는 것 → <strong>보증금 우선변제권</strong> 확보</td>
+</tr>
+<tr>
+<td><strong>어디서?</strong></td>
+<td>주민센터, 등기소, 공증사무소</td>
+</tr>
+<tr>
+<td><strong>비용</strong></td>
+<td>600원</td>
+</tr>
+<tr>
+<td><strong>온라인</strong></td>
+<td>대법원 인터넷등기소에서도 신청 가능</td>
+</tr>
+<tr>
+<td><strong>필요 서류</strong></td>
+<td>임대차계약서 원본 + 신분증</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>💡 <strong>전입신고 + 확정일자 = 세트!</strong> 주민센터 방문 시 한 번에 처리하세요.</p>
+</blockquote>
+<hr />
+<h3 id="_33">🛡️ 전입신고 후 보증금 보호 구조<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>[잔금 지급 + 입주] → [전입신고 + 확정일자] → [다음 날 0시: 대항력 발생!]
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>                                                    │
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>                                               이 시점부터
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>                                            보증금 법적 보호 시작
+</code></pre></div>
+<h4 id="3_5">보증금 보호 3대 요건 (모두 충족해야!)<a class="headerlink" href="#3_5" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>요건</th>
+<th>내용</th>
+<th>시점</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>① <strong>인도(입주)</strong></td>
+<td>실제로 그 집에 들어가 거주</td>
+<td>이사 당일</td>
+</tr>
+<tr>
+<td>② <strong>전입신고</strong></td>
+<td>주민등록 이전</td>
+<td>이사 당일</td>
+</tr>
+<tr>
+<td>③ <strong>확정일자</strong></td>
+<td>계약서에 확정일자 도장</td>
+<td>이사 당일</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>🚨 <strong>하나라도 빠지면 보증금 보호에 구멍이 생깁니다!</strong></p>
+</blockquote>
+<hr />
+<h3 id="_34">🔐 추가 안전장치: 전세보증금반환보증보험<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>가입 기관</strong></td>
+<td>HUG(주택도시보증공사), SGI서울보증, HF(한국주택금융공사)</td>
+</tr>
+<tr>
+<td><strong>가입 시기</strong></td>
+<td>전입신고 + 확정일자 완료 후</td>
+</tr>
+<tr>
+<td><strong>가입 기한</strong></td>
+<td>전세 계약 기간의 <strong>1/2 경과 전</strong>까지 (예: 2년 계약이면 1년 이내)</td>
+</tr>
+<tr>
+<td><strong>보험료</strong></td>
+<td>연 보증금의 0.1~0.2% 수준</td>
+</tr>
+<tr>
+<td><strong>효과</strong></td>
+<td>임대인이 보증금 안 돌려줘도 보증기관이 대신 지급</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>💡 <strong>전세 사기 예방의 최후 보루</strong>입니다. 가입 가능 조건이 되면 반드시 가입하세요!</p>
+</blockquote>
+<hr />
+<h3 id="_35">📌 전입신고 후 추가 할 일<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>순서</th>
+<th>할 일</th>
+<th>방법</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>확정일자 받기</strong></td>
+<td>주민센터 (전입신고와 동시에)</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>전세보증금반환보증보험 가입</strong></td>
+<td>HUG 앱 또는 은행 방문</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>주소 변경 알림</strong></td>
+<td>은행, 카드사, 보험사, 국민연금, 건강보험 등</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>우편물 전송 신청</strong></td>
+<td>우체국 방문 또는 인터넷우체국 (6개월간 자동 전송)</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>자동차 주소 변경</strong></td>
+<td>등록지 변경 (30일 이내, 미변경 시 과태료)</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>전학 신청</strong></td>
+<td>자녀가 있는 경우, 전입신고 후 학교 배정</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="d-day">✅ 최종 요약: D-Day 타임라인<a class="headerlink" href="#d-day" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>🕗 08:00  잔금 지급 (은행 이체) + 열쇠 수령
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>🕘 09:00  이사 업체 도착 → 짐 운반 시작
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>🕐 13:00  새 집 짐 반입 완료
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>🕑 14:00  짐 확인 + 파손 여부 점검 + 이사비 정산
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>🕒 15:00  주민센터 방문 → 전입신고 + 확정일자 ⭐
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>🕓 16:00  가스·수도·전기 명의 변경 (온라인 가능)
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>🕔 이후    짐 정리, 우편물 전송 신청 등
+</code></pre></div>
+<hr />
+<p>추가로 <strong>전세 사기 예방법</strong>, <strong>이사 후 하자 점검 방법</strong> 등 궁금한 점이 있으시면 편하게 말씀해 주세요! 😊</p>
+<hr />
+<h3 id="q4">Q4. 잔금일이랑 이사일이 다르면 어떡하나요?<a class="headerlink" href="#q4" title="Permanent link">&para;</a></h3>
+<p><strong>입력 토큰</strong>: 3 | <strong>출력 토큰</strong>: 2,347 | <strong>소요시간</strong>: 47,087ms | <strong>CLI 비용</strong>: $0.0979 | <strong>추정 API 비용</strong>: $0.1761
+<strong>대화 컨텍스트</strong>: 3턴 누적 | <strong>후속 제안</strong>: 감지됨</p>
+<p><strong>답변:</strong></p>
+<h1 id="_36">💸 잔금일과 이사일이 다를 때 대처법<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="_37">왜 문제가 되는가?<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>잔금일 ≠ 이사일 → 아래 위험 발생
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>─────────────────────────────────
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>1. 보증금 보호 공백 (전세의 경우 치명적)
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>2. 짐 보관 비용 추가 발생
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>3. 이중 월세/관리비 부담
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>4. 기존 집 명도 지연 시 분쟁 가능
+</code></pre></div>
+<hr />
+<h2 id="_38">📋 상황별 대처법<a class="headerlink" href="#_38" title="Permanent link">&para;</a></h2>
+<h3 id="1_5">상황 1: 잔금일이 이사일보다 <strong>먼저</strong>인 경우<a class="headerlink" href="#1_5" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>(예: 4/10 잔금 지급, 4/15 이사)</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>대처 방법</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>전입신고</strong></td>
+<td>잔금일에 열쇠 받자마자 <strong>즉시 전입신고 + 확정일자</strong> 받기 (짐 안 옮겨도 가능!)</td>
+</tr>
+<tr>
+<td><strong>보증금 보호</strong></td>
+<td>전입신고일 다음 날 0시부터 대항력 발생 → 하루라도 빨리 신고</td>
+</tr>
+<tr>
+<td><strong>짐 보관</strong></td>
+<td>기존 집에 그대로 두거나, 이사 업체 <strong>짐 보관 서비스</strong> 이용 (1일 3만~10만 원)</td>
+</tr>
+<tr>
+<td><strong>열쇠 관리</strong></td>
+<td>잔금일에 열쇠를 받아두고, 이사일까지 새 집 시건장치 확인</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>🚨 <strong>전세 핵심:</strong> 잔금 지급한 날 전입신고를 안 하면, 그 사이에 집주인이 추가 대출을 받을 경우 <strong>보증금이 위험</strong>해질 수 있습니다. <strong>잔금일 당일 전입신고는 필수!</strong></p>
+</blockquote>
+<hr />
+<h3 id="2_4">상황 2: 이사일이 잔금일보다 <strong>먼저</strong>인 경우<a class="headerlink" href="#2_4" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>(예: 4/10 이사하고 싶은데, 잔금은 4/15)</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>대처 방법</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>사전 입주 협의</strong></td>
+<td>매도인/임대인과 <strong>사전 입주 합의서</strong> 작성</td>
+</tr>
+<tr>
+<td><strong>합의서 포함 내용</strong></td>
+<td>입주일, 잔금 지급일, 사전 입주 중 하자 발생 시 책임, 위약 조건</td>
+</tr>
+<tr>
+<td><strong>주의</strong></td>
+<td>잔금 전 입주는 법적 보호가 약하므로 <strong>가급적 피하는 것이 원칙</strong></td>
+</tr>
+<tr>
+<td><strong>전입신고</strong></td>
+<td>잔금 완납 전 전입신고를 해도 대항력은 잔금 완납 후 발생 → <strong>실익 없음</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>비추천 상황입니다.</strong> 잔금 지급 전에 입주하면 소유권 이전 전이므로, 문제 발생 시 법적으로 불리합니다.</p>
+</blockquote>
+<hr />
+<h3 id="3_6">상황 3: 나가는 집과 들어가는 집 날짜가 <strong>겹치지 않는</strong> 경우<a class="headerlink" href="#3_6" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>(예: 기존 집 4/10 퇴거, 새 집 4/15 입주 → <strong>5일 공백</strong>)</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>해결 방법</th>
+<th>비용</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>이사 업체 짐 보관</strong></td>
+<td>1일 3만~10만 원</td>
+<td>창고에 짐을 맡기고, 입주일에 다시 운반 (운반비 2회 발생)</td>
+</tr>
+<tr>
+<td><strong>셀프스토리지 이용</strong></td>
+<td>월 10만~30만 원</td>
+<td>미니창고 업체 (다락, 오짐 등) 단기 이용</td>
+</tr>
+<tr>
+<td><strong>지인 집 임시 보관</strong></td>
+<td>무료~소정의 사례</td>
+<td>짐이 적을 경우 현실적 방법</td>
+</tr>
+<tr>
+<td><strong>날짜 재조율</strong></td>
+<td>무료</td>
+<td><strong>가장 좋은 방법</strong> — 매도인/임대인과 협상</td>
+</tr>
+</tbody>
+</table>
+<h3 id="30_1">💰 날짜 공백 시 추가 비용 예시 (30평대 기준)<a class="headerlink" href="#30_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>짐 보관료 (5일):     15만~50만 원
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>운반비 2회 발생:     +50만~100만 원 추가
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>임시 숙소 (모텔 등):  1박 5만~10만 원
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>──────────────────────────────
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>총 추가 비용:  약 70만~160만 원 😱
+</code></pre></div>
+<hr />
+<h2 id="_39">✅ 최선의 해결책: 날짜 맞추기 협상<a class="headerlink" href="#_39" title="Permanent link">&para;</a></h2>
+<h3 id="_40">협상 방법<a class="headerlink" href="#_40" title="Permanent link">&para;</a></h3>
+<p><strong>1. 매수인/임차인 입장 (내가 들어가는 쪽)</strong>
+- 잔금일을 이사 가능한 날로 조율 요청
+- 중개사를 통해 협의하면 수월</p>
+<p><strong>2. 매도인/임대인 입장 (상대방 쪽)</strong>
+- 상대방도 이사 일정이 있으므로 서로 조율
+- 1~2일 차이는 대부분 협의 가능</p>
+<p><strong>3. 중개사 활용</strong>
+- 양측 일정 조율은 <strong>중개사의 역할</strong> → 적극 요청하세요
+- 계약서 특약에 <strong>"잔금일 및 명도일: O월 O일"</strong> 명시</p>
+<h3 id="_41">📝 계약서 특약 예시<a class="headerlink" href="#_41" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>&quot;잔금 지급일은 2026년 O월 O일로 하며, 
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>매도인(임대인)은 잔금일 당일 12시까지 명도를 완료한다.
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>매수인(임차인)은 잔금일 당일 이사 및 전입신고를 완료한다.&quot;
+</code></pre></div>
+<hr />
+<h2 id="_42">🚨 전세 입주 시 꼭 기억할 타임라인<a class="headerlink" href="#_42" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>잔금일 오전  → 잔금 지급 + 열쇠 수령 + 등기부등본 확인
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>     ↓
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>잔금일 당일  → 이사 (짐 반입)
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>     ↓
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>잔금일 당일  → 전입신고 + 확정일자 (주민센터 또는 정부24)
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>     ↓
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>잔금일 당일  → 전세권설정등기 (선택, 보증금 클 경우 권장)
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>     ↓
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>입주 후      → 전세보증금반환보증보험 가입 (HUG, SGI 등)
+</code></pre></div>
+<blockquote>
+<p><strong>한 줄 요약:</strong> 잔금일 = 이사일 = 전입신고일, 이 세 가지를 <strong>같은 날</strong>에 처리하는 것이 가장 안전합니다.</p>
+</blockquote>
+<hr />
+<h2 id="_43">📌 정리<a class="headerlink" href="#_43" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>원칙</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>최우선</strong></td>
+<td>잔금일과 이사일을 <strong>같은 날</strong>로 맞추기</td>
+</tr>
+<tr>
+<td><strong>불가피할 때</strong></td>
+<td>잔금일이 먼저라면, 잔금일에 <strong>전입신고만이라도 즉시</strong> 처리</td>
+</tr>
+<tr>
+<td><strong>절대 금지</strong></td>
+<td>잔금 지급 없이 먼저 입주하는 것 (법적 보호 불가)</td>
+</tr>
+<tr>
+<td><strong>비용 절약</strong></td>
+<td>날짜 공백이 생기면 <strong>재협상이 짐 보관보다 훨씬 저렴</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>전세 보증금 보호 절차, 등기부등본 확인 방법, 전세보증보험 가입 등 추가로 궁금한 부분이 있으시면 말씀해 주세요! 😊</p>
+<p><strong>후속 답변</strong> (자동 수락):</p>
+<h1 id="_44">🛡️ 전세 보증금 보호 완전 가이드<a class="headerlink" href="#_44" title="Permanent link">&para;</a></h1>
+<p>이전 대화에서 말씀드린 <strong>전세 보증금 보호 절차, 등기부등본 확인 방법, 전세보증보험 가입</strong>을 모두 자세히 안내드리겠습니다.</p>
+<hr />
+<h2 id="1_6">1️⃣ 전세 보증금 보호 절차 (대항력 + 우선변제권)<a class="headerlink" href="#1_6" title="Permanent link">&para;</a></h2>
+<h3 id="_45">대항력이란?<a class="headerlink" href="#_45" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>집주인이 바뀌더라도(경매·매매 등) <strong>"나 여기 살고 있으니 보증금 돌려줄 때까지 안 나갑니다"</strong> 라고 주장할 수 있는 권리</p>
+</blockquote>
+<h3 id="_46">우선변제권이란?<a class="headerlink" href="#_46" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>경매 시 <strong>보증금을 다른 채권자보다 먼저 돌려받을 수 있는</strong> 권리</p>
+</blockquote>
+<hr />
+<h3 id="3_7">⚡ 보증금 보호 3대 요건<a class="headerlink" href="#3_7" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>① 주택의 인도 (실제 입주 = 이사 완료)
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>        +
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>② 전입신고 (주민센터 또는 정부24 온라인)
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>        +
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>③ 확정일자 (전입신고 시 함께 신청)
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>→ 전입신고 다음 날 0시부터 대항력 발생
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>→ 확정일자 받은 다음 날 0시부터 우선변제권 발생
+</code></pre></div>
+<h3 id="_47">📋 단계별 실행 방법<a class="headerlink" href="#_47" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>순서</th>
+<th>할 일</th>
+<th>방법</th>
+<th>시기</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1</strong></td>
+<td>잔금 지급</td>
+<td>계좌이체 (반드시 <strong>임대인 본인 계좌</strong>로)</td>
+<td>잔금일 오전</td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td>열쇠 수령 + 입주</td>
+<td>짐 반입 (일부라도 OK)</td>
+<td>잔금일 당일</td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td>전입신고</td>
+<td>주민센터 방문 or <strong>정부24 앱</strong></td>
+<td>잔금일 당일 즉시</td>
+</tr>
+<tr>
+<td><strong>4</strong></td>
+<td>확정일자</td>
+<td>전입신고 시 함께 신청 (비용 600원)</td>
+<td>전입신고와 동시</td>
+</tr>
+<tr>
+<td><strong>5</strong></td>
+<td>등기부등본 재확인</td>
+<td>인터넷등기소에서 발급</td>
+<td>잔금 지급 직후</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_48">⚠️ 치명적 실수 사례<a class="headerlink" href="#_48" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>❌ 실수 1: 잔금일에 이사만 하고 전입신고를 며칠 뒤에 함
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>   → 그 사이 집주인이 대출 받으면 보증금 후순위로 밀림
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>❌ 실수 2: 전입신고를 기존 주소지에서 안 빼고 새 주소로 안 함
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>   → 전입 효력 없음
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>❌ 실수 3: 계약서상 주소와 전입신고 주소가 다름 (동·호수 불일치)
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>   → 대항력 인정 안 될 수 있음
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>❌ 실수 4: 잔금을 임대인이 아닌 제3자 계좌로 송금
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a>   → 분쟁 시 잔금 지급 증명 어려움
+</code></pre></div>
+<hr />
+<h2 id="2_5">2️⃣ 등기부등본 확인 방법 (가장 중요한 문서!)<a class="headerlink" href="#2_5" title="Permanent link">&para;</a></h2>
+<h3 id="_49">등기부등본이란?<a class="headerlink" href="#_49" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>해당 부동산의 <strong>소유자, 대출(근저당), 압류, 가처분</strong> 등 모든 권리관계가 기록된 공적 문서</p>
+</blockquote>
+<h3 id="_50">📱 발급 방법<a class="headerlink" href="#_50" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>방법</th>
+<th>사이트/앱</th>
+<th>비용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>인터넷등기소</strong></td>
+<td><a href="http://iros.go.kr">iros.go.kr</a></td>
+<td>열람 700원 / 발급 1,000원</td>
+</tr>
+<tr>
+<td><strong>정부24</strong></td>
+<td><a href="http://gov.kr">gov.kr</a></td>
+<td>동일</td>
+</tr>
+<tr>
+<td><strong>대법원 앱</strong></td>
+<td>"인터넷등기소" 앱</td>
+<td>동일</td>
+</tr>
+<tr>
+<td><strong>무인발급기</strong></td>
+<td>주민센터, 법원</td>
+<td>1,000원</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>💡 <strong>열람용</strong>이면 충분합니다 (700원). <strong>총 3번</strong> 확인하세요: ①계약 전, ②잔금 지급 당일 오전, ③전입신고 후</p>
+</blockquote>
+<hr />
+<h3 id="_51">🔍 등기부등본 읽는 법 (핵심!)<a class="headerlink" href="#_51" title="Permanent link">&para;</a></h3>
+<p>등기부등본은 <strong>표제부, 갑구, 을구</strong> 3개 섹션으로 구성됩니다.</p>
+<h4 id="_52">📌 표제부 — 건물 기본 정보<a class="headerlink" href="#_52" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>확인 사항:
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>☑ 주소가 계약서 주소와 일치하는가?
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>☑ 건물 용도가 &quot;주택&quot;인가? (근린생활시설이면 주택임대차보호법 적용 안 될 수 있음)
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>☑ 면적이 계약서와 일치하는가?
+</code></pre></div>
+<h4 id="_53">📌 갑구 — 소유권 관련 (누구 집인지)<a class="headerlink" href="#_53" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>확인 사항:
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>☑ 소유자가 임대인(계약 상대방)과 동일 인물인가?
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>   → 다르면 &quot;전대차(전전세)&quot; 가능성 → 매우 위험!
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>☑ 소유자 주민번호 앞자리가 임대인 신분증과 일치하는가?
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>⚠️ 위험 신호 (이런 게 있으면 계약 재고!):
+<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>❌ 가압류 — 집주인에게 빚 독촉이 들어온 상태
+<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>❌ 가처분 — 소유권 분쟁 중
+<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>❌ 압류 — 세금 체납 등으로 강제 처분 예정
+<a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a>❌ 경매개시결정 — 이미 경매 진행 중
+<a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>❌ 신탁 — 신탁회사 동의 없이 임대 불가
+</code></pre></div>
+<h4 id="_54">📌 을구 — 소유권 외 권리 (대출 관련, 가장 중요!)<a class="headerlink" href="#_54" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>확인 사항:
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>☑ 근저당권 설정 금액 확인
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>   → 근저당 = 집주인이 이 집을 담보로 받은 대출
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>⚡ 안전 여부 계산법:
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>  근저당 합계 + 내 보증금 ≤ 매매시세의 70~80%
+<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>  → ✅ 비교적 안전
+<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>
+<a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a>  근저당 합계 + 내 보증금 &gt; 매매시세의 80%
+<a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a>  → ⚠️ 위험! (경매 시 보증금 못 돌려받을 수 있음)
+<a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a>━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+</code></pre></div>
+<h3 id="_55">📊 등기부등본 안전 계산 예시<a class="headerlink" href="#_55" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>[예시]
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>아파트 매매시세:        5억 원
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>을구 근저당 합계:       2억 4천만 원 (채권최고액 기준)
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>내 전세 보증금:         2억 원
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>근저당 + 보증금 = 4억 4천만 원
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>매매시세의 80% = 4억 원
+<a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>
+<a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>4억 4천 &gt; 4억 → ⚠️ 위험! (초과 상태)
+<a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a>→ 이 집은 피하거나, 전세보증보험 가입 가능 여부 먼저 확인
+</code></pre></div>
+<h3 id="_56">🚨 근저당 해석 시 주의<a class="headerlink" href="#_56" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>용어</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>채권최고액</strong></td>
+<td>등기부에 적힌 금액 (실제 대출보다 <strong>120~130% 높게</strong> 설정됨)</td>
+</tr>
+<tr>
+<td><strong>실제 대출액</strong></td>
+<td>채권최고액 ÷ 1.2~1.3 ≒ 실제 대출 추정액</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>안전 계산 시에는 <strong>채권최고액 그대로</strong> 사용하는 것이 보수적이고 안전합니다.</p>
+</blockquote>
+<hr />
+<h2 id="3_8">3️⃣ 전세보증금반환보증보험 가입<a class="headerlink" href="#3_8" title="Permanent link">&para;</a></h2>
+<h3 id="_57">이게 뭔가요?<a class="headerlink" href="#_57" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>집주인이 보증금을 안 돌려줄 때, <strong>보증기관이 대신 보증금을 돌려주고</strong> 집주인에게 구상권을 행사하는 보험</p>
+<p>💡 쉽게 말해: <strong>"보증금 떼일 걱정 없는 보험"</strong></p>
+</blockquote>
+<hr />
+<h3 id="3_9">🏢 가입 가능한 보증기관 (3곳)<a class="headerlink" href="#3_9" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>기관</th>
+<th>특징</th>
+<th>보증료 수준</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>HUG (주택도시보증공사)</strong></td>
+<td>가장 보편적, 보증 한도 넓음</td>
+<td>연 0.115~0.154%</td>
+</tr>
+<tr>
+<td><strong>SGI (서울보증보험)</strong></td>
+<td>가입 조건 비교적 유연</td>
+<td>연 0.183~0.221%</td>
+</tr>
+<tr>
+<td><strong>HF (한국주택금융공사)</strong></td>
+<td>전세대출 연계 시 자동 가입되는 경우 많음</td>
+<td>연 0.05~0.1%</td>
+</tr>
+</tbody>
+</table>
+<h3 id="hug">💰 보증료 예시 (HUG 기준)<a class="headerlink" href="#hug" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>보증금 2억 원, 보증료율 0.128% 가정
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>─────────────────────────────
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>연간 보증료: 2억 × 0.00128 = 256,000원
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>2년 계약 시:  약 512,000원
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>→ 월 약 2만 원대로 보증금 2억을 지킬 수 있음!
+</code></pre></div>
+<hr />
+<h3 id="hug-2026">✅ HUG 가입 조건 (2026년 기준 일반적 기준)<a class="headerlink" href="#hug-2026" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>조건</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>주택 유형</strong></td>
+<td>아파트, 연립, 다세대, 단독·다가구, 주거용 오피스텔</td>
+</tr>
+<tr>
+<td><strong>보증금 한도</strong></td>
+<td>수도권 7억 원 이하 / 비수도권 5억 원 이하</td>
+</tr>
+<tr>
+<td><strong>임대차계약</strong></td>
+<td>확정일자 받은 유효한 계약</td>
+</tr>
+<tr>
+<td><strong>전입신고</strong></td>
+<td>완료 상태</td>
+</tr>
+<tr>
+<td><strong>근저당 등</strong></td>
+<td>선순위 채권 + 보증금이 주택가격의 일정 비율 이내</td>
+</tr>
+<tr>
+<td><strong>가입 시기</strong></td>
+<td>계약 기간의 <strong>1/2 경과 전</strong>까지 (2년 계약이면 1년 이내)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>가입은 빠를수록 좋습니다!</strong> 전입신고 + 확정일자 받은 직후 바로 신청하세요.</p>
+</blockquote>
+<hr />
+<h3 id="_58">📱 가입 절차<a class="headerlink" href="#_58" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>[1단계] 서류 준비
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>  ├─ 임대차계약서 사본
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>  ├─ 확정일자 부여 확인서 (또는 계약서에 확정일자 도장)
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>  ├─ 등기부등본 (최근 발급)
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>  ├─ 주민등록등본 (전입 확인용)
+<a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>  └─ 신분증
+<a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>        ↓
+<a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>[2단계] 신청
+<a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a>  ├─ HUG: &quot;안심전세&quot; 앱 또는 HUG 홈페이지
+<a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a>  ├─ SGI: 서울보증보험 홈페이지
+<a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a>  └─ HF: 전세대출 취급 은행에서 연계 가입
+<a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a>        ↓
+<a id="__codelineno-24-13" name="__codelineno-24-13" href="#__codelineno-24-13"></a>[3단계] 심사 (3~7 영업일)
+<a id="__codelineno-24-14" name="__codelineno-24-14" href="#__codelineno-24-14"></a>  ├─ 주택 가격 대비 보증금 적정성 심사
+<a id="__codelineno-24-15" name="__codelineno-24-15" href="#__codelineno-24-15"></a>  └─ 선순위 채권 확인
+<a id="__codelineno-24-16" name="__codelineno-24-16" href="#__codelineno-24-16"></a>        ↓
+<a id="__codelineno-24-17" name="__codelineno-24-17" href="#__codelineno-24-17"></a>[4단계] 보증서 발급
+<a id="__codelineno-24-18" name="__codelineno-24-18" href="#__codelineno-24-18"></a>  └─ 보증료 납부 후 보증서 수령 (전자문서)
+</code></pre></div>
+<hr />
+<h3 id="_59">🆘 보증금 못 받을 때 실제 반환 절차<a class="headerlink" href="#_59" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>보증금 반환일 도래 → 집주인에게 반환 요청
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>        ↓
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>집주인이 미반환 (1개월 이상)
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>        ↓
+<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>보증기관에 보증금 반환 청구
+<a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>        ↓
+<a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a>보증기관 심사 (약 1~2개월)
+<a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a>        ↓
+<a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a>보증기관이 보증금을 임차인에게 지급
+<a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a>        ↓
+<a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a>보증기관이 집주인에게 구상권 행사 (임차인은 신경 쓸 필요 없음)
+</code></pre></div>
+<hr />
+<h2 id="_60">📌 전체 타임라인 정리 (전세 입주 시)<a class="headerlink" href="#_60" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>📅 계약일
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>  ☑ 등기부등본 확인 (1차)
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>  ☑ 임대차계약서 작성
+<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>  ☑ 특약 사항 기재 (잔금일, 명도일, 하자 책임 등)
+<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>
+<a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a>📅 잔금일 전
+<a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a>  ☑ 이사 업체 예약
+<a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a>  ☑ 등기부등본 확인 (2차) — 새로운 근저당 설정 여부 확인
+<a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a>  ☑ 잔금 준비 (대출 시 은행 일정 조율)
+<a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a>
+<a id="__codelineno-26-11" name="__codelineno-26-11" href="#__codelineno-26-11"></a>📅 잔금일 당일 (= 이사일)
+<a id="__codelineno-26-12" name="__codelineno-26-12" href="#__codelineno-26-12"></a>  ☑ 09:00  등기부등본 확인 (3차, 최종)
+<a id="__codelineno-26-13" name="__codelineno-26-13" href="#__codelineno-26-13"></a>  ☑ 09:30  잔금 지급 (임대인 본인 계좌, 이체 확인증 보관)
+<a id="__codelineno-26-14" name="__codelineno-26-14" href="#__codelineno-26-14"></a>  ☑ 10:00  열쇠 수령 + 집 상태 확인 (영상 촬영 권장)
+<a id="__codelineno-26-15" name="__codelineno-26-15" href="#__codelineno-26-15"></a>  ☑ 10:30~ 이사 (짐 반입)
+<a id="__codelineno-26-16" name="__codelineno-26-16" href="#__codelineno-26-16"></a>  ☑ 이사 후  전입신고 + 확정일자 (주민센터 or 정부24)
+<a id="__codelineno-26-17" name="__codelineno-26-17" href="#__codelineno-26-17"></a>  ☑ 저녁    등기부등본 한 번 더 확인 (혹시 모를 변동)
+<a id="__codelineno-26-18" name="__codelineno-26-18" href="#__codelineno-26-18"></a>
+<a id="__codelineno-26-19" name="__codelineno-26-19" href="#__codelineno-26-19"></a>📅 입주 후 1주일 이내
+<a id="__codelineno-26-20" name="__codelineno-26-20" href="#__codelineno-26-20"></a>  ☑ 전세보증금반환보증보험 가입 신청 (HUG/SGI/HF)
+<a id="__codelineno-26-21" name="__codelineno-26-21" href="#__codelineno-26-21"></a>  ☑ 하자 있으면 임대인에게 서면(카톡이라도) 통보
+<a id="__codelineno-26-22" name="__codelineno-26-22" href="#__codelineno-26-22"></a>  ☑ 전세대출 받은 경우, 은행에서 질권 설정 확인
+<a id="__codelineno-26-23" name="__codelineno-26-23" href="#__codelineno-26-23"></a>
+<a id="__codelineno-26-24" name="__codelineno-26-24" href="#__codelineno-26-24"></a>📅 계약 만료 6개월~2개월 전
+<a id="__codelineno-26-25" name="__codelineno-26-25" href="#__codelineno-26-25"></a>  ☑ 계약 갱신 또는 퇴거 의사 통보
+<a id="__codelineno-26-26" name="__codelineno-26-26" href="#__codelineno-26-26"></a>  ☑ 보증보험 갱신 여부 확인
+</code></pre></div>
+<hr />
+<h2 id="_61">💡 꿀팁 모음<a class="headerlink" href="#_61" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>팁</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>등기부등본은 잔금 당일 아침에 한 번 더!</strong></td>
+<td>전날 밤~당일 새벽 사이 근저당이 추가될 수 있음</td>
+</tr>
+<tr>
+<td><strong>잔금은 반드시 계좌이체</strong></td>
+<td>현금 지급 절대 금지 (증거 안 남음)</td>
+</tr>
+<tr>
+<td><strong>계약서 + 확정일자 원본 보관</strong></td>
+<td>분실 시 재발급 가능하나 번거로움</td>
+</tr>
+<tr>
+<td><strong>정부24에서 전입신고 가능</strong></td>
+<td>주말·공휴일에도 온라인으로 가능</td>
+</tr>
+<tr>
+<td><strong>보증보험 거절되면?</strong></td>
+<td>보증금 비율이 높다는 의미 → 해당 물건 계약 재고 필요</td>
+</tr>
+<tr>
+<td><strong>공동명의 임대인</strong></td>
+<td>계약서에 소유자 <strong>전원</strong> 서명 필요 (한 명만 하면 무효 위험)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>추가로 <strong>전세대출 절차</strong>, <strong>임대차 3법(계약갱신청구권·전월세상한제)</strong>, 또는 <strong>특정 상황에 맞는 맞춤 상담</strong>이 필요하시면 편하게 말씀해 주세요! 😊</p>
+<hr />
+<h3 id="q5">Q5. 입주 전 확인해야 할 것들이 뭔가요?<a class="headerlink" href="#q5" title="Permanent link">&para;</a></h3>
+<p><strong>입력 토큰</strong>: 3 | <strong>출력 토큰</strong>: 3,284 | <strong>소요시간</strong>: 76,261ms | <strong>CLI 비용</strong>: $0.1360 | <strong>추정 API 비용</strong>: $0.2463
+<strong>대화 컨텍스트</strong>: 4턴 누적 | <strong>후속 제안</strong>: 감지됨</p>
+<p><strong>답변:</strong></p>
+<h1 id="_62">🔍 입주 전 반드시 확인해야 할 체크리스트<a class="headerlink" href="#_62" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="1_7">1단계: 잔금 지급 전 서류 확인 (가장 중요!)<a class="headerlink" href="#1_7" title="Permanent link">&para;</a></h2>
+<h3 id="_63">📄 등기부등본 확인 (잔금 당일 아침에 한 번 더!)<a class="headerlink" href="#_63" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>인터넷등기소(iros.go.kr) 또는 정부24에서 열람 가능 (수수료 700원~1,000원)
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>확인 항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>갑구 (소유권)</strong></td>
+<td>소유자가 계약 상대방과 일치하는가?</td>
+</tr>
+<tr>
+<td><strong>갑구 (압류·가압류)</strong></td>
+<td>압류, 가압류, 가처분 등기가 없는가?</td>
+</tr>
+<tr>
+<td><strong>을구 (근저당·전세권)</strong></td>
+<td>근저당 설정 금액이 얼마인가? 잔금일에 말소 예정인가?</td>
+</tr>
+<tr>
+<td><strong>신탁등기</strong></td>
+<td>신탁원부가 있다면 수익자·우선수익자 확인</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>🚨 <strong>핵심:</strong> 잔금 지급 <strong>직전에</strong> 등기부등본을 떼서 <strong>새로운 권리변동이 없는지</strong> 최종 확인하세요. 계약일과 잔금일 사이에 근저당이 추가됐을 수 있습니다.</p>
+</blockquote>
+<hr />
+<h2 id="2_6">2단계: 집 상태 점검 (사전 방문)<a class="headerlink" href="#2_6" title="Permanent link">&para;</a></h2>
+<p>잔금 지급 전 또는 이사 당일 짐 반입 전에 <strong>빈 집 상태</strong>에서 꼼꼼히 확인하세요.</p>
+<h3 id="_64">🏠 구조·벽·바닥<a class="headerlink" href="#_64" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>점검 항목</th>
+<th>확인 방법</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>벽면 균열·곰팡이</strong></td>
+<td>벽지 뒤, 모서리, 창문 주변 집중 확인</td>
+</tr>
+<tr>
+<td><strong>바닥 상태</strong></td>
+<td>장판/마루 들뜸, 긁힘, 물 얼룩 확인</td>
+</tr>
+<tr>
+<td><strong>천장 누수 흔적</strong></td>
+<td>물 자국, 변색, 곰팡이 여부</td>
+</tr>
+<tr>
+<td><strong>결로 여부</strong></td>
+<td>창문 주변, 북향 벽면 (겨울철 특히 중요)</td>
+</tr>
+<tr>
+<td><strong>문·창문 개폐</strong></td>
+<td>모든 문·창문 열고 닫아보기, 잠금장치 작동 확인</td>
+</tr>
+<tr>
+<td><strong>방충망</strong></td>
+<td>찢어짐, 틀어짐 여부</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_65">🚰 수도·배관<a class="headerlink" href="#_65" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>점검 항목</th>
+<th>확인 방법</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>수압</strong></td>
+<td>주방·욕실 수도꼭지 모두 틀어서 수압 확인</td>
+</tr>
+<tr>
+<td><strong>온수</strong></td>
+<td>온수가 나오기까지 시간, 온도 적정 여부</td>
+</tr>
+<tr>
+<td><strong>배수</strong></td>
+<td>세면대·싱크대·욕조·화장실 물 빠지는 속도</td>
+</tr>
+<tr>
+<td><strong>변기</strong></td>
+<td>물 내림·차오름 확인, 바닥 누수 여부</td>
+</tr>
+<tr>
+<td><strong>세탁기 수도꼭지</strong></td>
+<td>연결부 누수 여부</td>
+</tr>
+<tr>
+<td><strong>하수구 냄새</strong></td>
+<td>트랩(봉수)이 마르면 악취 발생 → 물 한 번 흘려주기</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_66">⚡ 전기·가스·난방<a class="headerlink" href="#_66" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>점검 항목</th>
+<th>확인 방법</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>전등</strong></td>
+<td>모든 방·화장실·현관 스위치 켜보기</td>
+</tr>
+<tr>
+<td><strong>콘센트</strong></td>
+<td>휴대폰 충전기로 각 방 콘센트 작동 확인</td>
+</tr>
+<tr>
+<td><strong>보일러</strong></td>
+<td>난방·온수 모두 작동 테스트 (최소 30분 가동)</td>
+</tr>
+<tr>
+<td><strong>가스레인지/인덕션</strong></td>
+<td>점화 및 화력 확인</td>
+</tr>
+<tr>
+<td><strong>가스 누출</strong></td>
+<td>가스 냄새 여부, 가스밸브 상태</td>
+</tr>
+<tr>
+<td><strong>분전반(차단기)</strong></td>
+<td>위치 확인, 각 차단기 정상 작동 여부</td>
+</tr>
+<tr>
+<td><strong>에어컘</strong></td>
+<td>냉방·난방 모두 작동 확인, 악취·소음 여부</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_67">🪳 기타<a class="headerlink" href="#_67" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>점검 항목</th>
+<th>확인 방법</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>벌레·해충 흔적</strong></td>
+<td>싱크대 하부, 화장실 구석, 현관 틈새</td>
+</tr>
+<tr>
+<td><strong>소음</strong></td>
+<td>층간소음, 도로·공사 소음 (낮·밤 다를 수 있음)</td>
+</tr>
+<tr>
+<td><strong>환풍기</strong></td>
+<td>욕실·주방 환풍기 작동 여부</td>
+</tr>
+<tr>
+<td><strong>인터폰/도어락</strong></td>
+<td>정상 작동, 비밀번호 변경 가능 여부</td>
+</tr>
+<tr>
+<td><strong>CCTV/공용현관</strong></td>
+<td>보안 시설 작동 여부 (아파트·오피스텔)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3_10">3단계: 하자 발견 시 대응<a class="headerlink" href="#3_10" title="Permanent link">&para;</a></h2>
+<h3 id="_68">📸 증거 확보가 핵심!<a class="headerlink" href="#_68" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>하자 발견 즉시:
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>─────────────
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>1. 📷 사진·영상 촬영 (날짜 표시되도록)
+<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>2. 📝 하자 목록 작성
+<a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>3. 🤝 임대인/매도인에게 서면 통보 (카톡도 가능)
+<a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a>4. 📋 수리 범위·일정·비용 부담 합의
+</code></pre></div>
+<h3 id="_69">하자 수리 비용 부담 기준<a class="headerlink" href="#_69" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>임대인 부담</th>
+<th>임차인 부담</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>대수선</strong> (보일러 교체, 배관 공사, 누수 등)</td>
+<td>✅</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>소수선</strong> (형광등 교체, 문손잡이 등)</td>
+<td></td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>입주 전 기존 하자</strong></td>
+<td>✅</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>입주 후 사용 중 파손</strong></td>
+<td></td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>💡 <strong>특약으로 미리 정해두는 것이 가장 좋습니다.</strong> 계약서에 "입주 전 하자는 임대인이 수리 완료 후 인도한다" 등의 문구를 넣으세요.</p>
+</blockquote>
+<hr />
+<h2 id="4_4">4단계: 각종 명의변경·신고<a class="headerlink" href="#4_4" title="Permanent link">&para;</a></h2>
+<h3 id="1_8">이사 당일~1주일 이내 처리<a class="headerlink" href="#1_8" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>순서</th>
+<th>항목</th>
+<th>방법</th>
+<th>기한</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td><strong>전입신고</strong></td>
+<td>주민센터 또는 정부24 (온라인)</td>
+<td>⚡ <strong>당일 즉시</strong></td>
+</tr>
+<tr>
+<td>②</td>
+<td><strong>확정일자</strong></td>
+<td>전입신고와 동시 처리 가능</td>
+<td>⚡ <strong>당일 즉시</strong></td>
+</tr>
+<tr>
+<td>③</td>
+<td><strong>전기 명의변경</strong></td>
+<td>한국전력 (123) 또는 온라인</td>
+<td>1주일 내</td>
+</tr>
+<tr>
+<td>④</td>
+<td><strong>가스 명의변경</strong></td>
+<td>지역 도시가스 회사 전화</td>
+<td>1주일 내</td>
+</tr>
+<tr>
+<td>⑤</td>
+<td><strong>수도 명의변경</strong></td>
+<td>관할 수도사업소 전화/방문</td>
+<td>1주일 내</td>
+</tr>
+<tr>
+<td>⑥</td>
+<td><strong>인터넷·TV</strong></td>
+<td>통신사 이전 설치 신청</td>
+<td>미리 예약</td>
+</tr>
+<tr>
+<td>⑦</td>
+<td><strong>관리비 정산</strong></td>
+<td>관리사무소에서 전 입주자와 정산</td>
+<td>입주 즉시</td>
+</tr>
+<tr>
+<td>⑧</td>
+<td><strong>우편물 전송</strong></td>
+<td>우체국 "주소이전 우편물 전송" 신청</td>
+<td>1주일 내</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5_2">5단계: 보안 관련<a class="headerlink" href="#5_2" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>조치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>도어락 비밀번호</strong></td>
+<td>입주 즉시 변경 (이전 입주자가 알고 있을 수 있음)</td>
+</tr>
+<tr>
+<td><strong>열쇠 교체</strong></td>
+<td>일반 열쇠라면 실린더 교체 권장 (2만~5만 원)</td>
+</tr>
+<tr>
+<td><strong>창문 잠금장치</strong></td>
+<td>모든 창문 보조잠금장치 확인, 1층은 추가 설치 고려</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_70">📌 입주 전 최종 체크리스트 (한눈에 보기)<a class="headerlink" href="#_70" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>[잔금 전]
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>  ☑ 등기부등본 최종 확인
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>  ☑ 잔금 준비 (대출 실행일 확인)
+<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>
+<a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a>[잔금 당일 / 이사 전]
+<a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a>  ☑ 빈 집 상태에서 하자 점검
+<a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a>  ☑ 수도·전기·가스·보일러 작동 확인
+<a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a>  ☑ 하자 발견 시 사진 촬영 + 수리 합의
+<a id="__codelineno-29-9" name="__codelineno-29-9" href="#__codelineno-29-9"></a>  ☑ 잔금 지급 + 열쇠 수령
+<a id="__codelineno-29-10" name="__codelineno-29-10" href="#__codelineno-29-10"></a>
+<a id="__codelineno-29-11" name="__codelineno-29-11" href="#__codelineno-29-11"></a>[이사 당일]
+<a id="__codelineno-29-12" name="__codelineno-29-12" href="#__codelineno-29-12"></a>  ☑ 전입신고 + 확정일자 (전세의 경우 필수)
+<a id="__codelineno-29-13" name="__codelineno-29-13" href="#__codelineno-29-13"></a>  ☑ 도어락 비밀번호 변경
+<a id="__codelineno-29-14" name="__codelineno-29-14" href="#__codelineno-29-14"></a>  ☑ 각종 명의변경 (전기/가스/수도)
+<a id="__codelineno-29-15" name="__codelineno-29-15" href="#__codelineno-29-15"></a>  ☑ 관리사무소 인사 + 관리비 정산 확인
+<a id="__codelineno-29-16" name="__codelineno-29-16" href="#__codelineno-29-16"></a>
+<a id="__codelineno-29-17" name="__codelineno-29-17" href="#__codelineno-29-17"></a>[이사 후 1주일 내]
+<a id="__codelineno-29-18" name="__codelineno-29-18" href="#__codelineno-29-18"></a>  ☑ 숨은 하자 추가 확인 (특히 배관, 결로)
+<a id="__codelineno-29-19" name="__codelineno-29-19" href="#__codelineno-29-19"></a>  ☑ 전세보증금반환보증보험 가입 검토
+<a id="__codelineno-29-20" name="__codelineno-29-20" href="#__codelineno-29-20"></a>  ☑ 우편물 주소이전 신청
+<a id="__codelineno-29-21" name="__codelineno-29-21" href="#__codelineno-29-21"></a>  ☑ 운전면허·금융기관 주소 변경
+</code></pre></div>
+<hr />
+<h2 id="_71">💡 놓치기 쉬운 꿀팁<a class="headerlink" href="#_71" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>입주 청소:</strong> 이사 전날 입주 청소 업체 부르면 깔끔한 시작 가능 (원룸 5만~10만, 아파트 15만~30만 원)</li>
+<li><strong>새집증후군:</strong> 신축이라면 입주 전 <strong>환기 + 베이크아웃</strong>(난방 가동 후 환기 반복)</li>
+<li><strong>관리사무소 방문:</strong> 아파트라면 쓰레기 배출일, 주차 규정, 이사 엘리베이터 예약 등 확인</li>
+<li><strong>이웃 인사:</strong> 윗집·아랫집·옆집에 간단한 인사 (층간소음 등 분쟁 예방 효과)</li>
+</ol>
+<hr />
+<p>전세보증금 보호 절차, 전세보증보험 가입, 하자 분쟁 해결 방법 등 더 궁금한 점이 있으시면 편하게 물어보세요! 😊</p>
+<p><strong>후속 답변</strong> (자동 수락):</p>
+<h1 id="_72">🛡️ 전세보증금 보호 절차 · 전세보증보험 · 하자 분쟁 해결 완벽 가이드<a class="headerlink" href="#_72" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="part-1_1">Part 1: 전세보증금 보호 절차<a class="headerlink" href="#part-1_1" title="Permanent link">&para;</a></h2>
+<h3 id="3_11">🔐 보증금을 지키는 3대 요건<a class="headerlink" href="#3_11" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>① 전입신고  +  ② 확정일자  +  ③ 점유(실제 거주)
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>───────────────────────────────────────────────
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>이 세 가지가 갖춰져야 &quot;우선변제권&quot;이 생깁니다.
+<a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>= 집이 경매에 넘어가더라도 보증금을 우선 돌려받을 권리
+</code></pre></div>
+<hr />
+<h3 id="1_9">① 전입신고<a class="headerlink" href="#1_9" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>신고처</strong></td>
+<td>관할 주민센터 방문 또는 <strong>정부24 온라인</strong></td>
+</tr>
+<tr>
+<td><strong>기한</strong></td>
+<td>잔금일 당일 즉시! (늦어도 당일 내)</td>
+</tr>
+<tr>
+<td><strong>필요서류</strong></td>
+<td>신분증, 임대차계약서</td>
+</tr>
+<tr>
+<td><strong>효력 발생</strong></td>
+<td>전입신고한 <strong>다음 날 0시</strong>부터 대항력 발생</td>
+</tr>
+<tr>
+<td><strong>가족</strong></td>
+<td>세대원 중 1명만 해도 전 세대에 효력</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>주의:</strong> 전입신고일과 확정일자를 받은 날의 <strong>다음 날 0시</strong>부터 효력이 생기므로, 그 전날까지 설정된 근저당보다는 후순위가 됩니다. 이것이 바로 <strong>잔금 전 등기부등본 확인이 중요한 이유</strong>입니다.</p>
+</blockquote>
+<hr />
+<h3 id="2_7">② 확정일자<a class="headerlink" href="#2_7" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>신청처</strong></td>
+<td>주민센터, 등기소, 또는 <strong>정부24 온라인</strong></td>
+</tr>
+<tr>
+<td><strong>비용</strong></td>
+<td><strong>600원</strong></td>
+</tr>
+<tr>
+<td><strong>필요서류</strong></td>
+<td>임대차계약서 원본, 신분증</td>
+</tr>
+<tr>
+<td><strong>방법</strong></td>
+<td>계약서에 확정일자 도장을 받음</td>
+</tr>
+<tr>
+<td><strong>효력</strong></td>
+<td>확정일자 + 전입신고 + 점유 → <strong>우선변제권</strong> 확보</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>💡 <strong>정부24에서 온라인으로 전입신고와 확정일자를 동시에 처리</strong>할 수 있어 편리합니다.</p>
+</blockquote>
+<hr />
+<h3 id="3_12">③ 점유 (실제 거주)<a class="headerlink" href="#3_12" title="Permanent link">&para;</a></h3>
+<ul>
+<li>해당 주소에 <strong>실제로 살고 있어야</strong> 합니다</li>
+<li>전입신고 후 다른 곳으로 주민등록을 옮기면 <strong>대항력 상실!</strong></li>
+<li>장기 출장·여행은 괜찮지만, <strong>주민등록 이전은 절대 금지</strong></li>
+</ul>
+<hr />
+<h3 id="vs">📊 우선변제권 vs 대항력 비교<a class="headerlink" href="#vs" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>대항력</th>
+<th>우선변제권</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>요건</strong></td>
+<td>전입신고 + 점유</td>
+<td>전입신고 + 점유 + 확정일자</td>
+</tr>
+<tr>
+<td><strong>효과</strong></td>
+<td>집이 팔려도 새 주인에게 "나 여기 살아요" 주장 가능</td>
+<td>경매 시 보증금을 <strong>다른 채권자보다 먼저</strong> 돌려받을 수 있음</td>
+</tr>
+<tr>
+<td><strong>발생 시점</strong></td>
+<td>전입신고 다음 날 0시</td>
+<td>확정일자 받은 다음 날 0시</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="_73">🔎 등기부등본 읽는 법 (보증금 안전 판단)<a class="headerlink" href="#_73" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>등기부등본 구조:
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>──────────────
+<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>📄 표제부: 건물 소재지, 면적 등 기본 정보
+<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a>📄 갑구: 소유권 관련 (소유자, 압류, 가압류, 가처분)
+<a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a>📄 을구: 소유권 외 권리 (근저당, 전세권, 지상권)
+</code></pre></div>
+<h4 id="_74">보증금 안전 여부 판단 공식<a class="headerlink" href="#_74" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>집 시세 (매매가의 70~80%)
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a> − 선순위 근저당 금액
+<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a> − 선순위 보증금 (있다면)
+<a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a> − 기타 채권
+<a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a>─────────────────────
+<a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a>= 남은 금액 &gt; 내 보증금 → ✅ 비교적 안전
+<a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a>= 남은 금액 &lt; 내 보증금 → 🚨 위험!
+</code></pre></div>
+<h4 id="_75">예시<a class="headerlink" href="#_75" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>아파트 시세: 5억 원
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>경매 시 낙찰 예상가 (70%): 3.5억 원
+<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>선순위 근저당: 2억 원
+<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>─────────────────────
+<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a>남은 금액: 1.5억 원
+<a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a>
+<a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a>내 보증금이 1억 → ✅ 회수 가능성 높음
+<a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a>내 보증금이 2억 → ⚠️ 일부만 회수될 수 있음
+</code></pre></div>
+<hr />
+<h2 id="part-2_1">Part 2: 전세보증금반환보증보험 🛡️<a class="headerlink" href="#part-2_1" title="Permanent link">&para;</a></h2>
+<h3 id="_76">이게 뭔가요?<a class="headerlink" href="#_76" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>집주인이 보증금을 <strong>돌려주지 않을 때</strong>, 보증기관이 <strong>대신 돌려주고</strong> 집주인에게 구상권을 행사하는 보험</p>
+</blockquote>
+<p><strong>한 줄 요약: 전세 사기 예방의 최강 보호막!</strong></p>
+<hr />
+<h3 id="3-2026">📋 보증기관 3곳 비교 (2026년 기준)<a class="headerlink" href="#3-2026" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th><strong>HUG</strong> (주택도시보증공사)</th>
+<th><strong>SGI</strong> (서울보증보험)</th>
+<th><strong>HF</strong> (한국주택금융공사)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>보증금 한도</strong></td>
+<td>수도권 7억 / 지방 5억</td>
+<td>제한 없음 (심사에 따라)</td>
+<td>수도권 7억 / 지방 5억</td>
+</tr>
+<tr>
+<td><strong>보증료율</strong></td>
+<td>연 0.115~0.154%</td>
+<td>연 0.183~0.206%</td>
+<td>연 0.05~0.10%</td>
+</tr>
+<tr>
+<td><strong>보증료 예시</strong> (보증금 3억)</td>
+<td>약 34.5만~46.2만 원/년</td>
+<td>약 54.9만~61.8만 원/년</td>
+<td>약 15만~30만 원/년</td>
+</tr>
+<tr>
+<td><strong>가입 난이도</strong></td>
+<td>보통 (집 요건 까다로움)</td>
+<td>쉬움 (심사 유연)</td>
+<td>전세대출 이용자 한정</td>
+</tr>
+<tr>
+<td><strong>신청 방법</strong></td>
+<td>온라인(HUG 홈페이지), 은행</td>
+<td>온라인, 보험대리점</td>
+<td>전세대출 취급 은행</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="hug_1">✅ HUG 가입 조건 (가장 많이 이용)<a class="headerlink" href="#hug_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>조건</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>주택 유형</strong></td>
+<td>아파트, 연립, 다세대, 단독, 주거용 오피스텔</td>
+</tr>
+<tr>
+<td><strong>전입신고</strong></td>
+<td>완료 상태</td>
+</tr>
+<tr>
+<td><strong>확정일자</strong></td>
+<td>완료 상태</td>
+</tr>
+<tr>
+<td><strong>보증금</strong></td>
+<td>수도권 7억, 지방 5억 이하</td>
+</tr>
+<tr>
+<td><strong>계약 기간</strong></td>
+<td>잔여 계약기간 1개월 이상 남아야 함</td>
+</tr>
+<tr>
+<td><strong>근저당 등</strong></td>
+<td>선순위 채권 + 보증금 합계가 <strong>집값의 100% 이하</strong> (아파트 기준)</td>
+</tr>
+<tr>
+<td><strong>집주인</strong></td>
+<td>법인 소유도 가능하나 심사 까다로울 수 있음</td>
+</tr>
+<tr>
+<td><strong>가입 시기</strong></td>
+<td>전세 계약기간의 <strong>1/2 경과 전</strong>까지 (예: 2년 계약이면 입주 후 1년 내)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>🚨 <strong>가입 시기를 놓치지 마세요!</strong> 계약기간 절반이 지나면 가입이 불가합니다. <strong>입주 후 가능한 빨리 가입</strong>하는 것이 좋습니다.</p>
+</blockquote>
+<hr />
+<h3 id="_77">📝 가입 절차<a class="headerlink" href="#_77" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>1단계: 서류 준비
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>  - 임대차계약서 사본
+<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>  - 전입세대 열람원 (주민센터 발급)
+<a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a>  - 확정일자 부여 확인서
+<a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a>  - 등기부등본 (인터넷등기소)
+<a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a>  - 신분증
+<a id="__codelineno-34-7" name="__codelineno-34-7" href="#__codelineno-34-7"></a>
+<a id="__codelineno-34-8" name="__codelineno-34-8" href="#__codelineno-34-8"></a>2단계: 신청
+<a id="__codelineno-34-9" name="__codelineno-34-9" href="#__codelineno-34-9"></a>  - HUG 홈페이지 온라인 신청
+<a id="__codelineno-34-10" name="__codelineno-34-10" href="#__codelineno-34-10"></a>  - 또는 주거래 은행 방문 신청
+<a id="__codelineno-34-11" name="__codelineno-34-11" href="#__codelineno-34-11"></a>
+<a id="__codelineno-34-12" name="__codelineno-34-12" href="#__codelineno-34-12"></a>3단계: 심사 (3~7영업일)
+<a id="__codelineno-34-13" name="__codelineno-34-13" href="#__codelineno-34-13"></a>  - 주택 가격 적정성 심사
+<a id="__codelineno-34-14" name="__codelineno-34-14" href="#__codelineno-34-14"></a>  - 선순위 채권 검토
+<a id="__codelineno-34-15" name="__codelineno-34-15" href="#__codelineno-34-15"></a>
+<a id="__codelineno-34-16" name="__codelineno-34-16" href="#__codelineno-34-16"></a>4단계: 보증서 발급
+<a id="__codelineno-34-17" name="__codelineno-34-17" href="#__codelineno-34-17"></a>  - 보증료 납부 후 보증서 수령
+<a id="__codelineno-34-18" name="__codelineno-34-18" href="#__codelineno-34-18"></a>
+<a id="__codelineno-34-19" name="__codelineno-34-19" href="#__codelineno-34-19"></a>5단계: 보증금 미반환 시
+<a id="__codelineno-34-20" name="__codelineno-34-20" href="#__codelineno-34-20"></a>  - HUG에 보증사고 접수
+<a id="__codelineno-34-21" name="__codelineno-34-21" href="#__codelineno-34-21"></a>  - HUG가 보증금 대신 지급 (통상 1~2개월 소요)
+</code></pre></div>
+<hr />
+<h3 id="_78">💡 보증보험 가입이 거절되는 경우<a class="headerlink" href="#_78" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>사유</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>깡통전세</strong></td>
+<td>근저당 + 보증금이 집값을 초과</td>
+</tr>
+<tr>
+<td><strong>미등기 건물</strong></td>
+<td>등기가 안 된 건물</td>
+</tr>
+<tr>
+<td><strong>위반건축물</strong></td>
+<td>불법 증축 등</td>
+</tr>
+<tr>
+<td><strong>가입 기한 초과</strong></td>
+<td>계약기간 1/2 경과 후 신청</td>
+</tr>
+<tr>
+<td><strong>보증금 한도 초과</strong></td>
+<td>수도권 7억 초과 등</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>보증보험 가입이 안 되는 집은 그 자체로 위험 신호</strong>일 수 있습니다. 계약 전에 가입 가능 여부를 미리 확인하세요!</p>
+</blockquote>
+<hr />
+<h3 id="_79">📞 보증금 못 받을 때 실제 절차<a class="headerlink" href="#_79" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>계약 만료 → 집주인에게 반환 요청 (내용증명)
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>     ↓ (안 돌려줄 경우)
+<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>보증보험 가입자: HUG/SGI에 보증사고 접수 → 대위변제
+<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>보증보험 미가입자: 아래 절차 진행 ↓
+<a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a>     ↓
+<a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a>① 내용증명 발송 (반환 최고)
+<a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a>     ↓ (그래도 안 돌려줄 경우)
+<a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a>② 임차권등기명령 신청 (관할 법원, 1~2주)
+<a id="__codelineno-35-9" name="__codelineno-35-9" href="#__codelineno-35-9"></a>   → 이사 나가도 대항력·우선변제권 유지!
+<a id="__codelineno-35-10" name="__codelineno-35-10" href="#__codelineno-35-10"></a>     ↓
+<a id="__codelineno-35-11" name="__codelineno-35-11" href="#__codelineno-35-11"></a>③ 지급명령 신청 또는 민사소송
+<a id="__codelineno-35-12" name="__codelineno-35-12" href="#__codelineno-35-12"></a>     ↓
+<a id="__codelineno-35-13" name="__codelineno-35-13" href="#__codelineno-35-13"></a>④ 강제집행 (부동산 경매 등)
+</code></pre></div>
+<hr />
+<h2 id="part-3">Part 3: 하자 분쟁 해결 방법 ⚖️<a class="headerlink" href="#part-3" title="Permanent link">&para;</a></h2>
+<h3 id="_80">🔍 하자의 종류<a class="headerlink" href="#_80" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>예시</th>
+<th>수리 의무</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>중대 하자</strong></td>
+<td>누수, 보일러 고장, 배관 파손, 곰팡이(구조적 원인)</td>
+<td><strong>임대인</strong></td>
+</tr>
+<tr>
+<td><strong>경미한 하자</strong></td>
+<td>형광등 교체, 도어 손잡이, 실리콘 노후</td>
+<td><strong>임차인</strong></td>
+</tr>
+<tr>
+<td><strong>입주 전 기존 하자</strong></td>
+<td>벽 균열, 바닥 손상, 오래된 배수 불량</td>
+<td><strong>임대인</strong></td>
+</tr>
+<tr>
+<td><strong>입주 후 사용 하자</strong></td>
+<td>본인 과실로 인한 파손</td>
+<td><strong>임차인</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="_81">📝 하자 발견 시 단계별 대응<a class="headerlink" href="#_81" title="Permanent link">&para;</a></h3>
+<h4 id="step-1">Step 1: 증거 확보 (가장 중요!)<a class="headerlink" href="#step-1" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>📷 사진 촬영: 날짜가 보이도록 (스마트폰 자동 기록)
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>📹 영상 촬영: 누수 등은 영상이 더 효과적
+<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>📝 하자 목록 작성: 위치, 상태, 발견 일시 기록
+<a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a>📊 수리 견적서: 업체에 견적을 받아두면 유리
+</code></pre></div>
+<h4 id="step-2">Step 2: 임대인에게 통보<a class="headerlink" href="#step-2" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>[통보 방법 - 효력 순서]
+<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>
+<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>1순위: 내용증명 우편 (법적 효력 가장 강함)
+<a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a>2순위: 카카오톡/문자 (읽음 확인 + 캡처 보관)
+<a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a>3순위: 전화 통화 (통화 녹음 + 내용 정리 문자 재발송)
+</code></pre></div>
+<p><strong>내용증명 예시:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>수신: 임대인 ○○○ 귀하
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>발신: 임차인 ○○○
+<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>
+<a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a>제목: 임대 목적물 하자 수리 요청
+<a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a>
+<a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a>본인은 귀하 소유 ○○시 ○○구 ○○동 ○○호에 
+<a id="__codelineno-38-7" name="__codelineno-38-7" href="#__codelineno-38-7"></a>거주 중인 임차인입니다.
+<a id="__codelineno-38-8" name="__codelineno-38-8" href="#__codelineno-38-8"></a>
+<a id="__codelineno-38-9" name="__codelineno-38-9" href="#__codelineno-38-9"></a>아래와 같은 하자가 확인되어 수리를 요청드립니다.
+<a id="__codelineno-38-10" name="__codelineno-38-10" href="#__codelineno-38-10"></a>
+<a id="__codelineno-38-11" name="__codelineno-38-11" href="#__codelineno-38-11"></a>1. 욕실 천장 누수 (2026년 ○월 ○일 발견)
+<a id="__codelineno-38-12" name="__codelineno-38-12" href="#__codelineno-38-12"></a>2. 보일러 온수 불량 (2026년 ○월 ○일 확인)
+<a id="__codelineno-38-13" name="__codelineno-38-13" href="#__codelineno-38-13"></a>
+<a id="__codelineno-38-14" name="__codelineno-38-14" href="#__codelineno-38-14"></a>민법 제623조에 따라 임대인은 임대 목적물을 
+<a id="__codelineno-38-15" name="__codelineno-38-15" href="#__codelineno-38-15"></a>사용·수익에 필요한 상태로 유지할 의무가 있으므로,
+<a id="__codelineno-38-16" name="__codelineno-38-16" href="#__codelineno-38-16"></a>수령일로부터 14일 이내 수리를 요청드립니다.
+<a id="__codelineno-38-17" name="__codelineno-38-17" href="#__codelineno-38-17"></a>
+<a id="__codelineno-38-18" name="__codelineno-38-18" href="#__codelineno-38-18"></a>기한 내 수리가 이루어지지 않을 경우, 
+<a id="__codelineno-38-19" name="__codelineno-38-19" href="#__codelineno-38-19"></a>임차인이 직접 수리 후 비용을 청구하거나 
+<a id="__codelineno-38-20" name="__codelineno-38-20" href="#__codelineno-38-20"></a>차임에서 공제할 수 있음을 알려드립니다.
+<a id="__codelineno-38-21" name="__codelineno-38-21" href="#__codelineno-38-21"></a>
+<a id="__codelineno-38-22" name="__codelineno-38-22" href="#__codelineno-38-22"></a>2026년 ○월 ○일
+<a id="__codelineno-38-23" name="__codelineno-38-23" href="#__codelineno-38-23"></a>임차인 ○○○
+</code></pre></div></p>
+<h4 id="step-3">Step 3: 임대인이 수리를 안 해줄 때<a class="headerlink" href="#step-3" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>방법</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>자가 수리 후 비용 청구</strong></td>
+<td>직접 수리하고 영수증 보관 → 월세에서 공제 또는 별도 청구 (민법 제626조)</td>
+</tr>
+<tr>
+<td><strong>차임 감액 청구</strong></td>
+<td>하자로 인해 정상 사용이 어려운 경우 월세 감액 가능</td>
+</tr>
+<tr>
+<td><strong>계약 해지</strong></td>
+<td>하자가 심각하여 <strong>거주 목적 달성이 불가능</strong>한 경우 계약 해지 + 보증금 반환 청구</td>
+</tr>
+<tr>
+<td><strong>손해배상 청구</strong></td>
+<td>하자로 인한 재산·건강 피해 발생 시</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="_82">⚖️ 분쟁 해결 기관<a class="headerlink" href="#_82" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>기관</th>
+<th>내용</th>
+<th>비용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>대한법률구조공단</strong> (☎ 132)</td>
+<td>무료 법률 상담, 소송 지원 (소득 기준 충족 시)</td>
+<td><strong>무료</strong></td>
+</tr>
+<tr>
+<td><strong>주택임대차분쟁조정위원회</strong></td>
+<td>임대차 관련 분쟁 전문 조정</td>
+<td><strong>무료</strong></td>
+</tr>
+<tr>
+<td><strong>한국소비자원</strong> (☎ 1372)</td>
+<td>이사 업체·하자 관련 소비자 피해</td>
+<td><strong>무료</strong></td>
+</tr>
+<tr>
+<td><strong>대한상사중재원</strong></td>
+<td>조정·중재 서비스</td>
+<td>소정의 수수료</td>
+</tr>
+<tr>
+<td><strong>법원 민사소송</strong></td>
+<td>최후의 수단</td>
+<td>소송비용 발생</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="_83">🏛️ 주택임대차분쟁조정위원회 이용법<a class="headerlink" href="#_83" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>신청 대상: 보증금 반환, 하자 수리, 차임 분쟁 등
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>신청 방법: 
+<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a>  - 온라인: 대한법률구조공단 홈페이지
+<a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a>  - 방문: 각 지역 법률구조공단 사무소
+<a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a>  - 전화: 132
+<a id="__codelineno-39-6" name="__codelineno-39-6" href="#__codelineno-39-6"></a>
+<a id="__codelineno-39-7" name="__codelineno-39-7" href="#__codelineno-39-7"></a>절차:
+<a id="__codelineno-39-8" name="__codelineno-39-8" href="#__codelineno-39-8"></a>  신청 → 조정기일 지정 (약 2~4주) → 양측 출석 → 조정안 제시
+<a id="__codelineno-39-9" name="__codelineno-39-9" href="#__codelineno-39-9"></a>
+<a id="__codelineno-39-10" name="__codelineno-39-10" href="#__codelineno-39-10"></a>효력:
+<a id="__codelineno-39-11" name="__codelineno-39-11" href="#__codelineno-39-11"></a>  양측 합의 시 → 재판상 화해와 동일한 효력 (강제집행 가능)
+<a id="__codelineno-39-12" name="__codelineno-39-12" href="#__codelineno-39-12"></a>  한쪽 거부 시 → 민사소송으로 전환
+<a id="__codelineno-39-13" name="__codelineno-39-13" href="#__codelineno-39-13"></a>
+<a id="__codelineno-39-14" name="__codelineno-39-14" href="#__codelineno-39-14"></a>소요 기간: 약 1~2개월
+<a id="__codelineno-39-15" name="__codelineno-39-15" href="#__codelineno-39-15"></a>비용: 무료!
+</code></pre></div>
+<hr />
+<h2 id="_84">📌 전체 흐름 총정리<a class="headerlink" href="#_84" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>[계약 단계]
+<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>  ☑ 등기부등본 확인 → 근저당·압류 여부 파악
+<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a>  ☑ 전세보증보험 가입 가능 여부 사전 확인
+<a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a>  ☑ 계약서 특약에 하자 수리 의무 명시
+<a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a>
+<a id="__codelineno-40-6" name="__codelineno-40-6" href="#__codelineno-40-6"></a>[잔금·입주 단계]  
+<a id="__codelineno-40-7" name="__codelineno-40-7" href="#__codelineno-40-7"></a>  ☑ 잔금 당일 등기부등본 재확인
+<a id="__codelineno-40-8" name="__codelineno-40-8" href="#__codelineno-40-8"></a>  ☑ 빈 집 상태에서 하자 점검 + 사진 촬영
+<a id="__codelineno-40-9" name="__codelineno-40-9" href="#__codelineno-40-9"></a>  ☑ 잔금 지급 → 전입신고 + 확정일자 (당일!)
+<a id="__codelineno-40-10" name="__codelineno-40-10" href="#__codelineno-40-10"></a>  ☑ 도어락 비밀번호 변경
+<a id="__codelineno-40-11" name="__codelineno-40-11" href="#__codelineno-40-11"></a>
+<a id="__codelineno-40-12" name="__codelineno-40-12" href="#__codelineno-40-12"></a>[입주 직후]
+<a id="__codelineno-40-13" name="__codelineno-40-13" href="#__codelineno-40-13"></a>  ☑ 전세보증금반환보증보험 가입 (가능한 빨리!)
+<a id="__codelineno-40-14" name="__codelineno-40-14" href="#__codelineno-40-14"></a>  ☑ 명의변경 (전기/가스/수도)
+<a id="__codelineno-40-15" name="__codelineno-40-15" href="#__codelineno-40-15"></a>  ☑ 숨은 하자 추가 확인 (1~2주간)
+<a id="__codelineno-40-16" name="__codelineno-40-16" href="#__codelineno-40-16"></a>
+<a id="__codelineno-40-17" name="__codelineno-40-17" href="#__codelineno-40-17"></a>[거주 중]
+<a id="__codelineno-40-18" name="__codelineno-40-18" href="#__codelineno-40-18"></a>  ☑ 하자 발견 시 즉시 증거 확보 + 임대인 통보
+<a id="__codelineno-40-19" name="__codelineno-40-19" href="#__codelineno-40-19"></a>  ☑ 전입신고 상태 유지 (절대 주소 이전 금지!)
+<a id="__codelineno-40-20" name="__codelineno-40-20" href="#__codelineno-40-20"></a>
+<a id="__codelineno-40-21" name="__codelineno-40-21" href="#__codelineno-40-21"></a>[계약 만료]
+<a id="__codelineno-40-22" name="__codelineno-40-22" href="#__codelineno-40-22"></a>  ☑ 만료 6개월~2개월 전: 갱신 또는 퇴거 의사 통보
+<a id="__codelineno-40-23" name="__codelineno-40-23" href="#__codelineno-40-23"></a>  ☑ 보증금 반환 → 이사 → 전입신고 말소 순서!
+<a id="__codelineno-40-24" name="__codelineno-40-24" href="#__codelineno-40-24"></a>  ☑ 미반환 시: 보증보험 접수 또는 임차권등기명령
+</code></pre></div>
+<hr />
+<blockquote>
+<p>💬 <strong>가장 중요한 세 가지만 기억하세요:</strong>
+1. <strong>전입신고 + 확정일자는 잔금 당일 즉시!</strong>
+2. <strong>전세보증보험은 입주 후 최대한 빨리 가입!</strong>
+3. <strong>하자는 사진·영상으로 증거 확보가 생명!</strong></p>
+</blockquote>
+<p>추가로 <strong>임차권등기명령 신청 방법</strong>, <strong>전세 계약 갱신청구권</strong>, <strong>전세 사기 예방법</strong> 등 궁금한 점이 있으시면 말씀해 주세요! 😊</p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  맨위로
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.highlight", "search.suggest", "content.code.copy", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
