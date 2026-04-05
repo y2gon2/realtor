@@ -1,0 +1,51 @@
+=== 테스트 결과 요약: 반포자이 (전세) ===
+실행 시각: 2026-04-05 19:09:43
+소요 시간: 266.3초
+데이터 완전성: 71.4%
+
+--- 주소 정규화 ---
+  raw_input: 반포자이 1012동 5층
+  danji_name: 반포자이아파트
+  road_address: 서울 서초구 신반포로 270
+  jibun_address: 서울 서초구 반포동 20-43
+  sigungu_code: 11650
+  bjdong_code_10: 1165010700
+  pnu: 1165010700200200043
+  lat: 37.507593627369744
+  lng: 127.01319324046412
+  dong: 1012
+  ho: None
+
+--- API 수집 현황 ---
+  [transactions] {'success': True, 'sale_count': 6, 'sale_avg': 574833, 'monthly_data_points': 5}
+  [jeonse] {'success': True, 'count': 3, 'avg': 135383}
+  [building] {'success': True, 'name': '반포자이', 'households': 3410, 'floors': None, 'build_year': 2009}
+  [land_use] {'success': False, 'zones': []}
+  [location] {'success': True, 'overall_score': 89.12, 'nearest_subway': '반포역 7호선 (155m)'}
+
+--- 섹션 생성 ---
+  price: 성공 (2618자)
+  location: 성공 (2602자)
+  legal: 성공 (3711자)
+  investment: 성공 (3354자)
+  요약 결론: 561자
+
+--- 차트 ---
+  price_trend_5y: 71.5 KB
+  volume_3m: 25.4 KB
+  price_volume_combo: 74.4 KB
+
+--- 룰 엔진 ---
+  {'success': True, 'acquisition_1house': {'rate': 3.0, 'total': 18397}, 'loan_max': 390250}
+
+--- 진행 로그 ---
+  [19:09:43] [주소 정규화] '반포자이 1012동 5층' 분석 중...
+  [19:09:43] [데이터 수집] 공공 API 데이터 수집 중...
+  [19:09:43] [데이터 수집] API 호출 중...
+  [19:09:50] [데이터 분석] 수집 데이터 분석 중...
+  [19:09:50] [데이터 수집 완료] 7162ms
+  [19:09:50] [차트 생성] 거래 추이 차트 생성 중...
+  [19:09:51] [세금/대출 계산] 정책 룰엔진 시뮬레이션 중...
+  [19:09:51] [보고서 생성] AI 분석 보고서 작성 중...
+  [19:13:47] [요약 생성] 최종 요약 결론 작성 중...
+  [19:14:09] [완료] 보고서 생성 완료 (266.3초)
