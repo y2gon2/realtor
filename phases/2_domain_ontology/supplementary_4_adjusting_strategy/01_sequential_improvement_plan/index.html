@@ -1,0 +1,11109 @@
+
+<!doctype html>
+<html lang="ko" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="대한민국 부동산 RAG 기반 AI 상담/보고서 서비스 기획 문서">
+      
+      
+      
+      
+        <link rel="prev" href="../../supplementary_3_cross_domain/05_benchmark_results/">
+      
+      
+        <link rel="next" href="../02_execution_overview/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>순차 개선 계획 - 부동산 AI 어드바이저 — 프로젝트 기획</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#p1-ab" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="상단/헤더">
+    <a href="../../../.." title="부동산 AI 어드바이저 — 프로젝트 기획" class="md-header__button md-logo" aria-label="부동산 AI 어드바이저 — 프로젝트 기획" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            부동산 AI 어드바이저 — 프로젝트 기획
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              순차 개선 계획
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="다크 모드로 전환"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="다크 모드로 전환" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="라이트 모드로 전환"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="라이트 모드로 전환" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+        <button type="reset" class="md-search__icon md-icon" title="지우기" aria-label="지우기" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="탭" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  홈
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../project_plan/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  프로젝트 기획서
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../1_rag_mvp/1_rag_mvp_plan/" class="md-tabs__link">
+          
+  
+  
+  Phase 1 — RAG MVP
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../2_domain_ontology_plan/" class="md-tabs__link">
+          
+  
+  
+  Phase 2 — 도메인 온톨로지
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../3_real_estate_chat_bot/00_overview/" class="md-tabs__link">
+          
+  
+  
+  Phase 3 — 부동산 RAG 챗봇
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../4_deep_report/00_overview/" class="md-tabs__link">
+          
+  
+  
+  Phase 4 — 딥 리포트
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../5_web_serivice_development/00_architecture_overview/" class="md-tabs__link">
+          
+  
+  
+  Phase 5 — 웹 서비스 배포
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../settings/" class="md-tabs__link">
+          
+  
+  
+  환경 설정
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="네비게이션" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="부동산 AI 어드바이저 — 프로젝트 기획" class="md-nav__button md-logo" aria-label="부동산 AI 어드바이저 — 프로젝트 기획" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    부동산 AI 어드바이저 — 프로젝트 기획
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    홈
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../project_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    프로젝트 기획서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 1 — RAG MVP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phase 1 — RAG MVP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/1_rag_mvp_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기획서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    세부 계획
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    세부 계획
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/1_1_embedding_data_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.1 임베딩 데이터 테스트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_2" id="__nav_3_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    테스트 결과
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    테스트 결과
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/test_result/20260315_1_sementic_search_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    시맨틱 검색 테스트 (1차)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/test_result/20260315_2_sementic_search_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    시맨틱 검색 테스트 (2차)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/test_result/20260315_3_meta_data_filtering_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    메타데이터 필터링 테스트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/test_result/20260315_4_embedding_quality_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    임베딩 품질 평가
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기술 연구
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    기술 연구
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/tech_research/embedding_models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    한국어 임베딩 모델 비교
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/tech_research/vector_databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vector Database 비교
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/sub_plan/tech_research/hybrid_search_bm25/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hybrid Search (Dense + BM25)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 1 — 검색 개선 연구
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 1 — 검색 개선 연구
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/supplementary_1_search_improvement/01_overview_and_research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    개요 및 외부 연구
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/supplementary_1_search_improvement/02_query_time_improvements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Query-Time 개선
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/supplementary_1_search_improvement/03_post_retrieval_improvements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Post-Retrieval 개선
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/supplementary_1_search_improvement/04_adaptive_rag_generation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Adaptive RAG Generation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/supplementary_1_search_improvement/05_indexing_and_evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    인덱싱 및 평가
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_rag_mvp/supplementary_1_search_improvement/06_implementation_and_test_report/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    구현 및 테스트 리포트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2 — 도메인 온톨로지
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phase 2 — 도메인 온톨로지
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_domain_ontology_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기획서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3_legal_doc_rag_strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    법령 문서 RAG 전략
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4_ontology_build_and_index_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    온톨로지 빌드 + 색인 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5_phase2_search_test_report/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    검색 테스트 리포트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../6_search_improvement_research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    검색 개선 연구 (외부 사례)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 1 — Contextual Retrieval
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 1 — Contextual Retrieval
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supplementary_1_contextual_retrieval/01_contextual_retrieval_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    구현 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supplementary_1_contextual_retrieval/02_contextual_prefix_script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prefix 생성 스크립트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supplementary_1_contextual_retrieval/03_cron_wrapper_and_yaml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cron Wrapper & YAML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supplementary_1_contextual_retrieval/04_index_phase2_modifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    index_phase2 수정 사항
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supplementary_1_contextual_retrieval/05_contextual_retrieval_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    적용 결과 리포트 (확장 테스트)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 2 — BGE-M3 Triple-Vector
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 2 — BGE-M3 Triple-Vector
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supplementary_2_bge_m3_triple_vector/01_bgem3_triple_vector_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    전체 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supplementary_2_bge_m3_triple_vector/02_embedder_bgem3_design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Embedder 설계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supplementary_2_bge_m3_triple_vector/03_collection_schema_and_indexing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    컬렉션 스키마 + 인덱싱
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supplementary_2_bge_m3_triple_vector/04_multi_stage_search_pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi-Stage 검색 파이프라인
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supplementary_2_bge_m3_triple_vector/05_benchmark_and_ablation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    벤치마크 및 Ablation Study
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supplementary_2_bge_m3_triple_vector/06_results_and_analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 분석
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supplementary_2_bge_m3_triple_vector/07_colbert_improvement_research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ColBERT 개선 전략 연구
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supplementary_2_bge_m3_triple_vector/08_reranker_module_design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reranker 모듈 설계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supplementary_2_bge_m3_triple_vector/09_benchmark_expansion_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    확장 벤치마크 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supplementary_2_bge_m3_triple_vector/10_expanded_benchmark_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    확장 벤치마크 결과
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_8" id="__nav_4_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 3 — Cross-Domain Query Decomposition
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 3 — Cross-Domain Query Decomposition
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supplementary_3_cross_domain/01_query_decomposition_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    구현 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supplementary_3_cross_domain/02_query_analyzer_design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QueryAnalyzer 설계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supplementary_3_cross_domain/03_search_pipeline_design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SearchPipeline 설계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supplementary_3_cross_domain/04_evaluation_framework/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    평가 프레임워크
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supplementary_3_cross_domain/05_benchmark_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    벤치마크 결과
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_9" id="__nav_4_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 4 — 순차 보완 전략 (P1-a/b)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 4 — 순차 보완 전략 (P1-a/b)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    순차 개선 계획
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    순차 개선 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0. 배경 및 동기
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="0. 배경 및 동기">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0-1-500-baseline-setting-c-densesparse-rrf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0-1. 500개 질의 Baseline 실측 결과 (Setting C: Dense+Sparse RRF)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0-2-setting-500" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0-2. 검색 설정(Setting) 비교 — 500개 질의 실측
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0-3-42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0-3. 이전 42개 결과와의 비교
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0-4. 핵심 발견 — 실측 데이터 기반
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0-5. 핵심 문제와 해결 단계
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-42-500" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 테스트 질의 확장 (42 → 500개)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 테스트 질의 확장 (42 → 500개)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1-1. 확장 규모
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1-2. 질의 설계 원칙
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1-3. 구현 파일
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-step-1-p1-a-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Step 1 — P1-a-1: 하이브리드 전략 (원본 + 변환 동시 검색)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Step 1 — P1-a-1: 하이브리드 전략 (원본 + 변환 동시 검색)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2-1. 핵심 아이디어
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2-2. 이론적 근거
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-3-rrf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2-3. RRF 가중치 설계
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2-4. 수정 파일 (구현 완료)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-5-500" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2-5. 기대 효과 (500개 질의 기준)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2-6. 벤치마크
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-step-2-p1-a-3-decompose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Step 2 — P1-a-3: DECOMPOSE 보수적 적용
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Step 2 — P1-a-3: DECOMPOSE 보수적 적용">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3-1. 문제 요약
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-2-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3-2. 3단계 방어 전략 (구현 완료)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3-3. 벤치마크
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-step-3-p1-a-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Step 3 — P1-a-2: 사전 필터 정교화
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Step 3 — P1-a-2: 사전 필터 정교화">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#4-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4-1. 현황
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4-2. 변경 사항 (구현 완료)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4-3. 기대 효과
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4-4. 벤치마크
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-step-4-p1-a-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Step 4 — P1-a-4: 프롬프트 보수성 강화
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Step 4 — P1-a-4: 프롬프트 보수성 강화">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#5-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5-1. 변경 사항 (구현 완료)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5-2. 벤치마크
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-step-5-p1-b-cross-encoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Step 5 — P1-b: Cross-Encoder 재도입 (점수 퓨전)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Step 5 — P1-b: Cross-Encoder 재도입 (점수 퓨전)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#6-1-500" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6-1. 이전 실패 분석 — 500개 실측
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6-2. 새 전략: 점수 퓨전
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6-3. 수정 파일 (구현 완료)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6-4. 벤치마크
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6-5. 폴백 계획
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 전체 실행 순서 및 산출물
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 전체 실행 순서 및 산출물">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        결과 문서
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 검증 계획
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. 검증 계획">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#8-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8-1. 각 단계 공통 검증 항목
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-2-step-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8-2. 최종 목표 (Step 5 완료 후)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. 성과 궤적
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. 위험 요소 및 대응
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_execution_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    실행 프레임워크
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_step1_hybrid_strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Step 1 — 하이브리드 전략
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_step2_decompose_conservatism/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Step 2 — DECOMPOSE 보수화
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_step3_prefilter_refinement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Step 3 — 사전 필터 정교화
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_step4_prompt_conservatism/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Step 4 — 프롬프트 보수성
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_step5_cross_encoder_fusion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Step 5 — Cross-Encoder 퓨전
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_step1to4_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 — Step 1~4 통합
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_step5_rerank_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 — Step 5 CE 퓨전
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7_phase2_comprehensive_evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2 종합 평가
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_11" id="__nav_4_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 5 — 슬랭 Alias + CE 최적화 (Phase 2A)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 5 — 슬랭 Alias + CE 최적화 (Phase 2A)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supplementary_5_slang_alias_ce/01_phase2a_quickwins_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Wins 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supplementary_5_slang_alias_ce/02_alpha_grid_search/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    α 그리드 서치
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supplementary_5_slang_alias_ce/03_conditional_ce_bypass/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    조건부 CE 우회
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supplementary_5_slang_alias_ce/04_slang_alias_expansion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    슬랭 Alias 확장
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supplementary_5_slang_alias_ce/05_benchmark_verification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    벤치마크 검증 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supplementary_5_slang_alias_ce/06_phase2a_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2A 결과
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supplementary_5_slang_alias_ce/07_phase2b_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2B/C 결과 (최종)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_12" id="__nav_4_12_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보충 6 — Alias Pruning + CRAG
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    보충 6 — Alias Pruning + CRAG
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supplementary_6_alias_pruning_crag/01_implementation_plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    구현 계획
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supplementary_6_alias_pruning_crag/02_alias_pruning_script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alias Pruning 스크립트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supplementary_6_alias_pruning_crag/03_crag_retrieval_compensator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CRAG 검색 보정기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_13" id="__nav_4_13_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    테스트 데이터
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    테스트 데이터
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/test_question_v0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    벤치마크 질의 v0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/test_question_research_sources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    테스트 질의 리서치
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/cross_domain_questions_research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cross-Domain 질의 패턴 연구
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_14" id="__nav_4_14_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    조사 자료
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_14">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    조사 자료
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../research/5%EA%B0%9C%ED%98%91%ED%9A%8C%EB%8B%A8%EC%B2%B4_RAG%EC%9E%90%EB%A3%8C%EC%88%98%EC%A7%91_%EC%A1%B0%EC%82%AC%EA%B2%B0%EA%B3%BC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5개 협회·단체 자료수집 조사
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../research/HF_HUG_RAG_%EC%A1%B0%EC%82%AC%EB%B0%A9%EB%B2%95%EB%A1%A0_%EC%82%AC%EC%9D%B4%ED%8A%B8%EB%AA%A9%EB%A1%9D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HF 주택금융공사 조사 방법론
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../research/HUG_%EC%A3%BC%ED%83%9D%EB%8F%84%EC%8B%9C%EB%B3%B4%EC%A6%9D%EA%B3%B5%EC%82%AC_RAG_%EC%A1%B0%EC%82%AC%EB%B0%A9%EB%B2%95%EB%A1%A0_%EC%82%AC%EC%9D%B4%ED%8A%B8%EB%AA%A9%EB%A1%9D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HUG 주택도시보증공사 조사 방법론
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../research/%EA%B5%AD%ED%86%A0%EA%B5%90%ED%86%B5%EB%B6%80_%ED%86%B5%EA%B3%84%EB%88%84%EB%A6%AC_CSV%EC%B2%98%EB%A6%AC_%EA%B2%B0%EA%B3%BC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    국토교통부 통계누리 CSV 처리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 3 — 부동산 RAG 챗봇
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phase 3 — 부동산 RAG 챗봇
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/00_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기획서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/evaluation_report/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG vs LLM 평가 보고서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    테스트 데이터
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    테스트 데이터
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/data/test_set_v1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    테스트 셋 v1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG+LLM 테스트 결과
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RAG+LLM 테스트 결과
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/result/summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 요약
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/result/part_a_singles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part A — 단일 질문 (100개)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/result/part_c_singles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part C — 추가 단일 질문 (12개)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/result/part_d_001/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-001 대학생 자취방
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/result/part_d_002/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-002 대학생 주거 지원
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/result/part_d_003/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-003 사회초년생 독립
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/result/part_d_004/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-004 직장인 자취 지역
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/result/part_d_005/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-005 신혼부부 평수/구조
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/result/part_d_006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-006 맞벌이 출퇴근 동선
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/result/part_d_007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-007 자녀 학군 이사
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/result/part_d_008/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-008 아이 키우기 아파트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/result/part_d_009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-009 전원주택 구매
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/result/part_d_010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-010 상가 매입
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/result/part_d_011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-011 경매 입찰
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/result/part_d_012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-012 꼬마빌딩 투자
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/result/part_d_013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-013 단독주택/다가구
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG+LLM v3 결과 (realestate_v3 연동)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RAG+LLM v3 결과 (realestate_v3 연동)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/result_v3/summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 요약
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/result_v3/part_a_singles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part A — 단일 질문 (100개)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/result_v3/part_c_singles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part C — 추가 단일 질문 (12개)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/result_v3/part_d_001/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-001 대학생 자취방
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/result_v3/part_d_002/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-002 대학생 주거 지원
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/result_v3/part_d_003/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-003 사회초년생 독립
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/result_v3/part_d_004/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-004 직장인 자취 지역
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/result_v3/part_d_005/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-005 신혼부부 평수/구조
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/result_v3/part_d_006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-006 맞벌이 출퇴근 동선
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/result_v3/part_d_007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-007 자녀 학군 이사
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/result_v3/part_d_008/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-008 아이 키우기 아파트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/result_v3/part_d_009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-009 전원주택 구매
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/result_v3/part_d_010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-010 상가 매입
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/result_v3/part_d_011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-011 경매 입찰
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/result_v3/part_d_012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-012 꼬마빌딩 투자
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/result_v3/part_d_013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-013 단독주택/다가구
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_6" id="__nav_5_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Opus 4.6 베이스라인 결과
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Opus 4.6 베이스라인 결과
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 요약
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_a_singles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part A — 단일 질문 (100개)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_6_3" id="__nav_5_6_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part B — 멀티턴 대화
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part B — 멀티턴 대화
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_001/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-001 신혼부부 내집마련 고민
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_002/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-002 영끌 후 이자 부담
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_003/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-003 전세사기 예방
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_004/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-004 양도세 비과세
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_005/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-005 갈아타기 전략
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-006 신생아특례대출
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-007 재건축 투자
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_008/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-008 전세보증금 못 받는 상황
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-009 종부세 걱정
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-010 청약 전략
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-011 경매 입문
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-012 부부 공동명의 vs 단독명의
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-013 전세 vs 월세 고민
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_014/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-014 GTX 수혜 지역
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_015/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-015 증여 전략
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_016/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-016 오피스텔 투자
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_017/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-017 하락장 대응
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_018/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-018 MZ세대 내집마련
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_019/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-019 상속세 걱정
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_020/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-020 인테리어/입주
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_021/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-021 다주택자 절세
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_022/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-022 전세대출 문제
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_023/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-023 3기 신도시 투자
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_024/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-024 전세금 반환 분쟁
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-025 계약갱신청구권
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-026 토지거래허가구역
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_027/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-027 DSR 규제 이해
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_028/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-028 학군 투자
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_029/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-029 매매 계약 절차
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_030/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-030 금리 전망과 대응
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_031/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-031 임대소득 과세
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_032/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-032 빌라 vs 아파트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_033/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-033 은퇴 후 부동산
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_034/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-034 분양권 투자
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_035/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-035 서울 외곽 vs 경기 신도시
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_036/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-036 대출 상환 전략
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_037/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-037 취득세 걱정
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_038/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-038 매도 타이밍
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_039/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-039 공시가격/재산세
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_040/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-040 전세 계약 실무
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_041/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-041 1기 신도시 재건축
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_042/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-042 전세에서 매매 전환
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_043/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-043 지방 아파트 투자
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_044/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-044 중개수수료 분쟁
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_045/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-045 임장 방법
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_046/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-046 아파트 브랜드 비교
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_047/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-047 투자 vs 실거주
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_048/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-048 전세보증보험 실무
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_049/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-049 상가 투자
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_050/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-050 자금조달계획서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_051/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-051 리모델링 투자
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_052/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-052 전세사기 후 대처
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_053/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-053 입주 물량 영향
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_054/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-054 부동산 세금 신고
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_055/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-055 용산 재개발
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_056/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-056 주택연금
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_057/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-057 등기 관련
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_058/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-058 실거주 의무
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_059/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-059 전세 살다가 경매
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_060/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-060 규제지역 해제 영향
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_061/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-061 아파트 타입 비교
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_062/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-062 부동산 PF 위기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_063/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-063 세입자 권리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_064/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-064 과천/위례 지역
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_065/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-065 특별공급 전략
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_066/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-066 전세자금 조달
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_067/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-067 매매가 협상
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_068/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-068 보금자리론
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_069/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-069 강남 투자
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_070/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-070 전월세 신고
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_071/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-071 아파트 하자
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_072/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-072 부동산 앱 비교
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_073/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-073 세대 분리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_074/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-074 신도시 비교
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_075/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-075 급매 잡기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_076/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-076 토지 투자
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_077/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-077 주택임대사업자
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_078/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-078 재개발 투자
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_079/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-079 이혼 시 부동산
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_080/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-080 전세 계약 갱신 거절
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_081/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-081 가족간 거래
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_082/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-082 청년 주거 지원
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_083/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-083 분양가상한제
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_084/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-084 재산세 절세
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_085/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-085 관리비 분쟁
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_086/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-086 대출 거절 대응
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_087/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-087 층간소음
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_088/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-088 투자 시기 판단
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_089/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-089 외국인/교포 부동산
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_090/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-090 이사 실무
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_091/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-091 주거 유형 비교
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_092/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-092 양도소득세 계산
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_093/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-093 부동산 사기 유형
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_094/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-094 지방 청약
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_095/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-095 신혼부부 증여
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_096/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-096 부동산 세금 신고 실무
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_097/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-097 전세 vs 매매 선택
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_098/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-098 부동산 정보 수집
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_099/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-099 대출 금리 비교
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_b_100/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B-100 부동산 전망 토론
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_c_singles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part C — 추가 단일 질문 (12개)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_d_001/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-001 대학생 자취방
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_d_002/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-002 대학생 주거 지원
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_d_003/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-003 사회초년생 독립
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_d_004/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-004 직장인 자취 지역
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_d_005/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-005 신혼부부 평수/구조
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_d_006/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-006 맞벌이 출퇴근 동선
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_d_007/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-007 자녀 학군 이사
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_d_008/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-008 아이 키우기 아파트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_d_009/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-009 전원주택 구매
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_d_010/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-010 상가 매입
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_d_011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-011 경매 입찰
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_d_012/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-012 꼬마빌딩 투자
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3_real_estate_chat_bot/opus_result/part_d_013/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D-013 단독주택/다가구
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 4 — 딥 리포트
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phase 4 — 딥 리포트
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../4_deep_report/00_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기획서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../4_deep_report/01_api_integration_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API 연동 상세 가이드
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../4_deep_report/02_competitor_analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    경쟁사 분석 상세
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_4" id="__nav_6_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    테스트 v1 결과
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    테스트 v1 결과
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../4_deep_report/test_v1/test_analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    결과 분석
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../4_deep_report/test_v1/report_%EC%99%95%EC%8B%AD%EB%A6%AC%ED%85%90%EC%A6%88%ED%9E%90_%EB%A7%A4%EB%A7%A4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보고서 — 왕십리텐즈힐 (매매)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../4_deep_report/test_v1/report_%EB%B0%98%ED%8F%AC%EC%9E%90%EC%9D%B4_%EC%A0%84%EC%84%B8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보고서 — 반포자이 (전세)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 5 — 웹 서비스 배포
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phase 5 — 웹 서비스 배포
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../5_web_serivice_development/00_architecture_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    아키텍처 설계서
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5-0 인프라 설정
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    5-0 인프라 설정
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../5_web_serivice_development/5_0_infra_setting/01_gcp_initial_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GCP 초기 설정 가이드
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../5_web_serivice_development/5_0_infra_setting/02_progress_and_next_steps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    진행 현황 및 다음 단계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../5_web_serivice_development/5_0_infra_setting/03_local_docker_dev_environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    로컬 Docker 개발 환경
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_3" id="__nav_7_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5-1 백엔드 개발
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    5-1 백엔드 개발
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../5_web_serivice_development/5_1_backend/00_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    전체 개요
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../5_web_serivice_development/5_1_backend/01_repo_structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    레포 구조 & 라이브러리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../5_web_serivice_development/5_1_backend/02_database_and_migrations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    데이터베이스 & 마이그레이션
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../5_web_serivice_development/5_1_backend/03_sprint1_auth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sprint 1: 인증 시스템
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../5_web_serivice_development/5_1_backend/04_sprint2_report_pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sprint 2: 보고서 비동기 파이프라인
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../5_web_serivice_development/5_1_backend/05_sprint3_address_user_payment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sprint 3-4: 주소/사용자/결제
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../5_web_serivice_development/5_1_backend/06_testing_and_observability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    테스트 & 관측성
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_4" id="__nav_7_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5-2 프론트엔드 개발
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    5-2 프론트엔드 개발
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../5_web_serivice_development/5_2_frontend/00_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    전체 개요
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../5_web_serivice_development/5_2_frontend/01_tech_stack_and_project_structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기술 스택 & 프로젝트 구조
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../5_web_serivice_development/5_2_frontend/02_sprint0_scaffold/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sprint 0: 프로젝트 스캐폴드
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../5_web_serivice_development/5_2_frontend/03_sprint1_auth_ui/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sprint 1: 인증 UI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../5_web_serivice_development/5_2_frontend/04_sprint2_3_dashboard_interview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sprint 2-3: 대시보드 + 인터뷰 위자드
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../5_web_serivice_development/5_2_frontend/05_sprint4_report_viewer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sprint 4: 보고서 뷰어 + SSE 진행률
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../5_web_serivice_development/5_2_frontend/06_sprint5_6_7_landing_settings_polish/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sprint 5-7: 랜딩/설정/폴리시
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    환경 설정
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    환경 설정
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    개요
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/qdrant_container_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qdrant 벡터 DB 컨테이너
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/embedding_container_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    KURE-v1 임베딩 컨테이너
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/qwen35_27b_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qwen3.5-27B 실행 가이드
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/nemotron3_super_120b_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nemotron3 Super 120B 실행 가이드
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/gemini_cron_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gemini CLI Cron 설정
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../settings/codex_cron_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Codex CLI Cron 설정
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0. 배경 및 동기
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="0. 배경 및 동기">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0-1-500-baseline-setting-c-densesparse-rrf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0-1. 500개 질의 Baseline 실측 결과 (Setting C: Dense+Sparse RRF)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0-2-setting-500" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0-2. 검색 설정(Setting) 비교 — 500개 질의 실측
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0-3-42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0-3. 이전 42개 결과와의 비교
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0-4. 핵심 발견 — 실측 데이터 기반
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0-5. 핵심 문제와 해결 단계
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-42-500" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 테스트 질의 확장 (42 → 500개)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 테스트 질의 확장 (42 → 500개)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1-1. 확장 규모
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1-2. 질의 설계 원칙
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1-3. 구현 파일
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-step-1-p1-a-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Step 1 — P1-a-1: 하이브리드 전략 (원본 + 변환 동시 검색)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Step 1 — P1-a-1: 하이브리드 전략 (원본 + 변환 동시 검색)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2-1. 핵심 아이디어
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2-2. 이론적 근거
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-3-rrf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2-3. RRF 가중치 설계
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2-4. 수정 파일 (구현 완료)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-5-500" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2-5. 기대 효과 (500개 질의 기준)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2-6. 벤치마크
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-step-2-p1-a-3-decompose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Step 2 — P1-a-3: DECOMPOSE 보수적 적용
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Step 2 — P1-a-3: DECOMPOSE 보수적 적용">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3-1. 문제 요약
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-2-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3-2. 3단계 방어 전략 (구현 완료)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3-3. 벤치마크
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-step-3-p1-a-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Step 3 — P1-a-2: 사전 필터 정교화
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Step 3 — P1-a-2: 사전 필터 정교화">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#4-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4-1. 현황
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4-2. 변경 사항 (구현 완료)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4-3. 기대 효과
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4-4. 벤치마크
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-step-4-p1-a-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Step 4 — P1-a-4: 프롬프트 보수성 강화
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Step 4 — P1-a-4: 프롬프트 보수성 강화">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#5-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5-1. 변경 사항 (구현 완료)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5-2. 벤치마크
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-step-5-p1-b-cross-encoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Step 5 — P1-b: Cross-Encoder 재도입 (점수 퓨전)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Step 5 — P1-b: Cross-Encoder 재도입 (점수 퓨전)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#6-1-500" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6-1. 이전 실패 분석 — 500개 실측
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6-2. 새 전략: 점수 퓨전
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6-3. 수정 파일 (구현 완료)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6-4. 벤치마크
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6-5. 폴백 계획
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 전체 실행 순서 및 산출물
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 전체 실행 순서 및 산출물">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        결과 문서
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 검증 계획
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. 검증 계획">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#8-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8-1. 각 단계 공통 검증 항목
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-2-step-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8-2. 최종 목표 (Step 5 완료 후)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. 성과 궤적
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. 위험 요소 및 대응
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="p1-ab">P1-a/b 순차 보완 및 확장 벤치마크 계획<a class="headerlink" href="#p1-ab" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>작성일: 2026-03-28 (500개 질의 확장 Baseline 실측 반영)
+선행 문서: <code>05_benchmark_results.md</code> (500개 질의 Baseline), <code>10_expanded_benchmark_results.md</code> (C/E/F 비교)
+목적: 500개 질의 Baseline 실측 결과를 기반으로 P1-a 보완 계획을 수립하고 5단계 순차 실행
+테스트 질의: <code>data/test_question_v0.md</code> (500개, 5세트)
+테스트 코드: <code>codes/query/test_queries.py</code> (단일 소스)
+제외: P1-a-5 (API 직접 호출 전환) — 추후 제품 서비스 단계 반영</p>
+</blockquote>
+<hr />
+<h2 id="0">0. 배경 및 동기<a class="headerlink" href="#0" title="Permanent link">&para;</a></h2>
+<h3 id="0-1-500-baseline-setting-c-densesparse-rrf">0-1. 500개 질의 Baseline 실측 결과 (Setting C: Dense+Sparse RRF)<a class="headerlink" href="#0-1-500-baseline-setting-c-densesparse-rrf" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>테스트 일시: 2026-03-28, 환경: DGX Spark, BGE-M3 + Qdrant v1.17.0</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>세트</th>
+<th>질의 수</th>
+<th>성격</th>
+<th>Baseline P@3</th>
+<th>정답/총</th>
+<th>Avg Top-1</th>
+<th>p95</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A (정규 질의)</strong></td>
+<td>150</td>
+<td>전문/반전문 용어 포함</td>
+<td><strong>79.3%</strong></td>
+<td>119/150</td>
+<td>0.8294</td>
+<td>61ms</td>
+</tr>
+<tr>
+<td><strong>B (극단 구어체)</strong></td>
+<td>50</td>
+<td>전문용어 없는 순수 구어체</td>
+<td><strong>46.0%</strong></td>
+<td>23/50</td>
+<td>0.7096</td>
+<td>62ms</td>
+</tr>
+<tr>
+<td><strong>C (Cross-Domain)</strong></td>
+<td>100</td>
+<td>2+ 도메인 교차, 정규 용어 포함</td>
+<td><strong>81.0%</strong></td>
+<td>81/100</td>
+<td>0.7942</td>
+<td>62ms</td>
+</tr>
+<tr>
+<td><strong>D (극단 구어체)</strong></td>
+<td>100</td>
+<td>속어/비격식/감정 표현</td>
+<td><strong>50.0%</strong></td>
+<td>50/100</td>
+<td>0.7270</td>
+<td>64ms</td>
+</tr>
+<tr>
+<td><strong>E (리서치 기반)</strong></td>
+<td>100</td>
+<td>인터넷 속어/시사/3+ 도메인</td>
+<td><strong>56.0%</strong></td>
+<td>56/100</td>
+<td>0.7824</td>
+<td>65ms</td>
+</tr>
+<tr>
+<td><strong>전체</strong></td>
+<td><strong>500</strong></td>
+<td>—</td>
+<td><strong>65.8%</strong></td>
+<td><strong>329/500</strong></td>
+<td><strong>0.7885</strong></td>
+<td><strong>65ms</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="0-2-setting-500">0-2. 검색 설정(Setting) 비교 — 500개 질의 실측<a class="headerlink" href="#0-2-setting-500" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>설정</th>
+<th>벡터 구성</th>
+<th>P@3</th>
+<th>Latency p95</th>
+<th>판정</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>C: D+S RRF</strong></td>
+<td>Dense + Sparse</td>
+<td><strong>65.8%</strong></td>
+<td><strong>65ms</strong></td>
+<td><strong>현행 최적 — 유지</strong></td>
+</tr>
+<tr>
+<td>E: D+S RRF + CE</td>
+<td>Dense + Sparse + Cross-Encoder</td>
+<td>62.6% (-3.2%p)</td>
+<td>146ms</td>
+<td>회귀 발생</td>
+</tr>
+<tr>
+<td>F: 3-Way RRF</td>
+<td>Dense + Sparse + ColBERT</td>
+<td>65.4% (-0.4%p)</td>
+<td>221ms</td>
+<td>동등, 레이턴시 증가</td>
+</tr>
+</tbody>
+</table>
+<h3 id="0-3-42">0-3. 이전 42개 결과와의 비교<a class="headerlink" href="#0-3-42" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>지표</th>
+<th>구 42개</th>
+<th>신 500개</th>
+<th>변화</th>
+<th>원인</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Set A P@3</td>
+<td>92% (23/25)</td>
+<td>79.3% (119/150)</td>
+<td>-12.7%p</td>
+<td>신규 A26~A150에 난이도 높은 질의 포함</td>
+</tr>
+<tr>
+<td>Set B P@3</td>
+<td>50% (1/2)</td>
+<td>46.0% (23/50)</td>
+<td>-4%p</td>
+<td>극단 구어체 48개 추가</td>
+</tr>
+<tr>
+<td>Set C P@3</td>
+<td>90% (9/10)</td>
+<td>81.0% (81/100)</td>
+<td>-9%p</td>
+<td>Cross-domain 90개 추가</td>
+</tr>
+<tr>
+<td>Set D P@3</td>
+<td>80% (4/5)</td>
+<td>50.0% (50/100)</td>
+<td>-30%p</td>
+<td>극단 구어체 95개 추가</td>
+</tr>
+<tr>
+<td>전체 P@3</td>
+<td>88% (37/42)</td>
+<td>65.8% (329/500)</td>
+<td>-22.2%p</td>
+<td><strong>예상대로</strong> — 극단 질의 확장</td>
+</tr>
+</tbody>
+</table>
+<h3 id="0-4">0-4. 핵심 발견 — 실측 데이터 기반<a class="headerlink" href="#0-4" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>질의 유형별 P@3 분포 (500개 실측):
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  Cross-Domain (Set C):   ████████████████████████████████████████░░░░░░░░  81.0%
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  정규 질의 (Set A):       ██████████████████████████████████████░░░░░░░░░░  79.3%
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  혼합형 (Set E):          ████████████████████████████░░░░░░░░░░░░░░░░░░░  56.0%
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  극단 구어체 (Set D):      █████████████████████████░░░░░░░░░░░░░░░░░░░░░░  50.0%
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>  극단 구어체 (Set B):      ███████████████████████░░░░░░░░░░░░░░░░░░░░░░░░  46.0%
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>                          ─────────────────────────────────────────────────
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>                          0%        25%        50%        65.8%  75%   100%
+</code></pre></div>
+<p><strong>핵심 결론:</strong></p>
+<ol>
+<li><strong>정규 용어가 있으면 벡터 검색이 작동</strong> (Set A+C: 평균 80%)</li>
+<li><strong>구어체 질의는 벡터 검색만으로 해결 불가</strong> (Set B+D: 평균 48%)</li>
+<li><strong>인터넷 속어/시사 이슈는 중간</strong> (Set E: 56%) — 일부 정규 용어 포함</li>
+<li><strong>Cross-Encoder(Setting E)는 오히려 회귀</strong> — CE 점수 양극화 문제</li>
+<li><strong>ColBERT(Setting F)는 레이턴시만 증가</strong> — P@3 동등</li>
+</ol>
+<h3 id="0-5">0-5. 핵심 문제와 해결 단계<a class="headerlink" href="#0-5" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>쉬운 비유 — 병원 진료:</strong></p>
+<ol>
+<li><strong>과잉 진료 (Over-rewriting)</strong>: 감기 환자에게 MRI를 찍는 것처럼, 이미 잘 매칭되는 질의를 불필요하게 변환</li>
+<li><strong>오진 (DECOMPOSE 실패)</strong>: "머리 아프고 열 나요"를 "두통과 발열"로 분리 진료하다가, 핵심 원인(독감)을 놓치는 것</li>
+<li><strong>불필요한 의뢰 (LLM 과다 호출)</strong>: 약국에서 해결 가능한 환자를 전문의에게 보내는 비효율</li>
+<li><strong>언어 장벽 (어휘 격차)</strong>: "나라에 돈 내야 되나" → "취득세" 변환이 필요한데 통역사(LLM) 없이는 불가능</li>
+</ol>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>문제</th>
+<th>실측 증거</th>
+<th>원인</th>
+<th>해결 단계</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>구어체 검색 실패</td>
+<td>Set B 46%, Set D 50%</td>
+<td>어휘 격차 → Dense/Sparse 모두 실패</td>
+<td><strong>Step 1: 하이브리드 전략</strong> + LLM REWRITE</td>
+</tr>
+<tr>
+<td>DECOMPOSE 유해</td>
+<td>구 42개 기준 개선 0건, 회귀 5건</td>
+<td>단일 주제를 잘못 분해</td>
+<td><strong>Step 2: DECOMPOSE 보수화</strong></td>
+</tr>
+<tr>
+<td>LLM 과다 호출</td>
+<td>구 42개 기준 88% (목표 60%)</td>
+<td>사전 필터 미작동</td>
+<td><strong>Step 3: 사전 필터 정교화</strong></td>
+</tr>
+<tr>
+<td>REWRITE 키워드 소실</td>
+<td>구 42개 기준 2건 회귀</td>
+<td>프롬프트 미지시</td>
+<td><strong>Step 4: 프롬프트 보수성</strong></td>
+</tr>
+<tr>
+<td>CE 회귀</td>
+<td>Setting E: -3.2%p (62.6%)</td>
+<td>CE 점수 양극화, 순위 뒤집힘</td>
+<td><strong>Step 5: 점수 퓨전 Cross-Encoder</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="1-42-500">1. 테스트 질의 확장 (42 → 500개)<a class="headerlink" href="#1-42-500" title="Permanent link">&para;</a></h2>
+<h3 id="1-1">1-1. 확장 규모<a class="headerlink" href="#1-1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>세트</th>
+<th>구 (42개)</th>
+<th>최종 (500개)</th>
+<th>성격</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A (회귀)</td>
+<td>25</td>
+<td><strong>150</strong></td>
+<td>정형/반구어체, 도메인 균형, 10개 도메인 고르게 배분</td>
+</tr>
+<tr>
+<td>B (극단 실패)</td>
+<td>2</td>
+<td><strong>50</strong></td>
+<td>전문용어 없는 순수 구어체, 의미 격차 극대</td>
+</tr>
+<tr>
+<td>C (Cross-Domain)</td>
+<td>10</td>
+<td><strong>100</strong></td>
+<td>2+ 도메인 교차, 45개 도메인 쌍 커버</td>
+</tr>
+<tr>
+<td>D (극단 구어체)</td>
+<td>5</td>
+<td><strong>100</strong></td>
+<td>속어/비격식/감정 표현, 10개 도메인 × 10개</td>
+</tr>
+<tr>
+<td>E (리서치 기반)</td>
+<td>—</td>
+<td><strong>100</strong></td>
+<td>인터넷 속어("영끌","깡통","줍줍","부린이"), 3+ 도메인, 2024-2026 시사, 커뮤니티 패턴</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1-2">1-2. 질의 설계 원칙<a class="headerlink" href="#1-2" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>RAG 평가 질의 설계에 관한 최근 연구 (Asai et al., 2024; Chen et al., 2025)에 따르면:</p>
+<ol>
+<li><strong>도메인 균형</strong>: 10개 도메인 모두에서 최소 8개 이상의 질의로 편향 방지</li>
+<li><strong>난이도 층화 (Difficulty Stratification)</strong>: SIMPLE(정규 용어) → REWRITE(구어체) → DECOMPOSE(복합) 고르게</li>
+<li><strong>질문 유형 10가지</strong>: 세금/비용, 절차, 자격, 개념, 규제, 비교, 법적분쟁, 서류, 투자, 감정</li>
+<li><strong>기대 결과 명확화</strong>: 각 질의에 P@3 평가용 기대 키워드 3~5개 사전 정의</li>
+</ol>
+</blockquote>
+<h3 id="1-3">1-3. 구현 파일<a class="headerlink" href="#1-3" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>파일</th>
+<th>역할</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data/test_question_v0.md</code></td>
+<td>500개 질의 정의 문서 (5세트, 기대 키워드, 도메인 태그)</td>
+</tr>
+<tr>
+<td><code>codes/query/test_queries.py</code></td>
+<td>Python 단일 소스 (SET_A~E_QUERIES, EXPECTED_KEYWORDS)</td>
+</tr>
+<tr>
+<td><code>codes/query/test_query_decomposition.py</code></td>
+<td>벤치마크 하니스 (5세트, baseline/full/full_rerank)</td>
+</tr>
+<tr>
+<td><code>data/test_question_research_sources.md</code></td>
+<td>리서치 소스 (240개, 출처별 패턴)</td>
+</tr>
+<tr>
+<td><code>data/cross_domain_questions_research.md</code></td>
+<td>Cross-domain 리서치 (100개, 도메인 교차 패턴)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-step-1-p1-a-1">2. Step 1 — P1-a-1: 하이브리드 전략 (원본 + 변환 동시 검색)<a class="headerlink" href="#2-step-1-p1-a-1" title="Permanent link">&para;</a></h2>
+<h3 id="2-1">2-1. 핵심 아이디어<a class="headerlink" href="#2-1" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>쉬운 비유 — 통역사와 원본 동시 제출:</strong></p>
+<p>외국어 서류를 관공서에 제출할 때, <strong>번역본만</strong> 내면 번역 오류 시 처리가 잘못될 수 있다.
+<strong>원본 + 번역본을 함께</strong> 제출하면, 번역이 틀려도 원본이 보험 역할을 한다.</p>
+</blockquote>
+<p><strong>현재 흐름:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Query → LLM 변환 → 변환된 질의만 검색 → 결과
+</code></pre></div></p>
+<p><strong>개선 흐름:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Query → LLM 변환 → 변환된 질의 검색 ─┐
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  │                                    ├→ RRF 합산 → Top-K
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  └──────────→ 원본 질의도 검색 ───────┘
+</code></pre></div></p>
+<h3 id="2-2">2-2. 이론적 근거<a class="headerlink" href="#2-2" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>RRF (Reciprocal Rank Fusion)란?</strong></p>
+<p>여러 검색 결과 목록을 하나로 합치는 알고리즘이다.
+쉬운 비유: 여러 심사위원이 각각 후보에게 순위를 매긴 후, <strong>"순위가 높을수록 점수를 많이 주는"</strong> 방식으로 종합 순위를 계산한다.</p>
+<p>수식: <code>RRF_score(doc) = Σ weight_i × 1/(k + rank_i + 1)</code> (k=60, 원 논문 권장값)</p>
+</blockquote>
+<p>관련 연구:
+- <strong>RAG-Fusion</strong> (Raudaschl, 2023): 원본 + N개 변형 질의를 모두 검색 후 RRF 합산.
+- <strong>HyDE + Original Blend</strong> (Wang et al., 2023): Hypothetical Document만 검색 시 hallucination 리스크 → 원본 병행 권장.
+- <strong>Scaling RAG Fusion</strong> (2026.03): re-ranking 하에서 RAG Fusion 효과 소멸 경고 → <strong>가중치 설계가 핵심</strong>.</p>
+<h3 id="2-3-rrf">2-3. RRF 가중치 설계<a class="headerlink" href="#2-3-rrf" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>쉬운 비유 — 위원회 투표:</strong></p>
+<p>원본 질의 = <strong>선임 위원</strong> (가중치 높음): 이미 검증된 결과
+변환 질의 = <strong>신임 위원</strong> (가중치 낮음): 새로운 관점 제공</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>분석 유형</th>
+<th>원본 가중치</th>
+<th>변환 가중치</th>
+<th>근거</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SIMPLE</td>
+<td>1.0 (단독)</td>
+<td>—</td>
+<td>변환 없음, 원본만 사용</td>
+</tr>
+<tr>
+<td>REWRITE</td>
+<td>1.0</td>
+<td>0.8</td>
+<td>정규 질의 79.3% 성공 → 원본 보존 우선</td>
+</tr>
+<tr>
+<td>DECOMPOSE</td>
+<td>1.2</td>
+<td>0.6 (각 서브)</td>
+<td>구 벤치마크에서 회귀 5건 → 원본 가중치 강화</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-4">2-4. 수정 파일 (구현 완료)<a class="headerlink" href="#2-4" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>파일</th>
+<th>변경 내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>codes/query/config.py</code></td>
+<td>가중치 상수 4개: <code>ORIGINAL_WEIGHT_REWRITE=1.0</code>, <code>TRANSFORMED_WEIGHT_REWRITE=0.8</code>, <code>ORIGINAL_WEIGHT_DECOMPOSE=1.2</code>, <code>SUB_QUERY_WEIGHT_DECOMPOSE=0.6</code></td>
+</tr>
+<tr>
+<td><code>codes/query/pipeline.py</code></td>
+<td><code>search()</code> 리팩토링 — 원본 항상 검색 + <code>_compute_weights()</code> 헬퍼</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-5-500">2-5. 기대 효과 (500개 질의 기준)<a class="headerlink" href="#2-5-500" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>세트</th>
+<th>Baseline P@3</th>
+<th>예상 Full P@3</th>
+<th>근거</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A (150)</td>
+<td>79.3%</td>
+<td><strong>≥ 79.3%</strong></td>
+<td>원본 항상 포함 → 회귀 불가</td>
+</tr>
+<tr>
+<td>B (50)</td>
+<td>46.0%</td>
+<td><strong>≥ 60%</strong></td>
+<td>REWRITE로 구어체 변환 + 원본 보존</td>
+</tr>
+<tr>
+<td>C (100)</td>
+<td>81.0%</td>
+<td><strong>≥ 81%</strong></td>
+<td>원본 보존으로 DECOMPOSE 회귀 방지</td>
+</tr>
+<tr>
+<td>D (100)</td>
+<td>50.0%</td>
+<td><strong>≥ 55%</strong></td>
+<td>REWRITE 효과 + 원본 보존</td>
+</tr>
+<tr>
+<td>E (100)</td>
+<td>56.0%</td>
+<td><strong>≥ 58%</strong></td>
+<td>인터넷 속어 → 전문용어 변환 기대</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-6">2-6. 벤치마크<a class="headerlink" href="#2-6" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>python3<span class="w"> </span>codes/query/test_query_decomposition.py<span class="w"> </span>--set<span class="w"> </span>all<span class="w"> </span>--output<span class="w"> </span>results/p1a_step1_hybrid.json
+</code></pre></div>
+<p><strong>성공 기준:</strong> 전체 P@3 ≥ 65.8% (Baseline 이상), 회귀 0건</p>
+<hr />
+<h2 id="3-step-2-p1-a-3-decompose">3. Step 2 — P1-a-3: DECOMPOSE 보수적 적용<a class="headerlink" href="#3-step-2-p1-a-3-decompose" title="Permanent link">&para;</a></h2>
+<h3 id="3-1">3-1. 문제 요약<a class="headerlink" href="#3-1" title="Permanent link">&para;</a></h3>
+<p>구 42개 벤치마크에서 DECOMPOSE는 <strong>개선 0건, 회귀 5건</strong>이다.</p>
+<blockquote>
+<p><strong>쉬운 비유 — 주문 분리:</strong></p>
+<p>식당에서 "스테이크에 와인 페어링 추천해줘"라고 주문하면:
+- <strong>REWRITE</strong> (좋음): "스테이크와 어울리는 레드 와인" — 하나의 질의로 처리
+- <strong>DECOMPOSE</strong> (나쁨): ① "스테이크 추천" ② "와인 추천" — 분리하면 <strong>페어링이라는 핵심 맥락이 사라짐</strong></p>
+</blockquote>
+<h3 id="3-2-3">3-2. 3단계 방어 전략 (구현 완료)<a class="headerlink" href="#3-2-3" title="Permanent link">&para;</a></h3>
+<p><strong>방어 1 — 프롬프트 보수화</strong> (<code>prompts.py</code>):
+- DECOMPOSE 예시 → REWRITE로 변경
+- "완전히 독립적인 주제"에만 DECOMPOSE 허용
+- 각 서브 질의에 원본 키워드 필수 포함</p>
+<p><strong>방어 2 — 단일 도메인 DECOMPOSE→REWRITE 자동 변환</strong> (<code>analyzer.py</code>):
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">if</span> <span class="n">qtype</span> <span class="o">==</span> <span class="s2">&quot;DECOMPOSE&quot;</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">sub_queries</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="n">domains</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">sq</span><span class="o">.</span><span class="n">domain_hint</span> <span class="k">for</span> <span class="n">sq</span> <span class="ow">in</span> <span class="n">sub_queries</span><span class="p">)</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">domains</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>        <span class="n">qtype</span> <span class="o">=</span> <span class="s2">&quot;REWRITE&quot;</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>        <span class="n">sub_queries</span> <span class="o">=</span> <span class="p">[</span><span class="n">sub_queries</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+</code></pre></div></p>
+<p><strong>방어 3 — Step 1의 하이브리드 전략이 최종 안전망</strong></p>
+<h3 id="3-3">3-3. 벤치마크<a class="headerlink" href="#3-3" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>python3<span class="w"> </span>codes/query/test_query_decomposition.py<span class="w"> </span>--set<span class="w"> </span>all<span class="w"> </span>--output<span class="w"> </span>results/p1a_step2_decompose.json
+</code></pre></div>
+<p><strong>성공 기준:</strong> DECOMPOSE 회귀 0건, DECOMPOSE 발생 빈도 ≤ 10%</p>
+<hr />
+<h2 id="4-step-3-p1-a-2">4. Step 3 — P1-a-2: 사전 필터 정교화<a class="headerlink" href="#4-step-3-p1-a-2" title="Permanent link">&para;</a></h2>
+<h3 id="4-1">4-1. 현황<a class="headerlink" href="#4-1" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>쉬운 비유 — 공항 보안 검색:</strong></p>
+<p>현재: "가방 크기 15cm 이하"만 통과 → 대부분 정밀 검색(LLM) 대상
+개선: 기준 완화(25cm) + VIP 패스(전문용어 2개+) → LLM 호출 절반 감소</p>
+</blockquote>
+<h3 id="4-2">4-2. 변경 사항 (구현 완료)<a class="headerlink" href="#4-2" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>변경</th>
+<th>내용</th>
+<th>파일</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>MAX_SIMPLE_LENGTH</code></td>
+<td>15 → <strong>25</strong></td>
+<td><code>config.py</code></td>
+</tr>
+<tr>
+<td>정규 용어 확장</td>
+<td>entries + taxonomy.json + 약어 사전</td>
+<td><code>analyzer.py</code></td>
+</tr>
+<tr>
+<td>도메인 키워드</td>
+<td>10개 도메인 × 10~14개 키워드</td>
+<td><code>config.py</code></td>
+</tr>
+<tr>
+<td>다중 요소 판정</td>
+<td>용어 수 + 도메인 수 + 인과패턴 + 구어체 점수</td>
+<td><code>analyzer.py</code></td>
+</tr>
+<tr>
+<td>구어체 점수</td>
+<td><code>COLLOQUIAL_MARKERS</code> 13개 마커 카운팅</td>
+<td><code>analyzer.py</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-3">4-3. 기대 효과<a class="headerlink" href="#4-3" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>지표</th>
+<th>구 42개 기준</th>
+<th>500개 예상</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SIMPLE 판정율</td>
+<td>12% (5/42)</td>
+<td><strong>25-35%</strong></td>
+</tr>
+<tr>
+<td>LLM 호출율</td>
+<td>88%</td>
+<td><strong>50-60%</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-4">4-4. 벤치마크<a class="headerlink" href="#4-4" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>python3<span class="w"> </span>codes/query/test_query_decomposition.py<span class="w"> </span>--set<span class="w"> </span>all<span class="w"> </span>--output<span class="w"> </span>results/p1a_step3_prefilter.json
+</code></pre></div>
+<p><strong>성공 기준:</strong> LLM 호출율 ≤ 60%, Set A P@3 ≥ 79.3%, 구어체 SIMPLE 오판 0건</p>
+<hr />
+<h2 id="5-step-4-p1-a-4">5. Step 4 — P1-a-4: 프롬프트 보수성 강화<a class="headerlink" href="#5-step-4-p1-a-4" title="Permanent link">&para;</a></h2>
+<h3 id="5-1">5-1. 변경 사항 (구현 완료)<a class="headerlink" href="#5-1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>변경</th>
+<th>내용</th>
+<th>파일</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>보수적 원칙</td>
+<td>SIMPLE 우선, REWRITE 최소 변환, DECOMPOSE 극히 제한</td>
+<td><code>prompts.py</code></td>
+</tr>
+<tr>
+<td>사전 분석 컨텍스트</td>
+<td>User Prompt에 감지된 용어/도메인/인과패턴 전달</td>
+<td><code>prompts.py</code> + <code>analyzer.py</code></td>
+</tr>
+<tr>
+<td>REWRITE 후처리</td>
+<td><code>_validate_rewrite()</code> — 원본 키워드 소실 시 보충</td>
+<td><code>analyzer.py</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="5-2">5-2. 벤치마크<a class="headerlink" href="#5-2" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>python3<span class="w"> </span>codes/query/test_query_decomposition.py<span class="w"> </span>--set<span class="w"> </span>all<span class="w"> </span>--output<span class="w"> </span>results/p1a_step4_prompt.json
+</code></pre></div>
+<p><strong>성공 기준:</strong> REWRITE 회귀 0건, Set B P@3 ≥ 60%, Set E P@3 ≥ 58%</p>
+<hr />
+<h2 id="6-step-5-p1-b-cross-encoder">6. Step 5 — P1-b: Cross-Encoder 재도입 (점수 퓨전)<a class="headerlink" href="#6-step-5-p1-b-cross-encoder" title="Permanent link">&para;</a></h2>
+<h3 id="6-1-500">6-1. 이전 실패 분석 — 500개 실측<a class="headerlink" href="#6-1-500" title="Permanent link">&para;</a></h3>
+<p>Setting E (CE 단독 교체) 실측:
+- <strong>전체 P@3</strong>: 65.8% → <strong>62.6%</strong> (-3.2%p 회귀)
+- <strong>Set B</strong>: 46.0% → <strong>38.0%</strong> (-8%p, 최악 회귀)
+- <strong>원인</strong>: CE 점수 양극화 (대부분 0 또는 1), RRF의 "다양성 투표" 장점 상실</p>
+<h3 id="6-2">6-2. 새 전략: 점수 퓨전<a class="headerlink" href="#6-2" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>쉬운 비유 — 1차 서류심사 + 2차 면접:</strong></p>
+<p><strong>이전 (실패)</strong>: 면접관(CE) 판단으로 서류심사(RRF) 결과를 전부 교체
+<strong>새 방식</strong>: 서류심사 점수 + 면접 점수를 <strong>종합</strong>하여 최종 결정</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>final_score = α × normalized_rrf_rank + (1 - α) × ce_score
+</code></pre></div>
+<blockquote>
+<p><strong>Cross-Encoder (CE)란?</strong></p>
+<p>일반 검색(Bi-Encoder)은 질의와 문서를 각각 벡터로 만들어 거리를 비교한다.
+Cross-Encoder는 질의-문서 쌍을 <strong>하나의 입력으로 합쳐서</strong> 모델이 직접 관련도를 판단한다.
+더 정확하지만, 모든 후보에 대해 개별 추론이 필요해 느리다 (후보 20개 → 20번 추론).</p>
+</blockquote>
+<h3 id="6-3">6-3. 수정 파일 (구현 완료)<a class="headerlink" href="#6-3" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>파일</th>
+<th>변경</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>codes/query/pipeline.py</code></td>
+<td><code>rerank</code> 파라미터 + <code>_rerank_ontology()</code> (CE 호출 + 점수 퓨전)</td>
+</tr>
+<tr>
+<td><code>codes/query/test_query_decomposition.py</code></td>
+<td><code>full_rerank</code> 설정, <code>--setting full_rerank</code> 옵션</td>
+</tr>
+</tbody>
+</table>
+<h3 id="6-4">6-4. 벤치마크<a class="headerlink" href="#6-4" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># Full Pipeline + CE Rerank</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>python3<span class="w"> </span>codes/query/test_query_decomposition.py<span class="w"> </span>--set<span class="w"> </span>all<span class="w"> </span>--setting<span class="w"> </span>full_rerank<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span>--output<span class="w"> </span>results/p1b_step5_rerank.json
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="c1"># α 그리드 서치 (선택)</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="c1"># codes/query/tune_rerank_alpha.py 작성 후 실행</span>
+</code></pre></div>
+<p><strong>성공 기준:</strong> 전체 P@3 ≥ 65.8% (Baseline 이상), Avg Top-1 ≥ +2%</p>
+<h3 id="6-5">6-5. 폴백 계획<a class="headerlink" href="#6-5" title="Permanent link">&para;</a></h3>
+<p>α 전범위에서 개선 없으면:
+1. REWRITE 질의에만 CE 적용 (SIMPLE bypass)
+2. Top-3은 RRF 유지, 4-20위만 CE 리랭킹
+3. CE 없이 Step 1-4 결과만으로 운영</p>
+<hr />
+<h2 id="7">7. 전체 실행 순서 및 산출물<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>순서</th>
+<th>작업</th>
+<th>수정 파일</th>
+<th>상태</th>
+<th>벤치마크 산출물</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Step 0</strong></td>
+<td>테스트 확장 42→500</td>
+<td><code>test_queries.py</code>, <code>test_query_decomposition.py</code></td>
+<td><strong>완료</strong></td>
+<td><code>p1a_benchmark_v4_baseline.json</code></td>
+</tr>
+<tr>
+<td><strong>Step 1</strong></td>
+<td>하이브리드 전략</td>
+<td><code>pipeline.py</code>, <code>config.py</code></td>
+<td><strong>구현 완료</strong></td>
+<td><code>p1a_step1_hybrid.json</code></td>
+</tr>
+<tr>
+<td><strong>Step 2</strong></td>
+<td>DECOMPOSE 보수화</td>
+<td><code>prompts.py</code>, <code>analyzer.py</code></td>
+<td><strong>구현 완료</strong></td>
+<td><code>p1a_step2_decompose.json</code></td>
+</tr>
+<tr>
+<td><strong>Step 3</strong></td>
+<td>사전 필터 정교화</td>
+<td><code>config.py</code>, <code>analyzer.py</code></td>
+<td><strong>구현 완료</strong></td>
+<td><code>p1a_step3_prefilter.json</code></td>
+</tr>
+<tr>
+<td><strong>Step 4</strong></td>
+<td>프롬프트 보수성</td>
+<td><code>prompts.py</code>, <code>analyzer.py</code></td>
+<td><strong>구현 완료</strong></td>
+<td><code>p1a_step4_prompt.json</code></td>
+</tr>
+<tr>
+<td><strong>Step 5</strong></td>
+<td>Cross-Encoder 퓨전</td>
+<td><code>pipeline.py</code>, <code>reranker.py</code></td>
+<td><strong>구현 완료</strong></td>
+<td><code>p1b_step5_rerank.json</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>상태</strong>: Step 0 Baseline 실측 완료. Step 1~5 코드 구현 완료. Full LLM Pipeline 벤치마크 실행 대기 (~42분 소요 예상).</p>
+</blockquote>
+<h3 id="_1">결과 문서<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>planning/docs/phases/2_domain_ontology/supplementary_3_cross_domain/
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>  05_benchmark_results.md           ← 500개 Baseline 실측 결과
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>  06_sequential_improvement_plan.md ← 본 문서 (계획 + 구현 상태)
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>  07_step1_hybrid_results.md        ← Step 1 실행 후 작성
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>  08_step2_decompose_results.md
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>  09_step3_prefilter_results.md
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>  10_step4_prompt_results.md
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>  11_step5_cross_encoder_results.md
+</code></pre></div>
+<hr />
+<h2 id="8">8. 검증 계획<a class="headerlink" href="#8" title="Permanent link">&para;</a></h2>
+<h3 id="8-1">8-1. 각 단계 공통 검증 항목<a class="headerlink" href="#8-1" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>P@3 비교표</strong>: Baseline vs Full (5세트 × 2설정)</li>
+<li><strong>회귀 분석</strong>: 이전 단계 대비 신규 회귀 건수 (0건 목표)</li>
+<li><strong>LLM 호출율</strong>: Step 3 이후 ≤ 60% 확인</li>
+<li><strong>유형별 분포</strong>: SIMPLE/REWRITE/DECOMPOSE 비율 변화 추적</li>
+<li><strong>레이턴시</strong>: p95 변화 추적</li>
+<li><strong>Avg Top-1</strong>: 의미적 매칭 품질 추적</li>
+</ol>
+<h3 id="8-2-step-5">8-2. 최종 목표 (Step 5 완료 후)<a class="headerlink" href="#8-2-step-5" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>지표</th>
+<th>Baseline (실측)</th>
+<th>최종 목표</th>
+<th>개선 목표</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Set A P@3</td>
+<td>79.3%</td>
+<td>≥ 85%</td>
+<td>+5.7%p</td>
+</tr>
+<tr>
+<td>Set B P@3</td>
+<td>46.0%</td>
+<td>≥ 65%</td>
+<td>+19%p</td>
+</tr>
+<tr>
+<td>Set C P@3</td>
+<td>81.0%</td>
+<td>≥ 85%</td>
+<td>+4%p</td>
+</tr>
+<tr>
+<td>Set D P@3</td>
+<td>50.0%</td>
+<td>≥ 60%</td>
+<td>+10%p</td>
+</tr>
+<tr>
+<td>Set E P@3</td>
+<td>56.0%</td>
+<td>≥ 65%</td>
+<td>+9%p</td>
+</tr>
+<tr>
+<td><strong>전체 P@3</strong></td>
+<td><strong>65.8%</strong></td>
+<td><strong>≥ 75%</strong></td>
+<td><strong>+9.2%p</strong></td>
+</tr>
+<tr>
+<td>LLM 호출율</td>
+<td>—</td>
+<td>≤ 55%</td>
+<td>—</td>
+</tr>
+<tr>
+<td>회귀 건수</td>
+<td>—</td>
+<td>0건</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="9">9. 성과 궤적<a class="headerlink" href="#9" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Phase 2 검색 성능 개선 궤적 (온톨로지):
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>Precision@3:
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>  Phase 2 초기 (25개):         80%
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>  + Contextual Retrieval:      90%   (+10%p)
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>  + BGE-M3 D+S RRF:           92%   (+2%p)   ← 구 운영 기준
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>500개 확장 후 재측정:
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>  Baseline (Setting C):        65.8%           ← 현재 (구어체 포함)
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>  + Cross-Encoder (Setting E): 62.6%  (-3.2%p) ← 미채택
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>  + 3-Way RRF (Setting F):    65.4%  (-0.4%p) ← 미채택
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>목표 (P1-a/b 순차 보완 후):
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>  + Step 1-4 (Query Rewriting): ~73%   (예상)
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>  + Step 5 (CE 점수 퓨전):     ≥75%   (목표)
+</code></pre></div>
+<hr />
+<h2 id="10">10. 위험 요소 및 대응<a class="headerlink" href="#10" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>위험</th>
+<th>확률</th>
+<th>영향</th>
+<th>대응</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LLM 호출 비용/시간</td>
+<td>높음</td>
+<td>높음</td>
+<td>사전 필터로 호출율 ≤ 55%로 억제. API 전환(P1-a-5)은 추후</td>
+</tr>
+<tr>
+<td>하이브리드 가중치 최적값 미달</td>
+<td>낮음</td>
+<td>중간</td>
+<td><code>config.py</code> 상수 튜닝으로 즉시 조정 가능</td>
+</tr>
+<tr>
+<td>500개 질의 기대 키워드 오류</td>
+<td>중간</td>
+<td>높음</td>
+<td>온톨로지 대조 검증. 오판 발견 시 <code>test_queries.py</code> 즉시 수정</td>
+</tr>
+<tr>
+<td>CE 점수 퓨전이 P@3 개선 미달</td>
+<td>중간</td>
+<td>낮음</td>
+<td>CE 없이 Step 1-4만으로 운영 가능 (폴백)</td>
+</tr>
+<tr>
+<td>인터넷 속어 질의(Set E) 지속 실패</td>
+<td>높음</td>
+<td>중간</td>
+<td>온톨로지에 속어 alias 추가 또는 별도 속어 사전 구축</td>
+</tr>
+<tr>
+<td>LLM 프롬프트 변경 후 예측 불가 동작</td>
+<td>중간</td>
+<td>중간</td>
+<td>Step별 순차 적용 + 벤치마크로 즉시 감지</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  맨위로
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.highlight", "search.suggest", "content.code.copy", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
