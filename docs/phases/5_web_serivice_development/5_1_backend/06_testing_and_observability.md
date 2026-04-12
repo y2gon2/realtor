@@ -504,7 +504,7 @@ jobs:
 
 1. **코드:**
    - `codes/realtor-ai-backend/` (Go API, 7개 마이그레이션, 단위/통합/E2E 테스트)
-   - `codes/realtor-ai-worker/` (Python Worker)
+   - `codes/realtor-ai-backend/python/worker/` (Python Worker, 레포 내장)
 2. **문서:**
    - `planning/docs/phases/5_web_serivice_development/5_1_backend/00~06.md` (본 7개)
    - `codes/realtor-ai-backend/README.md` (개발자 빠른 시작)

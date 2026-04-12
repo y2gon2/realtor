@@ -63,7 +63,7 @@
 
 #### 2.3 Go 카카오 클라이언트 (`internal/api/kakao/client.go`)
 
-[codes/api/clients/kakao.py](../../../../codes/api/clients/kakao.py)를 참조하여 동등한 Go 구현:
+[python/api/clients/kakao.py](../../codes/realtor-ai-backend/python/api/clients/kakao.py)를 참조하여 동���한 Go 구현:
 
 ```go
 type Client struct {

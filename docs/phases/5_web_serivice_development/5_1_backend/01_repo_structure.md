@@ -5,28 +5,28 @@
 
 ---
 
-## 1. 두 코드베이스 위치
+## 1. 단일 레포 구조 — Go + Python 내장
 
-| 코드베이스 | 경로 | git | docker-compose 서비스 |
-|-----------|------|-----|---------------------|
-| **Go API** | `/home/gon/ws/rag/codes/realtor-ai-backend/` | **별도 git 레포** (rag 트리 안에 위치하지만 독립) | `go-api` |
-| **Python Worker** | `/home/gon/ws/rag/codes/realtor-ai-worker/` | rag 레포 트리에 포함 (별도 init 안 함) | `python-worker` |
+| 구성 | 레포 내 경로 | docker-compose 서비스 |
+|------|------------|---------------------|
+| **Go API** | `codes/realtor-ai-backend/cmd/`, `internal/` | `go-api` |
+| **Python Worker + 보고서 파이프라인** | `codes/realtor-ai-backend/python/` | `python-worker` |
 
-> Go API는 향후 GitHub `realtor-ai-backend` 레포로 push될 것이므로 독립 git 레포로 시작한다.
-> Python Worker는 기존 `codes/report/`, `codes/api/` 등의 모듈을 import하므로 같은 트리에 있어야 한다.
+> `realtor-ai-backend` 하나의 git 레포에 Go 코드와 Python 코드가 함께 들어 있다.
+> 이를 통해 클라우드 배포 시 이 레포만으로 Go API + Python Worker가 **독립적으로 동작**한다.
+> Phase 4의 `codes/report/`, `codes/api/`, `codes/rules/`, `codes/generation/`, `codes/query/`를
+> `python/` 아래에 복사·내장했으며, PYTHONPATH를 `python/`으로 설정하여 기존 import 경로가 그대로 유지된다.
 
 ### docker-compose와의 연결
 
-기존 [codes/local-infra/docker-compose.yml](../../../../codes/local-infra/docker-compose.yml)의 `go-api` 서비스는
-이미 `${GO_API_SRC_PATH:-./placeholder/go-api}:/app` 마운트로 셋업되어 있다.
-따라서 [.env](../../../../codes/local-infra/.env)에 다음 한 줄만 추가하면 즉시 동작:
+[codes/local-infra/docker-compose.yml](../../../../codes/local-infra/docker-compose.yml)에서:
+- `go-api`: `${GO_API_SRC_PATH}:/app` 마운트 → Go 코드 전체
+- `python-worker`: `${GO_API_SRC_PATH}/python:/app/python` 마운트 + `PYTHONPATH=/app/python`
 
+[.env](../../../../codes/local-infra/.env)에 설정:
 ```bash
 GO_API_SRC_PATH=/home/gon/ws/rag/codes/realtor-ai-backend
 ```
-
-`python-worker` 서비스는 `${PYTHON_WORKER_SRC_PATH:-/home/gon/ws/rag}:/workspace`로 마운트되어 있으므로
-`codes/realtor-ai-worker/`도 자동으로 컨테이너 내부 `/workspace/codes/realtor-ai-worker/`에 노출된다.
 
 ---
 
@@ -152,6 +152,31 @@ codes/realtor-ai-backend/
 │   └── version/
 │       └── version.go           # 빌드 시 -ldflags로 주입
 │
+├── python/                      # ★ Python 코드 내장 (Phase 4에서 복사)
+│   ├── requirements.txt         # Python Worker 의존성
+│   ├── api/                     # 외부 API 클라이언트 (카카오, 실거래가, 건축물대장, 토지이용규제)
+│   │   ├── base.py, cache.py, rate_limiter.py
+│   │   ├── clients/{kakao,real_transaction,building_register,land_use}.py
+│   │   └── models/{address,transaction,building,land,location,news}.py
+│   ├── generation/              # LLM 클라이언트 (CLI/API 듀얼 모드)
+│   │   ├── llm_client.py        # create_llm_client(), CLILLMClient, APILLMClient
+│   │   ├── graph.py, nodes.py, state.py
+│   │   └── gen_prompts.py, conversation.py, citation_formatter.py, coreference.py
+│   ├── query/                   # RAG 검색 파이프라인 (Phase 5-2 RAG 통합 시 사용)
+│   │   ├── pipeline.py, analyzer.py, compensator.py, merger.py
+│   │   └── config.py, prompts.py, alpha_trainer.py
+│   ├── report/                  # 보고서 오케스트레이터 + 차트 + 프롬프트
+│   │   ├── orchestrator.py      # ReportOrchestrator.generate() — Worker 진입점
+│   │   ├── data_collector.py, address.py, charts.py, state.py, interview.py
+│   │   ├── config/{__init__,params.yaml}
+│   │   └── prompts/{price,location,legal,investment}.py
+│   ├── rules/                   # 세금/대출 룰엔진
+│   │   ├── engine.py            # run_all() — 취득세/양도세/보유세/대출
+│   │   ├── loan.py, tax/{acquisition,transfer,holding}.py
+│   │   └── tables/tax_rates_2026.yaml
+│   └── worker/                  # Redis Streams 컨슈머 (Sprint 2에서 구현)
+│       └── __init__.py
+│
 └── tests/
     ├── e2e/
     │   ├── auth_test.sh         # bash + curl
@@ -159,6 +184,11 @@ codes/realtor-ai-backend/
     └── load/
         └── auth.js              # k6
 ```
+
+> **Python 코드 내장 전략:** PYTHONPATH를 `python/`으로 설정하면 기존 import 경로
+> (`from api.clients.kakao import KakaoMapClient` 등)가 **수정 없이** 그대로 동작한다.
+> Config 파일(`params.yaml`, `tax_rates_2026.yaml`)은 `Path(__file__).resolve().parent` 패턴으로
+> 로드되므로 파일 구조만 보존하면 경로가 자동으로 맞는다.
 
 ### 패키지 경계 원칙
 
@@ -169,31 +199,29 @@ codes/realtor-ai-backend/
 
 ---
 
-## 3. Python Worker 디렉토리 트리
+## 3. Python Worker (레포 내장)
+
+Worker 코드는 `python/worker/` 에 위치하며, 같은 `python/` 안의 다른 모듈을 직접 import한다.
 
 ```
-codes/realtor-ai-worker/
+codes/realtor-ai-backend/python/worker/       # Sprint 2에서 구현
 ├── __init__.py
-├── __main__.py                  # python -m realtor_ai_worker
+├── __main__.py                  # python -m worker
 ├── consumer.py                  # Redis Streams XREADGROUP 무한 루프
 ├── job.py                       # Job 메시지 → ReportOrchestrator 호출
 ├── progress.py                  # _notify(step, detail) → Redis PUBLISH
 ├── persistence.py               # Postgres UPDATE reports/report_sections
 ├── storage.py                   # MinIO 업로드 (Markdown, 차트 PNG)
 ├── config.py                    # 환경변수 로드 (DATABASE_URL, REDIS_URL 등)
-├── README.md
 └── tests/
     ├── test_progress_mapping.py
     └── test_consumer.py         # mock Redis로 단위 테스트
 ```
 
-### Worker가 사용하는 기존 모듈 (수정 없음)
+### Worker의 import 패턴
 
 ```python
-# consumer.py 내부에서
-import sys
-sys.path.insert(0, "/workspace/codes")  # docker compose가 PYTHONPATH로 이미 설정
-
+# consumer.py 내부에서 — sys.path.insert 불필요 (PYTHONPATH=/app/python)
 from report.orchestrator import ReportOrchestrator
 from report.state import UserContext
 from report.address import AddressNormalizer
@@ -203,8 +231,8 @@ from api.clients.building_register import BuildingRegisterClient
 from generation.llm_client import create_llm_client
 ```
 
-> Worker는 Phase 4 코드를 **수정하지 않는다**. import해서 그대로 호출만 한다.
-> 만약 Phase 4 코드에 버그가 발견되면 별도 작업으로 수정하고 Worker는 그 수정의 수혜를 자동으로 받는다.
+> Worker와 보고서 파이프라인 코드가 같은 레포(같은 `python/`)에 있으므로
+> 수정 사항이 한 번의 커밋으로 반영되고, 클라우드 배포 시 단일 이미지로 빌드 가능하다.
 
 ---
 

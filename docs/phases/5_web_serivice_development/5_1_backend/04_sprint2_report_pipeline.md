@@ -12,7 +12,7 @@
 
 - `internal/report/`, `internal/queue/`, `internal/storage/` 패키지
 - 6개 HTTP 엔드포인트 (CRUD + SSE + Markdown 다운로드)
-- `codes/realtor-ai-worker/` Python Worker 코드 일체
+- `python/worker/` Python Worker 코드 일체 (레포 내장)
 - E2E: 골든 주소 3개 생성 → 완료까지 60-90초 이내 통과
 
 ---
@@ -283,19 +283,19 @@ URL TTL: 4시간
 
 ```python
 """
-python -m realtor_ai_worker
+python -m worker
 
 Redis Streams 'realtor:reports' 컨슈머.
-기존 codes/report/orchestrator.py의 ReportOrchestrator.generate()를 호출한다.
+python/report/orchestrator.py의 ReportOrchestrator.generate()를 호출한다.
 """
 import asyncio
 import logging
 import os
 import sys
 
-sys.path.insert(0, "/workspace/codes")  # docker compose가 PYTHONPATH로 설정함
+# sys.path.insert 불필요 — PYTHONPATH=/app/python 이 docker-compose에서 설정됨
 
-from realtor_ai_worker.consumer import run
+from worker.consumer import run
 
 logging.basicConfig(
     level=os.getenv("LOG_LEVEL", "INFO"),
@@ -317,7 +317,7 @@ import uuid
 
 import redis.asyncio as redis_async
 
-from realtor_ai_worker.job import process_job
+from worker.job import process_job
 
 STREAM = "realtor:reports"
 GROUP = "workers"
@@ -374,12 +374,12 @@ import time
 import uuid
 from datetime import datetime
 
-from realtor_ai_worker.config import settings
-from realtor_ai_worker.persistence import (
+from worker.config import settings
+from worker.persistence import (
     update_progress, insert_section, mark_completed, mark_failed
 )
-from realtor_ai_worker.progress import make_progress_callback
-from realtor_ai_worker.storage import upload_markdown
+from worker.progress import make_progress_callback
+from worker.storage import upload_markdown
 
 # 기존 Phase 4 모듈
 from report.orchestrator import ReportOrchestrator
@@ -456,7 +456,7 @@ async def process_job(rdb, fields: dict):
 import json
 from datetime import datetime, timezone
 
-from realtor_ai_worker.persistence import update_progress
+from worker.persistence import update_progress
 
 # Phase 4 _notify step → 진행률 percent 매핑
 STEP_PERCENT = {
@@ -593,14 +593,13 @@ async def upload_markdown(report_id: str, markdown: str) -> str:
 ```yaml
 command: >
   bash -c '
-    pip install --quiet redis psycopg[binary] minio pyyaml aiohttp xmltodict anthropic matplotlib &&
-    cd /workspace &&
-    python -m codes.realtor_ai_worker
+    pip install --quiet -r /app/python/requirements.txt &&
+    python -m worker
   '
 ```
 
+> `PYTHONPATH=/app/python` 이 설정되어 있으므로 `python -m worker`로 `python/worker/__main__.py` 실행.
 > 또는 더 깔끔하게: 별도 `Dockerfile`을 작성하여 Sprint 2 종료 시 빌드 이미지로 전환.
-> Sprint 2 초반에는 위처럼 inline pip install로 시작.
 
 ---
 
@@ -608,7 +607,7 @@ command: >
 
 `LLM_BACKEND=cli`로 동작 (이미 .env.example 기본값).
 
-[codes/generation/llm_client.py:220](../../../../codes/generation/llm_client.py#L220) `create_llm_client()`이
+[python/generation/llm_client.py](../../codes/realtor-ai-backend/python/generation/llm_client.py) `create_llm_client()`이
 `params.yaml` + 환경변수에서 backend를 읽어 `CLILLMClient`를 반환한다.
 
 CLILLMClient는 호스트의 `/usr/local/bin/claude-code` 바이너리를 subprocess로 호출한다.
@@ -621,12 +620,12 @@ docker-compose.yml에 추가:
 ```yaml
 python-worker:
   volumes:
-    - /home/gon/ws/rag:/workspace
+    - ${GO_API_SRC_PATH}/python:/app/python
     - /usr/local/bin/claude-code:/usr/local/bin/claude-code:ro  # 추가
     - /home/gon/.config/claude:/root/.config/claude:ro          # 인증 정보 (필요 시)
 ```
 
-> **대안:** 호스트에서 worker를 직접 실행 (`python -m codes.realtor_ai_worker`)하고 컨테이너는 인프라만.
+> **대안:** 호스트에서 worker를 직접 실행 (`python -m worker`)하고 컨테이너는 인프라만.
 > Sprint 2 첫날 어떤 방식이 더 매끄러운지 결정.
 
 ---
@@ -655,8 +654,8 @@ python-worker:
 - `internal/report/service_test.go`: 크레딧 차감 트랜잭션, 큐 발행 실패 시 환불
 - `internal/report/sse_test.go`: 가짜 Redis로 SSE 스트림 변환 검증
 - `internal/queue/stream_test.go`: XADD/XREADGROUP round-trip
-- `realtor_ai_worker/tests/test_progress_mapping.py`: STEP_PERCENT 매핑
-- `realtor_ai_worker/tests/test_consumer.py`: mock Redis로 메시지 라우팅
+- `worker/tests/test_progress_mapping.py`: STEP_PERCENT 매핑
+- `worker/tests/test_consumer.py`: mock Redis로 메시지 라우팅
 
 ### 7.2 통합 테스트
 
